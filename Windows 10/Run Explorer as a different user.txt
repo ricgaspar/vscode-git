@@ -1,0 +1,9 @@
+Microsoft has disabled the ability to run the explorer.exe process as a seperate user. 
+Although not officially supported by Microsoft at this date, if you wanted to get around this limitation, modify the following regkey.
+
+- Take ownership of registry key HKEY_CLASSES_ROOT\AppID\{CDCBCFCA-3CDC-436f-A4E2-0E02075250C2} 
+  Current owner=Trusted Installer but should be Administrators.
+- Grant the Administrators or yourself Full Control permissions on that same key.
+- Rename the subkey from 'runas' to '_runas'.
+
+Once this is changed you can you launch Explorer with a different set of credentials via the runas command, and possibly with a 3rd party application.
