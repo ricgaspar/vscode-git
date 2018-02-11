@@ -66,18 +66,17 @@ Echo-Log "Started script: $ScriptName"
 $SiteServer = 's007.nedcar.nl'
 $SiteCode = Get-SMSSiteCode -SiteServer $SiteServer
 
-$MString = 'Hardware Hewlett Packard'
+$MString = 'BASE'
 $Collections = Get-DeviceCollection -SiteServer $SiteServer -SiteCode $SiteCode -MString $MString
 $Collections | ForEach-Object {
     $collection = Get-WmiObject -name root\sms\site_$sitecode -class sms_collection -comp $SiteServer -filter "name = '$_'"
     #$collection.psbase()
     $Name = $collection.Name
-    $Name = $Name -Replace 'Hardware Hewlett Packard -', 'Hardware | HP |'
+    $Name = $Name -Replace ' - ', ' | '
     Write-Host "$Name"
-    $Collection.Name = $Name
-    $collection.put() | out-null
+    # $Collection.Name = $Name
+    # $collection.Put() | out-null
 }
-
 
 # We are done.
 Echo-Log ("-" * 60)
