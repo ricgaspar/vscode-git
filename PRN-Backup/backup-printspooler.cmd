@@ -1,0 +1,1 @@
+@powershell -ExecutionPolicy ByPass -file C:\Scripts\PRN-Backup\create-backup.ps1 -SaveRemote -RemotePath "\\nedcar.nl\office\im\alc\printserver\PRN-%COMPUTERNAME%-BACKUP.printerExport"

@@ -1,0 +1,40 @@
+<?xml version='1.0'?>
+<baseDir path="\\s031.nedcar.nl\standaard\SYSTEMROOT" description="This is the root folder">
+  <folder name="System32">
+    <folder name="WindowsPowerShell">
+      <folder name="v1.0">
+        <folder name="Modules">
+          <folder name="VNB_PSLib">
+            <file name="agsXMPP.dll" bytesSize="479232" crc32="0xD39197DE" />
+            <file name="css_styles.html" bytesSize="1913" crc32="0x4EB6B514" />
+            <file name="logo-vdl-nedcar-small.jpg" bytesSize="24752" crc32="0x7E2E7828" />
+            <file name="logo-vdl-nl-small.jpg" bytesSize="12609" crc32="0xAA0802C2" />
+            <file name="secdump.udl" bytesSize="358" crc32="0x1D835F4F" />
+            <file name="VNB_ActiveDirectory.psm1" bytesSize="66336" crc32="0x9BCE4541" />
+            <file name="VNB_Cleanup.psm1" bytesSize="52714" crc32="0x5AF17D88" />
+            <file name="VNB_CRC32.psm1" bytesSize="2732" crc32="0x20EC356C" />
+            <file name="VNB_DataSet.psm1" bytesSize="36338" crc32="0xCCED73FD" />
+            <file name="VNB_EventLogMonitor.psm1" bytesSize="63000" crc32="0x3371D24F" />
+            <file name="VNB_FileSystem.psm1" bytesSize="31790" crc32="0xB0AF5A78" />
+            <file name="VNB_Generic.psm1" bytesSize="45038" crc32="0xAA420D25" />
+            <file name="VNB_INI.psm1" bytesSize="51352" crc32="0xB4D60B93" />
+            <file name="VNB_IP.psm1" bytesSize="5160" crc32="0xACE44D58" />
+            <file name="VNB_LocalSec.psm1" bytesSize="5385" crc32="0x22E19BAD" />
+            <file name="VNB_Logging.psm1" bytesSize="26234" crc32="0x899225C7" />
+            <file name="VNB_MSSQL.psm1" bytesSize="14802" crc32="0x514A1CA7" />
+            <file name="VNB_PSLib.psd1" bytesSize="1560" crc32="0x53C8E441" />
+            <file name="VNB_Registry.psm1" bytesSize="44882" crc32="0x1EEF386F" />
+            <file name="VNB_ScheduledTasks.psm1" bytesSize="23332" crc32="0x2421BEA1" />
+            <file name="VNB_Services.psm1" bytesSize="5637" crc32="0xDB47B566" />
+            <file name="VNB_WUAU.psm1" bytesSize="31174" crc32="0xB7D0ECFB" />
+            <file name="VNB_XMPP.psm1" bytesSize="4538" crc32="0x7AE71395" />
+            <file name="_template.htm" bytesSize="4028" crc32="0xDB7A34F2" />
+          </folder>
+        </folder>
+      </folder>
+    </folder>
+    <file name="Thumbs.db" bytesSize="5632" crc32="0xD3779558" />
+  </folder>
+  <file name="autorun.cmd" bytesSize="129" crc32="0x6DA86C19" />
+  <file name="autorun.cmd.lnk" bytesSize="1262" crc32="0x899CD877" />
+</baseDir>

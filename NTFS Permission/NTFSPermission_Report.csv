@@ -1,0 +1,11 @@
+NTFS Permission Set On -- C:\ 
+Report Created As On woensdag 19 juli 2017 11:05:33
+==================================================================
+ItemType -- Folder 	 Owner -- NT SERVICE\TrustedInstaller 
+
+"IdentityReference","FileSystemRights","AccessControlType","IsInherited","InheritanceFlags","PropagationFlags"
+"NT AUTHORITY\Authenticated Users","AppendData","Allow","False","None","None"
+"NT AUTHORITY\Authenticated Users","-536805376","Allow","False","ContainerInherit, ObjectInherit","InheritOnly"
+"NT AUTHORITY\SYSTEM","FullControl","Allow","False","ContainerInherit, ObjectInherit","None"
+"BUILTIN\Administrators","FullControl","Allow","False","ContainerInherit, ObjectInherit","None"
+"BUILTIN\Users","ReadAndExecute, Synchronize","Allow","False","ContainerInherit, ObjectInherit","None"

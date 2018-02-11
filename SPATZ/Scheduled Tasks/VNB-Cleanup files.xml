@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<Task version="1.1" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
+  <RegistrationInfo>
+    <Author>SYSTEM</Author>
+    <Description>NC Standaard cleanup script.</Description>
+  </RegistrationInfo>
+  <Triggers>
+    <CalendarTrigger>
+      <StartBoundary>2010-01-27T05:00:00</StartBoundary>
+      <Enabled>true</Enabled>
+      <ScheduleByDay>
+        <DaysInterval>1</DaysInterval>
+      </ScheduleByDay>
+    </CalendarTrigger>
+  </Triggers>
+  <Principals>
+    <Principal id="Author">
+      <RunLevel>HighestAvailable</RunLevel>
+      <UserId>NEDCAR\Scheduler</UserId>
+      <LogonType>Password</LogonType>
+    </Principal>
+  </Principals>
+  <Settings>
+    <DisallowStartIfOnBatteries>false</DisallowStartIfOnBatteries>
+    <StopIfGoingOnBatteries>false</StopIfGoingOnBatteries>
+    <IdleSettings>
+      <Duration>PT0S</Duration>
+      <WaitTimeout>PT0S</WaitTimeout>
+      <StopOnIdleEnd>false</StopOnIdleEnd>
+      <RestartOnIdle>false</RestartOnIdle>
+    </IdleSettings>
+    <Enabled>true</Enabled>
+    <Hidden>false</Hidden>
+    <RunOnlyIfIdle>false</RunOnlyIfIdle>
+    <WakeToRun>false</WakeToRun>
+    <ExecutionTimeLimit>PT14400S</ExecutionTimeLimit>
+    <Priority>5</Priority>
+  </Settings>
+  <Actions Context="Author">
+    <Exec>
+      <Command>C:\Scripts\Acties\cleanup.cmd</Command>
+      <WorkingDirectory>C:\Scripts\Acties</WorkingDirectory>
+    </Exec>
+  </Actions>
+</Task>

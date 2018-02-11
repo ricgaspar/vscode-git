@@ -1,0 +1,16 @@
+filter Where-Extension {
+     param(
+     [String[]]
+     $extension = ('.bmp', '.jpg', '.wmv')
+     )
+    
+     $_ |
+          Where-Object {
+              $extension -contains $_.Extension
+     }
+ 
+}
+
+To find all *.log-files and all *.txt-files in your Windows folder, use it like this:
+
+Dir $env:windir -recurse -ea 0 | Where-Extension .log,.txt

@@ -1,0 +1,18 @@
+Systemname;ApplicDomain;operatingsystem;TaskName;Run As User
+S031;Other,Production,C-LAN;Windows Server 2012 R2 Standard;\Copy VersionDogArchive;NEDCAR\Scheduler
+S031;Other,Production,C-LAN;Windows Server 2012 R2 Standard;\Disable and delete computers from AD;NEDCAR\SCheduler
+S031;Other,Production,C-LAN;Windows Server 2012 R2 Standard;\Secdump ERS Create_Users_from_ERS;NEDCAR\SCheduler
+S031;Other,Production,C-LAN;Windows Server 2012 R2 Standard;\Secdump ERS Dump vwUsersAD to CSV;NEDCAR\SCheduler
+S031;Other,Production,C-LAN;Windows Server 2012 R2 Standard;\Secdump ERS Relocate External Users;NEDCAR\SCheduler
+S031;Other,Production,C-LAN;Windows Server 2012 R2 Standard;\Secdump ERS Update User Account status;NEDCAR\SCheduler
+S031;Other,Production,C-LAN;Windows Server 2012 R2 Standard;\Secdump ERS Update users;NEDCAR\SCheduler
+S031;Other,Production,C-LAN;Windows Server 2012 R2 Standard;\Secdump Import Groups;NEDCAR\SCheduler
+S031;Other,Production,C-LAN;Windows Server 2012 R2 Standard;\Secdump Import Hosts;NEDCAR\SCheduler
+S031;Other,Production,C-LAN;Windows Server 2012 R2 Standard;\Secdump Import LastLogon-Systems;NEDCAR\SCheduler
+S031;Other,Production,C-LAN;Windows Server 2012 R2 Standard;\Secdump Import LastLogon-Users;NEDCAR\Scheduler
+S031;Other,Production,C-LAN;Windows Server 2012 R2 Standard;\Secdump Import Users;NEDCAR\SCheduler
+S031;Other,Production,C-LAN;Windows Server 2012 R2 Standard;\VNB-Export-DomainComputers;NEDCAR\SCheduler
+S031;Other,Production,C-LAN;Windows Server 2012 R2 Standard;\VNB-Export-DomainContacts;NEDCAR\SCheduler
+S031;Other,Production,C-LAN;Windows Server 2012 R2 Standard;\VNB-Export-DomainGroups;NEDCAR\SCheduler
+S031;Other,Production,C-LAN;Windows Server 2012 R2 Standard;\VNB-Export-DomainLastLogon;NEDCAR\SCheduler
+S031;Other,Production,C-LAN;Windows Server 2012 R2 Standard;\VNB-Export-DomainUsers;NEDCAR\SCheduler

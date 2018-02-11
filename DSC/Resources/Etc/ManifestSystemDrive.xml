@@ -1,0 +1,424 @@
+<?xml version='1.0'?>
+<baseDir path="\\s031.nedcar.nl\standaard\SYSTEMDRIVE" description="This is the root folder">
+  <folder name="Logboek">
+    <folder name="Cleanup" />
+    <folder name="Config">
+      <folder name="Once" />
+      <folder name="Versions" />
+    </folder>
+  </folder>
+  <folder name="Scripts">
+    <folder name="Acties">
+      <file name="cleanup.cmd" bytesSize="1994" crc32="0xEB6F87AC" />
+      <file name="cleanup.ps1" bytesSize="50844" crc32="0x8837B392" />
+      <file name="cleanup.vbs" bytesSize="39230" crc32="0x9775E5F8" />
+      <file name="cleanup.xml" bytesSize="3418" crc32="0x29A9391D" />
+      <file name="Cleanup_CleanMgr.ps1" bytesSize="5307" crc32="0x67989C58" />
+      <file name="cleanup_ini2xml.ps1" bytesSize="40488" crc32="0x7A833C2D" />
+      <file name="ncstd-config.cmd" bytesSize="328" crc32="0xF1DFB58B" />
+      <file name="PSVersion.ps1" bytesSize="3260" crc32="0x4BA9E414" />
+      <file name="shutdown.cmd" bytesSize="605" crc32="0x3782E8E1" />
+      <file name="systems-approved.ini" bytesSize="1" crc32="0x9B9265B" />
+      <file name="systems-cleanmgr-sagerun-approved.ini" bytesSize="40" crc32="0x391B8F3" />
+      <file name="systems-disapproved.ini" bytesSize="0" crc32="0x0" />
+      <file name="userconfig.cmd" bytesSize="1702" crc32="0xA9D99A1" />
+      <file name="Windows FS Cleanup script v1.0.pdf" bytesSize="539708" crc32="0xCB1E7FB2" />
+    </folder>
+    <folder name="BGInfo">
+      <file name="bginfo.cmd" bytesSize="251" crc32="0x61981397" />
+      <file name="bginfo.lnk" bytesSize="450" crc32="0xE87B7B6B" />
+      <file name="config.bgi" bytesSize="1749" crc32="0xFD0349B5" />
+      <file name="getIPconfig.vbs" bytesSize="3283" crc32="0x8147E424" />
+      <file name="getMachineInfo.vbs" bytesSize="3499" crc32="0x6C363718" />
+      <file name="getOSInfo.vbs" bytesSize="2614" crc32="0xC463B853" />
+    </folder>
+    <folder name="Config">
+      <folder name="ILO">
+        <file name="Configure-ILO.cmd" bytesSize="107" crc32="0xB7C40700" />
+        <file name="HPQLOCFG.exe" bytesSize="58880" crc32="0x5CA1B1BC" />
+        <file name="HPQLOCFG.exe.config" bytesSize="712" crc32="0x15DEAD54" />
+        <file name="HPSSLConnection.dll" bytesSize="14336" crc32="0xF59CE399" />
+        <file name="Parser.dll" bytesSize="136192" crc32="0x5676CAE6" />
+        <file name="VDLNedcar-ILO-Configuration.xml" bytesSize="4297" crc32="0xFD055CDB" />
+      </folder>
+      <folder name="ScheduledTasks">
+        <folder name="Reboot">
+          <file name="VNB-Weekly reboot task.xml" bytesSize="3458" crc32="0x6E2DC96A" />
+        </folder>
+        <folder name="Tasks">
+          <file name="VNB-Cleanup files.xml" bytesSize="1529" crc32="0x3E79C7A9" />
+          <file name="VNB-Clear SCCM cache.xml" bytesSize="3550" crc32="0xA08E089B" />
+          <file name="VNB-System check W32TM.xml" bytesSize="3426" crc32="0x2ACA8E16" />
+          <file name="VNB-System configuration check.xml" bytesSize="4122" crc32="0xE69F79B8" />
+          <file name="VNB-System configuration info.xml" bytesSize="3946" crc32="0x74EFC06E" />
+        </folder>
+      </folder>
+      <folder name="TSM">
+        <file name="add-lines.txt" bytesSize="1519" crc32="0x72EF94FF" />
+        <file name="remove-lines.txt" bytesSize="340" crc32="0xB12A0733" />
+      </folder>
+      <file name="configure_blat.ps1" bytesSize="1970" crc32="0x12549420" />
+      <file name="configure_ccmcache_clear.ps1" bytesSize="2854" crc32="0x44E329E6" />
+      <file name="configure_cleanupimage.ps1" bytesSize="1874" crc32="0x724DC41F" />
+      <file name="configure_diskperf.ps1" bytesSize="1914" crc32="0xBBB0A5D1" />
+      <file name="configure_DscEventLogAnalytics.ps1" bytesSize="1070" crc32="0x55125325" />
+      <file name="configure_features10.ps1" bytesSize="1982" crc32="0x9CC4F464" />
+      <file name="configure_features61.ps1" bytesSize="2252" crc32="0x8FA08D37" />
+      <file name="configure_features62.ps1" bytesSize="2186" crc32="0xF510D2F" />
+      <file name="configure_features63.ps1" bytesSize="2200" crc32="0x72DF70BA" />
+      <file name="configure_files.ps1" bytesSize="4808" crc32="0xC61DEA6" />
+      <file name="configure_folders.ps1" bytesSize="4684" crc32="0x18BE743F" />
+      <file name="configure_ILO.ps1" bytesSize="4010" crc32="0x8EA357C2" />
+      <file name="configure_mpio_compellent.ps1" bytesSize="2523" crc32="0x96BEB33" />
+      <file name="configure_MPIO_compellent_SC6.ps1" bytesSize="6059" crc32="0xCF32BEBE" />
+      <file name="configure_reliability.ps1" bytesSize="1986" crc32="0xC31A0228" />
+      <file name="configure_ScheduledTasks.ps1" bytesSize="21974" crc32="0x554B6243" />
+      <file name="configure_ScheduledTasks_w2k3.ps1" bytesSize="5036" crc32="0xDB2DBFAE" />
+      <file name="configure_shortcuts.ps1" bytesSize="3582" crc32="0xA93731D9" />
+      <file name="configure_snmp.ps1" bytesSize="11280" crc32="0xCF9A9B4F" />
+      <file name="configure_taskpermissions.ps1" bytesSize="2328" crc32="0xAA4EBE7B" />
+      <file name="configure_TSM_DSMopt.ps1" bytesSize="925" crc32="0x5717F662" />
+      <file name="configure_TSM_inclexcl.ps1" bytesSize="2308" crc32="0x742B4C76" />
+      <file name="configure_volnames.ps1" bytesSize="3220" crc32="0xF311812B" />
+      <file name="files.xml" bytesSize="867" crc32="0x5BF184D9" />
+      <file name="folders.xml" bytesSize="212" crc32="0x58CD502C" />
+      <file name="init.ps1" bytesSize="8056" crc32="0x767C8C64" />
+      <file name="install.ps1" bytesSize="16392" crc32="0xECFE2133" />
+      <file name="ncstd.xml" bytesSize="278" crc32="0x24D281A8" />
+      <file name="scripts.xml" bytesSize="4722" crc32="0x54610BF3" />
+    </folder>
+    <folder name="DSC">
+      <file name="Invoke-DscConfigureNode.ps1" bytesSize="2104" crc32="0x1547D6C0" />
+      <file name="Invoke-DscPullAndApplyOnNode.ps1" bytesSize="671" crc32="0x938E5B90" />
+    </folder>
+    <folder name="Elevation">
+      <file name="CmdAsAdmin.cmd" bytesSize="1093" crc32="0xF0D92B8B" />
+      <file name="CmdHere.inf" bytesSize="2428" crc32="0x5CAA66B9" />
+      <file name="CmdHereAsAdmin.inf" bytesSize="3117" crc32="0xA74A204D" />
+      <file name="elevate.cmd" bytesSize="1108" crc32="0xF66F1863" />
+      <file name="elevate.vbs" bytesSize="4023" crc32="0xDA00517D" />
+      <file name="ElevateAutoHotKey.inf" bytesSize="2359" crc32="0x8F3EBDA2" />
+      <file name="ElevateCommand.inf" bytesSize="2548" crc32="0x2923C0FC" />
+      <file name="ElevatePowerShellScript.inf" bytesSize="3763" crc32="0xADBDC067" />
+      <file name="ElevateWSHScript.inf" bytesSize="5842" crc32="0xCB7A961F" />
+      <file name="ElevationPowertoys.ico" bytesSize="26694" crc32="0x6247FE09" />
+      <file name="PowerShellHere.inf" bytesSize="2616" crc32="0xA316057A" />
+      <file name="PowerShellHereAsAdmin.inf" bytesSize="4077" crc32="0x51B12060" />
+      <file name="PSAsAdmin.cmd" bytesSize="1357" crc32="0x35DEFBB2" />
+      <file name="PSAsSystem.cmd" bytesSize="1933" crc32="0x2A86032" />
+      <file name="Readme.txt" bytesSize="7379" crc32="0x3B38F2E2" />
+    </folder>
+    <folder name="Registry">
+      <file name="sysint.reg" bytesSize="14524" crc32="0xC9395913" />
+    </folder>
+    <folder name="Secdump">
+      <folder name="PS">
+        <file name="agsXMPP.dll" bytesSize="479232" crc32="0xD39197DE" />
+        <file name="css_styles.html" bytesSize="1913" crc32="0x4EB6B514" />
+        <file name="libAD.ps1" bytesSize="43554" crc32="0x851BCD14" />
+        <file name="libFS.ps1" bytesSize="7296" crc32="0x9FAAA986" />
+        <file name="libGen.ps1" bytesSize="2099" crc32="0xABDBB662" />
+        <file name="libINI.ps1" bytesSize="17892" crc32="0xF5D140BF" />
+        <file name="libLog.ps1" bytesSize="7666" crc32="0x5EDEB6C" />
+        <file name="libSchtasks.ps1" bytesSize="3547" crc32="0x952F6CB3" />
+        <file name="libServices.ps1" bytesSize="1214" crc32="0x8BC4DD59" />
+        <file name="libSQL.ps1" bytesSize="8814" crc32="0x89DDF0A0" />
+        <file name="libWUAU.ps1" bytesSize="30810" crc32="0x188BB2E9" />
+        <file name="libXMPP.ps1" bytesSize="3524" crc32="0x5C6C7486" />
+        <file name="logo-vdl-nedcar-small.jpg" bytesSize="24752" crc32="0x7E2E7828" />
+        <file name="logo-vdl-nl-small.jpg" bytesSize="12609" crc32="0xAA0802C2" />
+        <file name="_template.htm" bytesSize="4028" crc32="0xDB7A34F2" />
+      </folder>
+      <folder name="SysInfo">
+        <file name="CollectSysinfo-NTFS-ACL.ps1" bytesSize="9720" crc32="0xF6792E27" />
+        <file name="CollectSysinfo.ps1" bytesSize="56186" crc32="0xE6F6007D" />
+        <file name="pci.vbs" bytesSize="1405" crc32="0xEF31773E" />
+        <file name="PSVersion.ps1" bytesSize="882" crc32="0x7BB59856" />
+        <file name="SysInfo.cmd" bytesSize="594" crc32="0x6770F08B" />
+      </folder>
+      <file name="setsql.cmd" bytesSize="96" crc32="0xA678EDBF" />
+    </folder>
+    <folder name="Utils">
+      <folder name="cache">
+        <file name="geoposdb.DAT" bytesSize="75" crc32="0x2B714AA8" />
+        <file name="geoposdb.DIA" bytesSize="54" crc32="0x8CCC4286" />
+        <file name="geoposdb.IX" bytesSize="2120" crc32="0x9F30F4AB" />
+      </folder>
+      <folder name="FileZilla">
+        <file name="dbghelp.dll" bytesSize="323584" crc32="0x5FF12332" />
+        <file name="FileZilla.chm" bytesSize="291307" crc32="0x72FA728D" />
+        <file name="FileZilla.exe" bytesSize="1740800" crc32="0xC940608F" />
+        <file name="FileZilla.pdb" bytesSize="7318528" crc32="0x2C8FE085" />
+        <file name="FileZilla.xml" bytesSize="1247" crc32="0x85ECD9BB" />
+        <file name="FzGSS.dll" bytesSize="62976" crc32="0x99797B6F" />
+        <file name="FzResBu.dll" bytesSize="110592" crc32="0xAAB34089" />
+        <file name="FzResCh.dll" bytesSize="81920" crc32="0x7EE91EFD" />
+        <file name="FzResChs.dll" bytesSize="77824" crc32="0x177E83B1" />
+        <file name="FzResDe.dll" bytesSize="118784" crc32="0x1775EFB3" />
+        <file name="FzResEs.dll" bytesSize="110592" crc32="0x75CE6B51" />
+        <file name="FzResFr.dll" bytesSize="118784" crc32="0xDAD8DE58" />
+        <file name="FzResHu.dll" bytesSize="98304" crc32="0xDF85C420" />
+        <file name="FzResIt.dll" bytesSize="114688" crc32="0x967C8AFB" />
+        <file name="FzResJp.dll" bytesSize="73728" crc32="0xAADEDF34" />
+        <file name="FzResKr.dll" bytesSize="86016" crc32="0x7420E1BB" />
+        <file name="FzResNor.dll" bytesSize="90112" crc32="0xD8767E52" />
+        <file name="FzResPo.dll" bytesSize="110592" crc32="0x9DCA34C0" />
+        <file name="FzResRu.dll" bytesSize="106496" crc32="0x430AB781" />
+        <file name="FzSFtp.exe" bytesSize="270336" crc32="0xE94BA39" />
+        <file name="GPL.html" bytesSize="16543" crc32="0xAA5C5C9E" />
+        <file name="legal.htm" bytesSize="1196" crc32="0xAE2B7837" />
+        <file name="libeay32.dll" bytesSize="1110016" crc32="0xA02668AC" />
+        <file name="puttylicense.html" bytesSize="1239" crc32="0x2C9382F" />
+        <file name="readme.htm" bytesSize="62592" crc32="0x136D4955" />
+        <file name="ssleay32.dll" bytesSize="241664" crc32="0x37434645" />
+      </folder>
+      <folder name="icons">
+        <file name="Computer.ico" bytesSize="22886" crc32="0x40FDABC2" />
+        <file name="motherboard.ico" bytesSize="379926" crc32="0xE7FADC4A" />
+        <file name="server.ico" bytesSize="379926" crc32="0xB74A7FB8" />
+      </folder>
+      <folder name="iperf-1.7.0-win32">
+        <file name="dast.gif" bytesSize="4614" crc32="0x39A69AEF" />
+        <file name="index.html" bytesSize="42740" crc32="0x8C63086" />
+        <file name="jperf.gif" bytesSize="5097" crc32="0xA1EABE6F" />
+        <file name="lib.html" bytesSize="22107" crc32="0xC62C1991" />
+        <file name="ui_license.html" bytesSize="3033" crc32="0xA02E8A53" />
+      </folder>
+      <folder name="lang">
+        <file name="Dutch.xml" bytesSize="2368" crc32="0x15AAB848" />
+        <file name="English.xml" bytesSize="2409" crc32="0x69EFD56D" />
+      </folder>
+      <folder name="languages">
+        <file name="Deutsch.lng" bytesSize="24051" crc32="0x4803CF6B" />
+        <file name="English.lng" bytesSize="11" crc32="0x8B4B4B40" />
+      </folder>
+      <folder name="ldap">
+        <file name="BCGCB584U.dll" bytesSize="1224704" crc32="0x2884004F" />
+        <file name="cert7.db" bytesSize="192512" crc32="0xEC83E3CA" />
+        <file name="example.txt" bytesSize="495" crc32="0x895C7A37" />
+        <file name="key3.db" bytesSize="16384" crc32="0x4B35613" />
+        <file name="lbresource.dll" bytesSize="1208320" crc32="0xF0A2A84A" />
+        <file name="ldapbrowser.chm" bytesSize="366984" crc32="0x2DEAC9C0" />
+        <file name="ldapbrowser.exe" bytesSize="1314816" crc32="0xCC97929E" />
+        <file name="libeay32.dll" bytesSize="954368" crc32="0xB52093A2" />
+        <file name="libnspr4.dll" bytesSize="184320" crc32="0x95CD7787" />
+        <file name="libplc4.dll" bytesSize="28672" crc32="0x7D74881B" />
+        <file name="libplds4.dll" bytesSize="24576" crc32="0x2C62A8A0" />
+        <file name="License-openldap.txt" bytesSize="2131" crc32="0x23F1C43C" />
+        <file name="license-openssl.txt" bytesSize="6406" crc32="0x9E210513" />
+        <file name="license.txt" bytesSize="5646" crc32="0x98A0E2FA" />
+        <file name="messages.log" bytesSize="0" crc32="0x0" />
+        <file name="Mfc42u.dll" bytesSize="995384" crc32="0xD68387D2" />
+        <file name="Msvcp60.dll" bytesSize="401462" crc32="0x7F386569" />
+        <file name="nsldap32v50.dll" bytesSize="143360" crc32="0x10C11E08" />
+        <file name="nsldappr32v50.dll" bytesSize="24576" crc32="0xDE28EA10" />
+        <file name="nsldapssl32v50.dll" bytesSize="36864" crc32="0x568538DE" />
+        <file name="nss3.dll" bytesSize="458752" crc32="0xE2B7D108" />
+        <file name="readme.txt" bytesSize="2233" crc32="0x11324CEF" />
+        <file name="schemacache.dat" bytesSize="2560" crc32="0xB967902C" />
+        <file name="secmod.db" bytesSize="16384" crc32="0xD404AD94" />
+        <file name="Softerra LDAP Browser - EXAMPLE.txt" bytesSize="639" crc32="0x9B4C6437" />
+        <file name="ssl3.dll" bytesSize="106496" crc32="0xFB5F7CCD" />
+        <file name="Tips.tip" bytesSize="1463" crc32="0x88363804" />
+      </folder>
+      <folder name="Putty">
+        <file name="PAGEANT.EXE" bytesSize="135168" crc32="0xB946F16E" />
+        <file name="PLINK.EXE" bytesSize="282624" crc32="0x4B679200" />
+        <file name="PSCP.EXE" bytesSize="294912" crc32="0xD3F05B86" />
+        <file name="PSFTP.EXE" bytesSize="307200" crc32="0x78473D7" />
+        <file name="PUTTY.CHM" bytesSize="430398" crc32="0xBD8E7155" />
+        <file name="PUTTY.CNT" bytesSize="30793" crc32="0x20CE3DED" />
+        <file name="PUTTY.EXE" bytesSize="454656" crc32="0xA4C35A82" />
+        <file name="PUTTY.HLP" bytesSize="629483" crc32="0x4D9AFC6C" />
+        <file name="PUTTYGEN.EXE" bytesSize="172032" crc32="0xBC9DAEA4" />
+      </folder>
+      <folder name="Rules">
+        <file name="DNSRequests.rul" bytesSize="465" crc32="0xD704E2A8" />
+        <file name="webtraffic.rul" bytesSize="456" crc32="0xF67FFDFB" />
+      </folder>
+      <folder name="SysInternals">
+        <file name="accesschk.exe" bytesSize="744616" crc32="0x3AB7B3D6" />
+        <file name="AccessEnum.exe" bytesSize="174968" crc32="0xA1AC525" />
+        <file name="AdExplorer.chm" bytesSize="50379" crc32="0x5A4797E5" />
+        <file name="ADExplorer.exe" bytesSize="479832" crc32="0xAFDD017F" />
+        <file name="ADInsight.chm" bytesSize="401616" crc32="0xF06A796" />
+        <file name="ADInsight.exe" bytesSize="2425496" crc32="0x36AFCD6E" />
+        <file name="adrestore.exe" bytesSize="150328" crc32="0x7D1476B" />
+        <file name="Autologon.exe" bytesSize="148856" crc32="0xEB75E175" />
+        <file name="autoruns.chm" bytesSize="50512" crc32="0x83C6D95C" />
+        <file name="Autoruns.exe" bytesSize="704672" crc32="0xFC55262C" />
+        <file name="autorunsc.exe" bytesSize="616616" crc32="0x3A456427" />
+        <file name="Bginfo.exe" bytesSize="2049168" crc32="0xFC737CEF" />
+        <file name="Cacheset.exe" bytesSize="154424" crc32="0xEFCB885B" />
+        <file name="Clockres.exe" bytesSize="151936" crc32="0xB2A0F246" />
+        <file name="Contig.exe" bytesSize="207960" crc32="0x7A02C3D6" />
+        <file name="Coreinfo.exe" bytesSize="892088" crc32="0x3FCDDDC1" />
+        <file name="ctrl2cap.amd.sys" bytesSize="10104" crc32="0xF73D342E" />
+        <file name="ctrl2cap.exe" bytesSize="150328" crc32="0xBE54736" />
+        <file name="ctrl2cap.nt4.sys" bytesSize="2864" crc32="0xF84D7A3B" />
+        <file name="ctrl2cap.nt5.sys" bytesSize="2832" crc32="0x55B0530F" />
+        <file name="dbgview.chm" bytesSize="68539" crc32="0x7F3347CC" />
+        <file name="Dbgview.exe" bytesSize="468056" crc32="0x3822B31C" />
+        <file name="Desktops.exe" bytesSize="116824" crc32="0xB51CBEC6" />
+        <file name="Disk2vhd.chm" bytesSize="40717" crc32="0x8F6BB30E" />
+        <file name="disk2vhd.exe" bytesSize="7134400" crc32="0xB8972D5D" />
+        <file name="diskext.exe" bytesSize="87424" crc32="0x2E6136F2" />
+        <file name="Diskmon.exe" bytesSize="224056" crc32="0x1CE2C2CC" />
+        <file name="DISKMON.HLP" bytesSize="9519" crc32="0xF9273935" />
+        <file name="DiskView.exe" bytesSize="580984" crc32="0xF2B66018" />
+        <file name="DMON.SYS" bytesSize="11728" crc32="0xD85C6DA5" />
+        <file name="du.exe" bytesSize="223424" crc32="0xCA8281AC" />
+        <file name="efsdump.exe" bytesSize="146232" crc32="0x6CA4CB1A" />
+        <file name="Eula.txt" bytesSize="7490" crc32="0x72E7DE4B" />
+        <file name="FindLinks.exe" bytesSize="103216" crc32="0x6035896B" />
+        <file name="handle.exe" bytesSize="536256" crc32="0x776D4BC8" />
+        <file name="hex2dec.exe" bytesSize="150328" crc32="0xE3510DC6" />
+        <file name="junction.exe" bytesSize="150392" crc32="0xDFF37725" />
+        <file name="ldmdump.exe" bytesSize="154424" crc32="0x2851558B" />
+        <file name="Listdlls.exe" bytesSize="520496" crc32="0xDB989C49" />
+        <file name="livekd.exe" bytesSize="463000" crc32="0xB6BAD1D8" />
+        <file name="LoadOrd.exe" bytesSize="154424" crc32="0xFA39412A" />
+        <file name="logonsessions.exe" bytesSize="199328" crc32="0xBD0DEBF" />
+        <file name="movefile.exe" bytesSize="130160" crc32="0xCA50F2AF" />
+        <file name="ntfsinfo.exe" bytesSize="122680" crc32="0xB4B0B49C" />
+        <file name="pagedfrg.exe" bytesSize="215928" crc32="0x46787C15" />
+        <file name="pagedfrg.hlp" bytesSize="8419" crc32="0x35A484AB" />
+        <file name="pendmoves.exe" bytesSize="130648" crc32="0x818A1A26" />
+        <file name="pipelist.exe" bytesSize="150328" crc32="0x900B8E5C" />
+        <file name="PORTMON.CNT" bytesSize="422" crc32="0x93809BB6" />
+        <file name="portmon.exe" bytesSize="451392" crc32="0x38C30653" />
+        <file name="PORTMON.HLP" bytesSize="43428" crc32="0x4B95F8D4" />
+        <file name="procdump.exe" bytesSize="591520" crc32="0xC19E450A" />
+        <file name="procdump64.exe" bytesSize="310440" crc32="0x9A9E3CB3" />
+        <file name="procexp.chm" bytesSize="72154" crc32="0xCFEBAEE9" />
+        <file name="procexp.exe" bytesSize="2694816" crc32="0x768954BF" />
+        <file name="procmon.chm" bytesSize="63582" crc32="0xFBEE94F8" />
+        <file name="Procmon.exe" bytesSize="2046608" crc32="0xEE465B3F" />
+        <file name="PsExec.exe" bytesSize="396480" crc32="0x2915A16A" />
+        <file name="psfile.exe" bytesSize="105264" crc32="0xBB4E1122" />
+        <file name="PsGetsid.exe" bytesSize="333176" crc32="0xA3ADA4DC" />
+        <file name="PsInfo.exe" bytesSize="390520" crc32="0xC7F482BF" />
+        <file name="pskill.exe" bytesSize="468592" crc32="0xCEE59FC1" />
+        <file name="pslist.exe" bytesSize="232232" crc32="0xDF0C9764" />
+        <file name="PsLoggedon.exe" bytesSize="183160" crc32="0x3BCC5B1A" />
+        <file name="psloglist.exe" bytesSize="178040" crc32="0x8BFFA313" />
+        <file name="pspasswd.exe" bytesSize="171608" crc32="0x84E92152" />
+        <file name="psping.exe" bytesSize="227520" crc32="0x2C70A856" />
+        <file name="PsService.exe" bytesSize="169848" crc32="0x8F05310D" />
+        <file name="psshutdown.exe" bytesSize="207664" crc32="0xEECDB72D" />
+        <file name="pssuspend.exe" bytesSize="187184" crc32="0x1B19100" />
+        <file name="Pstools.chm" bytesSize="66582" crc32="0x305E0A14" />
+        <file name="psversion.txt" bytesSize="39" crc32="0xB1F1A4FF" />
+        <file name="RAMMap.exe" bytesSize="625816" crc32="0xA63E7F26" />
+        <file name="readme.txt" bytesSize="7903" crc32="0x46308FC6" />
+        <file name="RegDelNull.exe" bytesSize="162616" crc32="0x560E195C" />
+        <file name="regjump.exe" bytesSize="117920" crc32="0xCD0398E" />
+        <file name="RootkitRevealer.chm" bytesSize="102160" crc32="0xBDECF490" />
+        <file name="RootkitRevealer.exe" bytesSize="334720" crc32="0x98B1AF0B" />
+        <file name="ru.exe" bytesSize="106120" crc32="0xFF397A75" />
+        <file name="sdelete.exe" bytesSize="155736" crc32="0x3F90E926" />
+        <file name="ShareEnum.exe" bytesSize="260976" crc32="0xB0AD495F" />
+        <file name="ShellRunas.exe" bytesSize="103464" crc32="0x776DCD77" />
+        <file name="sigcheck.exe" bytesSize="353960" crc32="0xAA6FB19" />
+        <file name="sigcheck64.exe" bytesSize="855216" crc32="0x1E00A9BF" />
+        <file name="streams.exe" bytesSize="87424" crc32="0xBBAE7C63" />
+        <file name="strings.exe" bytesSize="90304" crc32="0x496A91FA" />
+        <file name="sync.exe" bytesSize="150328" crc32="0xD84C75C7" />
+        <file name="Sysmon.exe" bytesSize="1615520" crc32="0xC9C5DF7D" />
+        <file name="Sysmon64.exe" bytesSize="862888" crc32="0xB8023F6F" />
+        <file name="Tcpvcon.exe" bytesSize="199544" crc32="0xA5F34421" />
+        <file name="tcpview.chm" bytesSize="41074" crc32="0xF3D14E39" />
+        <file name="Tcpview.exe" bytesSize="300832" crc32="0x99FEC2D5" />
+        <file name="TCPVIEW.HLP" bytesSize="7983" crc32="0x2F3DBF8F" />
+        <file name="Testlimit.exe" bytesSize="209576" crc32="0xD5EEE5B" />
+        <file name="Testlimit64.exe" bytesSize="221360" crc32="0xBBFDB14F" />
+        <file name="Vmmap.chm" bytesSize="51747" crc32="0x5A261221" />
+        <file name="vmmap.exe" bytesSize="1194128" crc32="0x69D79FC2" />
+        <file name="Volumeid.exe" bytesSize="154424" crc32="0x96F1FA81" />
+        <file name="whois.exe" bytesSize="129688" crc32="0x390080DC" />
+        <file name="Winobj.exe" bytesSize="729464" crc32="0x27CD176B" />
+        <file name="WINOBJ.HLP" bytesSize="7653" crc32="0xB23A4F80" />
+        <file name="ZoomIt.exe" bytesSize="596160" crc32="0x3F9611B" />
+      </folder>
+      <file name="AdFind.exe" bytesSize="1190912" crc32="0xDD4ECF61" />
+      <file name="AdMod.exe" bytesSize="1268736" crc32="0xC49F63E9" />
+      <file name="AdQueueLoop.exe" bytesSize="433664" crc32="0xD0F6837D" />
+      <file name="blat.dll" bytesSize="122880" crc32="0x4D3A40E2" />
+      <file name="blat.exe" bytesSize="115200" crc32="0x34D3293F" />
+      <file name="blat.lib" bytesSize="2174" crc32="0x8045B4E0" />
+      <file name="config.xml" bytesSize="3689" crc32="0xDA153766" />
+      <file name="cports.chm" bytesSize="19148" crc32="0xC40A804E" />
+      <file name="cports.exe" bytesSize="51200" crc32="0x9AF9448E" />
+      <file name="cports_filter.txt" bytesSize="118" crc32="0x3986F1AF" />
+      <file name="diskuse.exe" bytesSize="16896" crc32="0xF49583E8" />
+      <file name="DNSDUMP.CMD" bytesSize="16656" crc32="0x69816ADA" />
+      <file name="dnslint.exe" bytesSize="188477" crc32="0x3CFB6ABF" />
+      <file name="dtime.exe" bytesSize="60928" crc32="0x13A543A7" />
+      <file name="dummy.exe" bytesSize="2935" crc32="0x827699F4" />
+      <file name="EULA.txt" bytesSize="1616" crc32="0x5DB6F5CA" />
+      <file name="ExtPart.exe" bytesSize="40960" crc32="0x46895DAC" />
+      <file name="ExtPart.txt" bytesSize="3369" crc32="0x529D3546" />
+      <file name="fileversion.vbs" bytesSize="2150" crc32="0x5D5E030" />
+      <file name="FREEping.chm" bytesSize="63226" crc32="0xBE9DD354" />
+      <file name="FREEping.exe" bytesSize="368640" crc32="0xAC33C9CA" />
+      <file name="FREEPING.INI" bytesSize="1253" crc32="0x6B4197E8" />
+      <file name="getpids.exe" bytesSize="286720" crc32="0x8C30FC55" />
+      <file name="GetUpdates.vbs" bytesSize="2717" crc32="0x1C216201" />
+      <file name="iperf.exe" bytesSize="144384" crc32="0xED868F05" />
+      <file name="iptools1.98.exe" bytesSize="6420992" crc32="0x22036936" />
+      <file name="jt.exe" bytesSize="58368" crc32="0x31BEBD62" />
+      <file name="klok.exe" bytesSize="56832" crc32="0x5ADEE42F" />
+      <file name="LogParser.chm" bytesSize="584632" crc32="0xFFBE98B9" />
+      <file name="LogParser.dll" bytesSize="1208056" crc32="0x1DCAF49E" />
+      <file name="LogParser.exe" bytesSize="1159920" crc32="0x57B51008" />
+      <file name="msvcr71.dll" bytesSize="352256" crc32="0xC68FB2F9" />
+      <file name="mtail.exe" bytesSize="2887680" crc32="0x3524B371" />
+      <file name="myuninst.chm" bytesSize="16092" crc32="0xE17B75D9" />
+      <file name="myuninst.exe" bytesSize="34816" crc32="0x7968943A" />
+      <file name="options.xml" bytesSize="206" crc32="0x6CB88655" />
+      <file name="PerfView.exe" bytesSize="12893872" crc32="0x1ABBBB7A" />
+      <file name="PortQry.exe" bytesSize="303104" crc32="0xD96E03D0" />
+      <file name="PortQueryUI.doc" bytesSize="30720" crc32="0x1FEADB00" />
+      <file name="portqueryui.exe" bytesSize="70656" crc32="0xF6E4BAE2" />
+      <file name="psreg.cmd" bytesSize="104" crc32="0xD04785DF" />
+      <file name="QLogoff.exe" bytesSize="113152" crc32="0x661B2235" />
+      <file name="README.TXT" bytesSize="961" crc32="0x580C5145" />
+      <file name="REGfree.EXE" bytesSize="67072" crc32="0xFA151643" />
+      <file name="REGfree.HTM" bytesSize="14501" crc32="0x63E59A8C" />
+      <file name="resetwuau.cmd" bytesSize="802" crc32="0xAF5FB88F" />
+      <file name="RMTSHARE.EXE" bytesSize="18944" crc32="0x73581EBB" />
+      <file name="robocopy.doc" bytesSize="253440" crc32="0x7C7E8BB8" />
+      <file name="robocopy.exe" bytesSize="79872" crc32="0x1D8D835" />
+      <file name="sc.exe" bytesSize="63248" crc32="0x74B40BA6" />
+      <file name="seanrep.vbs" bytesSize="593" crc32="0x49160954" />
+      <file name="secdump.udl" bytesSize="398" crc32="0xA7FBD883" />
+      <file name="sendsql.vbs" bytesSize="5059" crc32="0x9167DC75" />
+      <file name="setx.exe" bytesSize="11776" crc32="0x3DB4350" />
+      <file name="shexview-64.exe" bytesSize="156160" crc32="0xC8551046" />
+      <file name="shexview.cfg" bytesSize="546" crc32="0xDDCCF731" />
+      <file name="shexview.chm" bytesSize="18832" crc32="0x33A176FC" />
+      <file name="shexview.exe" bytesSize="46080" crc32="0xE257999C" />
+      <file name="shmnview-64.exe" bytesSize="85504" crc32="0xBCF9B74C" />
+      <file name="shmnview.chm" bytesSize="14433" crc32="0x91606E79" />
+      <file name="shmnview.exe" bytesSize="33280" crc32="0x610361EA" />
+      <file name="show_hidden_devices.cmd" bytesSize="70" crc32="0x68084F41" />
+      <file name="SHUTDOWN.EXE" bytesSize="29184" crc32="0x6FF1C0CA" />
+      <file name="SidToName.exe" bytesSize="322048" crc32="0xAC37A645" />
+      <file name="sqlrun.exe" bytesSize="53248" crc32="0xB729DB5E" />
+      <file name="sqlrun.htm" bytesSize="1398" crc32="0x132F7923" />
+      <file name="sqlrun_x64.exe" bytesSize="86528" crc32="0xCCE402DB" />
+      <file name="subinacl.exe" bytesSize="290304" crc32="0x90B58A75" />
+      <file name="subinacl.htm" bytesSize="89886" crc32="0x816BD6D3" />
+      <file name="tmstmp32.exe" bytesSize="56320" crc32="0x7C19D75A" />
+      <file name="tsv2csv.vbs" bytesSize="2704" crc32="0x899D518B" />
+      <file name="txt2xml.vbs" bytesSize="2935" crc32="0x90C53F28" />
+      <file name="VInfo.dll" bytesSize="40960" crc32="0xF199DB3D" />
+      <file name="Wait.exe" bytesSize="32768" crc32="0x4CCF01A1" />
+      <file name="WinSCP.com" bytesSize="89600" crc32="0xE1F25D21" />
+      <file name="winscp.exe" bytesSize="6364672" crc32="0xAB6BFB93" />
+      <file name="winscp.ini" bytesSize="10904" crc32="0xE4ACBDC4" />
+      <file name="WUInstall.exe" bytesSize="375808" crc32="0xBB253E32" />
+      <file name="XCACLS.vbs" bytesSize="158893" crc32="0xA97DE113" />
+    </folder>
+  </folder>
+</baseDir>

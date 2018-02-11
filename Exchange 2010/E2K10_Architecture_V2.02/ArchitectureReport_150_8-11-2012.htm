@@ -1,0 +1,1077 @@
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+	<html ES_auditInitialized='false'><head><title>Audit</title>
+	<META http-equiv=Content-Type content='text/html; charset=windows-1252'>
+	<STYLE type=text/css>	
+		DIV .expando {DISPLAY: block; FONT-WEIGHT: normal; FONT-SIZE: 8pt; RIGHT: 10px; COLOR: #ffffff; FONT-FAMILY: Arial; POSITION: absolute; TEXT-DECORATION: underline}
+		TABLE {TABLE-LAYOUT: fixed; FONT-SIZE: 100%; WIDTH: 100%}
+		#objshowhide {PADDING-RIGHT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 8pt; Z-INDEX: 2; CURSOR: hand; COLOR: #405774; MARGIN-RIGHT: 0px; FONT-FAMILY: Arial; TEXT-ALIGN: right; TEXT-DECORATION: underline; WORD-WRAP: normal}
+		.heading0_expanded {BORDER-RIGHT: #bbbbbb 1px solid; PADDING-RIGHT: 5em; BORDER-TOP: #bbbbbb 1px solid; DISPLAY: block; PADDING-LEFT: 8px; FONT-WEIGHT: bold; FONT-SIZE: 8pt; MARGIN-BOTTOM: -1px; MARGIN-LEFT: 0px; BORDER-LEFT: #bbbbbb 1px solid; WIDTH: 100%; CURSOR: hand; COLOR: #000000; MARGIN-RIGHT: 0px; PADDING-TOP: 4px; BORDER-BOTTOM: #bbbbbb 1px solid; FONT-FAMILY: Arial; POSITION: relative; HEIGHT: 2.25em; BACKGROUND-COLOR: #999999}
+		.heading1 {BORDER-RIGHT: #bbbbbb 1px solid; PADDING-RIGHT: 5em; BORDER-TOP: #bbbbbb 1px solid; DISPLAY: block; PADDING-LEFT: 16px; FONT-WEIGHT: bold; FONT-SIZE: 8pt; MARGIN-BOTTOM: -1px; MARGIN-LEFT: 5px; BORDER-LEFT: #bbbbbb 1px solid; WIDTH: 100%; CURSOR: hand; COLOR: #000000; MARGIN-RIGHT: 0px; PADDING-TOP: 4px; BORDER-BOTTOM: #bbbbbb 1px solid; FONT-FAMILY: Arial; POSITION: relative; HEIGHT: 2.25em; BACKGROUND-COLOR: #CCCCCC}
+		.heading10 {BORDER-RIGHT: #bbbbbb 1px solid; PADDING-RIGHT: 5em; BORDER-TOP: #bbbbbb 1px solid; DISPLAY: block; PADDING-LEFT: 16px; FONT-WEIGHT: bold; FONT-SIZE: 8pt; MARGIN-BOTTOM: -1px; MARGIN-LEFT: 5px; BORDER-LEFT: #bbbbbb 1px solid; WIDTH: 100%; CURSOR: hand; COLOR: #000000; MARGIN-RIGHT: 0px; PADDING-TOP: 4px; BORDER-BOTTOM: #bbbbbb 1px solid; FONT-FAMILY: Arial; POSITION: relative; HEIGHT: 2.25em; BACKGROUND-COLOR: #FF0000}
+		.tableDetail {BORDER-RIGHT: #bbbbbb 1px solid; BORDER-TOP: #bbbbbb 1px solid; DISPLAY: block; PADDING-LEFT: 16px; FONT-SIZE: 8pt;MARGIN-BOTTOM: -1px; PADDING-BOTTOM: 5px; MARGIN-LEFT: 5px; BORDER-LEFT: #bbbbbb 1px solid; WIDTH: 100%; COLOR: #405774; MARGIN-RIGHT: 0px; PADDING-TOP: 4px; BORDER-BOTTOM: #bbbbbb 1px solid; FONT-FAMILY: Arial; POSITION: relative; BACKGROUND-COLOR: #f9f9f9}
+		.filler {BORDER-RIGHT: medium none; BORDER-TOP: medium none; DISPLAY: block; BACKGROUND: none transparent scroll repeat 0% 0%; MARGIN-BOTTOM: -1px; FONT: 100%/8px Arial; MARGIN-LEFT: 43px; BORDER-LEFT: medium none; COLOR: #ffffff; MARGIN-RIGHT: 0px; PADDING-TOP: 4px; BORDER-BOTTOM: medium none; POSITION: relative}
+		.Solidfiller {BORDER-RIGHT: medium none; BORDER-TOP: medium none; DISPLAY: block; BACKGROUND: none transparent scroll repeat 0% 0%; MARGIN-BOTTOM: -1px; FONT: 100%/8px Arial; MARGIN-LEFT: 0px; BORDER-LEFT: medium none; COLOR: #405774; MARGIN-RIGHT: 0px; PADDING-TOP: 4px; BORDER-BOTTOM: medium none; POSITION: relative; BACKGROUND-COLOR: #405774}
+		td {VERTICAL-ALIGN: TOP; FONT-FAMILY: Arial}
+		th {VERTICAL-ALIGN: TOP; COLOR: #000000; TEXT-ALIGN: left}
+	</STYLE>
+	<SCRIPT language=vbscript>
+		strShowHide = 1
+		strShow = "show"
+		strHide = "hide"
+		strShowAll = "show all"
+		strHideAll = "hide all"
+	
+	Function window_onload()
+		If UCase(document.documentElement.getAttribute("ES_auditInitialized")) <> "TRUE" Then
+			Set objBody = document.body.all
+			For Each obji in objBody
+				If IsSectionHeader(obji) Then
+					If IsSectionExpandedByDefault(obji) Then
+						ShowSection obji
+					Else
+						HideSection obji
+					End If
+				End If
+			Next
+			objshowhide.innerText = strShowAll
+			document.documentElement.setAttribute "ES_auditInitialized", "true"
+		End If
+	End Function
+	
+	Function IsSectionExpandedByDefault(objHeader)
+		IsSectionExpandedByDefault = (Right(objHeader.className, Len("_expanded")) = "_expanded")
+	End Function
+	
+	Function document_onclick()
+		Set strsrc = window.event.srcElement
+		While (strsrc.className = "sectionTitle" or strsrc.className = "expando")
+			Set strsrc = strsrc.parentElement
+		Wend
+		If Not IsSectionHeader(strsrc) Then Exit Function
+		ToggleSection strsrc
+		window.event.returnValue = False
+	End Function
+	
+	Sub ToggleSection(objHeader)
+		SetSectionState objHeader, "toggle"
+	End Sub
+	
+	Sub SetSectionState(objHeader, strState)
+		i = objHeader.sourceIndex
+		Set all = objHeader.parentElement.document.all
+		While (all(i).className <> "container")
+			i = i + 1
+		Wend
+		Set objContainer = all(i)
+		If strState = "toggle" Then
+			If objContainer.style.display = "none" Then
+				SetSectionState objHeader, "show" 
+			Else
+				SetSectionState objHeader, "hide" 
+			End If
+		Else
+			Set objExpando = objHeader.children.item(1)
+			If strState = "show" Then
+				objContainer.style.display = "block" 
+				objExpando.innerText = strHide
+	
+			ElseIf strState = "hide" Then
+				objContainer.style.display = "none" 
+				objExpando.innerText = strShow
+			End If
+		End If
+	End Sub
+	
+	Function objshowhide_onClick()
+		Set objBody = document.body.all
+		Select Case strShowHide
+			Case 0
+				strShowHide = 1
+				objshowhide.innerText = strShowAll
+				For Each obji In objBody
+					If IsSectionHeader(obji) Then
+						HideSection obji
+					End If
+				Next
+			Case 1
+				strShowHide = 0
+				objshowhide.innerText = strHideAll
+				For Each obji In objBody
+					If IsSectionHeader(obji) Then
+						ShowSection obji
+					End If
+				Next
+		End Select
+	End Function
+	
+	Function IsSectionHeader(obj) : IsSectionHeader = (obj.className = "heading1_expanded") Or (obj.className = "heading10_expanded") Or (obj.className = "heading1") Or (obj.className = "heading10") Or (obj.className = "heading2"): End Function
+	Sub HideSection(objHeader) : SetSectionState objHeader, "hide" : End Sub
+	Sub ShowSection(objHeader) : SetSectionState objHeader, "show": End Sub
+	</SCRIPT>
+	</HEAD>
+	<BODY>
+	<p><b><hr size="4" color="#FF0000"><font face="Arial" size="3">EXCHANGE 2010 ARCHITECTURE REPORT</font></b><br>
+	<p><b><font face="Arial" size="1"color="#000000">Report generated on 11/08/2012 15:00:39 <hr size="2" color="#FF00000"></font></p>
+	<TABLE cellSpacing=0 cellPadding=0>
+		<TBODY>
+			<TR>
+				<TD>
+					<DIV id=objshowhide tabIndex=0><FONT face=Arial></FONT></DIV>
+				</TD>
+			</TR>
+		</TBODY>
+	</TABLE>
+	<DIV class=heading0_expanded>
+	<br><SPAN class=sectionTitle tabIndex=0><font face="Arial" size="2">Exchange Domaine Name : <font color='#0000FF'>vdlnedcar.nl</font></SPAN><br><br>
+	<A class=expando href='#'></A>
+	</DIV>
+	<DIV class=filler></DIV>
+					</TABLE>
+				</div>
+			</DIV>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Active Directory Information</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+	  						<th width='20%'><b>ADSite Name</b></font></th>
+	  						<th width='20%'><b>HubSiteEnabled</b></font></th>
+	  						<th width='20%'><b>PartnerID</b></font></th>
+	  						<th width='20%'><b>MinorPartnerID</b></font></th>
+	  				</tr>
+                    					<tr>						<td width='20%'><font color='#0000FF'><b>NedCar-Born</b></font></td>						<td width='20%'><font color='#0000FF'><b>False</b></font></td>						<td width='20%'><font color='#0000FF'><b>-1</b></font></td>						<td width='20%'><font color='#0000FF'><b>-1</b></font></td>					</tr>
+                </table>
+                <table>
+	  				<tr><tr>
+	  						<th width='20%'><b>ADSiteLink Name</b></font></th>
+	  						<th width='20%'><b>ADCost</b></font></th>
+	  						<th width='20%'><b>MaxMessageSize</b></font></th>
+	  						<th width='40%'><b>Sites</b></font></th>
+					</tr>
+
+                    					<tr>						<td width='20%'><font color='#0000FF'><b>DEFAULTIPSITELINK</b></font></td>						<td width='20%'><font color='#0000FF'><b>100</b></font></td>						<td width='20%'><font color='#0000FF'><b>unlimited</b></font></td>						<td width='40%'><font color='#0000FF'><b>nedcar.nl/Configuration/Sites/NedCar-Born</b></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>	</TABLE>
+	    <div>
+        <div>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>SPN - Viewing SPNs</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+
+	  				</tr>
+                    					<tr>				    <th width='15%'><b>__________________________________<font color='#000080'>VS091____________________________________</b></font></th>					<tr>						<td width='15%'><b><font color='#0000FF'>Registered ServicePrincipalNames for CN=VS091,OU=Exchange,OU=Production,OU=C-LAN,DC=nedcar,DC=nl:</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	exchangeMDB/VS091.nedcar.nl</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	exchangeMDB/VS091</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	TERMSRV/VS091.nedcar.nl</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	TERMSRV/VS091</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	WSMAN/VS091</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	WSMAN/VS091.nedcar.nl</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	RestrictedKrbHost/VS091</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	HOST/VS091</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	RestrictedKrbHost/VS091.nedcar.nl</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	HOST/VS091.nedcar.nl</b></font></td>					</tr>					<tr>				    <th width='15%'><b>__________________________________<font color='#000080'>VS090____________________________________</b></font></th>					<tr>						<td width='15%'><b><font color='#0000FF'>Registered ServicePrincipalNames for CN=VS090,OU=Exchange,OU=Production,OU=C-LAN,DC=nedcar,DC=nl:</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	ExchangeMDB/VS090</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	ExchangeMDB/VS090.nedcar.nl</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	exchangeAB/VS090.nedcar.nl</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	exchangeAB/VS090</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	exchangeRFR/VS090.nedcar.nl</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	exchangeRFR/VS090</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	SmtpSvc/VS090.nedcar.nl</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	SmtpSvc/VS090</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	SMTP/VS090.nedcar.nl</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	SMTP/VS090</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	WSMAN/VS090</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	WSMAN/VS090.nedcar.nl</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	TERMSRV/VS090.nedcar.nl</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	TERMSRV/VS090</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	RestrictedKrbHost/VS090</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	HOST/VS090</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	RestrictedKrbHost/VS090.nedcar.nl</b></font></td>					</tr>					<tr>						<td width='15%'><b><font color='#0000FF'>	HOST/VS090.nedcar.nl</b></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>  	</TABLE>
+	            <div>
+        <div>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Hardware Informations (Bios, System, Processor)</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  			<tr>
+
+ 		   		</tr>
+                					<tr>					<th width='20%'><b>SERVER NAME : <font color='#000080'>VS091</b></font></td></th>					</tr>					<tr>					<tr>					<th width='20%'><b>Domain : </font><font color='#0000FF'>nedcar.nl</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>Manufacturer : </font><font color='#0000FF'>VMware, Inc.</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>Model : </font><font color='#0000FF'>VMware Virtual Platform</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>SystemType : </font><font color='#0000FF'>x64-based PC</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>Roles : </font><font color='#0000FF'>LM_Workstation LM_Server SQLServer NT Server_NT</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>PrimaryOnwerName : </font><font color='#0000FF'>Windows User</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>TotalPhysicalMemory : </font><font color='#0000FF'>8 GB</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>CurrentTimeZone : </font><font color='#0000FF'>60</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>EnableDayLightSavingTime : </font><font color='#0000FF'>True</b></font></td></th>					</tr>					<tr>					<tr>					<th width='20%'><b>Caption : </font><font color='#0000FF'>Intel64 Family 6 Model 26 Stepping 5</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>Name : </font><font color='#0000FF'>Intel(R) Xeon(R) CPU           E5530  @ 2.40GHz</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>NumberOfCores : </font><font color='#0000FF'>1</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>NumberOfLogicalProcessors : </font><font color='#0000FF'>1</b></font></td></th>					<tr>					<tr>					<th width='20%'><b>Caption : </font><font color='#0000FF'>Intel64 Family 6 Model 26 Stepping 5</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>Name : </font><font color='#0000FF'>Intel(R) Xeon(R) CPU           E5530  @ 2.40GHz</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>NumberOfCores : </font><font color='#0000FF'>1</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>NumberOfLogicalProcessors : </font><font color='#0000FF'>1</b></font></td></th>					<tr>					<tr>					<th width='20%'><b>BIOS Version : </font><font color='#0000FF'>INTEL  - 6040000</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>Description : </font><font color='#0000FF'>PhoenixBIOS 4.0 Release 6.0     </b></font></td></th>					</tr>					<tr>					<th width='20%'><b>Manufacturer : </font><font color='#0000FF'>Phoenix Technologies LTD</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>Name : </font><font color='#0000FF'>PhoenixBIOS 4.0 Release 6.0     </b></font></td></th>					</tr>					<tr>					<th width='20%'><b>SerialNumber : </font><font color='#0000FF'>VMware-42 2f a5 aa 13 ec 64 ba-f1 c9 01 f6 e4 cd 7c d7</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>ListOfLanguages : </font><font color='#0000FF'></b></font></td></th>					</tr>					<th width='20%'><b>______________________________________________________________________</b></font></th>					<tr>					<tr>					<th width='20%'><b>SERVER NAME : <font color='#000080'>VS090</b></font></td></th>					</tr>					<tr>					<tr>					<th width='20%'><b>Domain : </font><font color='#0000FF'>nedcar.nl</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>Manufacturer : </font><font color='#0000FF'>VMware, Inc.</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>Model : </font><font color='#0000FF'>VMware Virtual Platform</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>SystemType : </font><font color='#0000FF'>x64-based PC</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>Roles : </font><font color='#0000FF'>LM_Workstation LM_Server SQLServer NT Server_NT</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>PrimaryOnwerName : </font><font color='#0000FF'>Windows User</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>TotalPhysicalMemory : </font><font color='#0000FF'>8 GB</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>CurrentTimeZone : </font><font color='#0000FF'>60</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>EnableDayLightSavingTime : </font><font color='#0000FF'>True</b></font></td></th>					</tr>					<tr>					<tr>					<th width='20%'><b>Caption : </font><font color='#0000FF'>Intel64 Family 6 Model 26 Stepping 5</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>Name : </font><font color='#0000FF'>Intel(R) Xeon(R) CPU           E5530  @ 2.40GHz</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>NumberOfCores : </font><font color='#0000FF'>1</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>NumberOfLogicalProcessors : </font><font color='#0000FF'>1</b></font></td></th>					<tr>					<tr>					<th width='20%'><b>Caption : </font><font color='#0000FF'>Intel64 Family 6 Model 26 Stepping 5</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>Name : </font><font color='#0000FF'>Intel(R) Xeon(R) CPU           E5530  @ 2.40GHz</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>NumberOfCores : </font><font color='#0000FF'>1</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>NumberOfLogicalProcessors : </font><font color='#0000FF'>1</b></font></td></th>					<tr>					<tr>					<th width='20%'><b>BIOS Version : </font><font color='#0000FF'>INTEL  - 6040000</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>Description : </font><font color='#0000FF'>PhoenixBIOS 4.0 Release 6.0     </b></font></td></th>					</tr>					<tr>					<th width='20%'><b>Manufacturer : </font><font color='#0000FF'>Phoenix Technologies LTD</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>Name : </font><font color='#0000FF'>PhoenixBIOS 4.0 Release 6.0     </b></font></td></th>					</tr>					<tr>					<th width='20%'><b>SerialNumber : </font><font color='#0000FF'>VMware-42 2f fd 64 e5 f3 52 86-30 55 08 b5 ce 61 52 d8</b></font></td></th>					</tr>					<tr>					<th width='20%'><b>ListOfLanguages : </font><font color='#0000FF'></b></font></td></th>					</tr>					<th width='20%'><b>______________________________________________________________________</b></font></th>					<tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>					</TABLE>
+				</div>
+			</DIV>
+    <div class='container'>
+        <div class='heading10'>
+            <SPAN class=sectionTitle tabIndex=0>Logical Disk & MountPoint Report</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+					<tr>
+							<th width='20%'><b>Label</b></font></th>
+	  						<th width='10%'><b>Drive Letter</b></font></th>
+	  						<th width='20%'><b>File System</b></font></th>
+	  						<th width='15%'><b>Disk Size</b></font></th>
+	  						<th width='15%'><b>Disk Free Space</b></font></th>
+	  						<th width='15%'><b>% Free Space</b></font></th>						
+	  				</tr>
+                    					<tr>					<th width='20%'><b>SERVER NAME : <font color='#0000FF'>VS091</b></font></th>					<tr>						<td width='20%'><font color='#0000FF'><b>System Reserved</b></font></td>						<td width='10%'><font color='#0000FF'><b>\\?\Volume{b940da09-696c-11df-99f3-806e6f6e6963}\</b></font></td>						<td width='20%'><font color='#0000FF'><b>NTFS</b></font></td>						<td width='15%'><font color='#0000FF'><b>0.1 GB</b></font></td> 						<td width='15%'><font color='#0000FF'><b>0.07 GB</b></font></td>						<td width='15%'><font color='#0000FF'><b>70%</b></font></td>					<tr>						<td width='20%'><font color='#0000FF'><b>VS091-C</b></font></td>						<td width='10%'><font color='#0000FF'><b>C:\</b></font></td>						<td width='20%'><font color='#0000FF'><b>NTFS</b></font></td>						<td width='15%'><font color='#0000FF'><b>39.9 GB</b></font></td> 						<td width='15%'><font color='#0000FF'><b>14.3 GB</b></font></td>						<td width='15%'><font color='#0000FF'><b>36%</b></font></td>					<tr>						<td width='20%'><font color='#0000FF'><b>VS091-D-LOG</b></font></td>						<td width='10%'><font color='#0000FF'><b>D:\</b></font></td>						<td width='20%'><font color='#0000FF'><b>NTFS</b></font></td>						<td width='15%'><font color='#0000FF'><b>200 GB</b></font></td> 						<td width='15%'><font color='#0000FF'><b>187.49 GB</b></font></td>						<td width='15%'><font color='#0000FF'><b>94%</b></font></td>					<tr>						<td width='20%'><font color='#0000FF'><b>VS091-E-EDB1</b></font></td>						<td width='10%'><font color='#0000FF'><b>E:\</b></font></td>						<td width='20%'><font color='#0000FF'><b>NTFS</b></font></td>						<td width='15%'><font color='#0000FF'><b>200 GB</b></font></td> 						<td width='15%'><font color='#0000FF'><b>198.75 GB</b></font></td>						<td width='15%'><font color='#0000FF'><b>99%</b></font></td>					<tr>						<td width='20%'><font color='#0000FF'><b>VS091-F-EDB2</b></font></td>						<td width='10%'><font color='#0000FF'><b>F:\</b></font></td>						<td width='20%'><font color='#0000FF'><b>NTFS</b></font></td>						<td width='15%'><font color='#0000FF'><b>200 GB</b></font></td> 						<td width='15%'><font color='#0000FF'><b>195.2 GB</b></font></td>						<td width='15%'><font color='#0000FF'><b>98%</b></font></td>					<tr>						<td width='20%'><font color='#0000FF'><b>VS091-G-EDB3</b></font></td>						<td width='10%'><font color='#0000FF'><b>G:\</b></font></td>						<td width='20%'><font color='#0000FF'><b>NTFS</b></font></td>						<td width='15%'><font color='#0000FF'><b>200 GB</b></font></td> 						<td width='15%'><font color='#0000FF'><b>199.51 GB</b></font></td>						<td width='15%'><font color='#0000FF'><b>100%</b></font></td>					<tr>						<td width='20%'><font color='#0000FF'><b>VS091-H-EDB4</b></font></td>						<td width='10%'><font color='#0000FF'><b>H:\</b></font></td>						<td width='20%'><font color='#0000FF'><b>NTFS</b></font></td>						<td width='15%'><font color='#0000FF'><b>200 GB</b></font></td> 						<td width='15%'><font color='#0000FF'><b>199.64 GB</b></font></td>						<td width='15%'><font color='#0000FF'><b>100%</b></font></td>					<tr>						<td width='20%'><font color='#0000FF'><b>VS091-I-EDB5</b></font></td>						<td width='10%'><font color='#0000FF'><b>I:\</b></font></td>						<td width='20%'><font color='#0000FF'><b>NTFS</b></font></td>						<td width='15%'><font color='#0000FF'><b>200 GB</b></font></td> 						<td width='15%'><font color='#0000FF'><b>199.9 GB</b></font></td>						<td width='15%'><font color='#0000FF'><b>100%</b></font></td>					<tr>						<td width='20%'><font color='#0000FF'><b>VS091-J-Back-up</b></font></td>						<td width='10%'><font color='#0000FF'><b>J:\</b></font></td>						<td width='20%'><font color='#0000FF'><b>NTFS</b></font></td>						<td width='15%'><font color='#0000FF'><b>200 GB</b></font></td> 						<td width='15%'><font color='#0000FF'><b>182.17 GB</b></font></td>						<td width='15%'><font color='#0000FF'><b>91%</b></font></td>					<td width='15%'><font color='#FF0000'> </font></td>					</tr>					<tr>					<th width='20%'><b>SERVER NAME : <font color='#0000FF'>VS090</b></font></th>					<tr>						<td width='20%'><font color='#0000FF'><b>System Reserved</b></font></td>						<td width='10%'><font color='#0000FF'><b>\\?\Volume{b940da09-696c-11df-99f3-806e6f6e6963}\</b></font></td>						<td width='20%'><font color='#0000FF'><b>NTFS</b></font></td>						<td width='15%'><font color='#0000FF'><b>0.1 GB</b></font></td> 						<td width='15%'><font color='#0000FF'><b>0.07 GB</b></font></td>						<td width='15%'><font color='#0000FF'><b>72%</b></font></td>					<tr>						<td width='20%'><font color='#0000FF'><b>VS090-C</b></font></td>						<td width='10%'><font color='#0000FF'><b>C:\</b></font></td>						<td width='20%'><font color='#0000FF'><b>NTFS</b></font></td>						<td width='15%'><font color='#0000FF'><b>39.9 GB</b></font></td> 						<td width='15%'><font color='#0000FF'><b>3.46 GB</b></font></td>						<td width='15%'><font color='#FF0000'><b>9%</b></font></td>					<td width='15%'><font color='#FF0000'> </font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>    
+					</TABLE>
+				</div>
+			</DIV>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Exchange Servers Information</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+	  						
+	  				</tr>
+                    				<tr><th width='10%'><b>================================</b></font><tr><tr>				<td width='20%'><b>Total Exchange Servers : </b><font color='#FF0000'>3</font></td><tr><tr>				<tr><th width='10%'><b>================================</b></font><tr>				<th width='10%'><b>- Exchange 2003 Number(s) : </b><font color='#FF0000'>0 </b></font></th>				<tr><th width='10%'><b>================================</b></font><tr>				<th width='10%'><b>- Exchange 2007 Number(s) : </b><font color='#FF0000'>0</b></font></th><tr>				<tr><th width='10%'><b>--------------------------------</b></font><tr>				<th width='10%'><b>  ---- Mailbox & ClientAccess & HubTransport number(s) : </b><font color='#0000FF'>0 </b></font></th><tr>				<th width='10%'><b>  ---- ClientAccess & HubTransport number(s) : </b><font color='#0000FF'>0 </b></font></th><tr>				<th width='10%'><b>  ---- Mailbox number(s) : </b><font color='#0000FF'>0 </b></font></th><tr>				<th width='10%'><b>  ---- HubTransport number(s) : </b><font color='#0000FF'>0 </b></font></th><tr>				<th width='10%'><b>  ---- ClientAccess number(s) : </b><font color='#0000FF'>0 </b></font></th><tr>				<th width='10%'><b>  ---- Edge number(s) : </b><font color='#0000FF'>0 </font>(The Edge servers information collects are not included in this report)</b></font></th><tr>				<th width='10%'><b>  ---- Unified Messaging number(s) : </b><font color='#0000FF'>0 </b></font></th><tr>				<tr><th width='10%'><b>================================</b></font><tr>				<th width='10%'><b>- Exchange 2010 Number(s) : </b><font color='#FF0000'>3</b></font></th><tr>				<tr><th width='10%'><b>--------------------------------</b></font><tr>				<th width='10%'><b>  ---- Mailbox & ClientAccess & HubTransport number(s) : </b><font color='#0000FF'>0 </b></font></th><tr>				<th width='10%'><b>  ---- ClientAccess & HubTransport number(s) : </b><font color='#0000FF'>1 </b></font></th><tr>				<th width='10%'><b>  ---- Mailbox number(s) : </b><font color='#0000FF'>1 </b></font></th><tr>				<th width='10%'><b>  ---- HubTransport number(s) : </b><font color='#0000FF'>0 </b></font></th><tr>				<th width='10%'><b>  ---- ClientAccess number(s) : </b><font color='#0000FF'>0 </b></font></th><tr>				<th width='10%'><b>  ---- Edge number(s) : </b><font color='#0000FF'>1 </font>(The Edge servers information collects are not included in this report)</b></font></th><tr>				<th width='10%'><b>  ---- Unified Messaging number(s) : </b><font color='#0000FF'>0 </b></font></th><tr>				<tr><th width='10%'><b>================================</b></font><tr>				</tr>
+                </table>
+                <table>
+	  				<tr>
+	  						
+	  				</tr>
+                    
+                </table>
+                <table>
+	  			<tr>
+	  				<br><th width='20%'><b>Name</b></font></th>                    
+	  				<th width='50%'><b>Operating System</b></font></th>
+					<th width='10%'><b>Service Pack</b></font></th>
+					<th width='10%'><b>OS Version</b></font></th> 
+					<th width='10%'><b>LastBootUpTime</b></font></th>  
+  	  				</tr>
+                    					<tr>						<td width='20%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='50%'><font color='#0000FF'><b>Microsoft Windows Server 2008 R2 Standard </b></font></td>						<td width='10%'><font color='#0000FF'><b>Service Pack 1</b></font></td>						<td width='10%'><font color='#0000FF'><b>64-bit</b></font></td>						<td width='10%'><font color='#0000FF'><b>10/17/2012 14:10:05</b></font></td>					</tr>					<tr>						<td width='20%'><font color='#0000FF'><b>VS090</b></font></td>						<td width='50%'><font color='#0000FF'><b>Microsoft Windows Server 2008 R2 Standard </b></font></td>						<td width='10%'><font color='#0000FF'><b>Service Pack 1</b></font></td>						<td width='10%'><font color='#0000FF'><b>64-bit</b></font></td>						<td width='10%'><font color='#0000FF'><b>10/26/2012 21:01:38</b></font></td>					</tr>
+                </table>
+                <table>
+	  			<tr>
+	  				<br><th width='20%'><b>Server Name</b></font></th>                    
+	  				<th width='20%'><b>IPAddress</b></font></th>
+					<th width='10%'><b>DefaultIPGateway</b></font></th>
+					<th width='30%'><b>Description</b></font></th> 
+					<th width='10%'><b>ServiceName</b></font></th>  
+ 					<th width='10%'><b></b></font></th>                                                        
+  	  				</tr>
+                    					<tr>						<td width='20%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='20%'><font color='#0000FF'><b>10.178.1.153</b></font></td>						<td width='10%'><font color='#0000FF'><b>10.178.0.1</b></font></td>						<td width='30%'><font color='#0000FF'><b>Intel(R) PRO/1000 MT Network Connection</b></font></td>						<td width='10%'><font color='#0000FF'><b>E1G60</b></font></td>						<td width='10%'></font></td>					</tr>					<tr>						<td width='20%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='20%'><font color='#0000FF'><b>192.168.88.126</b></font></td>						<td width='10%'><font color='#0000FF'><b></b></font></td>						<td width='30%'><font color='#0000FF'><b>Intel(R) PRO/1000 MT Network Connection</b></font></td>						<td width='10%'><font color='#0000FF'><b>E1G60</b></font></td>						<td width='10%'></font></td>					</tr>					<tr>						<td width='20%'><font color='#0000FF'><b>VS090</b></font></td>						<td width='20%'><font color='#0000FF'><b>10.178.1.154</b></font></td>						<td width='10%'><font color='#0000FF'><b>10.178.0.1</b></font></td>						<td width='30%'><font color='#0000FF'><b>Intel(R) PRO/1000 MT Network Connection</b></font></td>						<td width='10%'><font color='#0000FF'><b>E1G60</b></font></td>						<td width='10%'></font></td>					</tr>					<tr>						<td width='20%'><font color='#0000FF'><b>VS090</b></font></td>						<td width='20%'><font color='#0000FF'><b>192.168.88.127</b></font></td>						<td width='10%'><font color='#0000FF'><b></b></font></td>						<td width='30%'><font color='#0000FF'><b>Intel(R) PRO/1000 MT Network Connection</b></font></td>						<td width='10%'><font color='#0000FF'><b>E1G60</b></font></td>						<td width='10%'></font></td>					</tr>
+                </table>                             
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>  	</TABLE>
+				</div>
+			</DIV>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Exchange Services - All Exchange Versions</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+					<th width='20%'><b>Server Name</b></font></th>
+					<th width='20%'><b>Server Role</b></font></th>
+					<th width='30%'><b>Exchange Version</b></font></th>
+					<th width='25%'><b>Exchange Services Status</b></font></th>						
+	  				</tr>
+                    					<tr>						<td width='20%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='20%'><font color='#0000FF'><b>Mailbox</b></font></td>						<td width='30%'><font color='#0000FF'><b>Version 14.2 (Build 247.5)</b></font></td>						<td width='25%'><font color='#0000FF'><b>All Services are Running</b></font></td>					</tr>					<tr>						<td width='20%'><font color='#0000FF'><b>VS090</b></font></td>						<td width='20%'><font color='#0000FF'><b>ClientAccess, HubTransport</b></font></td>						<td width='30%'><font color='#0000FF'><b>Version 14.2 (Build 247.5)</b></font></td>						<td width='25%'><font color='#0000FF'><b>All Services are Running</b></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>              	</TABLE>
+	    <div>
+        <div>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Exchange Servers Rollup (E2K7 Only)</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+                         
+	  				</tr>
+                    No Exchange 2007 Servers Found in this Organization
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>		</TABLE>
+	    <div>
+        <div>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Exchange Servers Rollup (E2K10 Only)</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+                         
+	  				</tr>
+                    					<tr>					<th width='10%'><b>SERVER NAME : <font color='#0000FF'>VS090</b></font></td>						<tr><td width='10%'><b>Rollup Version : <font color='#0000FF'>09/24/2012 - Update Rollup 4 for Exchange Server 2010 Service Pack 2 (KB2706690) 14.2.318.2</b></font></td><tr>						<tr><td width='10%'><b>Rollup Version : <font color='#0000FF'>10/12/2012 - Update Rollup 4-v2 for Exchange Server 2010 Service Pack 2 (KB2756485) 14.2.318.4</b></font></td><tr>					<tr>					</tr>					<tr>					<th width='10%'><b>SERVER NAME : <font color='#0000FF'>VS091</b></font></td>						<tr><td width='10%'><b>Rollup Version : <font color='#0000FF'>09/24/2012 - Update Rollup 4 for Exchange Server 2010 Service Pack 2 (KB2706690) 14.2.318.2</b></font></td><tr>						<tr><td width='10%'><b>Rollup Version : <font color='#0000FF'>10/12/2012 - Update Rollup 4-v2 for Exchange Server 2010 Service Pack 2 (KB2756485) 14.2.318.4</b></font></td><tr>					<tr>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>						</TABLE>
+				</div>
+			</DIV>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Client Access Server - Client Access Array</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+	  						<th width='15%'><b>Name</b></font></th>
+							<th width='25%'><b>Site</b></font></th>
+	  						<th width='20%'><b>FQDN</b></font></th>
+	  						<th width='20%'><b>Members</b></font></th>							
+	  				</tr>
+                    					<tr>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='25%'><font color='#0000FF'><b></b></font></td>						<td width='20%'><font color='#0000FF'><b></b></font></td>						<td width='20%'><font color='#0000FF'><b></b></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>              					</TABLE>
+				</div>
+			</DIV>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Client Access Server - Autodiscover</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+	  					<th width='20%'><b>Server Name</b></font></th>
+	  					<th width='40%'><b>AutoDiscoverServiceInternalUri</b></font></th>
+						<th width='20%'><b>AutoDiscoverSiteScope</b></font></th>
+                        <td width='20%'><font color='#0000FF'></font></td>						
+	  				</tr>
+                    					<tr>						<td width='20%'><font color='#0000FF'><b>VS090</b></font></td>						<td width='40%'><font color='#0000FF'><b>https://vs090.nedcar.nl/Autodiscover/Autodiscover.xml</b></font></td>						<td width='20%'><font color='#0000FF'><b>NedCar-Born</b></font></td>						<td width='20%'><font color='#0000FF'></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>              
+	</TABLE>
+	            <div>
+        <div>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Client Access Server - OWA Virtual Directory</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  			<tr>
+						
+ 		   		</tr>
+                    					<tr>					</b><th width='10%'>Server Name : <font color='#0000FF'></font><th width='10%'>Name : <font color='#0000FF'></font><th width='10%'>Exchange2003URL : <font color='#0000FF'></font></td></th>					</tr>					<tr>					</b><th width='10%'>FailbackURL : <font color='#0000FF'></font><th width='10%'>InternalUrl : <font color='#0000FF'></font><th width='10%'>ExternalUrl : <font color='#0000FF'></font></td></th>					</tr>					<tr>					<th width='10%'><b>______________________________________________________________________</b></font></th>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>  
+	</TABLE>
+	            <div>
+        <div>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Client Access Server - WebServices Virtual Directory</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  			<tr>
+
+ 		   		</tr>
+                    					<tr>					</b><th width='10%'>Server Name : <font color='#0000FF'></font><th width='10%'>Name : <font color='#0000FF'></font><th width='10%'>InternalUrl : <font color='#0000FF'></font></td></th>					</tr>					<tr>					</b><th width='10%'>InternalAuthenticationMethods : <font color='#0000FF'></font><th width='10%'>ExternalURL : <font color='#0000FF'></font><th width='10%'>ExternalAuthenticationMethods : <font color='#0000FF'></font></td></th>					</tr>					<tr>					</b><th width='10%'>InternalNLBBypassURL : <font color='#0000FF'></font></td></th>					</tr>					<tr>					<th width='10%'><b>______________________________________________________________________</b></font></th>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>  
+	</TABLE>
+	            <div>
+        <div>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Client Access Server - Autodiscover Virtual Directory</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  			<tr>
+							
+ 		   		</tr>
+                    					<tr>					<th width='10%'><b>Server Name : <font color='#0000FF'></font><th width='10%'>Name : <font color='#0000FF'></font><th width='10%'>InternalURL : <font color='#0000FF'></b></font></td></th>					</tr>					<tr>				    <th width='10%'><b>InternalAuthenticationMethods : <font color='#0000FF'></font><th width='10%'>ExternalURL : <font color='#0000FF'></font><th width='10%'>ExternalAuthenticationMethods : <font color='#0000FF'></b></font></td></th>					</tr>					<tr>					<th width='10%'><b>______________________________________________________________________</b></font></th>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>  
+	</TABLE>
+	            <div>
+        <div>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Client Access Server - OAB Virtual Directory</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  			<tr>
+							
+ 		   		</tr>
+                    					<tr>					<th width='10%'><b>Server Name : <font color='#0000FF'></font><th width='10%'>Name : <font color='#0000FF'></font><th width='10%'>InternalURL : <font color='#0000FF'></b></font></td></th>					</tr>					<tr>					<th width='10%'><b>InternalAuthenticationMethods : <font color='#0000FF'></font><th width='10%'>ExternalURL : <font color='#0000FF'></font><th width='10%'>ExternalAuthenticationMethods : <font color='#0000FF'></b></font></td></th>					</tr>					<tr>					<th width='10%'><b>______________________________________________________________________</b></font></th>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>  
+	</TABLE>
+	            <div>
+        <div>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Client Access Server - ECP Virtual Directory</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  			<tr>
+							
+ 		   		</tr>
+                    					<tr>						</b><th width='10%'>Server Name : <font color='#0000FF'></font><th width='10%'>Name : <font color='#0000FF'></font><th width='10%'>InternalURL : <font color='#0000FF'></font></td></th>					</tr>					<tr>						</b><th width='10%'>InternalAuthenticationMethods : <font color='#0000FF'></font><th width='10%'>ExternalURL : <font color='#0000FF'></font><th width='10%'>ExternalAuthenticationMethods : <font color='#0000FF'></font></td></th>					</tr>					<tr>					<th width='10%'><b>______________________________________________________________________</b></font></th>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>  
+	</TABLE>
+	            <div>
+        <div>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Client Access Server - ActiveSync Virtual Directory</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  			<tr>
+						
+ 		   		</tr>
+                					<tr>					<th width='10%'><b>Server Name : <font color='#0000FF'></font><th width='10%'>Name : <font color='#0000FF'>VS090</font><th width='10%'>InternalURL : <font color='#0000FF'></b></font></td></th>					</tr>					<tr>					<th width='10%'><b>InternalAuthenticationMethods : <font color='#0000FF'></font><th width='10%'>ExternalURL : <font color='#0000FF'></font><th width='10%'>ExternalAuthenticationMethods : <font color='#0000FF'></b></font></td></th>					</tr>					<tr>					<th width='10%'><b>______________________________________________________________________</b></font></th>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>  
+	</TABLE>
+	            <div>
+        <div>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Client Access Server - Powershell Virtual Directory</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  			<tr>
+							
+ 		   		</tr>
+                    					<tr>					<th width='10%'><b>Server : <font color='#0000FF'></font><th width='10%'>Name : <font color='#0000FF'></font><th width='10%'>CertificateAuthentication : <font color='#0000FF'></b></font></td></th>					</tr>					<tr>					<th width='10%'><b>RequireSSL : <font color='#0000FF'></font><th width='10%'>MetabasePath : <font color='#0000FF'></font><th width='10%'>Path : <font color='#0000FF'></b></font></td></th>					</tr>					<tr>					<th width='10%'><b>InternalUrl : <font color='#0000FF'></b><th width='10%'>ExternalUrl : <font color='#0000FF'></font></td></th>					</tr>					<tr>					<th width='10%'><b>______________________________________________________________________</b></font></th>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>  
+	</TABLE>
+	            <div>
+        <div>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Client Access Server - Exchange Certificates</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  			<tr>
+
+ 		   		</tr>
+                    					<tr>					<th width='20%'><b>SERVER NAME : </b></font><font color='#000080'>VS091</font></td></th>					</tr>					<tr>					<tr>					<th width='20%'><b>AccessRules : </b></font><font color='#0000FF'></font></td></th>					</tr>					<tr>					<th width='20%'><b>Certificate Domains : </b></font><font color='#0000FF'>VS091 VS091.nedcar.nl </font></td></th>					</tr>					<tr>					<th width='20%'><b>HasPrivateKey : </b></font><font color='#0000FF'>True</font></td></th>					</tr>					<tr>					<th width='20%'><b>IsSelfSigned : </b></font><font color='#0000FF'>True</font></td></th>					</tr>					<tr>					<th width='20%'><b>Issuer : </b></font><font color='#0000FF'>CN=VS091</font></td></th>					</tr>					<tr>					<th width='20%'><b>NotAfter : </b></font><font color='#0000FF'>09/17/2017 13:00:50</font></td></th>					</tr>					<tr>					<th width='20%'><b>NotBefore : </b></font><font color='#0000FF'>09/17/2012 13:00:50</font></td></th>					</tr>					<tr>					<th width='20%'><b>PublicKeySize : </b></font><font color='#0000FF'>2048</font></td></th>					</tr>					<tr>					<th width='20%'><b>RootCAType : </b></font><font color='#0000FF'>None </font></td></th>					</tr>					<tr>					<th width='20%'><b>SerialNumber : </b></font><font color='#0000FF'>165B49F9758E63A3441DB6BE2E9E17C1</font></td></th>					</tr>					<tr>					<th width='20%'><b>Services : </b></font><font color='#0000FF'>None</font></td></th>					</tr>					<tr>					<th width='20%'><b>Status : </b></font><font color='#0000FF'>Valid</font></td></th>					</tr>					<tr>					<th width='20%'><b>Subject : </b></font><font color='#0000FF'>CN=VS091</font></td></th>					</tr>					<tr>					<th width='20%'><b>Thumbprint : </b></font><font color='#0000FF'>91CDC8243D51237E4FC7E04AE52167F9AA63E3D0</font></td></th>					</tr>					<th width='20%'><b>______________________________________________________________________</b></font></th>					<tr>					<th width='20%'><b>______________________________________________________________________</b></font></th>					<tr>					<tr>					<th width='20%'><b>SERVER NAME : </b></font><font color='#000080'>VS090</font></td></th>					</tr>					<tr>					<tr>					<th width='20%'><b>AccessRules : </b></font><font color='#0000FF'></font></td></th>					</tr>					<tr>					<th width='20%'><b>Certificate Domains : </b></font><font color='#0000FF'>vs090.nedcar.nl mail.vdlnedcar.nl autodiscover.vdlnedcar.nl </font></td></th>					</tr>					<tr>					<th width='20%'><b>HasPrivateKey : </b></font><font color='#0000FF'>True</font></td></th>					</tr>					<tr>					<th width='20%'><b>IsSelfSigned : </b></font><font color='#0000FF'>False</font></td></th>					</tr>					<tr>					<th width='20%'><b>Issuer : </b></font><font color='#0000FF'>CN=GlobalSign Extended Validation CA - G2, O=GlobalSign nv-sa, C=BE</font></td></th>					</tr>					<tr>					<th width='20%'><b>NotAfter : </b></font><font color='#0000FF'>10/25/2013 18:55:55</font></td></th>					</tr>					<tr>					<th width='20%'><b>NotBefore : </b></font><font color='#0000FF'>10/24/2012 18:55:55</font></td></th>					</tr>					<tr>					<th width='20%'><b>PublicKeySize : </b></font><font color='#0000FF'>2048</font></td></th>					</tr>					<tr>					<th width='20%'><b>RootCAType : </b></font><font color='#0000FF'>ThirdParty </font></td></th>					</tr>					<tr>					<th width='20%'><b>SerialNumber : </b></font><font color='#0000FF'>1121151B51BD61C44F91A3292A379BE7A297</font></td></th>					</tr>					<tr>					<th width='20%'><b>Services : </b></font><font color='#0000FF'>IIS, SMTP</font></td></th>					</tr>					<tr>					<th width='20%'><b>Status : </b></font><font color='#0000FF'>Valid</font></td></th>					</tr>					<tr>					<th width='20%'><b>Subject : </b></font><font color='#0000FF'>CN=vs090.nedcar.nl, O=Netherlands CAR BV, OU=NedCar, STREET=Dr. Hub van Doorneweg 1, L=Born, S=Limburg, C=NL, OID.1.3.6.1.4.1.311.60.2.1.3=NL, SERIALNUMBER=14027374, OID.2.5.4.15=Private Organization</font></td></th>					</tr>					<tr>					<th width='20%'><b>Thumbprint : </b></font><font color='#0000FF'>7D83554CE387370C5C42244171702B1DC641E3E4</font></td></th>					</tr>					<th width='20%'><b>______________________________________________________________________</b></font></th>					<tr>					<tr>					<tr>					<th width='20%'><b>AccessRules : </b></font><font color='#0000FF'></font></td></th>					</tr>					<tr>					<th width='20%'><b>Certificate Domains : </b></font><font color='#0000FF'>vs090.nedcar.nl mail.vdlnedcar.nl autodiscover.vdlnedcar.nl </font></td></th>					</tr>					<tr>					<th width='20%'><b>HasPrivateKey : </b></font><font color='#0000FF'>True</font></td></th>					</tr>					<tr>					<th width='20%'><b>IsSelfSigned : </b></font><font color='#0000FF'>False</font></td></th>					</tr>					<tr>					<th width='20%'><b>Issuer : </b></font><font color='#0000FF'>C=NL, S=Limburg, L=Born, O=VDL, OU=VDLNedCar, CN=vs090.nedcar.nl</font></td></th>					</tr>					<tr>					<th width='20%'><b>NotAfter : </b></font><font color='#0000FF'>10/09/2013 15:30:42</font></td></th>					</tr>					<tr>					<th width='20%'><b>NotBefore : </b></font><font color='#0000FF'>10/09/2012 15:10:42</font></td></th>					</tr>					<tr>					<th width='20%'><b>PublicKeySize : </b></font><font color='#0000FF'>2048</font></td></th>					</tr>					<tr>					<th width='20%'><b>RootCAType : </b></font><font color='#0000FF'>Unknown </font></td></th>					</tr>					<tr>					<th width='20%'><b>SerialNumber : </b></font><font color='#0000FF'>7E5246F377CA56BB47202E7372234C02</font></td></th>					</tr>					<tr>					<th width='20%'><b>Services : </b></font><font color='#0000FF'>None</font></td></th>					</tr>					<tr>					<th width='20%'><b>Status : </b></font><font color='#0000FF'>PendingRequest</font></td></th>					</tr>					<tr>					<th width='20%'><b>Subject : </b></font><font color='#0000FF'>C=NL, S=Limburg, L=Born, O=VDL, OU=VDLNedCar, CN=vs090.nedcar.nl</font></td></th>					</tr>					<tr>					<th width='20%'><b>Thumbprint : </b></font><font color='#0000FF'>9214BD4C2FCBA98642D3A9B4943FBCCF31A00184</font></td></th>					</tr>					<th width='20%'><b>______________________________________________________________________</b></font></th>					<tr>					<tr>					<tr>					<th width='20%'><b>AccessRules : </b></font><font color='#0000FF'></font></td></th>					</tr>					<tr>					<th width='20%'><b>Certificate Domains : </b></font><font color='#0000FF'>*.vdlnedcar.nl vdlnedcar.nl </font></td></th>					</tr>					<tr>					<th width='20%'><b>HasPrivateKey : </b></font><font color='#0000FF'>True</font></td></th>					</tr>					<tr>					<th width='20%'><b>IsSelfSigned : </b></font><font color='#0000FF'>False</font></td></th>					</tr>					<tr>					<th width='20%'><b>Issuer : </b></font><font color='#0000FF'>CN=RapidSSL CA, O="GeoTrust, Inc.", C=US</font></td></th>					</tr>					<tr>					<th width='20%'><b>NotAfter : </b></font><font color='#0000FF'>10/05/2016 10:52:57</font></td></th>					</tr>					<tr>					<th width='20%'><b>NotBefore : </b></font><font color='#0000FF'>10/03/2012 10:29:39</font></td></th>					</tr>					<tr>					<th width='20%'><b>PublicKeySize : </b></font><font color='#0000FF'>2048</font></td></th>					</tr>					<tr>					<th width='20%'><b>RootCAType : </b></font><font color='#0000FF'>ThirdParty </font></td></th>					</tr>					<tr>					<th width='20%'><b>SerialNumber : </b></font><font color='#0000FF'>088A1A</font></td></th>					</tr>					<tr>					<th width='20%'><b>Services : </b></font><font color='#0000FF'>SMTP</font></td></th>					</tr>					<tr>					<th width='20%'><b>Status : </b></font><font color='#0000FF'>Valid</font></td></th>					</tr>					<tr>					<th width='20%'><b>Subject : </b></font><font color='#0000FF'>CN=*.vdlnedcar.nl, OU=Domain Control Validated - RapidSSL(R), OU=See www.rapidssl.com/resources/cps (c)12, OU=GT58036672, SERIALNUMBER=Moj2gX4AjqM7BZrl7HCltWo5VoW6pMER</font></td></th>					</tr>					<tr>					<th width='20%'><b>Thumbprint : </b></font><font color='#0000FF'>7A8EDF14D1CEA2337B7EBD2F26B1BA5DABD74CE2</font></td></th>					</tr>					<th width='20%'><b>______________________________________________________________________</b></font></th>					<tr>					<tr>					<tr>					<th width='20%'><b>AccessRules : </b></font><font color='#0000FF'></font></td></th>					</tr>					<tr>					<th width='20%'><b>Certificate Domains : </b></font><font color='#0000FF'>mail.vdlnedcar.nl vs090.nedcar.nl autodiscover.nedcar.nl autodiscover.vdlnedcar.nl nedcar.nl vdlnedcar.nl </font></td></th>					</tr>					<tr>					<th width='20%'><b>HasPrivateKey : </b></font><font color='#0000FF'>True</font></td></th>					</tr>					<tr>					<th width='20%'><b>IsSelfSigned : </b></font><font color='#0000FF'>False</font></td></th>					</tr>					<tr>					<th width='20%'><b>Issuer : </b></font><font color='#0000FF'>C=NL, S=Limburg, L=Born, O=VDLNEDCAR, OU=NedCar, CN=mail.vdlnedcar.nl</font></td></th>					</tr>					<tr>					<th width='20%'><b>NotAfter : </b></font><font color='#0000FF'>09/26/2013 07:34:51</font></td></th>					</tr>					<tr>					<th width='20%'><b>NotBefore : </b></font><font color='#0000FF'>09/26/2012 07:14:51</font></td></th>					</tr>					<tr>					<th width='20%'><b>PublicKeySize : </b></font><font color='#0000FF'>2048</font></td></th>					</tr>					<tr>					<th width='20%'><b>RootCAType : </b></font><font color='#0000FF'>Unknown </font></td></th>					</tr>					<tr>					<th width='20%'><b>SerialNumber : </b></font><font color='#0000FF'>0A5D3BEE4D092387470B0BFD86ABD8BA</font></td></th>					</tr>					<tr>					<th width='20%'><b>Services : </b></font><font color='#0000FF'>None</font></td></th>					</tr>					<tr>					<th width='20%'><b>Status : </b></font><font color='#0000FF'>PendingRequest</font></td></th>					</tr>					<tr>					<th width='20%'><b>Subject : </b></font><font color='#0000FF'>C=NL, S=Limburg, L=Born, O=VDLNEDCAR, OU=NedCar, CN=mail.vdlnedcar.nl</font></td></th>					</tr>					<tr>					<th width='20%'><b>Thumbprint : </b></font><font color='#0000FF'>B94C9316DE58F9E846D8AE5235780957305A9AC2</font></td></th>					</tr>					<th width='20%'><b>______________________________________________________________________</b></font></th>					<tr>					<th width='20%'><b>______________________________________________________________________</b></font></th>					<tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div> 					</TABLE>
+				</div>
+			</DIV>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>HUB Transport - Transport Queue Status</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+	  						<th width='20%'><b>Server Name</b></font></th>
+							<th width='20%'><b>Queue Name</b></font></th>
+	  						<th width='20%'><b>Messages Count</b></font></th>
+	  						<th width='20%'><b>NextHopDomain</b></font></th>							
+	  				</tr>
+                    					<tr>						<td width='20%'><font color=#0000FF><b>VS090</b></font></td>						<td width='20%'><font color=#0000FF><b>VS090\1430</b></font></td>						<td width='20%'><font color=#0000FF><b>0</b></font></td>						<td width='20%'><font color=#0000FF><b>mailbox database vs091-03</b></font></td>					</tr>					<tr>						<td width='20%'><font color=#0000FF><b>VS090</b></font></td>						<td width='20%'><font color=#0000FF><b>VS090\Submission</b></font></td>						<td width='20%'><font color=#0000FF><b>0</b></font></td>						<td width='20%'><font color=#0000FF><b>Submission</b></font></td>					</tr>					<tr>						<td width='20%'><font color=#0000FF><b>VS090</b></font></td>						<td width='20%'><font color=#0000FF><b>VS090\Shadow\1410</b></font></td>						<td width='20%'><font color=#0000FF><b>1</b></font></td>						<td width='20%'><font color=#0000FF><b>vs092.nedcar.nl</b></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>              	</TABLE>
+	</div>
+	</DIV>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>HUB Transport - Transport Config</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+	  					<th width='20%'><b>ShadowRedundancyEnabled</b></font></th>
+	  					<th width='20%'><b>ShadowHeartbeatTimeoutInterval</b></font></th>
+	  					<th width='20%'><b>ShadowHeartbeatRetryCount</b></font></th>
+	  					<th width='20%'><b>ShadowMessageAutoDiscardInterval </b></font></th>							
+	  				</tr>
+                    					<tr>						<td width='20%'><font color='#0000FF'><b>True</b></font></td>						<td width='20%'><font color='#0000FF'><b>00:15:00</b></font></td>						<td width='20%'><font color='#0000FF'><b>12</b></font></td>						<td width='20%'><font color='#0000FF'><b>2.00:00:00</b></font></td>					</tr>
+                </table>
+                <table>
+	  				<tr>
+	  						<br><th width='20%'><b>MaxDumpsterSizePerDatabase</b></font></th>
+							<th width='20%'><b>MaxDumpsterTime</b></font></th>
+							<th width='20%'><b>MaxReceiveSize</b></font></th>
+							<th width='20%'><b>MaxRecipientEnvelopeLimit</b></font></th>
+							<th width='20%'><b>MaxSendSize</b></font></th>
+ 		   		</tr>
+                    					<tr>						<td width='20%'><font color='#0000FF'><b>18 MB (18,874,368 bytes)</b></font></td>						<td width='20%'><font color='#0000FF'><b>7.00:00:00</b></font></td>						<td width='20%'><font color='#0000FF'><b>10 MB (10,485,760 bytes)</b></font></td>						<td width='20%'><font color='#0000FF'><b>5000</b></font></td>						<td width='20%'><font color='#0000FF'><b>10 MB (10,485,760 bytes)</b></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div> 	</TABLE>
+	</div>
+	</DIV>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>HUB Transport - Connectors settings</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+                        <td width='20%'><b>SEND CONNECTORS</b></font></td><tr>                   
+	  					<th width='20%'><b>Identity</b></font></th>
+	  					<th width='20%'><b>AddressSpaces</b></font></th>
+	  					<th width='10%'><b>HomeMtaServerId</b></font></th>
+	  					<th width='20%'><b>SourceTransportServers</b></font></th>
+	  					<th width='10%'><b>MaxMessageSize</b></font></th>	
+	  					<th width='10%'><b>Port</b></font></th>	
+	  					<th width='10%'><b>Enabled</b></font></th>	                                                							
+	  				</tr>
+                    					<tr>						<td width='20%'><font color='#0000FF'><b>EdgeSync - NedCar-Born to Internet</b></font></td>						<td width='20%'><font color='#0000FF'><b>smtp:*;100</b></font></td>						<td width='10%'><font color='#0000FF'><b>VS092</b></font></td>						<td width='20%'><font color='#0000FF'><b>VS092</b></font></td>						<td width='10%'><font color='#0000FF'><b>10 MB (10,485,760 bytes)</b></font></td>						<td width='10%'><font color='#0000FF'><b>25</b></font></td>						<td width='10%'><font color='#0000FF'><b>True</b></font></td>					</tr>					<tr>						<td width='20%'><font color='#0000FF'><b>EdgeSync - Inbound to NedCar-Born</b></font></td>						<td width='20%'><font color='#0000FF'><b>smtp:--;100</b></font></td>						<td width='10%'><font color='#0000FF'><b>VS092</b></font></td>						<td width='20%'><font color='#0000FF'><b>VS092</b></font></td>						<td width='10%'><font color='#0000FF'><b>unlimited</b></font></td>						<td width='10%'><font color='#0000FF'><b>25</b></font></td>						<td width='10%'><font color='#0000FF'><b>True</b></font></td>					</tr>
+                </table>
+                <table>
+	  				<tr>
+                        <td width='45%'><b>RECEIVE CONNECTORS</b></font></td><tr>
+               		   <br><th width='45%'><b>Identity</b></font></th>
+					   <th width='15%'><b>Binding</b></font></th>
+					   <th width='15%'><b>Server</b></font></th>
+					   <th width='15%'><b>MaxMessageSize</b></font></th>
+					   <th width='10%'><b>Enabled</b></font></th>
+ 		   		</tr>
+                    						<td width='45%'><font color='#0000FF'><b>VS090\Default VS090</b></font></td>						<td width='15%'><font color='#0000FF'><b>:::25 0.0.0.0:25</b></font></td>						<td width='15%'><font color='#0000FF'><b>VS090</b></font></td>						<td width='15%'><font color='#0000FF'><b>10 MB (10,485,760 bytes)</b></font></td>						<td width='10%'><font color='#0000FF'><b>True</b></font></td>					</tr>						<td width='45%'><font color='#0000FF'><b>VS090\Client VS090</b></font></td>						<td width='15%'><font color='#0000FF'><b>:::587 0.0.0.0:587</b></font></td>						<td width='15%'><font color='#0000FF'><b>VS090</b></font></td>						<td width='15%'><font color='#0000FF'><b>10 MB (10,485,760 bytes)</b></font></td>						<td width='10%'><font color='#0000FF'><b>True</b></font></td>					</tr>						<td width='45%'><font color='#0000FF'><b>VS090\Internal SMTP senders</b></font></td>						<td width='15%'><font color='#0000FF'><b>0.0.0.0:25</b></font></td>						<td width='15%'><font color='#0000FF'><b>VS090</b></font></td>						<td width='15%'><font color='#0000FF'><b>10 MB (10,485,760 bytes)</b></font></td>						<td width='10%'><font color='#0000FF'><b>True</b></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div> 	</TABLE>
+	    <div>
+        <div>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>HUB Transport - Back Pressure (E2K10 Only)</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+	  						<th width='10%'><b>Server Name</b></font></th>					
+	  						<th width='5%'><b>EventId</b></font></th>
+							<th width='10%'><b>TimeWritten</b></font></th>
+							<th width='10%'><b>EntryType</b></font></th>
+							<th width='15%'><b>Source</b></font></th>
+	  						<th width='50%'><b>Message</b></font></th>
+	  				</tr>
+                    					<tr>					    <td width='10%'><font color='#000080'><b>VS090</b></font></td>						<td width='5%'><font color='#0000FF'><b></b></font></td>						<td width='10%'><font color='#0000FF'><b></b></font></td>						<td width='10%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='50%'><font color='#0000FF'><b></b></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>		</TABLE>
+	            <div>
+        <div>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Mailbox Server - Information (Out of DAG servers)</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                 </table>
+                <table>
+	  				<tr>
+	  						<th width='20%'><b>Server Name</b></font></th>
+							<th width='20%'><b>AutoDatabaseMountDial</b></font></th>
+							<th width='20%'><b>AdminDisplayVersion</b></font></th>
+							<th width='40%'><b> </b></font></th>
+					</tr>
+                    					<tr>						<td width='20%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='20%'><font color='#0000FF'><b>GoodAvailability</b></font></td>						<td width='20%'><font color='#0000FF'><b>Version 14.2 (Build 247.5)</b></font></td>						<td width='40%'><font color='#0000FF'><b> </b></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>  	</TABLE>
+	            <div>
+        <div>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Mailbox Server - Database Size and Availability</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+	  						<th width='20%'><b>Database Name</b></font></th>
+							<th width='20%'><b>Database Size</b></font></th>
+							<th width='20%'><b>AvailableNewMailboxSpace</b></font></th>
+							<th width='40%'><b> </b></font></th>							
+ 		   		</tr>
+                    					<tr>						<td width='20%'><font color='#0000FF'><b>Mailbox Database VS091-01</b></font></td>						<td width='20%'><font color='#0000FF'><b>648.1 MB (679,542,784 bytes)</b></font></td>						<td width='20%'><font color='#0000FF'><b>23.44 MB (24,576,000 bytes)</b></font></td>						<td width='40%'><font color='#0000FF'><b> </b></font></td>					</tr>					<tr>						<td width='20%'><font color='#0000FF'><b>Mailbox Database VS091-02</b></font></td>						<td width='20%'><font color='#0000FF'><b>520.1 MB (545,325,056 bytes)</b></font></td>						<td width='20%'><font color='#0000FF'><b>77.16 MB (80,904,192 bytes)</b></font></td>						<td width='40%'><font color='#0000FF'><b> </b></font></td>					</tr>					<tr>						<td width='20%'><font color='#0000FF'><b>Mailbox Database VS091-03</b></font></td>						<td width='20%'><font color='#0000FF'><b>392.1 MB (411,107,328 bytes)</b></font></td>						<td width='20%'><font color='#0000FF'><b>60.59 MB (63,537,152 bytes)</b></font></td>						<td width='40%'><font color='#0000FF'><b> </b></font></td>					</tr>					<tr>						<td width='20%'><font color='#0000FF'><b>Mailbox Database VS091-04</b></font></td>						<td width='20%'><font color='#0000FF'><b>264.1 MB (276,889,600 bytes)</b></font></td>						<td width='20%'><font color='#0000FF'><b>118.1 MB (123,797,504 bytes)</b></font></td>						<td width='40%'><font color='#0000FF'><b> </b></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>                	</TABLE>
+	</div>
+	</DIV>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Mailbox Server - Databases Backup Status</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+	  						<th width='15%'><b>Server Name</b></font></th>
+							<th width='15%'><b>Database Name</b></font></th>
+	  						<th width='15%'><b>LastIncrementalBackup</b></font></th>
+	  						<th width='15%'><b>LastDifferentialBackup</b></font></th>
+	  						<th width='15%'><b>LastCopyBackup</b></font></th>							
+	  						<th width='15%'><b>LastFullBackup</b></font></th>							
+	  						<th width='10%'><b>Backup Validity</b></font></th>					
+	  				</tr>
+                    					<tr>						<td width='15%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='15%'><font color='#0000FF'><b>Mailbox Database VS091-03</b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b>11/07/2012 22:00:21</b></font></td>			<td width='10%'><font color='#0000FF'><b>Valid</b></font></td>					</tr>					<tr>						<td width='15%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='15%'><font color='#0000FF'><b>Mailbox Database VS091-04</b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b>11/07/2012 22:00:21</b></font></td>			<td width='10%'><font color='#0000FF'><b>Valid</b></font></td>					</tr>					<tr>						<td width='15%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='15%'><font color='#0000FF'><b>Mailbox Database VS091-01</b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b>11/07/2012 22:00:21</b></font></td>			<td width='10%'><font color='#0000FF'><b>Valid</b></font></td>					</tr>					<tr>						<td width='15%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='15%'><font color='#0000FF'><b>Mailbox Database VS091-02</b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b>11/07/2012 22:00:21</b></font></td>			<td width='10%'><font color='#0000FF'><b>Valid</b></font></td>					</tr>
+                </table>
+               <table>
+	  				<tr>
+	  						<br><th width='15%'><b>Server Name</b></font></th>
+							<th width='15%'><b>Database Name</b></font></th>
+	  						<th width='15%'><b>SnapshotLastIncrementalBackup</b></font></th>
+	  						<th width='15%'><b>SnapshotLastDifferentialBackup</b></font></th>
+	  						<th width='15%'><b>SnapshotLastCopyBackup</b></font></th>							
+	  						<th width='15%'><b>SnapshotLastFullBackup</b></font></th>							
+	  				</tr>
+                    					<tr>						<td width='15%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='15%'><font color='#0000FF'><b>Mailbox Database VS091-03</b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b>True</b></font></td>					</tr>					<tr>						<td width='15%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='15%'><font color='#0000FF'><b>Mailbox Database VS091-04</b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b>True</b></font></td>					</tr>					<tr>						<td width='15%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='15%'><font color='#0000FF'><b>Mailbox Database VS091-01</b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b>True</b></font></td>					</tr>					<tr>						<td width='15%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='15%'><font color='#0000FF'><b>Mailbox Database VS091-02</b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b>True</b></font></td>					</tr>
+                </table>				
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>                     	</TABLE>
+	            <div>
+        <div>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Mailbox Server - RPCClientAccessServer (Out of DAG servers)</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+	  						<th width='20%'><b>Database Name</b></font></th>
+	  						<th width='20%'><b>Server Name</b></font></th>							
+							<th width='20%'><b>RPC Client Access Server</b></font></th>
+							<th width='40%'><b></b></font></th>                            
+ 		   		</tr>
+                    					<tr>						<tr><td width='20%'><font color='#000080'><b>VS091</b></font></td><tr>					<tr>						<td width='20%'><font color='#0000FF'><b>Mailbox Database VS091-01</b></font></td>						<td width='20%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='20%'><font color='#0000FF'><b>VS090.nedcar.nl</b></font></td>						<td width='40%'><font color='#0000FF'></font></td>					</tr>					<tr>						<td width='20%'><font color='#0000FF'><b>Mailbox Database VS091-02</b></font></td>						<td width='20%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='20%'><font color='#0000FF'><b>VS090.nedcar.nl</b></font></td>						<td width='40%'><font color='#0000FF'></font></td>					</tr>					<tr>						<td width='20%'><font color='#0000FF'><b>Mailbox Database VS091-03</b></font></td>						<td width='20%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='20%'><font color='#0000FF'><b>VS090.nedcar.nl</b></font></td>						<td width='40%'><font color='#0000FF'></font></td>					</tr>					<tr>						<td width='20%'><font color='#0000FF'><b>Mailbox Database VS091-04</b></font></td>						<td width='20%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='20%'><font color='#0000FF'><b>VS090.nedcar.nl</b></font></td>						<td width='40%'><font color='#0000FF'></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>         	</TABLE>
+	            <div>
+        <div>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Mailbox server - Offline Address Book</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  			<tr>
+							
+ 		   		</tr>
+                    					<tr>					<th width='10%'>Server Name : <font color='#0000FF'>VS091</font><th width='10%'>Name : <font color='#0000FF'>Default Offline Address Book</font><th width='10%'>AddressLists : <font color='#0000FF'>\Default Global Address List</font></td></th>					</tr>					<tr>					<th width='10%'>Versions : <font color='#0000FF'>Version4</font><th width='10%'>IsDefaut : <font color='#0000FF'>True</font><th width='10%'>PublicFolderDatabase : <font color='#0000FF'></font></td></th>					</tr>					<tr>					<th width='10%'>PublicFolderDistributionEnabled : <font color='#0000FF'>False</font><th width='10%'>VirtualDirectories : <font color='#0000FF'>VS090\OAB (Default Web Site)</font></td></th>					</tr>					<tr>					<th width='10%'><b>______________________________________________________________________</b></font></th>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>  
+	</TABLE>
+	</div>
+	</DIV>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Mailbox Server - Calendar Repair Assistant</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+	  					<th width='10%'><b>Server Name</b></font></th>
+						<th width='10%'><b>WorkCycle</b></font></th>
+	  					<th width='15%'><b>WorkCycleCheckpoint</b></font></th>
+	  					<th width='10%'><b>LogEnabled</b></font></th>
+	  					<th width='15%'><b>LogSubjectLoggingEnabled</b></font></th>
+	  					<th width='10%'><b>LogFileAgeLimit</b></font></th>
+	  					<th width='10%'><b>LogDirectorySizeLimit</b></font></th>
+	  					<th width='20%'><b>LogPath</b></font></th>							
+	  				</tr>
+                    					<tr>						<td width='10%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='10%'><font color='#0000FF'><b></b></font></td>						<td width='15%'><font color='#0000FF'><b></b></font></td>						<td width='10%'><font color='#0000FF'><b>True</b></font></td>						<td width='15%'><font color='#0000FF'><b>True</b></font></td>						<td width='10%'><font color='#0000FF'><b>00:00:00</b></font></td>						<td width='10%'><font color='#0000FF'><b>unlimited</b></font></td>						<td width='20%'><font color='#0000FF'><b>C:\Program Files\Microsoft\Exchange Server\V14\Logging\Calendar Repair Assistant</b></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div> 	</TABLE>
+	            <div>
+        <div>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Public Folder Databases</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+
+ 		   		    </tr>
+                    					<tr>					<th width='10%'><b>Server : <font color='#0000FF'></font><th width='10%'>Name : <font color='#0000FF'></font><th width='10%'>MaxItemSize : <font color='#0000FF'></b></font></td></th>					</tr>					<tr>					<th width='10%'><b>ProhibitPostQuota : <font color='#0000FF'></font><th width='10%'>ReplicationMessageSize : <font color='#0000FF'></font><th width='10%'>UseCustomReferralServerList : <font color='#0000FF'></b></font></td></th>					</tr>					<tr>					<th width='10%'><b>CustomReferralServerList : <font color='#0000FF'></font><th width='10%'>DeletedItemRetention : <font color='#0000FF'></font><th width='10%'>ActivationPreference : <font color='#0000FF'></b></font></td></th>					</tr>					<tr>					<th width='10%'><b>DatabaseSize : <font color='#0000FF'></font><th width='10%'>AvailableNewMailboxSpace : <font color='#0000FF'></font><th width='10%'>LastFullBackup : <font color='#0000FF'></b></font></td></th>					</tr>					<tr>					<th width='30%'><b>AdministrativeGroup : <font color='#0000FF'></b></font></td></th>					</tr>					<tr>					<th width='10%'><b>______________________________________________________________________</b></font></th>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>  
+	</TABLE>
+	</div>
+	</DIV>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>RPCClientAccess Information</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+	  					<th width='20%'><b>Server Name</b></font></th>
+						<th width='20%'><b>Responsibility</b></font></th>
+	  					<th width='20%'><b>MaximumConnections</b></font></th>
+	  					<th width='20%'><b>EncryptionRequired</b></font></th>
+	  					<th width='20%'><b>BlockedClientVersions</b></font></th>
+	  				</tr>
+                    					<tr>						<td width='20%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='20%'><font color='#0000FF'><b>PublicFolders</b></font></td>						<td width='20%'><font color='#0000FF'><b>65536</b></font></td>						<td width='20%'><font color='#0000FF'><b>False</b></font></td>						<td width='20%'><font color='#0000FF'><b></b></font></td>					</tr>					<tr>						<td width='20%'><font color='#0000FF'><b>VS090</b></font></td>						<td width='20%'><font color='#0000FF'><b>Mailboxes</b></font></td>						<td width='20%'><font color='#0000FF'><b>65536</b></font></td>						<td width='20%'><font color='#0000FF'><b>False</b></font></td>						<td width='20%'><font color='#0000FF'><b></b></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div> 					</TABLE>
+				</div>
+			</DIV>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Tests - Test Mailflow</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+	  						<th width='20%'><b>Server Name</b></font></th>
+							<th width='20%'><b>TestMailflowResult</b></font></th>
+	  						<th width='20%'><b>MessageLatencyTime</b></font></th>
+	  						<th width='20%'><b>IsRemoteTest</b></font></th>
+	  						<th width='15%'><b>IsValid</b></font></th>					
+	  				</tr>
+                    					<tr>						<td width='20%'><font color='#0000FF'><b>VS091.nedcar.nl</b></font></td>						<td width='20%'><font color='#0000FF'><b>Success</b></font></td>						<td width='20%'><font color='#0000FF'><b>00:00:01.4362467</b></font></td>						<td width='20%'><font color='#0000FF'><b>False</b></font></td>						<td width='15%'><font color='#0000FF'><b>True</b></font></td>					</tr>					<tr>						<td width='20%'><font color='#0000FF'><b>VS091.nedcar.nl</b></font></td>						<td width='20%'><font color='#0000FF'><b>Success</b></font></td>						<td width='20%'><font color='#0000FF'><b>00:00:00.3737527</b></font></td>						<td width='20%'><font color='#0000FF'><b>False</b></font></td>						<td width='15%'><font color='#0000FF'><b>True</b></font></td>					</tr>					<tr>						<td width='20%'><font color='#0000FF'><b>VS091.nedcar.nl</b></font></td>						<td width='20%'><font color='#0000FF'><b>Success</b></font></td>						<td width='20%'><font color='#0000FF'><b>00:00:01.4987663</b></font></td>						<td width='20%'><font color='#0000FF'><b>False</b></font></td>						<td width='15%'><font color='#0000FF'><b>True</b></font></td>					</tr>					<tr>						<td width='20%'><font color='#0000FF'><b>VS091.nedcar.nl</b></font></td>						<td width='20%'><font color='#0000FF'><b>Success</b></font></td>						<td width='20%'><font color='#0000FF'><b>00:00:01.4675289</b></font></td>						<td width='20%'><font color='#0000FF'><b>False</b></font></td>						<td width='15%'><font color='#0000FF'><b>True</b></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>              					</TABLE>
+				</div>
+			</DIV>
+    <div class='container'>
+        <div class='heading10'>
+            <SPAN class=sectionTitle tabIndex=0>Tests - Test OWAConnectivity</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+	  						<th width='20%'><b>Client Access Server</b></font></th>
+							<th width='20%'><b>Mailbox Server</b></font></th>
+	  						<th width='20%'><b>URL</b></font></th>
+	  						<th width='10%'><b>Scenario</b></font></th>
+	  						<th width='10%'><b>Result</b></font></th>
+	  						<th width='10%'><b>Latency (ms)</b></font></th>
+	  						<th width='10%'><b>Error</b></font></th>						
+	  				</tr>
+                    					<tr>						<td width='20%'><font color='#0000FF'><b></b></font></td>						<td width='20%'><font color='#0000FF'><b></b></font></td>						<td width='20%'><font color='#0000FF'><b></b></font></td>						<td width='10%'><font color='#0000FF'><b></b></font></td>						<td width='10%'><font color='#FF0000'><b></b></font></td>						<td width='10%'><font color='#FF0000'><b></b></font></td>						<td width='10%'><font color='#FF0000'><b></b></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>              	</TABLE>
+	</div>
+	</DIV>
+    <div class='container'>
+        <div class='heading10'>
+            <SPAN class=sectionTitle tabIndex=0>Tests - Test WebServicesConnectivity</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+	  					<th width='20%'><b>Client Access Server</b></font></th>
+						<th width='20%'><b>LocalSite</b></font></th>
+	  					<th width='20%'><b>Scenario</b></font></th>
+	  					<th width='10%'><b>Result</b></font></th>
+	  					<th width='10%'><b>Latency (ms)</b></font></th>
+	  					<th width='10%'><b>Error</b></font></th>							
+	  				</tr>
+                    					<tr>						<td width='20%'><font color='#0000FF'><b></b></font></td>						<td width='20%'><font color='#0000FF'><b></b></font></td>						<td width='20%'><font color='#0000FF'><b></b></font></td>						<td width='10%'><font color='#FF0000'><b></b></font></td>						<td width='10%'><font color='#FF0000'><b></b></font></td>						<td width='10%'><font color='#FF0000'><b></b></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>              	</TABLE>
+	</div>
+	</DIV>
+    <div class='container'>
+        <div class='heading10'>
+            <SPAN class=sectionTitle tabIndex=0>Tests - Test ActiveSyncConnectivity</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+	  					<th width='20%'><b>Client Access Server</b></font></th>
+						<th width='20%'><b>LocalSite</b></font></th>
+	  					<th width='20%'><b>Scenario</b></font></th>
+	  					<th width='10%'><b>Result</b></font></th>
+	  					<th width='10%'><b>Latency (ms)</b></font></th>
+	  					<th width='10%'><b>Error</b></font></th>							
+	  				</tr>
+                    					<tr>						<td width='20%'><font color='#0000FF'><b></b></font></td>						<td width='20%'><font color='#0000FF'><b></b></font></td>						<td width='20%'><font color='#0000FF'><b></b></font></td>						<td width='10%'><font color='#FF0000'><b></b></font></td>						<td width='10%'><font color='#FF0000'><b></b></font></td>						<td width='10%'><font color='#FF0000'><b></b></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>              					</TABLE>
+				</div>
+			</DIV>
+    <div class='container'>
+        <div class='heading10'>
+            <SPAN class=sectionTitle tabIndex=0>Tests - Test ECPConnectivity</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+	  					<th width='20%'><b>Client Access Server</b></font></th>
+						<th width='20%'><b>LocalSite</b></font></th>
+	  					<th width='20%'><b>Scenario</b></font></th>
+	  					<th width='10%'><b>Result</b></font></th>
+	  					<th width='10%'><b>Latency (ms)</b></font></th>
+	  					<th width='10%'><b>Error</b></font></th>							
+	  				</tr>
+                    					<tr>						<td width='20%'><font color='#0000FF'><b></b></font></td>						<td width='20%'><font color='#0000FF'><b></b></font></td>						<td width='20%'><font color='#0000FF'><b></b></font></td>						<td width='10%'><font color='#FF0000'><b></b></font></td>						<td width='10%'><font color='#FF0000'><b></b></font></td>						<td width='10%'><font color='#FF0000'><b></b></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>              					</TABLE>
+				</div>
+			</DIV>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Tests - Test MAPIConnectivity - Mailbox Database</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+	  						<th width='20%'><b>Mailbox Server</b></font></th>
+	  						<th width='30%'><b>Database Name</b></font></th>
+	  						<th width='10%'><b>Result</b></font></th>
+	  						<th width='20%'><b>Latency (ms)</b></font></th>							
+	  						<th width='20%'><b>Error</b></font></th>								
+	  				</tr>
+                    					<tr>						<td width='20%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='30%'><font color='#0000FF'><b>Mailbox Database VS091-01</b></font></td>						<td width='10%'><font color='#0000FF'><b>Success</b></font></td>						<td width='20%'><font color='#0000FF'><b>00:00:00.0230221</b></font></td>						<td width='20%'><font color='#0000FF'><b></b></font></td>					</tr>					<tr>						<td width='20%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='30%'><font color='#0000FF'><b>Mailbox Database VS091-02</b></font></td>						<td width='10%'><font color='#0000FF'><b>Success</b></font></td>						<td width='20%'><font color='#0000FF'><b>00:00:00.0231312</b></font></td>						<td width='20%'><font color='#0000FF'><b></b></font></td>					</tr>					<tr>						<td width='20%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='30%'><font color='#0000FF'><b>Mailbox Database VS091-03</b></font></td>						<td width='10%'><font color='#0000FF'><b>Success</b></font></td>						<td width='20%'><font color='#0000FF'><b>00:00:00.0253572</b></font></td>						<td width='20%'><font color='#0000FF'><b></b></font></td>					</tr>					<tr>						<td width='20%'><font color='#0000FF'><b>VS091</b></font></td>						<td width='30%'><font color='#0000FF'><b>Mailbox Database VS091-04</b></font></td>						<td width='10%'><font color='#0000FF'><b>Success</b></font></td>						<td width='20%'><font color='#0000FF'><b>00:00:00.0451165</b></font></td>						<td width='20%'><font color='#0000FF'><b></b></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>              					</TABLE>
+				</div>
+			</DIV>
+    <div class='container'>
+        <div class='heading10'>
+            <SPAN class=sectionTitle tabIndex=0>Tests - Test MAPIConnectivity - Public Folder Database</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+	  						<th width='20%'><b>Mailbox Server</b></font></th>
+	  						<th width='20%'><b>Database Name</b></font></th>
+	  						<th width='10%'><b>Result</b></font></th>
+	  						<th width='10%'><b>Latency (ms)</b></font></th>							
+	  						<th width='10%'><b>Error</b></font></th>								
+	  				</tr>
+                    					<tr>						<td width='20%'><font color='#0000FF'><b></b></font></td>						<td width='20%'><font color='#0000FF'><b></b></font></td>						<td width='10%'><font color='#FF0000'><b></b></font></td>						<td width='10%'><font color='#FF0000'><b></b></font></td>						<td width='10%'><font color='#FF0000'><b></b></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>              	</TABLE>
+	            <div>
+        <div>
+    <div class='container'>
+        <div class='heading10'>
+            <SPAN class=sectionTitle tabIndex=0>Tests - Test Outlook Connectivity Protocol HTTP</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+	  						<th width='20%'><b>Client Access Server</b></font></th>
+							<th width='20%'><b>Service Endpoint</b></font></th>
+	  						<th width='30%'><b>Scenario</b></font></th>
+	  						<th width='10%'><b>Result</b></font></th>
+	  						<th width='20%'><b>Latency</b></font></th>						
+	  				</tr>
+                    					<tr>						<td width='20%'><font color='#0000FF'><b></b></font></td>						<td width='20%'><font color='#0000FF'><b></b></font></td>						<td width='30%'><font color='#0000FF'><b></b></font></td>						<td width='10%'><font color='#FF0000'><b></b></font></td>						<td width='20%'><font color='#FF0000'><b></b></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>               
+   					</TABLE>
+				</div>
+			</DIV>
+    <div class='container'>
+        <div class='heading1'>
+            <SPAN class=sectionTitle tabIndex=0>Tests - Test Outlook WebServices</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+	  						<th width='15%'><b>Server Name</b></font></th>					
+	  						<th width='5%'><b>ID</b></font></th>
+							<th width='10%'><b>Type</b></font></th>
+	  						<th width='70%'><b>Message</b></font></th>
+	  				</tr>
+                    					<tr>				        <td width='15%'><font color='#0000FF'><b>VS090</b></font></td>						<td width='5%'><font color='#0000FF'><b></b></font></td>						<td width='10%'><font color='#0000FF'><b></b></font></td>						<td width='70%'><font color='#0000FF'><b></b></font></td>					<tr>					<th width='100%'><b>____________________________________________________________________________________________________________________________________________</b></font></th>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>              					</TABLE>
+				</div>
+			</DIV>
+    <div class='container'>
+        <div class='heading10'>
+            <SPAN class=sectionTitle tabIndex=0>Tests - Test PowershellConnectivity</SPAN>
+            <a class='expando' href='#'></a>
+        </div>
+        <div class='container'>
+            <div class='tableDetail'>
+                <table>
+	  				<tr>
+	  						<th width='15%'><b>Server Name</b></font></th>					
+	  						<th width='10%'><b>Local Site</b></font></th>
+							<th width='10%'><b>Scenario</b></font></th>
+	  						<th width='10%'><b>Result</b></font></th>
+							<th width='10%'><b>Latency(MS)</b></font></th>
+	  						<th width='450%'><b>Error</b></font></th>
+					</tr>
+                    					<tr>				        <td width='15%'><font color='#FF0000'><b></b></font></td>						<td width='10%'><font color='#FF0000'><b></b></font></td>						<td width='10%'><font color='#FF0000'><b></b></font></td>						<td width='10%'><font color='#FF0000'><b></b></font></td>						<td width='10%'><font color='#FF0000'><b></b></font></td>						<td width='45%'><font color='#FF0000'><b></b></font></td>					</tr>
+                </table>
+            </div>
+        </div>
+        <div class='filler'></div>
+    </div>              <p><b><hr size="2" color="#FF0000"><font face="Arial" size="1"color="#000000"><hr size="4" color="#FF00000"></font></p>			 </BODY> </HTML>
