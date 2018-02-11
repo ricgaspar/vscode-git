@@ -1,0 +1,14 @@
+
+Softerra LDAP Browser HOWTO
+-----------------------------
+How to connect to a NTDS service.
+
+Host = name of a NTDS domain controller
+Port = 389
+Protocol version = 3
+Base DN = root of the NTDS domain 
+          example: DC=nedcar,DC=nl
+User DN = your user account in the NTDS
+          regular user accounts          : CN=<account>,CN=Users,DC=nedcar,DC=nl
+	  or accounts in a specific OU   : CN=<account>,OU=Enterprise Administration,DC=nedcar,DC=nl
+Password = your domain password

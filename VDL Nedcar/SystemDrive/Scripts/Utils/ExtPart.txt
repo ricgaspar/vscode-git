@@ -1,0 +1,78 @@
+==================================================================
+
+Dell ExtPart - Utility to Extend Basic Disks
+
+==================================================================
+--------
+Contents
+--------
+
+I.    Features of ExtPart
+II.   Requirements/Limitations
+III.  Before you begin
+IV.   Installation Instructions
+V.    Extending basic disks using extpart
+VI.   Usage
+
+----------------------------------------------
+I. FEATURES OF EXTPART
+----------------------------------------------
+The ExtPart utility provides support for online volume expansion of NTFS formatted basic disks in stand-alone or Dell cluster configurations with Dell OpenManage Array Manager installed.
+
+----------------------------------------------
+II. REQUIREMENTS/LIMITATIONS
+----------------------------------------------
+Dell PowerVault/PowerEdge stand-alone or Cluster SE400, FE300 or FE400 configuration.
+
+Disk Type:  Basic
+Disk Formatted: NTFS
+Minimum expansion: 8MB
+PowerVault Systems: 750, 755, 770, 775
+
+----------------------------------------------
+III. BEFORE YOU BEGIN
+----------------------------------------------
+Before installing ExtPart and extending a volume, ensure that you have a working backup of your operating system. This will allow you to quickly restore the previous operating system configuration in the event that you need to troubleshoot your system. See your System Administrator's Guide for more information on creating a system state backup.
+
+----------------------------------------------
+IV. INSTALLATION INSTRUCTIONS
+----------------------------------------------
+*NOTE: To perform the procedures in this section on a Dell PowerVault NAS stand-alone or cluster system, you must use the Terminal Services Advanced Client or attach a keyboard, mouse and monitor to the system.
+
+To install the utility, perform the following steps:
+
+1) Download the self-extracting executable ExtPart.exe from support.dell.com.
+2) Run the self-extracting executable to extract the utility (extpart.exe) to the hard disk of your system. The default extract location is c:\dell\ExtPart.
+
+----------------------------------------------
+V. EXTENDING A BASIC DISK USING EXTPART
+----------------------------------------------
+
+1) From the Start Menu select Run.
+2) Type 'cmd' and click OK to run the command line utility.
+3) Change directories to c:\dell\ExtPart or the location the utility extpart.exe was extracted.
+
+----------------------------------------------
+VI. USAGE
+----------------------------------------------
+extpart [volume size]
+volume - the volume to extend. e.g. f:, g:, etc (only basic volumes)
+size - the size in megabytes by which to extend the volume.
+
+Example:
+To extend the g: volume by 1 GB (1024 MB) use the following command:
+extpart g: 1024 
+
+
+
+------------------------------------------------------------------
+
+Information in this document is subject to change without notice.
+(c) 2003 Dell Inc.  All rights reserved.
+
+Trademarks used in this text: Dell, the DELL logo, PowerEdge and PowerVault are trademarks of Dell; Other trademarks and trade names may be used in this document to refer to either the entities claiming the marks and names or their products. Dell Inc. disclaims any proprietary interest
+in trademarks and trade names other than its own.
+
+June, 2003
+
+

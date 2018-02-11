@@ -1,0 +1,198 @@
+<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				height: 100%;
+				max-height: 100%;
+				font-family: Arial, Verdana, sans-serif;
+				font-size: 16px;
+				font-style: normal;
+				font-weight: normal;
+				font-stretch: normal;
+				line-height: 1.5em;
+			}
+
+			html, html a {
+				-webkit-font-smoothing: antialiased !important;
+				text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+			}			
+
+			main {
+				position: fixed;
+				top: 77px; /* Set this to the height of the header */
+				bottom: 120px; /* Set this to the height of the footer */
+				left: 100px;
+				right: 500px;
+				overflow: auto;
+			}
+
+			#header {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 77px;
+				overflow: hidden; 
+				background: #002446;
+				background-image: url(/img/header.png);
+				background-repeat: no-repeat;
+			}
+
+			#footer {
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				height: 120px;				
+				overflow: hidden; 
+				background: #002446;
+				background-image: url(/img/footer.png);
+				background-repeat: no-repeat;
+				background-position: bottom right;
+			}
+
+			#left {
+				position: absolute;
+				top: 77px; /* Set this to the height of the header */
+				bottom: 120px; /* Set this to the height of the footer */
+				left: 0;
+				width: 100px;
+				overflow: auto; 
+				background: #002446;
+			}
+
+			#right {
+				position: absolute;
+				top: 77px; /* Set this to the height of the header */
+				bottom: 120px; /* Set this to the height of the footer */
+				right: 0;
+				width: 450px;
+				padding: 40px 0px 0px 40px;
+				overflow: auto; 
+				background: #fff;
+			}
+			
+			#uphalf {
+				position: absolute;
+				overflow: auto; 
+				background: #fff;
+				top:50px;
+				left:220px;							
+			}
+			
+			#downhalf {
+				position: absolute;
+				overflow: auto; 
+				background: #fff;
+				top: 412px; 
+			}
+
+			.innertube {
+				margin: 0px; /* Provides padding for the content */
+			}
+
+			.tg {
+				border-collapse: collapse;
+				border-spacing: 0;
+			}
+			.tg th {
+				font-family: Arial, Verdana, sans-serif;
+				font-size: 26px;
+				font-weight: normal;
+				padding: 30px 15px 5px 15px;
+				border-style: solid #002446;			
+				border-bottom: 1pt solid #002446;
+				overflow: hidden;
+				word-break: normal;
+			}
+			.tg td {
+				font-family: Arial, Verdana, sans-serif;
+				font-size: 20px;
+				padding: 10px 20px;
+				border-style: 0pt solid #002446;
+				border-top: 0pt solid #002446;				
+				overflow: hidden;
+				word-break: normal;	
+				line-height:1.3em;			
+			}	
+			.tg .tg-center {
+				text-align: center
+			}			
+			.tg .tg-right {
+				text-align: right
+			}			
+			.tg .tg-left {
+				text-align: left
+			}
+			
+			
+			.tf {
+				border-collapse: collapse;
+				border-spacing: 0;				
+				border: 1pt dotted #c0c0c0;
+			}
+			
+			.tf th {
+				font-family: Arial, Verdana, sans-serif;
+				font-size: 26px;
+				font-weight: normal;
+				padding: 5px 5px 5px 5px;				
+				border: 1pt dotted #c0c0c0;				
+				overflow: hidden;
+				word-break: normal;
+			}
+			
+			.tf td {
+				font-family: Arial, Verdana, sans-serif;				
+				font-size: 18px;
+				font-weight: normal;
+				border-top: 0pt;
+				border-left: 0pt dotted #c0c0c0;
+				border-right: 1pt dotted #c0c0c0; 
+				border-bottom: 0pt;
+				padding: 5px 5px 5px 5px;
+				overflow: hidden;
+				word-break: normal;					
+			}
+			
+			.tf .tf-center {
+				text-align: center
+			}			
+			.tf .tf-right {
+				text-align: right
+			}			
+			.tf .tf-left {
+				text-align: left
+			}
+
+			p {
+				color: #002446;
+				font-family: Arial, Verdana, sans-serif;
+				font-size: 20px;
+				font-style: normal;
+				font-weight: normal;
+			}
+
+			nav ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			nav ul a {
+				color: darkgreen;
+				text-decoration: none;
+			}
+
+			/*IE6 fix*/
+			* html body {
+				padding: 77px 120px 50px 200px; /* Set the first value to the height of the header, the second value to the width of the right column, third value to the height of the footer, and last value to the width of the left column */
+			}
+
+			* html main {
+				height: 100%;
+				width: 100%;
+			}			
+
+		</style>

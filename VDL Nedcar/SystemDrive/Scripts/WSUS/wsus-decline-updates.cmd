@@ -1,0 +1,2 @@
+rem @powershell -ExecutionPolicy ByPass -file "C:\Scripts\WSUS\Decline-SupersededUpdates.ps1" -UpdateServer S007 -Port 8530
+@powershell -ExecutionPolicy ByPass -file "C:\Scripts\WSUS\Decline-OtherUpdates.ps1" -UpdateServer S007 -Port 8530

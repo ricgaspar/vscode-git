@@ -1,0 +1,20 @@
+------------------------------------------------------------------------	
+netsh dhcp server \\dc08.nedcar.nl show dnsconfig - Displays the DNS dynamic update configuration for the server.
+
+Dynamic update of DNS client information    : Enabled
+
+Forward and Reverse name lookups can be updated when a
+client acquires a lease : Update according to Client Request.
+
+Options :
+Discard forward lookups when leases expires : Enabled.
+Do update for non-dynamic DNS clients       : Disabled
+
+Command completed successfully.
+------------------------------------------------------------------------	
+netsh dhcp server \\dc08.nedcar.nl show dnscredentials - Displays the currently set DNS credentials.
+
+The credentials used for DNS Dynamic registrations:
+	User Name  : dhcpuser
+	Domain     : NEDCAR
+------------------------------------------------------------------------	

@@ -1,0 +1,10 @@
+
+Output naar scherm
+
+Get-MessageTrackingLog -resultsize unlimited -start (get-Date).addhours(-1) |where-object {$_.recipients -match "gmail.com"} |select-object -property timestamp, sender, recipients
+
+Output naar file
+
+Get-MessageTrackingLog -resultsize unlimited -start (get-Date).addhours(-24) |where-object {$_.recipients -match "gmail.com"} |export-csv -path c:\export.txt
+
+Get-MessageTrackingLog -resultsize unlimited -start (get-Date).addhours(-4) |where-object {$_.recipients -match "gmail.com"} |select-object -property {$_.timestamp}, {$_.sender}, {$_.recipients} |export-csv -path c:\export.txt

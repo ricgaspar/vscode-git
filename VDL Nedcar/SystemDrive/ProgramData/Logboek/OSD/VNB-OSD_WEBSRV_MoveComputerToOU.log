@@ -1,0 +1,38 @@
+<![LOG[Calling webservice.]LOG]!><time="08:35:38.009+60" date="11-16-2016" component="DynamicApplicationsList" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[URI: http://vs004.nedcar.nl/ADWebService/ad.asmx?op]LOG]!><time="08:35:38.025+60" date="11-16-2016" component="DynamicApplicationsList" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[Action: MoveComputerToOU]LOG]!><time="08:35:38.369+60" date="11-16-2016" component="DynamicApplicationsList" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[Computername: dfsd]LOG]!><time="08:35:38.384+60" date="11-16-2016" component="DynamicApplicationsList" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[OU: sdf]LOG]!><time="08:35:38.400+60" date="11-16-2016" component="DynamicApplicationsList" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[Result: True]LOG]!><time="08:35:38.494+60" date="11-16-2016" component="DynamicApplicationsList" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[Calling webservice.]LOG]!><time="08:36:20.395+60" date="11-16-2016" component="DynamicApplicationsList" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[URI: http://vs004.nedcar.nl/ADWebService/ad.asmx?op]LOG]!><time="08:36:20.504+60" date="11-16-2016" component="DynamicApplicationsList" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[Action: MoveComputerToOU]LOG]!><time="08:36:20.848+60" date="11-16-2016" component="DynamicApplicationsList" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[Computername: sdfsdf]LOG]!><time="08:36:20.864+60" date="11-16-2016" component="DynamicApplicationsList" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[OU: sdf]LOG]!><time="08:36:20.864+60" date="11-16-2016" component="DynamicApplicationsList" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[Result: True]LOG]!><time="08:36:20.973+60" date="11-16-2016" component="DynamicApplicationsList" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[Calling webservice.]LOG]!><time="08:42:40.580+60" date="11-16-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[URI: http://vs004.nedcar.nl/ADWebService/ad.asmx?op]LOG]!><time="08:42:40.595+60" date="11-16-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[Action: MoveComputerToOU]LOG]!><time="08:42:57.540+60" date="11-16-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[Computername: VDLNC01780]LOG]!><time="08:42:57.555+60" date="11-16-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[OU: d]LOG]!><time="08:42:57.571+60" date="11-16-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[Result: False]LOG]!><time="08:43:02.227+60" date="11-16-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[Calling webservice.]LOG]!><time="08:44:51.729+60" date="11-16-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[URI: http://vs004.nedcar.nl/ADWebService/ad.asmx?op]LOG]!><time="08:44:51.760+60" date="11-16-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[Action: MoveComputerToOU]LOG]!><time="08:44:52.057+60" date="11-16-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[Computername: VDLNC01780]LOG]!><time="08:44:52.057+60" date="11-16-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[OU: OU=Pilot_Systems,OU=Win7,OU=Clients,DC=nedcar,DC=nl]LOG]!><time="08:44:52.073+60" date="11-16-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[Result: True]LOG]!><time="08:44:52.354+60" date="11-16-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[Calling webservice.]LOG]!><time="08:47:33.196+60" date="11-16-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[URI: http://vs004.nedcar.nl/ADWebService/ad.asmx?op]LOG]!><time="08:47:33.227+60" date="11-16-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[Action: MoveComputerToOU]LOG]!><time="08:47:34.258+60" date="11-16-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[Computername: VDLNC01780]LOG]!><time="08:47:34.258+60" date="11-16-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[OU: OU=Test_Systems,OU=Win7,OU=Clients,DC=nedcar,DC=nl]LOG]!><time="08:47:34.274+60" date="11-16-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[Web result: True]LOG]!><time="08:47:34.415+60" date="11-16-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[Return value: 0]LOG]!><time="08:47:34.430+60" date="11-16-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6948" file="">
+<![LOG[Activate balanced power scheme.]LOG]!><time="11:14:13.884+60" date="11-18-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6720" file="">
+<![LOG[Activate balanced power scheme.]LOG]!><time="11:52:17.176+60" date="11-18-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6720" file="">
+<![LOG[Activate balanced power scheme.]LOG]!><time="12:58:09.172+60" date="11-18-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6720" file="">
+<![LOG[Activate balanced power scheme.]LOG]!><time="13:01:25.630+60" date="11-18-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6720" file="">
+<![LOG[Activate balanced power scheme.]LOG]!><time="13:06:15.133+60" date="11-18-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6720" file="">
+<![LOG[Activate balanced power scheme.]LOG]!><time="13:06:53.486+60" date="11-18-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6720" file="">
+<![LOG[Activate balanced power scheme.]LOG]!><time="13:07:37.026+60" date="11-18-2016" component="MoveComputerToOU" context="NEDCAR\MJ90624" type="1" thread="6720" file="">

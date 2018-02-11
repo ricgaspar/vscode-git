@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- VDL Nedcar Windows server standaard -->
+<!-- Author: Marcel Jussen -->
+<!-- 7-7-2014 -->
+<files>
+	<file path="C:\Scripts\Config\create_vols.cmd"></file>
+	<file path="C:\Scripts\Config\DISKPART.exe"></file>
+	<file path="C:\Scripts\Config\w2k_vols.part"></file>
+	<file path="C:\Scripts\Config\configure_TSM.ps1"></file>
+	<file path="C:\Scripts\Config\configure-ScheduledTasks.ps1"></file>
+	<file path="C:\Scripts\Config\ScheduledTasks\configure-ScheduledTasks.ps1"></file>
+	<file path="C:\Scripts\Config\SNMP\configure_snmp.ps1"></file>
+
+	<file path="C:\Scripts\Acties\wu-client-cleanup.cmd" os_versions="6.1,6.2,6.3"></file>
+	<file path="C:\Scripts\Acties\ncstd-config.cmd" os_versions="6.1,6.2,6.3"></file>
+	<file path="C:\Scripts\Acties\ApolloDumpCleanup.cmd" os_versions="6.1,6.2,6.3"></file>		
+</files>

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type='text/xsl' href='style.xsl'?>
+<cleanup description="File system cleanup conversion" version="2.0.1" type="PROD" logfile="C:\Scripts\Cleanup\Cleanup.log" append="false">
+	<!--This file is the result of a conversion that took place on 01/12/2016 14:26:25-->
+	<fsobject description="File system object" type="FILES" path="C:\inetpub\logs\LogFiles\W3SVC1" age="93" keep="100" comment="Converted from C:\Scripts\Cleanup\w3svc.ini" />
+</cleanup>

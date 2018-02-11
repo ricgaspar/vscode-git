@@ -1,0 +1,47 @@
+*** Exclude TSM Journal files ***
+EXCLUDE *:\...\*.jdbInc.jbbdb
+EXCLUDE *:\...\*.jdb.jbbdb
+
+*** Exclude user profile locked files ***
+EXCLUDE "*:\Documents and settings\...\ntuser.dat.LOG"
+EXCLUDE "*:\Documents and settings\...\ntuser.dat"
+EXCLUDE "*:\Documents and settings\...\usrclass.dat.LOG"
+EXCLUDE "*:\Documents and settings\...\usrclass.dat"
+EXCLUDE.DIR "*:\Documents and Settings\...\Temp"
+
+*** Exclude windows databases (Wins/dhcp) ***
+EXCLUDE.DIR "*:\...\system32\wins"
+EXCLUDE.DIR "*:\...\system32\LServer"
+EXCLUDE.DIR "*:\...\system32\dhcp"
+EXCLUDE.DIR "*:\...\system32\config"
+
+*** Exclude system folders/cache ***
+EXCLUDE.DIR "*:\Recycled"
+EXCLUDE.DIR "*:\Recycler"
+EXCLUDE.DIR "*:\System volume information"
+EXCLUDE.DIR "*:\...\System32\perflib*.dat"
+EXCLUDE.DIR "*:\...\Temporary internet files"
+
+*** Exclude pagefile/system files ***
+EXCLUDE "*:\...\pagefile.sys"
+EXCLUDE "*:\...\ibmbio.com"
+EXCLUDE "*:\ibmdos.com"
+EXCLUDE "*:\msdos.sys"
+EXCLUDE "*:\io.sys"
+
+*** Exclude Temp folders ***
+EXCLUDE.DIR "*:\...\temp"
+EXCLUDE.DIR "*:\...\ccmcache"
+EXCLUDE.DIR "*:\...\ccmsetup"
+EXCLUDE.DIR "*:\...\SoftwareDistribution"
+
+*** Exclude system folders/cache ***
+EXCLUDE.DIR "*:\Recycled"
+EXCLUDE.DIR "*:\Recycler"
+EXCLUDE.DIR "*:\System volume information"
+EXCLUDE.DIR "*:\...\system32\config\*.LOG*"
+EXCLUDE.DIR "*:\...\system32\LogFiles\...\*"
+
+*** Exclude NedCar Trend folder and driver ***
+EXCLUDE.DIR "*:\...\trend"
+EXCLUDE *:\...\system32\drivers\sptd*.sys

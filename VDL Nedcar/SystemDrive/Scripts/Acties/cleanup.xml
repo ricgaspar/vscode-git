@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type='text/xsl' href='style.xsl'?>
+<!-- 
+	VDL Nedcar Information Management
+	Marcel Jussen
+-->
+<cleanup 
+	description="System default cleanup"
+	version="02-05-2017"
+	type="PROD"
+	logfile="%SYSTEMDRIVE%\Logboek\Cleanup\Cleanup-System.log"
+	append="false">
+	<!--
+		This is the default cleanup configuration which is executed on all server systems
+		Do NOT alter this document as it is frequently updated by a Domain GPO.
+	-->
+	<fsobject description="Cleanup TMP" type="ALL" path="%SYSTEMROOT%\TMP" age="1" />
+	<fsobject description="Cleanup TMP" type="ALL" path="%SYSTEMDRIVE%\TMP" age="1" />
+	<fsobject description="Cleanup TEMP" type="ALL" path="%SYSTEMROOT%\TEMP" age="1" />
+	<fsobject description="Cleanup TEMP" type="ALL" path="%SYSTEMDRIVE%\TEMP" age="1" />
+	<fsobject description="Cleanup IIS default log folder" type="FILES" path="%SYSTEMDRIVE%\inetpub\logs\LogFiles" age="90" keep="100" />
+	<fsobject description="Cleanup TEMP System profile" type="ALL" path="%SYSTEMDRIVE%\Windows\system32\config\systemprofile\Local Settings\Temp" age="2" />
+
+	<fsobject description="Cleanup logboek root folder only" type="FILES_NORECURSE" path="%SYSTEMDRIVE%\Logboek" age="30" />
+	<fsobject description="Cleanup logboek cleanup folder only" type="FILES" path="%SYSTEMDRIVE%\Logboek\Cleanup" age="30" />
+	<fsobject description="Remove cleanup conversion files" type="FILES" path="%SYSTEMDRIVE%\Scripts\Acties" include="*.in_" age="90"/>
+	<fsobject description="Remove cleanup conversion files" type="FILES" path="%SYSTEMDRIVE%\Scripts\Cleanup" include="*.do_not_use.*" age="90"/>
+	<fsobject description="Remove cleanup conversion files" type="FILES" path="%SYSTEMDRIVE%\Scripts\Config" include="*.msi" age="30"/>
+
+	<!--
+		TrendMicro Office Scan
+	-->
+	<fsobject description="Cleanup TrendMicro" type="FILES_NORECURSE" path="%ProgramFiles%\Trend Micro\OfficeScan Client" include="icrc$oth.*" keep="3" age="5" comment="Remove unused pattern files"/>
+	<fsobject description="Cleanup TrendMicro" type="FILES_NORECURSE" path="%ProgramFiles(x86)%\Trend Micro\OfficeScan Client" include="icrc$oth.*" keep="3" age="5" comment="Remove unused pattern files"/>
+	<fsobject description="Cleanup TrendMicro" type="FILES_NORECURSE" path="%ProgramFiles(x86)%\Trend Micro\OfficeScan Client" include="lpt$vpn.*" keep="3" age="5" comment="Remove unused pattern files"/>
+	<fsobject description="Cleanup TrendMicro" type="FILES_NORECURSE" path="%ProgramFiles%\Trend Micro\OfficeScan Client" include="lpt$vpn.*" keep="3" age="5" comment="Remove unused pattern files"/>
+	<fsobject description="Cleanup TrendMicro" type="FILES_NORECURSE" path="%ProgramFiles(x86)%\Trend Micro\OfficeScan Client" include="cnp*.ptn" keep="3" age="5" comment="Remove unused pattern files"/>
+	<fsobject description="Cleanup TrendMicro" type="FILES_NORECURSE" path="%ProgramFiles%\Trend Micro\OfficeScan Client" include="cnp*.ptn" keep="3" age="5" comment="Remove unused pattern files"/>
+	<fsobject description="Cleanup TrendMicro" type="FILES_NORECURSE" path="%ProgramFiles(x86)%\Trend Micro\OfficeScan Client" include="re*.ptn" keep="3" age="5" comment="Remove unused pattern files"/>
+	<fsobject description="Cleanup TrendMicro" type="FILES_NORECURSE" path="%ProgramFiles%\Trend Micro\OfficeScan Client" include="re*.ptn" keep="3" age="5" comment="Remove unused pattern files"/>
+
+</cleanup>

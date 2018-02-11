@@ -1,0 +1,84 @@
+<![LOG[Started script]LOG]!><time="10:51:47.595+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[OS Version: Microsoft Windows 8.1 Pro]LOG]!><time="10:51:47.798+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Creating custom plan 'VDL Nedcar Power Plan' with guid '67454184-18c1-4f75-bd3d-b40e49e7ee95']LOG]!><time="10:51:47.876+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Export plan with GUID: 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c]LOG]!><time="10:51:47.923+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Import plan with GUID: 67454184-18c1-4f75-bd3d-b40e49e7ee95]LOG]!><time="10:51:48.079+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Naming plan to "VDL Nedcar Power Plan" ]LOG]!><time="10:51:48.251+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Enforce 'Require password on wake up' on all power plans.]LOG]!><time="10:51:48.298+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Define properties for the custom power plan.]LOG]!><time="10:51:49.939+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Subgroup: Hard disk]LOG]!><time="10:51:49.954+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Turn off hard disk after : AC=0 (0)]LOG]!><time="10:51:50.111+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Turn off hard disk after : DC=1200 (1200)]LOG]!><time="10:51:50.345+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Subgroup: Wireless Adapter Settings]LOG]!><time="10:51:50.517+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Power Saving Mode : AC=Maximum Performance (0)]LOG]!><time="10:51:50.626+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Power Saving Mode : DC=Maximum Performance (0)]LOG]!><time="10:51:50.861+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Subgroup: Sleep]LOG]!><time="10:51:51.033+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Sleep after : AC=0 (0)]LOG]!><time="10:51:51.142+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Sleep after : DC=0 (0)]LOG]!><time="10:51:51.361+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Allow hybrid sleep : AC=On (1)]LOG]!><time="10:51:51.611+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Allow hybrid sleep : DC=On (1)]LOG]!><time="10:51:51.833+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Hibernate after : AC=0 (0)]LOG]!><time="10:51:52.099+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Hibernate after : DC=0 (0)]LOG]!><time="10:51:52.333+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Allow wake timers : AC=Enable (1)]LOG]!><time="10:51:52.568+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Allow wake timers : DC=Enable (1)]LOG]!><time="10:51:52.802+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Subgroup: USB settings]LOG]!><time="10:51:52.989+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[USB selective suspend setting : AC=Disabled (0)]LOG]!><time="10:51:53.130+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[USB selective suspend setting : DC=Disabled (0)]LOG]!><time="10:51:53.364+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[USB 3 Link Power Mangement : AC=Off (0)]LOG]!><time="10:51:53.708+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[USB 3 Link Power Mangement : DC=Off (0)]LOG]!><time="10:51:53.958+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Subgroup: Power buttons and lid]LOG]!><time="10:51:54.130+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Lid close action : AC=Do Nothing (0)]LOG]!><time="10:51:54.224+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Lid close action : DC=Do Nothing (0)]LOG]!><time="10:51:54.458+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Power button action : AC=Shut down (3)]LOG]!><time="10:51:54.708+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Power button action : DC=Shut down (3)]LOG]!><time="10:51:54.943+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Enable forced button/lid shutdown : AC=Off (0)]LOG]!><time="10:51:55.208+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Enable forced button/lid shutdown : DC=Off (0)]LOG]!><time="10:51:55.427+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Sleep button action : AC=Sleep (1)]LOG]!><time="10:51:55.693+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Sleep button action : DC=Sleep (1)]LOG]!><time="10:51:55.943+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Subgroup: PCI Express]LOG]!><time="10:51:56.114+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Link State Power Management : AC=Off (0)]LOG]!><time="10:51:56.224+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Link State Power Management : DC=Off (0)]LOG]!><time="10:51:56.474+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Subgroup: Processor power management]LOG]!><time="10:51:56.651+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Minimum processor state : AC=100 (100)]LOG]!><time="10:51:56.823+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Minimum processor state : DC=5 (5)]LOG]!><time="10:51:57.057+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[System cooling policy : AC=Active (1)]LOG]!><time="10:51:57.354+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[System cooling policy : DC=Active (1)]LOG]!><time="10:51:57.604+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Maximum processor state : AC=100 (100)]LOG]!><time="10:51:57.901+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Maximum processor state : DC=100 (100)]LOG]!><time="10:51:58.136+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Subgroup: Display]LOG]!><time="10:51:58.292+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Turn off display after : AC=0 (0)]LOG]!><time="10:51:58.401+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Turn off display after : DC=1800 (1800)]LOG]!><time="10:51:58.636+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Display brightness : AC=100 (100)]LOG]!><time="10:51:58.886+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Display brightness : DC=70 (70)]LOG]!><time="10:51:59.120+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Dimmed display brightness : AC=50 (50)]LOG]!><time="10:51:59.370+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Dimmed display brightness : DC=50 (50)]LOG]!><time="10:51:59.636+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Enable adaptive brightness : AC=On (1)]LOG]!><time="10:51:59.886+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Enable adaptive brightness : DC=On (1)]LOG]!><time="10:52:00.120+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Subgroup: Battery]LOG]!><time="10:52:00.292+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Critical battery action : AC=Hibernate (2)]LOG]!><time="10:52:00.401+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Critical battery action : DC=Hibernate (2)]LOG]!><time="10:52:00.839+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Low battery level : AC=10 (10)]LOG]!><time="10:52:01.073+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Low battery level : DC=10 (10)]LOG]!><time="10:52:01.339+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Critical battery level : AC=5 (5)]LOG]!><time="10:52:01.573+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Critical battery level : DC=5 (5)]LOG]!><time="10:52:01.792+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Low battery notification : AC=On (1)]LOG]!><time="10:52:02.042+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Low battery notification : DC=On (1)]LOG]!><time="10:52:02.276+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Low battery action : AC=Do nothing (0)]LOG]!><time="10:52:02.526+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Low battery action : DC=Do nothing (0)]LOG]!><time="10:52:02.761+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Reserve battery level : AC=7 (7)]LOG]!><time="10:52:02.995+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Reserve battery level : DC=7 (7)]LOG]!><time="10:52:03.214+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[The custom plan is activated by request.]LOG]!><time="10:52:03.573+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[NIC Device wakeup is requested by input value EnableNICDeviceWakeup.]LOG]!><time="10:52:03.589+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Enable wakeup device: Intel(R) Ethernet Connection I218-LM]LOG]!><time="10:52:03.667+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Enable wakeup device: Intel(R) Dual Band Wireless-AC 7260]LOG]!><time="10:52:03.863+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Enabling WAKE ON LAN feature on all physical network interfaces.]LOG]!><time="10:52:04.035+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Intel(R) Ethernet Connection I218-LM]LOG]!><time="10:52:04.081+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Disable "Allow the computer to turn off this device to save power" on Intel(R) Ethernet Connection I218-LM ]LOG]!><time="10:52:04.097+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Enable "Allow this device to wake the computer" on Intel(R) Ethernet Connection I218-LM ]LOG]!><time="10:52:06.535+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Enable "Only allow a magic packet to wake the computer" on Intel(R) Ethernet Connection I218-LM ]LOG]!><time="10:52:06.582+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Intel(R) Dual Band Wireless-AC 7260]LOG]!><time="10:52:06.613+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Disable "Allow the computer to turn off this device to save power" on Intel(R) Dual Band Wireless-AC 7260 ]LOG]!><time="10:52:06.628+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Enable "Allow this device to wake the computer" on Intel(R) Dual Band Wireless-AC 7260 ]LOG]!><time="10:52:06.660+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Enable "Only allow a magic packet to wake the computer" on Intel(R) Dual Band Wireless-AC 7260 ]LOG]!><time="10:52:06.691+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Disable video console lock timeout on all OS versions except Windows 7 using the current scheme.]LOG]!><time="10:52:06.722+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">
+<![LOG[Done.]LOG]!><time="10:52:06.800+60" date="01-17-2017" component="SetPowerPlan" context="NEDCAR\MJ90624" type="1" thread="9968" file="">

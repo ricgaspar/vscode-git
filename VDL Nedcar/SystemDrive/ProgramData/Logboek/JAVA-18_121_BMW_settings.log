@@ -1,0 +1,99 @@
+[2017-02-02 15:36:35]: --------------------------------------------------------------------------------
+[2017-02-02 15:36:38]: Source folder: C:\Windows\ccmcache\5m
+[2017-02-02 15:36:38]: --------------------------------------------------------------------------------
+[2017-02-02 15:36:38]: Certificate store : C:\Program Files\Java\jre1.8.0_92\lib\security\cacerts
+[2017-02-02 15:36:46]: Add certificate 'C:\Windows\ccmcache\5m\BMW_Group_Root_CA_V2.cer' to Java certificate store.
+[2017-02-02 15:36:46]: Path to Java certificate store: C:\Program Files\Java\jre1.8.0_92\lib\security\cacerts
+[2017-02-02 15:36:46]: The store exists.
+[2017-02-02 15:36:46]: The certificate exists.
+[2017-02-02 15:36:46]: Using password: 'changeit'
+[2017-02-02 15:36:46]: Using keytool : 'C:\Program Files\Java\jre1.8.0_92\bin\keytool.exe'
+[2017-02-02 15:36:46]: Add certificate 'C:\Windows\ccmcache\5m\BMW_Group_Root_CA_V3.cer' to Java certificate store.
+[2017-02-02 15:36:46]: Path to Java certificate store: C:\Program Files\Java\jre1.8.0_92\lib\security\cacerts
+[2017-02-02 15:36:46]: The store exists.
+[2017-02-02 15:36:46]: The certificate exists.
+[2017-02-02 15:36:46]: Using password: 'changeit'
+[2017-02-02 15:36:46]: Using keytool : 'C:\Program Files\Java\jre1.8.0_92\bin\keytool.exe'
+[2017-02-02 15:36:47]: Add certificate 'C:\Windows\ccmcache\5m\bmwca1.cer' to Java certificate store.
+[2017-02-02 15:36:47]: Path to Java certificate store: C:\Program Files\Java\jre1.8.0_92\lib\security\cacerts
+[2017-02-02 15:36:47]: The store exists.
+[2017-02-02 15:36:47]: The certificate exists.
+[2017-02-02 15:36:47]: Using password: 'changeit'
+[2017-02-02 15:36:47]: Using keytool : 'C:\Program Files\Java\jre1.8.0_92\bin\keytool.exe'
+[2017-02-02 15:36:47]: Policy file : C:\Program Files\Java\jre1.8.0_92\lib\security\java.policy
+[2017-02-02 15:36:47]: Adding rule to policy file.
+[2017-02-02 15:36:47]: Adding rule to policy file.
+[2017-02-02 15:36:47]: Adding rule to policy file.
+[2017-02-02 15:36:47]: Certificate store : C:\Program Files (x86)\Java\jre1.8.0_92\lib\security\cacerts
+[2017-02-02 15:36:52]: Add certificate 'C:\Windows\ccmcache\5m\BMW_Group_Root_CA_V2.cer' to Java certificate store.
+[2017-02-02 15:36:52]: Path to Java certificate store: C:\Program Files (x86)\Java\jre1.8.0_92\lib\security\cacerts
+[2017-02-02 15:36:52]: The store exists.
+[2017-02-02 15:36:52]: The certificate exists.
+[2017-02-02 15:36:52]: Using password: 'changeit'
+[2017-02-02 15:36:52]: Using keytool : 'C:\Program Files (x86)\Java\jre1.8.0_92\bin\keytool.exe'
+[2017-02-02 15:36:54]: Add certificate 'C:\Windows\ccmcache\5m\BMW_Group_Root_CA_V3.cer' to Java certificate store.
+[2017-02-02 15:36:54]: Path to Java certificate store: C:\Program Files (x86)\Java\jre1.8.0_92\lib\security\cacerts
+[2017-02-02 15:36:54]: The store exists.
+[2017-02-02 15:36:54]: The certificate exists.
+[2017-02-02 15:36:54]: Using password: 'changeit'
+[2017-02-02 15:36:54]: Using keytool : 'C:\Program Files (x86)\Java\jre1.8.0_92\bin\keytool.exe'
+[2017-02-02 15:36:55]: Add certificate 'C:\Windows\ccmcache\5m\bmwca1.cer' to Java certificate store.
+[2017-02-02 15:36:55]: Path to Java certificate store: C:\Program Files (x86)\Java\jre1.8.0_92\lib\security\cacerts
+[2017-02-02 15:36:55]: The store exists.
+[2017-02-02 15:36:55]: The certificate exists.
+[2017-02-02 15:36:55]: Using password: 'changeit'
+[2017-02-02 15:36:55]: Using keytool : 'C:\Program Files (x86)\Java\jre1.8.0_92\bin\keytool.exe'
+[2017-02-02 15:36:55]: Policy file : C:\Program Files (x86)\Java\jre1.8.0_92\lib\security\java.policy
+[2017-02-02 15:36:55]: Adding rule to policy file.
+[2017-02-02 15:36:55]: Adding rule to policy file.
+[2017-02-02 15:36:55]: Adding rule to policy file.
+[2017-02-02 15:36:55]: Certificate store : C:\Program Files\Java\jre1.8.0_121\lib\security\cacerts
+[2017-02-02 15:36:56]: Add certificate 'C:\Windows\ccmcache\5m\BMW_Group_Root_CA_V2.cer' to Java certificate store.
+[2017-02-02 15:36:56]: Path to Java certificate store: C:\Program Files\Java\jre1.8.0_121\lib\security\cacerts
+[2017-02-02 15:36:56]: The store exists.
+[2017-02-02 15:36:56]: The certificate exists.
+[2017-02-02 15:36:56]: Using password: 'changeit'
+[2017-02-02 15:36:56]: Using keytool : 'C:\Program Files\Java\jre1.8.0_121\bin\keytool.exe'
+[2017-02-02 15:36:56]: Add certificate 'C:\Windows\ccmcache\5m\BMW_Group_Root_CA_V3.cer' to Java certificate store.
+[2017-02-02 15:36:56]: Path to Java certificate store: C:\Program Files\Java\jre1.8.0_121\lib\security\cacerts
+[2017-02-02 15:36:56]: The store exists.
+[2017-02-02 15:36:56]: The certificate exists.
+[2017-02-02 15:36:56]: Using password: 'changeit'
+[2017-02-02 15:36:56]: Using keytool : 'C:\Program Files\Java\jre1.8.0_121\bin\keytool.exe'
+[2017-02-02 15:36:57]: Add certificate 'C:\Windows\ccmcache\5m\bmwca1.cer' to Java certificate store.
+[2017-02-02 15:36:57]: Path to Java certificate store: C:\Program Files\Java\jre1.8.0_121\lib\security\cacerts
+[2017-02-02 15:36:57]: The store exists.
+[2017-02-02 15:36:57]: The certificate exists.
+[2017-02-02 15:36:57]: Using password: 'changeit'
+[2017-02-02 15:36:57]: Using keytool : 'C:\Program Files\Java\jre1.8.0_121\bin\keytool.exe'
+[2017-02-02 15:36:57]: Policy file : C:\Program Files\Java\jre1.8.0_121\lib\security\java.policy
+[2017-02-02 15:36:57]: Adding rule to policy file.
+[2017-02-02 15:36:57]: Adding rule to policy file.
+[2017-02-02 15:36:57]: Adding rule to policy file.
+[2017-02-02 15:36:57]: Certificate store : C:\Program Files (x86)\Java\jre1.8.0_121\lib\security\cacerts
+[2017-02-02 15:36:58]: Add certificate 'C:\Windows\ccmcache\5m\BMW_Group_Root_CA_V2.cer' to Java certificate store.
+[2017-02-02 15:36:58]: Path to Java certificate store: C:\Program Files (x86)\Java\jre1.8.0_121\lib\security\cacerts
+[2017-02-02 15:36:58]: The store exists.
+[2017-02-02 15:36:58]: The certificate exists.
+[2017-02-02 15:36:58]: Using password: 'changeit'
+[2017-02-02 15:36:58]: Using keytool : 'C:\Program Files (x86)\Java\jre1.8.0_121\bin\keytool.exe'
+[2017-02-02 15:36:58]: Add certificate 'C:\Windows\ccmcache\5m\BMW_Group_Root_CA_V3.cer' to Java certificate store.
+[2017-02-02 15:36:58]: Path to Java certificate store: C:\Program Files (x86)\Java\jre1.8.0_121\lib\security\cacerts
+[2017-02-02 15:36:58]: The store exists.
+[2017-02-02 15:36:58]: The certificate exists.
+[2017-02-02 15:36:58]: Using password: 'changeit'
+[2017-02-02 15:36:58]: Using keytool : 'C:\Program Files (x86)\Java\jre1.8.0_121\bin\keytool.exe'
+[2017-02-02 15:36:58]: Add certificate 'C:\Windows\ccmcache\5m\bmwca1.cer' to Java certificate store.
+[2017-02-02 15:36:58]: Path to Java certificate store: C:\Program Files (x86)\Java\jre1.8.0_121\lib\security\cacerts
+[2017-02-02 15:36:58]: The store exists.
+[2017-02-02 15:36:58]: The certificate exists.
+[2017-02-02 15:36:58]: Using password: 'changeit'
+[2017-02-02 15:36:58]: Using keytool : 'C:\Program Files (x86)\Java\jre1.8.0_121\bin\keytool.exe'
+[2017-02-02 15:36:59]: Policy file : C:\Program Files (x86)\Java\jre1.8.0_121\lib\security\java.policy
+[2017-02-02 15:36:59]: Adding rule to policy file.
+[2017-02-02 15:36:59]: Adding rule to policy file.
+[2017-02-02 15:36:59]: Adding rule to policy file.
+[2017-02-02 15:36:59]: SSLv2Hello setting not found. Append setting to config file.
+[2017-02-02 15:36:59]: --------------------------------------------------------------------------------
+[2017-02-02 15:36:59]: Ended script java_bmw_settings.ps1 from C:\Windows\ccmcache\5m
+[2017-02-02 15:36:59]: --------------------------------------------------------------------------------

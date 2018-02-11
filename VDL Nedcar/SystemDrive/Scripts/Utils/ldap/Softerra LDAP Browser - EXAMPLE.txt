@@ -1,0 +1,20 @@
+Softerra LDAP Browser
+
+Howto - Connect to NTDS service.
+--------------------------------------
+The properties in a profile must be defined as follows:
+
+Host		the DNS name of a NTDS domain controller serving LDAP.
+		example : s150
+		
+Port		the port connecting to LDAP
+		example : 389 (keep default value)
+		
+Base DN		search for the DN you wish to open.
+		example : DC=nedcar,DC=nl
+		
+User DN		the account in NTDS you are using to connect to NTDS/LDAP
+		example : CN=<userid>,OU=Enterprise Administration,DC=nedcar,DC=nl
+		example : CN=<userid>,CN=Users,DC=nedcar,DC=nl 
+		
+Password	the password for the <userid>/User DN

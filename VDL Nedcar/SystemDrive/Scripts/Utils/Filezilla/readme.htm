@@ -1,0 +1,1926 @@
+<html>
+<head>
+  <title>FileZilla Readme</title>
+</head>
+
+<body>
+<p align="center"><b><u>FileZilla version 2.2.32</u></b></p>
+<p align="center">
+  Copyright 2001-2007<br>
+  by <a href="mailto:Tim.Kosse@gmx.de"> Tim Kosse</a><br>
+  <a href="http://sourceforge.net/projects/filezilla/">http://sourceforge.net/projects/filezilla/</a>
+</p>
+<p><u><b>What is FileZilla?</b></u></p>
+<p>
+  FileZilla is a fast FTP client with an easy to use interface which is available in different languages. 
+  The Site Manager, Drag&amp;Drop and the transfer queue help you to control your tasks.
+  FileZilla can connect to almost every FTP server, even if you are behind a firewall or SOCKS proxy.
+  On SFTP servers and servers which support SSL or Kerberos GSS, all traffic can be encrypted.
+</p>
+
+<p><b><u>Features:</u></b></p>
+<ul>
+  <li>Ability to resume Uploads/Downloads (if the server supports it)</li>
+  <li>Custom Commands</li>
+  <li>Site Manager with folders</li>
+  <li>Keep Alive system</li>
+  <li>Timeout detection</li>
+  <li>Firewall support</li>
+  <li>SOCKS4/5 and HTTP1.1 Proxy support</li>
+  <li>SSL secured connections</li>
+  <li>SFTP support</li>
+  <li>Upload/Download Queue</li>
+  <li>Drag&amp;Drop</li>
+  <li>Multi-language support</li>
+  <li>GSS authentication and encryption using Kerberos</li>
+</ul>
+
+<p><b><u>Requirements:</u></b>
+<ul>
+  <li>Windows XP, 2000, 95, 98, NT or ME, (reported to work under Linux with Wine, too)</li>
+  <li>
+    Up-to-Date MFC and Common Controls version.<br>
+    If you get an error message like &quot;<i>A required .DLL file wasn´t
+    found, MFC42.DLL</i>&quot; or &quot;<i>LOADER ERROR: The ordinal 6929 could
+    not be located in the dynamic link library MFC42.DLL</i>&quot; or other
+    startup crashes, you have to update your system DLLs.
+    An update program is available on the 
+    <a href="http://sourceforge.net/project/showfiles.php?group_id=21558&amp;release_id=43873">FileZilla
+    download page</a> (FzDLLUpdate.exe).
+  </li>
+  <li>Kerberos for Windows if you want to use the GSS support.</li>
+</ul>
+
+<p><u><b>Copyright Notice:</b></u></p>
+<p>This program is licensed under the <a href="GPL.html">GPL</a>.</p>
+<p>
+  FileZilla contains parts of the <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY</a> suite -
+  see the PuTTY <a href="puttylicense.html">license</a>.
+  This license affects the sftp stub FzSFtp.exe and all its source files unless otherwise mentioned.
+</p>
+
+<p><b><u>Credits</u> </b>(in chronological order):</p>
+<p>
+  <a href="mailto:Tim.Kosse@gmx.de">Tim Kosse</a> - Project leader<br>
+  Xiaowen Xin - Additional developer<br>
+  Michael Muehldorfer - German translation<br>
+  Piotr Murawski, Rafal Lampe - Polish translation<br>
+  Jose Brito - Spanish translation<br>
+  Fabien Illide - French translation<br>
+  Simon Tatham and his team for
+  <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/">PuTTY</a><br>
+  Andrea Sanavia - Italian translation<br>
+  Asparouh Kalyandjiev - Bulgarian translation<br>
+  Bata György - Hungarian translation<br>
+  'Doberman' - Additional developer<br>
+  Yuan Chia Fu - Traditional Chinese translation<br>
+  Roman Ruckschloss - Additional developer<br>
+  'Thunder White' - Simplified Chinese translation<br>
+  Philippe Curtil - French translation of documentation<br>
+  Takashi Yamaguchi - Japanese translation<br>
+  'Sergey' - Russian translation<br>
+  Kim Jinwook - Korean translation<br>
+  Eirik Hodne - Norwegian translation<br>
+  Vojtech Sazel - Czech translation<br>
+  Oscar Martinez - Catalan translation<br>
+  Malin - Slovak translation<br>
+  Yi-Kwan Chen - patch for IPv6 support<br>
+  Chen-hsiu Huang - some patches<br>
+  Tommy Wu - UTF8 support patch
+</p>
+<p>
+  <u>Special thanks to:</u><br>
+  Christian Brueffer and Max Moellers for the idea of writing a FTP client<br>
+  <a href="http://www.codeproject.com">CodeProject</a> and
+  <a href="http://www.codeguru.com">Codeguru</a> - good pages for VC++ developers,
+  thanks for the great articles!<br>
+  Everybody else who helped to improve FileZilla by reporting bugs or for their
+  suggestions
+</p>
+
+<p><u><b>Version History:</b></u></p>
+<p><i>
+  (For a complete list of changes, 
+  please read <a href="http://filezilla.sourceforge.net/changelog.php">http://filezilla.sourceforge.net/changelog.php</a>)
+</i></p>
+<p><b>Version 2.2.32</b></p>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Fix format string vulnerabilities</li>
+    <li>Fix nullpointer dereferences</li>
+  </ul>
+<p><b>Version 2.2.31</b></p>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Fix memory corruption problem in connection retry code, could cause crashes</li>
+    <li>Fix compatibility with Connect:Enterprise server</li>
+  </ul>
+<p><b>Version 2.2.30</b></p>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Fixed buffer overflow in transfer queue</li>
+    <li>Fixed buffer overflow if using registry to store settings</li>
+    <li>Local file list could freeze and stop responding</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.29</b></p>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Fixed SSL error causing transfer failures</li>
+    <li>Fixed -overwrite commandline option</li>
+    <li>Compatibility fix for servers sending Italian monthnames</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.28</b></p>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Updated to OpenSSL 0.9.8d due to security vulnerabilites in OpenSSL</li>
+    <li>Fix registry storage issue with Site Manager causing string truncation</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.27</b></p>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Compatibility improvements for directorylisting parser</li>
+    <li>Fix reading of settings from HKLM</li>
+    <li>transfer progress for MODE Z downloads was incorrect</li>
+    <li>Improper handling of sticky bit in CHMOD dialog</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.26</b></p>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Fix problem where transfers were incorrectly resumed.</li>
+    <li>Compatibility problem with servers sending 4yz reply code to MKD command</li>
+    <li>Local drag&drop operations didn't move all files</li>
+    <li>Timezone offset not stored properly for reconnect button (revised in 2.2.26a)</li>
+    <li>Fix issue with remembering maximized state</li>
+    <li>Round filesizes up if needed</li>
+    <li>Fix for quoted argument for -config commandline parameter (2.2.26a)</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.25</b></p>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Crash in speedlimit code</li>
+    <li>Fix problem with creating the data connection if both using SSL and a custom port range</li>
+    <li>Proper handling of URLs of the form ftp://user@host in quickconnect bar</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.24</b></p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>Local directory tree now displays "Desktop" and "My Documents". (Patch #1492243 by cole945)</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Fall back to local charset if login data contains non-ascii characters and login fails. Fixes compatiblity with non-UTF8 aware servers</li>
+    <li>Fix speed limits, limit could get exceeded if three or more files were transferred simultaneously.</li>
+    <li>Fix compability with non-standard desktop locations (2.2.24a)</li>
+    <li>Fix NT4 compatibility (2.2.24b)</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.23</b></p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>Now using Unicode internally. As result, no longer runs on Windows 9x/ME. This should fix every charset conversion issue as long as the server supports UTF8.</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Fix critical buffer overflow. Remote code execution might have been possible if connecting to a malicious server.</li>
+    <li>Fix performance issues on systems with more than one CPU.</li>
+    <li>Fix problem with UTF-8 detection (2.2.23a)</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.22</b></p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>Added menu entry to clear quickconnect history</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Queue pane no longer vanishes if FileZilla gets minimized and restored</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.21</b></p>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>File truncation problem with SSL uploads</li>
+    <li>Use port 990 if host is prefixed with ftps:// in quickconnect bar</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.20</b></p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>Added /quit command-line parameter to close all open instances of FileZilla</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Queue pane should no longer shrink if remembering window size and position</li>
+    <li>/config now properly expands environment variables</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.19</b></p>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Fixed problem with SSL transfers aborting or even crashing the server.</li>
+    <li>Improved CLNT command detection for UTF-8 support</li>
+    <li>Fix SSL rekeying</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.18</b></p>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Fix infinite loop in local directory tree on mapped drives with case-sensitive filesystem</li>
+    <li>Supports some more localized directory listing formats</li>
+    <li>Clear pending messages if destroying socket</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.17a</b></p>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Don't resolve hostnames if using SOCKS4A, SOCKS5 or HTTP proxies</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.17</b></p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>Support for servers needing an account for successful logon using ACCT command</li>
+    <li>experimental support for BS-2000 servers</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>On servers sending nonstandard directory listings, files did not display if their filetime was between 0:00 and 0:59</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.16</b></p>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Fix parsing of URLs of the form ftp://user@host in the quickconnect bar</li>
+    <li>Create empty directories if dropping files from Windows Explorer into FileZilla</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.15</b>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Fixed crash on directory refresh while editing filename</li>
+    <li>Some users didn't see file icons in the remote filelist</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.14b</b>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Setting a speed limit while a file was being uploaded could abort the transfer</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.14a</b>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Fixed a few crashes</li>
+    <li>Compatibility fixes for MVS type servers</li>
+    <li>Incorrect sorting in Site Manager</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.14</b>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>Add option to set default anonymous login password</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Crash if loading corrupted queue items</li>
+    <li>Compatibility with servers not understanding CDUP</li>
+    <li>Some typos and other minor fixes</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.13c</b>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>PROT command was not sent if using implicit SSL</li>
+    <li>Move TYPE command before PORT/PASV command</li>
+    <li>If showing Site Manager on startup, main window did not always appear</li>
+  </ul>
+</blockquote>
+<p><b>version 2.2.13b</b>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Connection freeze after SSL Initialization</li>
+    <li>If taskbar was not at the bottom or right of the screen, window size was not remembered correctly</li>
+    <li>Fixed parsing of files with times between 0:00 and 0:59 in old vshell style listings</li>
+  </ul>
+</blockquote>
+<p><b>version 2.2.13</b>
+<blockquote>
+  <p><u>Improved features:</u></p>
+  <ul>
+    <li>
+      Changed automatic refresh of local file list:  
+      <ul>
+        <li>Refresh unconditonally if a file has been added, removed or renamed<li>
+        <li>If file size or last write time changes, refresh only if FileZilla gets the focus</li>
+      </ul>
+    </li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Some servers require the CLNT command before UTF-8 support works</li>
+    <li>Time based speed limit rules over midnight did not work as intended</li>
+    <li>Fixed a small problem which could cause downloads of file to timeout if using speed limits</li>
+    <li>Splitter positions were not saved correctly, causing queue pane size to change between restarts</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.12c:</b>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>UTF-8 settings were not saved for reconnect button</li>
+    <li>Disable UTF-8 on some really broken servers which refuse to send valid UTF-8 strings even if explicitly requested.</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.12b:</b>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>UTF-8 support can be controlled manually for each server in the Site Manager</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+      Handle UTF8 on broken servers that disobey RFC 2640. They have UTF8 in the FEAT response but do not use UTF8 unless OPTS UTF8 ON gets send.
+      Broken servers are, amongst others, G6 FTP Server and RaidenFTPd.
+    </li>
+    <li>Crash if queue caused a refresh of a local file in the list while scanning a directory.</li>
+    <li>Fixed buffer overflow and memory leak introduced in 2.2.12</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.12:</b>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>Local file list refreshes automatically on changes, patch by Chen-hsiu Huang</li>
+    <li>UTF8 support on servers supporting it, patch by Tommy Wu</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Updated SSL/TLS handling class</li>
+    <li>Pausing files in queue did not work properly</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.11:</b>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Critical security vulnerability in PuTTY. Details available on PuTTY homepage</li>
+    <li>Ascii files could become truncated on file uploads if a speed limit was set</li>
+  <ul>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.10:</b>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>If server does not allow resuming, prompt for file exists action if APPE fails</li>
+    <li>Add support for unix style directory listings with named size information (e.g. 7.5k)</li>
+    <li>Parsing VxWorks type listings did not work properly</li>
+    <li>fixed some crashes</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.9:</b>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+      Fixed critical security issue in SFTP code caused by security vulnetability in PuTTY.
+      Please read <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/wishlist/vuln-ssh2-debug.html">
+                     http://www.chiark.greenend.org.uk/~sgtatham/putty/wishlist/vuln-ssh2-debug.html</a> for details.
+    </li>
+    <li>
+      Directory listing parser improvements:
+      Add support for VxWorks based servers used in Nortel routers, 
+      add support for more uncommon date formats.
+    </li>
+    <li>Internal changes to allow compilation on Win64</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.8d:</b>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+      Uploads of files with exactly 16384 bytes did always report failure despite the file being uploaded correctly.
+      This may have affected uploads of other files as well.
+    </li>
+    <li>On MVS servers, CServerPath::ChangePath did not respect the bIsFile argument. This may have caused manual transfers to fail</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.8c:</b>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>greatly improved MVS support</li>
+    <li>could not delete directories on VMS servers</li>
+    <li>support for wfFtp servers used in Nortel routers</li>
+    <li>support for non ascii strings in SSL certificates</li>
+    <li>display certificate times in verify cert dialog again</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.8b:</b>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>After uploads, the remote file list was not refreshed properly</li>
+    <li>improved compatibility with VMS and MVS servers</li>
+    <li>experimental GSSAPI IPv6 support</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.8:</b>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>experimental IPv6 support, only works under Windows XP or 2003 Server or newer. Based on patch by Yi-Kwan Chen</li>
+    <li>Timestamps in message log</li>
+    <li>added IBM MVS support</li>
+    <li>On VMS based servers, display of all file revisions can be enabled</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>fixed security issues caused by PuTTY</li>
+    <li>File transfers did not work on servers returning unquoted paths in the PWD reply</li>
+    <li>FZ did crash if ident server was enabled (2.2.8a)</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.7b/c:</b>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>Slovak language files</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Crash fixes in directory listing parser and transfer queue</li>
+    <li>compatibility with VMS server not including time in directory listings</li>
+    <li>misc parser compatibility (2.2.7c)</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.7a:</b>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>SSL libs could not be loaded if msvcr71.dll was missing. Removed that dependancy.</li>
+    <li>File exists actions on transfer page in settings did not work properly</li>
+    <li>Fixed regression introduced in 2.2.7 which caused most file operations 
+        to use file creation time instead of last modification time</li>
+    <li>FileZilla did follow symbolic links if deleting remote files/folders.</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.7:</b>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>MODE Z file transfer compression</li>
+  </ul>
+  <p><u>Fixed bugs:</u>
+  <ul>
+    <li>chmod did not work for file without or unknown attributes</li>
+    <li>crashes related to files with invalid timestamps</li>
+    <li>SSL problem which sometimes prevented uploading of files and may have had other symptoms as well</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.6:</b>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>Support for international domain names</li>
+    <li>Added Czech language files</li>
+    <li>Added Catalan language files</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.5a:</b>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Fixed some reported crashes, even the dreaded file exists crash</li>
+    <li>dirlisting parser compatibility</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.5:</b>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>Added Norwegian translation
+    <li>You can now specify the location of the config file using the <b>-config &lt;file&gt;</b> command line parameter.</li>
+    <li>If parsing the server address from the command line, FileZilla now also recognizes protocol identifies prefixed with <b>fz_</b>, like fz_ftp:// or fz_sftp://</li>
+    <li>
+      The <b> -s &lt;site&gt;</b> command line parameter can be used to connect to specified site in the Site Manager.
+      You'll have to specify the whole path and name for the site, separated by backslashes.
+    </li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Fix for download of files with certain characters invalid under Windows.</li>
+    <li>Fixed crash with file viewing/editing</li>
+    <li>No longer compress the binaries with UPX, VC++ 7.1 doesn't seem to like that at all.</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.4:</b>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>Improved SSL certificate verification. You can know put a list of known root certificates into the file cacert.pem</li>
+    <li>Sticky bit can be set with the file attributes dialog</li>
+    <li>Message log font can now be changed</li>
+    <li>added TLS support</li>
+    <li>position of local and remote views can be switched (2.2.4c)</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>2.2.4c and 2.2.4d didn't run on NT4 (2.2.4e)</li>
+    <li>2.2.4c did not run on Win95/98 (2.2.4d)</li>
+    <li>resolved remaining SSL issues (2.2.4c)</li>
+    <li>Connect:Enterprise directory listing compatibility (2.2.4c)</li>
+    <li>crash with invalid dates in directory listings (2.2.4c)</li>
+    <li>fixed incompatibility between Visual C++ 7.1, UPX and Windows 2003 Server (2.2.4b)</li>
+    <li>downloading files using SSL should no longer produce incomplete files (2.2.4b)</li>
+    <li>fixed bug in CServerPath constructor (2.2.4a)</li>
+    <li>Upgraded to Visual C++ 7.1 and now linked statically against the runtime libraries, this may fix some rare crashes.</li>
+    <li>Fixed regression with the Connect:Enterprise server directory listing format.</li>
+    <li>Improved comtabibility with some windows servers which do not support paths prefixed with slashes</li>
+    <li>Added support for paths in the form <i>DIR.SUBDIR1.SUBDIR2.</i></li>
+    <li>Local/remote file lists were not always sorted correctly</li>
+    <li>some SSL fixes</li>
+    <li>drawing problems if running under wine</li>
+    <li>improved caching if creating directories</li>
+    <li>some reported crashes have been fixed</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.3:</b>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>Improved drag&drop, you can now move files and folders to other directories using drag&drop inside the file lists and folder trees.</li>
+    <li>If using registry as storage and no Site Manager entries under HKCU\Software\FileZilla exist, look under HKLM\Software\FileZilla (2.2.3a)</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Resolved a few directory caching issues</li>
+    <li>Creation of drag images no longer uses the built-in windows functions as they don't work properly under Windows XP</li>
+    <li>Fixed settings dialog not appearing correctly if running under wine</li>
+    <li>Fixed crash if selecting OK on the delete file confirmation dialog after disconnecting / receiving a new directory listing while displaying the dialog.</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.2:</b>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>added filetype column to remote file list</li>
+    <li>file lists can now be sorted over the view menu, even if not using details style</li>
+    <li>added "Add to queue" as selection for default file doubleclick action</li>
+    <li>added Korean language files</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>fixed VShell server compatibility</li>
+    <li>fixed queue releated crash</li>
+    <li>no longer automatically try to resume transfer of ascii files after transfer failure, it did cause troubled due to different line endings.</li>
+    <li>compatibility fixes for directory listing parser</li>
+    <li>allow SFTP transfers if LIST fails</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.1b:</b>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>No longer always force passive mode if using proxy server and site has 'bypass proxy/firewall' enabled</li>
+    <li>Fixed file exists dialog crashes.</li>
+    <li>Fixed deadlock if resuming upload of complete files on SFTP servers</li>
+    <li>ASCII/Binary mode was not set properly</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.1:</b>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>added comments field to Site Manager, moved default local/remote directories to advanced page.</li>
+    <li>added Russian translation</li>
+    <li>added support for servers with send multiple code 1yz replies on RETR/STOR/APPE commands</li>
+    <li>remember and restore focus of last active window if main window loses and regains focus</li>
+    <li>slightly improved compatibility of directory listing parser</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>fixed sftp speed problem, SFTP transfers should be much faster now (2.2.1a)</li>
+    <li>fixed XML file problems (2.2.1a)</li>
+    <li>the problem with the extremely low upload speed on certain servers has been fixed</li>
+    <li>fixed problems with disabled quickconnect bar</li>
+    <li>don't create local folders if deleting empty dirs on the server</li>
+    <li>fixed crash if clicking backspace if remote filelist was empty</li>
+    <li>possible fix for the file exists crashes</li>
+    <li>fixed stalling GSS transfers</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.2.0:</b>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>added combobox with recent folders to local views</li>
+    <li>empty directories are now created during up/downloads</li>
+    <li>added support for IBM AS/400 style directory listings</li>
+    <li>directory listing parser now understands Spanish month names</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Queue related crashes have been fixed</li>
+  </ul>  
+</blockquote>  
+<p><b>Version 2.1.9:</b>
+<blockquote>
+  <p><U>New features:</u></p>
+  <ul>
+    <li>default action when a file is double-clickded can be set</li>
+    <li>Added Japanese translation</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>opening settings dialog with Polish language file did craseh (2.1.9a)</li>
+    <li>fixed selection problems in queue (2.1.9a)</li>
+    <li>Slightly improved performance of directory listing parser</li>
+    <li>Fixed timing issue with downloading small files and passive mode resulting in 0 size files</li>
+    <li>Automatic retry after failed connection attempt did not work</li>
+    <li>downloading files over GSS secured connections could produce corrupt files</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.1.8</b> (2003-06-29):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>Large code review of the transfer queue, greatly improved speed if adding large numbers of files to the queue</li>
+    <li>New Message Log window, text can now be selected</li>
+    <li>PASV mode settings and server timezone can be set for each site in the Site Manager</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Connect to default site did not use the custom active/pasv settings (2.1.8c)</li>
+    <li>fixed problems with the message log some users had using Win98 (2.1.8b)</li>
+    <li>active/passive mode in SiteManager was switched (2.1.8a)</li>
+    <li>queue import did not work</li>
+    <li>ascii/binary settings were not restored if loading queue</li>
+    <li>fixed problems with adding directories to queue and deleting directories on the server</li>
+    <li>Speed limit rules no longer stop working after showing settings dialog</li>
+    <li>Fixed transfer of last few bytes on SSL uploads, should no longer be missing</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.1.7</b> (2003-04-27):</p>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>Crashes on SSL servers have been fixed</li>
+    <li>Language was always reset to English if language page hasn't been views if changing settings</li>
+    <li>user/pass authentication for SOCKS5 proxies did not work properly</li>
+    <li>fixed transfer of large files from/to GSS enabled servers</li>
+    <li>improved compatibility of directory listing parser, can now parse OS2 style directory listings</li>
+  </ul>
+</blockquote>    
+<p><b>Version 2.1.6a</b> (2003-04-18):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>added SSH protocol and compression selection for SFTP transfers</li>
+    <li>added minimize to tray button</li>
+    <li>some interface improvements, including xp theme awareness</li>
+    <li>the IP address used for active mode transfers can be specified. Hostnames are also supported.</li>
+    <li>quickconnect history will be remembered between sessions</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>language was reset to english if using settings dialog without viewing language page (fixed in 2.1.6a)</li>
+    <li>fixed crash if resuming files larger than 4 GB</li>
+    <li>fixed crash and improved compatibility with some servers in the directory listing parser</li>
+    <li>Some problems with the SSL code have been fixed.
+    <li>now using the STLport library, the STL implementation Microsoft was responsible for a lot of crashes and other misbehaviour.</li>
+  </ul>
+</blockquote>
+
+<p><b>Version 2.1.5 </b>(2003-03-23):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>added statusbar to local and remote file list which shows the number of (selected) folders and files with their size</li>
+    <li>added remote group / owner column</li>
+    <li>sort settings of fileviews can be saved</li>
+    <li>Aborting file exists dialog now skips transfer</li>
+    <li>enlarged transfer buffer, high-speed FTP transfers should be slightly faster now.</li>
+    <li>renamed gssapi.dll into FzGSS.dll. If you have gssapi.dll from older version in your FileZilla folder, you can delete it.</li>
+    <li>improved exception handling</li>
+    <li>updated to  OpenSSL version 0.9.7a
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>FTP over SSL no longer forces passive mode</li>
+    <li>remote column widths were not saved correctly</li>
+    <li>fixed download options page in installer</li>
+    <li>fixed crash if no data was sent/received during transfer for over 60 seconds and transfer did continue then</li>
+    <li>silent installer now working properly (use /S switch)</li>
+  </ul>
+</blockquote>
+
+<p><b>Version 2.1.4b</b> (2003-02-23):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>added &quot;Connect and bypass proxy settings&quot; item to quickconnect menu</li>
+    <li>added browse for folder button to local folder field in Sitemanager</li>
+    <li>Backspace can be used to go up one folder</li>
+    <li>added simplified chinese</li>
+    <li>
+      directory listing parser now supports numerical listings and the format VShell 
+      server sends.
+    </li>
+  </ul>
+  <p><u>Fixes and improvements:</u></p>
+  <ul>
+    <li>directory listings / transfers did not always start (2.1.4b)</li>
+    <li>fixed compatibility with servers sending 226 after RETR/STOR/APPE without opening a data connection (2.1.4b)</li>
+    <li>could not enter drive roots into local directory input field (2.1.4b)</li>
+    <li>fixed queue releated crash (2.1.4b)</li>
+    <li>automatic retrying did not work (2.1.4a)</li>
+    <li>fixed crash and changed transfer logic for downloads</li>
+    <li>fixed upload resuming</li>
+    <li>improved parsing of MS-DOS style directory listing</li>
+    <li>fixed problem with downloading file links and failed directory transfers</li>
+    <li>local file list control no longer loses focus if changing directory</li>
+    <li>fixed problem with GSS not working properly (Did happen if encrypted strings received from server were not null-terminated)</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.1.3</b> (2002-12-06):</p>
+<blockquote>
+<p><u>New features:</u></p>
+  <ul>
+    <li>
+<p>added Speed Limit settings (written by Roman Ruckschloss)
+    </li>
+    <li>
+<p>SiteManager can be configures to not expand folder on start and 
+to sort folders before sites (written by Jonathon Merz)
+    </li>
+    <li>
+<p>added dropdown menu to Sitemanager button in toolbar 
+(written by Roman Ruckschloss)
+    </li>
+    <li>
+<p>added Traditional Chinese language files</li>
+    <li>
+<p>added EPLF directory listing parser</li>
+  </ul>
+<p><u>Fixes and improvements:</u>
+  <ul>
+    <li>
+<p>updated documentation
+    </li>
+    <li>
+<p>fixed parsing of paths containing spaces with quickconnect
+    </li>
+    <li>
+<p>fixed crash with very long filenames (&gt;256 chars)
+    </li>
+    <li>
+<p>horizontal scrolling in message log did not work correctly
+    </li>
+    <li>
+<p>slightly improved directory listing parsing speed
+    </li>
+    <li>
+<p>fixed some interface glitches and rare crashes
+    </li>
+    <li>
+<p>proxy support works again (2.1.3a)</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.1.2</b> (2002-10-20):</p>
+<blockquote>
+<p><u>New features:</u></p>
+  <ul>
+    <li>
+<p>copy URL to clipboard
+    </li>
+    <li>
+<p>added menu to quickconnect bar, including clear item and 
+quickconnect 
+history
+    </li>
+  </ul>
+<p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+<p>some minor interface improvements
+    </li>
+    <li>
+<p>could not upload readonly files to sftp servers
+    </li>
+    <li>
+<p>now compatible with the directory listings of more servers
+    </li>
+    <li>
+<p>fixed some other compatiblity issues
+    </li>
+  </ul>
+</blockquote>
+<p><b>Version 2.1.1</b> (2002-10-07):</p>
+<blockquote>
+<p><u>New features:</u></p>
+  <ul>
+    <li>
+<p>now verifying SSH Host key during authentication with SFTP 
+server
+    </li>
+    <li>
+<p>simple Ident Server for FTP servers which required ident running 
+on the user's machine
+    </li>
+  </ul>
+<p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+<p>some issues with the transfer queue, did abort queue to early 
+and queue data could get mixed up
+    </li>
+    <li>
+<p>SFTP speed slightly increased
+    </li>
+    <li>
+<p>No longer asking every time FileZilla starts whether to use the 
+registry or the XML file on Win9x systems
+    </li>
+    <li>
+<p>some compatibility issues with some uncommon servers</li>
+    <li>
+<p>minor changes, mostly small bugfixes
+    </li>
+  </ul>
+</blockquote>
+<p><b>Version 2.1.0</b> (2002-09-23):</p>
+<blockquote>
+<p><u>New features:</u></p>
+  <ul>
+    <li>
+<p>added XML settings storage
+    </li>
+    <li>
+<p>improved link support. Still handling all links as 
+directories but treating them as files if directory changing fails.
+    </li>
+    <li>
+<p>added &quot;Enter FTP command&quot; to server menu
+    </li>
+  </ul>
+<p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+<p>sometimes transfers could crash if target file did already 
+exist
+    </li>
+    <li>
+<p>ftp list parser did not trim indicators properly</li>
+    <li>
+<p>parsing url from command line did not work (fixed in 2.1.0a)</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.0.2</b> (2002-09-07):</p>
+<blockquote>
+<p><u>New features:</u></p>
+  <ul>
+    <li>
+<p>Using multiple connections can be disabled in the queue menu.</p>
+    </li>
+  </ul>
+<p><u>Fixed bugs:</u></p>
+<ul>
+  <li>
+<p>fixed typos in docs, thanks to Geoff Gigg
+  </li>
+    <li>
+<p>improved queue logic
+    </li>
+    <li>
+<p>cache could 'forget' directories
+    </li>
+  </ul>
+</blockquote>
+<p><b>Version 2.0.1 </b>(2002-09-05):</p>
+<blockquote>
+<p><u>New features:</u></p>
+  <ul>
+    <li>
+<p>can now hide remote date and time separatly
+    </li>
+  </ul>
+<p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+<p>did not remember view settings correctly
+    </li>
+    <li>
+<p>crash when opening settings dialog more than once
+    </li>
+    <li>
+<p>now trying to use the connection password to decrypt a 
+encrypted public key file from the default PuTTY configuration when connecting 
+to SFTP servers
+    </li>
+    <li>
+<p>GSS support did not work properly, gssapi.dll was not thread-safe</li>
+  </ul>
+</blockquote>
+<p><b>Version 2.0.0 final </b>(2002-09-02):</p>
+<blockquote>
+<p><u>New features:</u></p>
+  <ul>
+    <li>
+<p>multiple simultaneous transfers</li>
+    <li>
+<p>A single dot in the list of ascii file extensions specifies all 
+files without extension</li>
+    <li>
+<p>faster queue loading/saving</li>
+    <li>
+<p>added bulgarian and hungarian translation</li>
+  </ul>
+<p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+<p>some compatibility fixes in directory listing parser
+    </li>
+    <li>
+<p>rename option had no effect in file exists dialog
+    </li>
+    <li>
+<p>manual transfer could crash FileZilla</li>
+    <li>
+<p>local file list did not update when a new directory was created 
+during downloads</li>
+  </ul>
+<p><u>History of 2.0.0 beta versions:</u></p>
+  <blockquote>
+<p><b>Fixed bugs since beta 6:</b></p>
+  <ul>
+    <li>
+<p>Adjustment of maximum number of simultaneous transfers 
+during transfer no longer crashes FileZilla
+    </li>
+    <li>
+<p>The file exists dialog no longer pops several times at the 
+same time when transferring several files simultaneously
+    </li>
+    <li>
+<p>Transfers no longer fail during directory creation if the 
+directory has already been created by another thread
+    </li>
+    <li>
+<p>Reducing number of transfers for single servers if they don't 
+accept enough simultaneous connections
+    </li>
+  </ul>
+<p><b>Version 2.0.0 beta 6:</b></p>
+<blockquote>
+<p><u>New features:</u></p>
+  <ul>
+    <li>
+<p>multiple simultaneous transfers
+    </li>
+    <li>
+<p>primary connection will be used for transfer if server does not 
+support multiple connections</li>
+    <li>
+<p>A single dot in the list of ascii file extensions specifies all 
+files without extension</li>
+  </ul>
+<p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+<p>some compatibility fixes in directory listing parser
+    </li>
+    <li>
+<p>some small bugs
+    </li>
+  </ul>
+</blockquote>
+<p><b>Version 2.0.0 beta 5:</b></p>
+<blockquote>
+<p><u>New features:</u></p>
+  <ul>
+    <li>
+<p>browsing during transfer
+    </li>
+    <li>
+<p>faster queue loading/saving
+    </li>
+    <li>
+<p>added bulgarian and hungarian translation
+    </li>
+    <li>
+<p>improved installer</li>
+  </ul>
+<p><u>Fixed bugs:</u><ul>
+    <li>
+<p>rename option had no effect in file exists dialog 
+    </li>
+    <li>
+<p>manual transfer could crash FileZilla</li>
+    <li>
+<p>local file list did not update when a new directory was created 
+during downloads</li>
+    <li>
+<p>some queue related bugs</li>
+  </ul>
+</blockquote>
+  </blockquote>
+</blockquote>
+<p><b>Version 1.9.9a </b>(2002-07-20):</p>
+<blockquote>
+<p><u>New features:</u></p>
+  <ul>
+    <li>
+<p>added italian translation</p>
+    </li>
+  </ul>
+<p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+<p>&quot;bypass proxy / firewall settings&quot; in SiteManager did not work
+    </li>
+    <li>
+<p>when transferring file from/to an sftp server with 
+disabled directory cache, FileZilla could crash
+    </li>
+    <li>
+<p>could not cancel connection attempts while waiting for a retry
+    </li>
+  </ul>
+</blockquote>
+<p><b>Version 1.9.9 </b>(2002-07-06):</p>
+<blockquote>
+<p><u>New features:</u></p>
+  <ul>
+    <li>
+<p>added SFTP support</li>
+    <li>
+<p>remote files can be edited directly with the programs specified 
+in the settings</li>
+    <li>
+<p>now multi-line directory listings (some VMS servers use them) 
+are supported</li>
+    <li>
+<p>site manager tree now scrolls when dragging items around
+    </li>
+    <li>
+<p>added secure mode, set &quot;HKCU\Software\FileZilla\Run In secure 
+Mode&quot; or &quot;HKLM\Software\FileZilla\Run In secure Mode&quot; to 1 to enable it or run 
+the installer.
+    </li>
+    <li>
+<p>&quot;always show hidden files&quot; option</li>
+  </ul>
+<p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+<p>Main window no longer flickers that much while resizing
+    </li>
+    <li>
+<p>fixed display of local root
+    </li>
+  </ul>
+</blockquote>
+<p><b>Version 1.9.8 </b>(2002-06-06):</p>
+<blockquote>
+<p><u>New features:</u></p>
+  <ul>
+    <li>
+<p>current server will be shown in title bar
+    </li>
+    <li>
+<p>manual download enhanced, it's now called manual transfer, can be completely 
+customized for both uploads and downloads.
+    </li>
+    <li>
+<p>improved speed of local file list when refreshing
+    </li>
+    <li>
+<p>extremely fast refresh of local file list after file downloads 
+or when deleting files
+    </li>
+    <li>
+<p>new transparent socket layer classes, should fix remaining 
+problems with SOCKS4/5 and HTTP 1.1 proxies
+    </li>
+  </ul>
+<p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+<p>fixed MKD on some *NIX servers
+    </li>
+    <li>
+<p>fixed &quot;Connect to default site&quot; on Win9x
+    </li>
+    <li>
+<p>fixed file list sorting with selected items
+    </li>
+    <li>
+<p>remote file list was not updated when deleting a directory 
+which contained uppercase characters
+    </li>
+    <li>
+<p>some minor bugs and glitches
+    </li>
+    <li>
+<p>fixed reconnect issues when using multiple instances of 
+FileZilla
+    </li>
+    <li>
+<p>correct local folder will be set if &quot;Open Site Manager each time 
+FileZilla starts&quot; is checked
+    </li>
+  </ul>
+</blockquote>
+<p><b>Version 1.9.7 </b>(2002-05-11):</p>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>fixed the &quot;Authentication failed&quot; Kerberos 
+    GSS problem under Win98 </li>
+    <li>
+    <p>remote file list now refreshes after 
+    changing file attributes </li>
+    <li>
+    <p>fixed reconnect remembering incorrect 
+    passwords </li>
+    <li>
+    <p>minor fixes </li>
+  </ul>
+</blockquote>
+<p><b>Version 1.9.6</b> (2002-05-06):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>
+    <p>new Winsock wraper class, improves speed
+    </li>
+    <li>
+    <p>drag &amp; drop in Site Manager </li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>fixed problem with transfers stalling at 
+    100% </li>
+    <li>
+    <p>fixed 'overwrite if newer' </li>
+    <li>
+    <p>entering relative paths in the remote combo 
+    box working again </li>
+    <li>
+    <p>improved retry logic </li>
+    <li>
+    <p>fixed transfer queue related crash </li>
+    <li>
+    <p>remote view will be correctly updated when 
+    directory cache is enabled </li>
+  </ul>
+</blockquote>
+<p><b>Version 1.9.5 </b>(2002-04-24):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>
+    <p>remote directory tree </li>
+    <li>
+    <p>option to remember local and remote column 
+    widths </li>
+    <li>
+    <p>option to customize display of filesizes
+    </li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>some minor interface problems </li>
+    <li>
+    <p>fixed some GSS and SSL bugs </li>
+    <li>
+    <p>some crashes reported by users </li>
+  </ul>
+</blockquote>
+<p><b>Version 1.9.4 </b>(2002-04-10 ):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>
+    <p>basic SSL certificate verification </li>
+    <li>
+    <p>show hidden files (dotfiles) option in main 
+    menu </li>
+    <li>
+    <p>added exception report generation </li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>after 30 seconds FileZilla took the default 
+    values for options </li>
+    <li>
+    <p>support for files larger than 2GB </li>
+    <li>
+    <p>some minor interface and SSL bugs </li>
+  </ul>
+</blockquote>
+<p><b>Version 1.9.3 </b>(2002-03-25):</p>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>remote date/time sorting</li>
+    <li>
+    <p>fixed bug when using proxy servers</li>
+    <li>
+    <p>file exist dialog did not show file sizes</li>
+  </ul>
+</blockquote>
+<p><b>Version 1.9.2&nbsp; </b>(2002-03-23):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>
+    <p>resolving hostname asynchronously</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>download of multiple selected files and 
+    folders failed </li>
+    <li>
+    <p>remote file list did not refresh on delete
+    </li>
+  </ul>
+</blockquote>
+<p><b>Version 1.9.1 </b>(2002-03-19):</p>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>SHIFT+TAB now switches backwards through 
+    panes </li>
+    <li>
+    <p>fixed crash when uploading </li>
+    <li>
+    <p>filesizes for files larger than 2.1 GB were 
+    shown incorrectly in transfer queue </li>
+    <li>
+    <p>remove some minor memory leaks </li>
+  </ul>
+</blockquote>
+<p><b>Version 1.9 </b>(2002-03-17):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>
+    <p>SSL support using
+    <a href="http://www.openssl.org">OpenSSL</a> </li>
+    <li>
+    <p>Showing &quot;Empty directory listing&quot; when 
+    there are no files within a remote directory </li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>using the delete key no longer deletes a 
+    site in the Site Manager when the Sitetree is not selected </li>
+    <li>
+    <p>Fixed a problem where a transfer could 
+    stall until timeout. </li>
+    <li>
+    <p>fixed problem with incorrect remote file 
+    dates </li>
+    <li>
+    <p>remote file list gets automatically 
+    refreshed when unknown entries are present (files with ??? as size/date/time 
+    for example) </li>
+  </ul>
+</blockquote>
+<p><b>Version 1.8.3 </b>(2002-02-21):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>
+    <p>minimize to tray</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>fixed crash which happened after cache 
+    purge timeout </li>
+    <li>
+    <p>fixed queue&lt;-&gt;file import/export </li>
+  </ul>
+</blockquote>
+<p><b>Version 1.8.2 </b>(2002-02-17):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>
+    <p>server password can be changed if server 
+    allows it</li>
+  </ul>
+  <p><u>Enhanced features:</u></p>
+  <ul>
+    <li>
+    <p>keep alive system now enabled by default 
+    (does not affect existing settings) </li>
+    <li>
+    <p>directory creation. Now also works with 
+    servers which don't allow creating multiple levels at once </li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>transfer size for queue items not loaded 
+    correctly after restart of FileZilla</li>
+  </ul>
+</blockquote>
+<p><b>Version 1.8.1 </b>(2002-02-09):</p>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>OpenVMS compatibility </li>
+    <li>
+    <p>passive mode not working correctly </li>
+    <li>
+    <p>crash when choosing properties from the 
+    local file list when there was no file/folder/drive selected </li>
+  </ul>
+</blockquote>
+<p><b>Version 1.8</b> (2002-02-03):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>
+    <p>ftp API rewritten </li>
+    <li>
+    <p>new interface to ftp API </li>
+    <li>
+    <p>directory cache </li>
+    <li>
+    <p>added internal options cache, increases 
+    performance </li>
+    <li>
+    <p>added HTTP1.1 and SOCKS4A proxy support
+    </li>
+    <li>
+    <p>support for single-line (Open)VMS directory 
+    listing </li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>fixed problem with multi-line responses
+    </li>
+    <li>
+    <p>fixed a timeout problem </li>
+    <li>
+    <p>entries in remote file list can be searched 
+    by entering first few characters, just like in local file list or in windows 
+    explorer</li>
+  </ul>
+</blockquote>
+<p><b>Version 1.7b</b> (2001-11-23):</p>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>crash when installed in a folder with 
+    spaces</li>
+  </ul>
+</blockquote>
+<p><b>Version 1.7a</b> (2001-11-18):</p>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>fixed problem with folders in sitemanager 
+    under Win9x/ME</li>
+  </ul>
+</blockquote>
+<p><b>Version 1.7</b> (2001-11-17):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>
+    <p>folders in sitemanager </li>
+    <li>
+    <p>added Spanish translation </li>
+  </ul>
+  <p><u>improved features: </u></p>
+  <ul>
+    <li>
+    <p>increased speed of remote file list, now 
+    there's almost no difference between 10 or 10000 files </li>
+    <li>
+    <p>reduced size of additional language files
+    </li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>parsing of directory listings could fail on 
+    certain servers </li>
+    <li>
+    <p>sorting by date/time did not work for 
+    remote list </li>
+    <li>
+    <p>some problems with language files </li>
+    <li>
+    <p>crash when starting from console in Win NT, 
+    2K and XP </li>
+  </ul>
+</blockquote>
+<p><b>Version 1.6 </b>
+<span style="FONT-WEIGHT: 400">(2001-10-16):</span></p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>
+    <p>window size and position can be remembered
+    </li>
+    <li>
+    <p>the tab key now switches between the views</li>
+    <li>
+    <p>new keyboard shortcuts (see documentation 
+    for more details)</li>
+    <li>
+    <p>import and export of queue items</li>
+    <li>
+    <p>added queue section to main menu</li>
+    <li>
+    <p>CHMOD of multiple files and folders at once</li>
+    <li>
+    <p>added context menu to local treeview</li>
+    <li>
+    <p>&quot;manual download&quot; entry in transfer menu</li>
+    <li>
+    <p>added polish language file</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>local directory was reset to &quot;\&quot; on refresh</li>
+    <li>
+    <p>&quot;don't remember password&quot; setting did not 
+    effect reconnect to server</li>
+    <li>
+    <p>upload crash when using active mode 
+    SOCKS4/5 transfers</li>
+  </ul>
+</blockquote>
+<p>&nbsp;</p>
+<p><b>Version 1.5a </b>(2001-09-18):</p>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>passive mode downloads could timeout 
+    without reason </li>
+    <li>
+    <p>up- and downloads could fail due to 
+    uninitialized buffer </li>
+  </ul>
+</blockquote>
+<p><b>Version 1.5 </b>(2001-09-18):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>
+    <p>CTRL+A in file lists works now </li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>upload problem with certain directory 
+    structures with empty directories solved </li>
+    <li>
+    <p>remote directories could not be deleted
+    </li>
+    <li>
+    <p>ASCII transfers would cause crash </li>
+    <li>
+    <p>fixed more queue bugs </li>
+    <li>
+    <p>FileZilla crashed when trying to delete the 
+    &quot;..&quot; entry in the folder views </li>
+    <li>
+    <p>as always, a lot of minor fixes </li>
+  </ul>
+</blockquote>
+<p><b>Version 1.4 </b>(2001-08-29):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>
+    <p>overwrite if newer option in the FileExists 
+    dialog </li>
+    <li>
+    <p>local files can be opened </li>
+    <li>
+    <p>added documentation </li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>fixed SOCKS5 auth code (Thanks to Mike 
+    Shuetter) </li>
+    <li>
+    <p>fixed problem with transfer timeouts </li>
+    <li>
+    <p>remote folders that only contained files 
+    with spaces in their names were displayed incorrectly </li>
+    <li>
+    <p>some minor problems </li>
+  </ul>
+</blockquote>
+<p><b>Version 1.3</b> (2001-07-27):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>
+    <p>site manager may be automatically opened on 
+    startup </li>
+    <li>
+    <p>default local folder in site manager </li>
+    <li>
+    <p>default site in site manager </li>
+    <li>
+    <p>don't save password option in site manager
+    </li>
+    <li>
+    <p>added GSS authentication and encryption 
+    support. Requires Kerberos for Windows </li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>timeout detection fixed </li>
+    <li>
+    <p>fixed display of total queue size when 
+    there are a lot of items in the queue (&gt;2GB)&nbsp; </li>
+  </ul>
+</blockquote>
+<p><b>Version 1.2 </b>(2001-07-19):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>
+    <p>support for NT servers which use the MS-DOS 
+    like directory listing </li>
+    <li>
+    <p>replaced the edit field over the ftp view 
+    with a combo box </li>
+    <li>
+    <p>You can switch the style of the file list 
+    views. The following styles are supported: details, list, large icons and 
+    small icons.<br>
+    In details style, you can show/hide most columns </li>
+    <li>
+    <p>Enter-key in the file views usable. </li>
+  </ul>
+  <p><u>Enhanced features:</u> </p>
+  <ul>
+    <li>
+    <p>when shift key is pressed you can now 
+    delete the files in the local view without moving the to the recycle bin 
+    (just like in Explorer now) </li>
+    <li>
+    <p>shlwapi.dll is no longer needed, replaced 
+    by some self-written functions </li>
+    <li>
+    <p>improved transfer queue </li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>crashes due to a bug in CSplitterWnd </li>
+    <li>
+    <p>file transfers in passive mode crashed </li>
+    <li>
+    <p>bug in transfer code. Input file for 
+    uploads was not opened sometimes </li>
+    <li>
+    <p>some minor issues I don't remember </li>
+  </ul>
+</blockquote>
+<p><b>Version 1.1 </b>(2001-07-11):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>
+    <p>support for ASCII mode transfer </li>
+    <li>
+    <p>filetype auto-detection (based on 
+    extension) </li>
+    <li>
+    <p>added dir edit field to local view </li>
+    <li>
+    <p>added view labels for local and remote view
+    </li>
+    <li>
+    <p>message log and quickconnect bar can now be 
+    hidden </li>
+    <li>
+    <p>options page for the interface settings. 
+    Interface settings can be remembered </li>
+    <li>
+    <p>all settings can be exported (including 
+    queue and sitemanager) </li>
+  </ul>
+  <p><u>Enhanced features:</u></p>
+  <ul>
+    <li>
+    <p>totally rewritten thread and FTP API 
+    classes. Now using asynchronous sockets. Better performance and stability 
+    now. Code is much cleaner now. </li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>fixed bug in firewall setting dialog: FW 
+    data input fields were not enabled when a firewall type other than none was 
+    selected </li>
+  </ul>
+</blockquote>
+<p><b>Version 1.0 </b>(2001-06-12):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>
+    <p>file attributes on the server can be 
+    changed (CHMOD command) </li>
+    <li>
+    <p>active connections can now be copied into 
+    the Site Manger over the menu </li>
+    <li>
+    <p>the total size of the queue is displayed on 
+    the right side of the status bar </li>
+    <li>
+    <p>added &quot;upload / download as...&quot; entries to 
+    the context menus. With it you can enter a different account that will be 
+    used for the transfer. </li>
+  </ul>
+  <p><u>Enhanced features:</u> </p>
+  <ul>
+    <li>
+    <p>files and folders can now be dragged 
+    directly into the queue </li>
+    <li>
+    <p>made some internal changes to the 
+    upload/download queue </li>
+    <li>
+    <p>rewrote large parts of the local file list. 
+    Large folders will be displayed faster now. </li>
+  </ul>
+  <p><u>Fixed bugs:</u> </p>
+  <ul>
+    <li>
+    <p>fixed a menu bug in the Site Manager </li>
+    <li>
+    <p>fixed a Drag &amp; Drop bug: The folder &quot;..&quot; 
+    could be dragged </li>
+  </ul>
+</blockquote>
+<p><b>Beta 2.2</b> (2001-05-31):</p>
+<blockquote>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>Menubar didn't response or disappeared on 
+    Win98 after entering the options dialog </li>
+    <li>
+    <p>Treeview items now are translated if a 
+    language DLL is used </li>
+  </ul>
+</blockquote>
+<p><b>Beta 2.1</b> (2001-05-30):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>
+    <p>import and export of all Site Manager 
+    entries </li>
+    <li>
+    <p>download of folders with all files and 
+    subfolders </li>
+    <li>
+    <p>folders with all files and subfolders can 
+    be deleted&nbsp; </li>
+    <li>
+    <p>directories can be created </li>
+    <li>
+    <p>&quot;Ignore firewall / proxy settings&quot; button 
+    in site manager </li>
+    <li>
+    <p>added localization support </li>
+    <li>
+    <p>command line support </p>
+    <table border="0">
+      <tr>
+        <td>
+        <p>Command line</td>
+        <td width="25">
+        <p>&nbsp;</td>
+        <td>
+        <p>Description</td>
+      </tr>
+      <tr>
+        <td colSpan="3"><hr></td>
+      </tr>
+      <tr>
+        <td>
+        <p>FileZilla.exe [ftp://][user:pass@]host[:port][/dir]</td>
+        <td width="25">
+        <p>&nbsp;</td>
+        <td>
+        <p>connects to a server</td>
+      </tr>
+      <tr>
+        <td>
+        <p>FileZilla.exe -i sitemanager.txt</td>
+        <td width="25">
+        <p>&nbsp;</td>
+        <td>
+        <p>imports the file &quot;sitemanager.txt&quot; into the 
+        sitemanager (or any other textfile if you want)</td>
+      </tr>
+    </table>
+    <p>&nbsp; </li>
+    <li>
+    <p>added a &quot;default folder&quot; option </li>
+  </ul>
+  <p><u>Enhanced features:</u> </p>
+  <ul>
+    <li>
+    <p>modified the about box to dynamically load 
+    the version information from the main application and to show the name (if 
+    using language DLL) of the translator </li>
+    <li>
+    <p>modified the title bar to dynamically load 
+    the version information from the main application </li>
+    <li>
+    <p>cleaned up some code </li>
+    <li>
+    <p>improved local folder browsing </li>
+    <li>
+    <p>the options dialog now uses a style similar 
+    to the one used in Netscape. (You know, the nice treeview on the left side)
+    </li>
+    <li>
+    <p>improved the install script </li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+    <p>up- or downloads no longer fail if a server does not 
+    understand the SIZE command </li>
+    <li>
+    <p>Keep Alive commands were sent twice </li>
+    <li>
+    <p>fixed loads of minor glitches&nbsp; </li>
+  </ul>
+</blockquote>
+<p><b>Beta 2.0</b> (2001-05-05):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>added two LEDs on the bottom right edge of the main window which flash when data is sent/received</li>
+    <li>now whole directories can be uploaded at once</li>
+    <li>added drag and drop</li>
+    <li>files and directories from the explorer can be copied or uploaded via drag &amp; drop</li>
+    <li>added installer</li>
+    <li>added SOCKS4/5 proxy support</li>
+    <li>it's now possible to rename files</li>
+  </ul>
+  <p><u>Enhanced features:</u> </p>
+  <ul>
+    <li>extended URL handling in the quickconnect bar and in the Site Manager</li>
+    <li>cleaned up the code of the main window</li>
+    <li>changed the way the API returns information to the rest of the application</li>
+    <li>added default remote dir to Site Manager</li>
+    <li>better timeout detection</li>
+    <li>improved retry logic</li>
+    <li>completely new command system. Much cleaner code now</li>
+    <li>better alignment in message log</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>changed command order with file download. Resumed downloads were not handled correctly on some FTP servers</li>
+    <li>fixed a small file upload bug </li>
+    <li>fixed wrong tab order in Firewall settings. Firewall types got mixed up</li>
+    <li>changed the Logon function: The wrong hostname was displayed if Firewalls were used</li>
+    <li>countless small bug fixes and improvements</li>
+  </ul>
+</blockquote>
+<p><b>Beta 1.0 </b>(2001-04-11):</p>
+<blockquote>
+  <p><u>New features:</u> </p>
+  <ul>
+    <li>Added download queue</li>
+    <li>Added support for links on ftp sites</li>
+    <li>the content of the status pane can be copied to clipboard</li>
+    <li>passwords are now encrypted</li>
+    <li>added disconnect, reconnect and refresh buttons</li>
+    <li>added editbox to quickly see and change remote folder</li>
+  </ul>
+  <p><u>Enhanced features:</u></p>
+  <ul>
+    <li>
+      Local Views updated. Now operating through threads. 
+      Overall performance should be better now, especially with large folders
+    </li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>fixed bug in Site Manager. Didn't check for multiple names in the list.</li>
+    <li>fixed some icon displaying bugs</li>
+    <li>fixed some minor bugs and memory leaks</li>
+  </ul>
+</blockquote>
+<p><b>Alpha 1.2 </b>(2001-03-15):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>Added options dialog with the connection settings</li>
+    <li>Site Manager added</li>
+    <li>new class (CTimeoutSocket) to check for timeouts</li>
+    <li>break current operation button implemented</li>
+    <li>added Keep Alive feature</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>fixed a bug within CFtpViewCtrl::List</li>
+    <li>some minor bug fixes</li>
+  </ul>
+</blockquote>
+
+<p><b>Alpha 1.1</b> (2001-03-05):</p>
+<blockquote>
+  <p><u>New features:</u></p>
+  <ul>
+    <li>Ability to enter custom commands. Right-click the status pane</li>
+    <li>Message log can be cleared</li>
+    <li>Now displaying file date and time within the FTP View</li>
+    <li>Added support for multiple files uploads/downloads within the API (not within the GUI yet)</li>
+    <li>Implemented resume/overwrite dialog for files already existing</li>
+  </ul>
+  <p><u>Enhanced features:</u></p>
+  <ul>
+    <li>
+      New method to parse the answer of the LIST command. 
+      Should be more compatible with certain FTP servers now
+    </li>
+    <li>Status bar now displays more information during transfers</li>
+  </ul>
+  <p><u>Fixed bugs:</u></p>
+  <ul>
+    <li>
+      Files that were uploaded/downloaded were locked for other processes during transfer.
+      Now read access is possible
+    </li>
+  </ul>
+</blockquote>
+
+<p><b>Alpha 1</b> (2001-02-27):</p>
+<ul>
+  <li>First release</li>
+</ul>
+
+</body>
+</html>

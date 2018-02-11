@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<options version="1.5">
+    <!-- Translator -->
+    <sign author="Ilya Parniuk" mail="ilya.parniuk@gmail.com"/>
+    <!-- Program Menu -->
+    <mnuFile caption="File"/>
+    	<mnuFileSave caption="Save list..."/>
+    	<mnuFileExit caption="Exit"/>
+    <mnuAction caption = "Action"/>
+    	<mnuActionUninstall caption = "Uninstall..."/>
+		<mnuActionDelete caption = "Delete"/>
+		<mnuActionJumpTo caption = "Jump to"/>
+		<mnuActionJumpToRegistry caption = "Registry entry"/>
+		<mnuActionJumpToProgramFolder caption = "Program folder"/>
+		<mnuActionJumpToWebSite caption = "Program web site"/>
+    <mnuView caption = "View"/>
+    	<mnuViewRefresh caption = "Refresh"/>
+    	<mnuViewTooltips caption = "Display tooltips"/>
+    	<mnuViewHidden caption = "Hidden elements"/>
+    	<mnuViewDisplayUpdates caption = "Display updates"/>
+    	<mnuViewLanguage caption = "Language"/>
+    <mnuTools caption = "Tools"/>
+    	<mnuToolsComponents caption = "Windows components..."/>
+    	<mnuToolsAdvanced caption = "Advanced settings..."/>
+    <mnuHelp caption = "Help"/>  
+    	<mnuHelpContents caption = "Contents..."/>
+    	<mnuHelpDonate caption = "Donate..."/>
+    	<mnuHelpNewVersion caption = "Check for new version..."/>
+    	<mnuHelpAbout caption = "About..."/>
+    <!-- Messages -->
+    <msgDelete caption = "Warning: removing this list entry will not remove the selected program from your hard disk. You should use this function only on obsolete list entries.\n\nAre you sure you want to remove this entry from the list?" title="Question"/>
+    <!-- Status Bar -->
+    <stsStatus caption = "%d installed programs, %d hidden"/>
+    <stsUninstalling caption = "Uninstalling"/>
+    <stsDidntStart caption="The requested program didn't start"/>
+    <stsCantBeUninstalled caption="This program can't be uninstalled"/>
+    <stsDeleted caption = "Selected entry deleted from registry"/>
+    <stsDeleteFailed caption = "Failed to delete from registry"/>
+    <!-- Info tips -->
+    <tipUnString caption = "Uninstall String"/>
+    <tipVersion caption = "Version"/>
+    <tipJumpToRegistry caption = "Registry entry"/>
+    <tipJumpToWebSite caption = "Web Site"/>
+    <tipJumpToProgramFolder caption = "Program folder"/>
+    <tipJumpTo caption ="Go to"/>
+    <tipPublisher caption = "Publisher"/>
+    <tipNone caption ="none"/>
+</options>

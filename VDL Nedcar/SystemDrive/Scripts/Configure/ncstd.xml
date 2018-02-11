@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- VDL Nedcar Windows server standaard -->
+<!-- Author: Marcel Jussen -->
+<!-- 29-03-2016 -->
+<ncstd version="6.0.0.4" type="PROD" logfile="NCSTD-Standaard" initlogfile="NCSTD-Init">
+	<scripts path="scripts.xml"></scripts>
+</ncstd>

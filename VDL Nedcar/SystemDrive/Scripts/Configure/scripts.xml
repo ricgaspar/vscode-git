@@ -1,0 +1,129 @@
+<?xml version="1.0" standalone="yes"?>
+<scripts type="PROD" logfile="C:\Logboek\Config\NCSTD-Standaard-Scripts.log" append="false">
+	<script>
+		<description>Files maintenance.</description>
+		<version>6.0.0.4</version>
+		<path>configure_files.ps1</path>		
+		<os_versions>5.1,5.2,6.0,6.1,6.2,6.3,10.0</os_versions>
+	</script>	
+	<script>
+		<description>Folder maintenance.</description>
+		<version>6.0.0.4</version>
+		<path>configure_folders.ps1</path>		
+		<os_versions>5.1,5.2,6.0,6.1,6.2,6.3,10.0</os_versions>
+	</script>
+	<script>
+		<description>Configure BLAT commmand line email utility.</description>
+		<version>6.0.0.4</version>
+		<path>configure_blat.ps1</path>		
+		<os_versions>5.1,5.2,6.0,6.1,6.2,6.3,10.0</os_versions>
+	</script>
+	<script>
+		<description>Configure DISKPERF performance counters.</description>
+		<version>6.0.0.4</version>
+		<path>configure_diskperf.ps1</path>		
+		<os_versions>5.1,5.2,6.0,6.1,6.2,6.3,10.0</os_versions>
+	</script>
+	<script>
+		<description>Configure W2K8/W2K12 reliability logging.</description>
+		<version>6.0.0.4</version>
+		<path>configure_reliability.ps1</path>
+		<os_versions>6.0,6.1,6.2,6.3,10.0</os_versions>
+	</script>		
+	<script>
+		<description>Configure SNMP registry settings.</description>
+		<version>6.0.0.4</version>
+		<path>configure_snmp.ps1</path>
+		<os_versions>5.1,5.2,6.0,6.1,6.2,6.3,10.0</os_versions>
+	</script>	
+	<script>
+		<description>Configure volume names.</description>
+		<version>6.0.0.4</version>
+		<path>configure_volnames.ps1</path>
+		<os_versions>5.1,5.2,6.0,6.1,6.2,6.3,10.0</os_versions>
+	</script>
+	<script>
+		<description>Configure scheduled tasks.</description>
+		<version>6.0.0.6</version>
+		<path>configure_ScheduledTasks.ps1</path>
+		<os_versions>6.0,6.1,6.2,6.3,10.0</os_versions>
+	</script>
+	<script>
+		<description>Configure scheduled tasks for W2k3 systems.</description>
+		<version>6.0.0.4</version>
+		<path>configure_ScheduledTasks_w2k3.ps1</path>
+		<os_versions>5.2</os_versions>
+	</script>
+	<script>
+		<description>Configure scheduled tasks permissions.</description>
+		<version>6.0.0.4</version>
+		<path>configure_taskpermissions.ps1</path>
+		<os_versions>6.0,6.1</os_versions>
+	</script>
+	<script>
+		<description>Configure shortcuts.</description>
+		<version>6.0.0.4</version>
+		<path>configure_shortcuts.ps1</path>
+		<os_versions>6.0,6.1,6.2,6.3,10.0</os_versions>
+	</script>
+	<script>
+		<description>Configure Windows 2008 R2 features.</description>
+		<version>6.0.0.4</version>
+		<path>configure_features61.ps1</path>
+		<os_versions>6.1</os_versions>
+	</script>	
+	<script>
+		<description>Configure Windows 2012 features.</description>
+		<version>6.0.0.4</version>
+		<path>configure_features62.ps1</path>
+		<os_versions>6.2</os_versions>
+	</script>	
+	<script>
+		<description>Configure Windows 2012 R2 features.</description>
+		<version>6.0.0.4</version>
+		<path>configure_features63.ps1</path>
+		<os_versions>6.3</os_versions>
+	</script>
+	<script>
+		<description>Configure Windows 2016 features.</description>
+		<version>6.0.0.4</version>
+		<path>configure_features10.ps1</path>
+		<os_versions>10</os_versions>
+	</script>
+	<script>
+		<description>Cleanup Windows 2008 R2 image (Winsxs).</description>
+		<version>6.0.0.2</version>
+		<path>configure_cleanupimage.ps1</path>
+		<os_versions>6.1</os_versions>
+	</script>
+	<script>
+		<description>Configure ILO settings.</description>
+		<version>6.0.0.4</version>
+		<path>configure_ILO.ps1</path>
+		<os_versions>6.0,6.1,6.2,6.3,10.0</os_versions>
+	</script>
+	<script>
+		<description>Configure MPIO settings for Compellent SAN.</description>
+		<version>6.0.0.4</version>
+		<path>configure_mpio_compellent.ps1</path>
+		<os_versions>6.0,6.1,6.2,6.3,10.0</os_versions>
+	</script>
+	<script>
+		<description>Configure Windows Event log for DSC analytics.</description>
+		<version>6.0.0.4</version>
+		<path>configure_DscEventLogAnalytics.ps1</path>
+		<os_versions>6.0,6.1,6.2,6.3,10.0</os_versions>
+	</script>
+	<script>
+		<description>Configure TSM Include-Exclude file.</description>
+		<version>6.0.0.1</version>
+		<path>configure_TSM_inclexcl.ps1</path>
+		<os_versions>6.0,6.1,6.2,6.3,10.0</os_versions>
+	</script>
+	<script>
+		<description>Configure TSM DSM.opt file.</description>
+		<version>6.0.0.1</version>
+		<path>configure_TSM_DSMopt.ps1</path>
+		<os_versions>6.0,6.1,6.2,6.3,10.0</os_versions>
+	</script>		
+</scripts>

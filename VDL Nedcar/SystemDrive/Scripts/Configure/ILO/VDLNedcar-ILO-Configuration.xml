@@ -1,0 +1,109 @@
+<!--	HP ILO settings for VDL Nedcar HP ILO 3 and ILO 4 -->
+<!--	Written by Marcel Jussen                          -->
+<!--	Initial version: 20-01-2015                       -->
+<!--	Last version: 20-01-2015                          -->
+<RIBCL VERSION="2.0">
+   <LOGIN USER_LOGIN="Administrator" PASSWORD="smart4fourcar">
+      <RIB_INFO MODE="write">
+      
+      	<!-- Global Access settings -->
+        <MOD_GLOBAL_SETTINGS>
+        	<SESSION_TIMEOUT value="60"/>
+          <HTTP_PORT value="80"/>
+          <HTTPS_PORT value="443"/>
+          <REMOTE_CONSOLE_PORT value="17990"/>         
+          <MIN_PASSWORD value="8"/>
+          <ILO_FUNCT_ENABLED value="Yes"/>            
+          <VIRTUAL_MEDIA_PORT value="17988"/>
+          <F8_LOGIN_REQUIRED value="No"/>
+          <SSH_PORT value="22"/>
+          <SSH_STATUS value="Yes"/>
+          <SERIAL_CLI_STATUS value="3"/>
+          <SERIAL_CLI_SPEED value="1"/>
+          <RBSU_POST_IP value="Y"/>
+            
+          <SNMP_ACCESS_ENABLED value = "Yes"/>
+          <SNMP_PORT value="161"/>
+          <SNMP_TRAP_PORT value="162"/> 
+            
+          <TELNET_ENABLE value="No"/>
+          <HIGH_PERFORMANCE_MOUSE value="Yes" />            
+				</MOD_GLOBAL_SETTINGS>
+				
+				<!--> SNMP Access settings </-->
+				<MOD_SNMP_IM_SETTINGS>
+					<!--> Enable Agentless management. SNMP passthrough is not enabled. </-->
+     			<AGENTLESS_MANAGEMENT_ENABLE VALUE="Y"/>
+					<SNMP_PASSTHROUGH_STATUS VALUE="N"/>
+				
+     			<SNMP_SYS_CONTACT VALUE="VDL Nedcar Information Management"/>
+					<SNMP_SYS_LOCATION VALUE="BORN"/>
+					<SNMP_SYSTEM_ROLE VALUE=""/>
+					<SNMP_SYSTEM_ROLE_DETAIL VALUE=""/>
+     	
+					<SNMP_ACCESS_ENABLED value = "Yes"/>
+					<SNMP_PORT value="161"/>
+       		<SNMP_TRAP_PORT value="162"/>
+       		<SNMP_V1_TRAPS VALUE="Yes"/>
+					<SNMP_V3_ENGINE_ID VALUE=""/>				
+				
+					<SNMP_V1_TRAPS VALUE="Y"/>
+     			<WEB_AGENT_IP_ADDRESS VALUE=""/>     	
+     		
+					<SNMP_ADDRESS_1 VALUE="vs102.nedcar.nl"/>
+					<SNMP_ADDRESS_1_ROCOMMUNITY VALUE="NedCarSNMPread"/>
+					<SNMP_ADDRESS_1_TRAPCOMMUNITY VERSION="" VALUE="NedCarSNMP"/>
+					<SNMP_ADDRESS_2 VALUE="vs102.nedcar.nl"/>
+					<SNMP_ADDRESS_2_ROCOMMUNITY VALUE="public"/>
+					<SNMP_ADDRESS_2_TRAPCOMMUNITY VERSION="" VALUE="public"/>
+					<SNMP_ADDRESS_3 VALUE=""/>
+					<SNMP_ADDRESS_3_ROCOMMUNITY VALUE=""/>
+					<SNMP_ADDRESS_3_TRAPCOMMUNITY VERSION="" VALUE=""/>
+								
+					<OS_TRAPS VALUE="Y"/>				  			
+					<RIB_TRAPS VALUE="Y"/>     					
+					<COLD_START_TRAP_BROADCAST VALUE="N"/>
+       		<CIM_SECURITY_MASK value="3"/>                                 
+       	
+       		<TRAP_SOURCE_IDENTIFIER VALUE="OS Hostname"/>				
+    		</MOD_SNMP_IM_SETTINGS>
+				
+      </RIB_INFO>
+      
+      <!--	HP SIM Single Sign On settings -->
+			<SSO_INFO MODE="write">   				
+				<MOD_SSO_SETTINGS>
+					<TRUST_MODE VALUE="ALL" />
+
+					<!-- Specify the privileges assigned to the user role        -->
+					<USER_ROLE LOGIN_PRIV=        "Y" />
+					<USER_ROLE REMOTE_CONS_PRIV=  "N" />
+					<USER_ROLE RESET_SERVER_PRIV= "N" />
+					<USER_ROLE VIRTUAL_MEDIA_PRIV="N" />
+					<USER_ROLE CONFIG_ILO_PRIV=   "N" />
+					<USER_ROLE ADMIN_PRIV=        "N" />
+
+					<!-- Specify the privileges assigned to the operator role    -->
+					<OPERATOR_ROLE LOGIN_PRIV=        "Y" />
+					<OPERATOR_ROLE REMOTE_CONS_PRIV=  "Y" />
+					<OPERATOR_ROLE RESET_SERVER_PRIV= "Y" />
+					<OPERATOR_ROLE VIRTUAL_MEDIA_PRIV="Y" />
+					<OPERATOR_ROLE CONFIG_ILO_PRIV=   "N" />
+					<OPERATOR_ROLE ADMIN_PRIV=        "N" />
+
+					<!-- Specify the privileges assigned to the administrator    -->
+					<!-- role                                                    -->
+					<ADMINISTRATOR_ROLE LOGIN_PRIV=        "Y" />
+					<ADMINISTRATOR_ROLE REMOTE_CONS_PRIV=  "Y" />
+					<ADMINISTRATOR_ROLE RESET_SERVER_PRIV= "Y" />
+					<ADMINISTRATOR_ROLE VIRTUAL_MEDIA_PRIV="Y" />
+					<ADMINISTRATOR_ROLE CONFIG_ILO_PRIV=   "Y" />
+					<ADMINISTRATOR_ROLE ADMIN_PRIV=        "Y" />
+
+				</MOD_SSO_SETTINGS>                  
+      	<SSO_SERVER NAME="vs102.nedcar.nl" />         
+      	<SSO_SERVER IMPORT_FROM="vs102.nedcar.nl" />         
+			</SSO_INFO>
+			
+   </LOGIN>
+</RIBCL>

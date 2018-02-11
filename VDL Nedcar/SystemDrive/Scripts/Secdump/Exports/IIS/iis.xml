@@ -1,0 +1,1575 @@
+﻿<?xml version ="1.0"?>
+<configuration xmlns="urn:microsoft-catalog:XML_Metabase_V64_0">
+<MBProperty>
+<IIS_Global	Location ="."
+		SessionKey="496353625000000034000000100000000b0200000168000001680000488774d48d769cc4c0d3d0eccae869e81d6c920dc4a4728dd31e275f7d43a16a642efbd6e4a38c8d6d0065006e55dc793ad813b4a5cdb3ef60c936d5"
+	>
+</IIS_Global>
+<IIsComputer	Location ="/LM"
+		EnableEditWhileRunning="0"
+		EnableHistory="1"
+		MaxBandwidth="4294967295"
+		MaxHistoryFiles="10"
+	>
+</IIsComputer>
+<IIsConfigObject	Location ="/LM/IISADMIN"
+	>
+</IIsConfigObject>
+<IIsConfigObject	Location ="/LM/IISADMIN/EXTENSIONS"
+	>
+</IIsConfigObject>
+<IIsConfigObject	Location ="/LM/IISADMIN/EXTENSIONS/DCOMCLSIDS"
+	>
+	<Custom
+		Name="MD_IISADMIN_EXTENSIONS"
+		ID="1028"
+		Value="{61738644-F196-11D0-9953-00C04FD919C1}"
+		Type="MULTISZ"
+		UserType="IIS_MD_UT_SERVER"
+		Attributes="NO_ATTRIBUTES"
+	/>
+</IIsConfigObject>
+<IIsConfigObject	Location ="/LM/IISADMIN/PROPERTYREGISTRATION"
+	>
+	<Custom
+		Name="MD_METADATA_ID_REGISTRATION"
+		ID="1030"
+		Value="0-65535;Microsoft Reserved
+			65536-524288;Microsoft IIS Admin Objects Reserved"
+		Type="MULTISZ"
+		UserType="IIS_MD_UT_SERVER"
+		Attributes="INHERIT"
+	/>
+</IIsConfigObject>
+<IIsLogModules	Location ="/LM/Logging"
+		AdminACL="49634462a000000058000000400000004b4eeadf6e7dd95c516fc5687cd1e679e4c2ae667bf3edbb892a15234c236fd5a964975451e44aac10d10299fbc8f6e74082f2afe51a6b89532f5f41bce81db820e057c663b3db050a06279a6f2367a3327b2f95fe24fa7c6ed68e7dc7829b1cef6144cd63d4459058a1fa261c894c700000000036b43ce13ad0b1dca8efb725e8e577c85de515e60effadd71f399b146c006c000000fe2f"
+	>
+</IIsLogModules>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging"
+		LogCustomPropertyServicesString="W3SVC
+			MSFTPSVC
+			SMTPSVC
+			NNTPSVC"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Date"
+		LogCustomPropertyDataType="6"
+		LogCustomPropertyHeader="date"
+		LogCustomPropertyID="4013"
+		LogCustomPropertyMask="1"
+		LogCustomPropertyName="Date"
+		LogCustomPropertyNodeID="1"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Extended Properties"
+		LogCustomPropertyDataType="6"
+		LogCustomPropertyID="4013"
+		LogCustomPropertyName="Extended Properties"
+		LogCustomPropertyNodeID="3"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Extended Properties/Bytes Received"
+		LogCustomPropertyDataType="3"
+		LogCustomPropertyHeader="cs-bytes"
+		LogCustomPropertyMask="8192"
+		LogCustomPropertyName="Bytes Received"
+		LogCustomPropertyNodeID="17"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Extended Properties/Bytes Sent"
+		LogCustomPropertyDataType="3"
+		LogCustomPropertyHeader="sc-bytes"
+		LogCustomPropertyMask="4096"
+		LogCustomPropertyName="Bytes Sent"
+		LogCustomPropertyNodeID="16"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Extended Properties/Client IP Address"
+		LogCustomPropertyDataType="6"
+		LogCustomPropertyHeader="c-ip"
+		LogCustomPropertyMask="4"
+		LogCustomPropertyName="Client IP Address"
+		LogCustomPropertyNodeID="5"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Extended Properties/Cookie"
+		LogCustomPropertyDataType="6"
+		LogCustomPropertyHeader="cs(Cookie)"
+		LogCustomPropertyMask="131072"
+		LogCustomPropertyName="Cookie"
+		LogCustomPropertyNodeID="22"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Extended Properties/Host"
+		LogCustomPropertyDataType="6"
+		LogCustomPropertyHeader="cs-host"
+		LogCustomPropertyMask="1048576"
+		LogCustomPropertyName="Host"
+		LogCustomPropertyNodeID="20"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Extended Properties/Method"
+		LogCustomPropertyDataType="6"
+		LogCustomPropertyHeader="cs-method"
+		LogCustomPropertyMask="128"
+		LogCustomPropertyName="Method"
+		LogCustomPropertyNodeID="11"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Extended Properties/Protocol Status"
+		LogCustomPropertyDataType="3"
+		LogCustomPropertyHeader="sc-status"
+		LogCustomPropertyMask="1024"
+		LogCustomPropertyName="Protocol Status"
+		LogCustomPropertyNodeID="14"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Extended Properties/Protocol Substatus"
+		LogCustomPropertyDataType="3"
+		LogCustomPropertyHeader="sc-substatus"
+		LogCustomPropertyMask="2097152"
+		LogCustomPropertyName="Protocol Substatus"
+		LogCustomPropertyNodeID="32"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Extended Properties/Protocol Version"
+		LogCustomPropertyDataType="6"
+		LogCustomPropertyHeader="cs-version"
+		LogCustomPropertyMask="524288"
+		LogCustomPropertyName="Protocol Version"
+		LogCustomPropertyNodeID="19"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Extended Properties/Referer"
+		LogCustomPropertyDataType="6"
+		LogCustomPropertyHeader="cs(Referer)"
+		LogCustomPropertyMask="262144"
+		LogCustomPropertyName="Referer"
+		LogCustomPropertyNodeID="23"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Extended Properties/Server IP"
+		LogCustomPropertyDataType="6"
+		LogCustomPropertyHeader="s-ip"
+		LogCustomPropertyMask="64"
+		LogCustomPropertyName="Server IP Address"
+		LogCustomPropertyNodeID="9"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Extended Properties/Server Name"
+		LogCustomPropertyDataType="6"
+		LogCustomPropertyHeader="s-computername"
+		LogCustomPropertyMask="32"
+		LogCustomPropertyName="Server Name"
+		LogCustomPropertyNodeID="8"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Extended Properties/Server Port"
+		LogCustomPropertyDataType="3"
+		LogCustomPropertyHeader="s-port"
+		LogCustomPropertyMask="32768"
+		LogCustomPropertyName="Server Port"
+		LogCustomPropertyNodeID="10"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Extended Properties/Service Name"
+		LogCustomPropertyDataType="6"
+		LogCustomPropertyHeader="s-sitename"
+		LogCustomPropertyMask="16"
+		LogCustomPropertyName="Service Name"
+		LogCustomPropertyNodeID="7"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Extended Properties/Time Taken"
+		LogCustomPropertyDataType="3"
+		LogCustomPropertyHeader="time-taken"
+		LogCustomPropertyMask="16384"
+		LogCustomPropertyName="Time Taken"
+		LogCustomPropertyNodeID="18"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Extended Properties/URI Query"
+		LogCustomPropertyDataType="6"
+		LogCustomPropertyHeader="cs-uri-query"
+		LogCustomPropertyMask="512"
+		LogCustomPropertyName="URI Query"
+		LogCustomPropertyNodeID="13"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Extended Properties/URI Stem"
+		LogCustomPropertyDataType="6"
+		LogCustomPropertyHeader="cs-uri-stem"
+		LogCustomPropertyMask="256"
+		LogCustomPropertyName="URI Stem"
+		LogCustomPropertyNodeID="12"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Extended Properties/User Agent"
+		LogCustomPropertyDataType="6"
+		LogCustomPropertyHeader="cs(User-Agent)"
+		LogCustomPropertyMask="65536"
+		LogCustomPropertyName="User Agent"
+		LogCustomPropertyNodeID="21"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Extended Properties/User Name"
+		LogCustomPropertyDataType="6"
+		LogCustomPropertyHeader="cs-username"
+		LogCustomPropertyMask="8"
+		LogCustomPropertyName="User Name"
+		LogCustomPropertyNodeID="6"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Extended Properties/Win32 Status"
+		LogCustomPropertyDataType="3"
+		LogCustomPropertyHeader="sc-win32-status"
+		LogCustomPropertyMask="2048"
+		LogCustomPropertyName="Win32 Status"
+		LogCustomPropertyNodeID="15"
+	>
+</IIsCustomLogModule>
+<IIsCustomLogModule	Location ="/LM/Logging/Custom Logging/Time"
+		LogCustomPropertyDataType="6"
+		LogCustomPropertyHeader="time"
+		LogCustomPropertyID="4013"
+		LogCustomPropertyMask="2"
+		LogCustomPropertyName="Time"
+		LogCustomPropertyNodeID="2"
+	>
+</IIsCustomLogModule>
+<IIsLogModule	Location ="/LM/Logging/Microsoft IIS Log File Format"
+		LogModuleId="{FF160657-DE82-11CF-BC0A-00AA006111E0}"
+		LogModuleUiId="{31DCAB87-BB3E-11d0-9299-00C04FB6678B}"
+	>
+</IIsLogModule>
+<IIsLogModule	Location ="/LM/Logging/NCSA Common Log File Format"
+		LogModuleId="{FF16065F-DE82-11CF-BC0A-00AA006111E0}"
+		LogModuleUiId="{31DCAB85-BB3E-11d0-9299-00C04FB6678B}"
+	>
+</IIsLogModule>
+<IIsLogModule	Location ="/LM/Logging/ODBC Logging"
+		LogModuleId="{FF16065B-DE82-11CF-BC0A-00AA006111E0}"
+		LogModuleUiId="{31DCAB86-BB3E-11d0-9299-00C04FB6678B}"
+	>
+</IIsLogModule>
+<IIsLogModule	Location ="/LM/Logging/W3C Extended Log File Format"
+		LogModuleId="{FF160663-DE82-11CF-BC0A-00AA006111E0}"
+		LogModuleUiId="{31DCAB88-BB3E-11d0-9299-00C04FB6678B}"
+	>
+</IIsLogModule>
+<IIsMimeMap	Location ="/LM/MimeMap"
+		MimeMap=".323,text/h323
+			.aaf,application/octet-stream
+			.aca,application/octet-stream
+			.accdb,application/msaccess
+			.accde,application/msaccess
+			.accdt,application/msaccess
+			.acx,application/internet-property-stream
+			.afm,application/octet-stream
+			.ai,application/postscript
+			.aif,audio/x-aiff
+			.aifc,audio/aiff
+			.aiff,audio/aiff
+			.art,image/x-jg
+			.asd,application/octet-stream
+			.asf,video/x-ms-asf
+			.asi,application/octet-stream
+			.asm,text/plain
+			.asr,video/x-ms-asf
+			.asx,video/x-ms-asf
+			.atom,application/atom+xml
+			.au,audio/basic
+			.avi,video/x-msvideo
+			.axs,application/olescript
+			.bas,text/plain
+			.bcpio,application/x-bcpio
+			.bin,application/octet-stream
+			.bmp,image/bmp
+			.c,text/plain
+			.cab,application/octet-stream
+			.cat,application/vnd.ms-pki.seccat
+			.cdf,application/x-cdf
+			.cfg,text/plain
+			.chm,application/octet-stream
+			.class,application/x-java-applet
+			.clp,application/x-msclip
+			.cmx,image/x-cmx
+			.cnf,text/plain
+			.cod,image/cis-cod
+			.cpio,application/x-cpio
+			.cpp,text/plain
+			.crd,application/x-mscardfile
+			.crl,application/pkix-crl
+			.crt,application/x-x509-ca-cert
+			.csh,application/x-csh
+			.css,text/css
+			.csv,application/octet-stream
+			.cur,application/octet-stream
+			.dcr,application/x-director
+			.der,application/x-x509-ca-cert
+			.dib,image/bmp
+			.dir,application/x-director
+			.dll,application/x-msdownload
+			.dlm,text/dlm
+			.doc,application/msword
+			.docm,application/vnd.ms-word.document.macroEnabled.12
+			.docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document
+			.dot,application/msword
+			.dotm,application/vnd.ms-word.template.macroEnabled.12
+			.dotx,application/vnd.openxmlformats-officedocument.wordprocessingml.template
+			.dsp,application/octet-stream
+			.dtd,text/xml
+			.dvi,application/x-dvi
+			.dwf,drawing/x-dwf
+			.dwp,application/octet-stream
+			.dxr,application/x-director
+			.eml,message/rfc822
+			.emz,application/octet-stream
+			.eot,application/octet-stream
+			.eps,application/postscript
+			.etx,text/x-setext
+			.evy,application/envoy
+			.exe,application/octet-stream
+			.fdf,application/vnd.fdf
+			.fif,application/fractals
+			.fla,application/octet-stream
+			.flr,x-world/x-vrml
+			.gif,image/gif
+			.gtar,application/x-gtar
+			.gz,application/x-gzip
+			.h,text/plain
+			.hdf,application/x-hdf
+			.hdml,text/x-hdml
+			.hhc,application/x-oleobject
+			.hhk,application/octet-stream
+			.hhp,application/octet-stream
+			.hlp,application/winhlp
+			.hqx,application/mac-binhex40
+			.hta,application/hta
+			.htc,text/x-component
+			.htm,text/html
+			.html,text/html
+			.htt,text/webviewhtml
+			.hxt,text/html
+			.ico,image/x-icon
+			.ics,application/octet-stream
+			.ief,image/ief
+			.iii,application/x-iphone
+			.inf,application/octet-stream
+			.ins,application/x-internet-signup
+			.isp,application/x-internet-signup
+			.IVF,video/x-ivf
+			.jar,application/java-archive
+			.java,application/octet-stream
+			.jck,application/liquidmotion
+			.jcz,application/liquidmotion
+			.jfif,image/pjpeg
+			.jpb,application/octet-stream
+			.jpe,image/jpeg
+			.jpeg,image/jpeg
+			.jpg,image/jpeg
+			.js,application/x-javascript
+			.latex,application/x-latex
+			.lit,application/x-ms-reader
+			.lpk,application/octet-stream
+			.lsf,video/x-la-asf
+			.lsx,video/x-la-asf
+			.lzh,application/octet-stream
+			.m13,application/x-msmediaview
+			.m14,application/x-msmediaview
+			.m1v,video/mpeg
+			.m3u,audio/x-mpegurl
+			.man,application/x-troff-man
+			.map,text/plain
+			.mdb,application/x-msaccess
+			.mdp,application/octet-stream
+			.me,application/x-troff-me
+			.mht,message/rfc822
+			.mhtml,message/rfc822
+			.mid,audio/mid
+			.midi,audio/mid
+			.mix,application/octet-stream
+			.mno,text/xml
+			.mny,application/x-msmoney
+			.mov,video/quicktime
+			.movie,video/x-sgi-movie
+			.mp2,video/mpeg
+			.mp3,audio/mpeg
+			.mpa,video/mpeg
+			.mpe,video/mpeg
+			.mpeg,video/mpeg
+			.mpg,video/mpeg
+			.mpp,application/vnd.ms-project
+			.mpv2,video/mpeg
+			.ms,application/x-troff-ms
+			.msi,application/octet-stream
+			.mso,application/octet-stream
+			.mvb,application/x-msmediaview
+			.mvc,application/x-miva-compiled
+			.nc,application/x-netcdf
+			.nsc,video/x-ms-asf
+			.nws,message/rfc822
+			.ocx,application/octet-stream
+			.oda,application/oda
+			.ods,application/oleobject
+			.one,application/onenote
+			.onea,application/onenote
+			.onepkg,application/onenote
+			.onetmp,application/onenote
+			.onetoc,application/onenote
+			.onetoc2,application/onenote
+			.p10,application/pkcs10
+			.p12,application/x-pkcs12
+			.p7b,application/x-pkcs7-certificates
+			.p7c,application/pkcs7-mime
+			.p7m,application/pkcs7-mime
+			.p7r,application/x-pkcs7-certreqresp
+			.p7s,application/pkcs7-signature
+			.pbm,image/x-portable-bitmap
+			.pcx,application/octet-stream
+			.pcz,application/octet-stream
+			.pdf,application/pdf
+			.pfb,application/octet-stream
+			.pfm,application/octet-stream
+			.pfx,application/x-pkcs12
+			.pgm,image/x-portable-graymap
+			.pko,application/vnd.ms-pki.pko
+			.pma,application/x-perfmon
+			.pmc,application/x-perfmon
+			.pml,application/x-perfmon
+			.pmr,application/x-perfmon
+			.pmw,application/x-perfmon
+			.pnm,image/x-portable-anymap
+			.pot,application/vnd.ms-powerpoint
+			.potm,application/vnd.ms-powerpoint.template.macroEnabled.12
+			.potx,application/vnd.openxmlformats-officedocument.presentationml.template
+			.ppam,application/vnd.ms-powerpoint.addin.macroEnabled.12
+			.ppm,image/x-portable-pixmap
+			.pps,application/vnd.ms-pps
+			.ppsm,application/vnd.ms-powerpoint.slideshow.macroEnabled.12
+			.ppsx,application/vnd.openxmlformats-officedocument.presentationml.slideshow
+			.ppt,application/vnd.ms-powerpoint
+			.pptm,application/vnd.ms-powerpoint.presentation.macroEnabled.12
+			.pptx,application/vnd.openxmlformats-officedocument.presentationml.presentation
+			.prf,application/pics-rules
+			.prm,application/octet-stream
+			.prx,application/octet-stream
+			.ps,application/postscript
+			.psd,application/octet-stream
+			.psm,application/octet-stream
+			.psp,application/octet-stream
+			.pub,application/x-mspublisher
+			.qt,video/quicktime
+			.qtl,application/x-quicktimeplayer
+			.qxd,application/octet-stream
+			.ra,audio/x-pn-realaudio
+			.ram,audio/x-pn-realaudio
+			.rar,application/octet-stream
+			.ras,image/x-cmu-raster
+			.rf,image/vnd.rn-realflash
+			.rgb,image/x-rgb
+			.rm,application/vnd.rn-realmedia
+			.rmi,audio/mid
+			.roff,application/x-troff
+			.rpm,audio/x-pn-realaudio-plugin
+			.rtf,application/rtf
+			.rtx,text/richtext
+			.scd,application/x-msschedule
+			.sct,text/scriptlet
+			.sea,application/octet-stream
+			.setpay,application/set-payment-initiation
+			.setreg,application/set-registration-initiation
+			.sgml,text/sgml
+			.sh,application/x-sh
+			.shar,application/x-shar
+			.sit,application/x-stuffit
+			.sldm,application/vnd.ms-powerpoint.slide.macroEnabled.12
+			.sldx,application/vnd.openxmlformats-officedocument.presentationml.slide
+			.smi,application/octet-stream
+			.snd,audio/basic
+			.snp,application/octet-stream
+			.spc,application/x-pkcs7-certificates
+			.spl,application/futuresplash
+			.src,application/x-wais-source
+			.ssm,application/streamingmedia
+			.sst,application/vnd.ms-pki.certstore
+			.stl,application/vnd.ms-pki.stl
+			.sv4cpio,application/x-sv4cpio
+			.sv4crc,application/x-sv4crc
+			.swf,application/x-shockwave-flash
+			.t,application/x-troff
+			.tar,application/x-tar
+			.tcl,application/x-tcl
+			.tex,application/x-tex
+			.texi,application/x-texinfo
+			.texinfo,application/x-texinfo
+			.tgz,application/x-compressed
+			.thmx,application/vnd.ms-officetheme
+			.thn,application/octet-stream
+			.tif,image/tiff
+			.tiff,image/tiff
+			.toc,application/octet-stream
+			.tr,application/x-troff
+			.trm,application/x-msterminal
+			.tsv,text/tab-separated-values
+			.ttf,application/octet-stream
+			.txt,text/plain
+			.u32,application/octet-stream
+			.uls,text/iuls
+			.ustar,application/x-ustar
+			.vbs,text/vbscript
+			.vcf,text/x-vcard
+			.vcs,text/plain
+			.vdx,application/vnd.ms-visio.viewer
+			.vml,text/xml
+			.vsd,application/vnd.visio
+			.vss,application/vnd.visio
+			.vst,application/vnd.visio
+			.vsw,application/vnd.visio
+			.vsx,application/vnd.visio
+			.vtx,application/vnd.visio
+			.wav,audio/wav
+			.wax,audio/x-ms-wax
+			.wcm,application/vnd.ms-works
+			.wdb,application/vnd.ms-works
+			.wks,application/vnd.ms-works
+			.wm,video/x-ms-wm
+			.wma,audio/x-ms-wma
+			.wmd,application/x-ms-wmd
+			.wmf,application/x-msmetafile
+			.wml,text/vnd.wap.wml
+			.wmlc,application/vnd.wap.wmlc
+			.wmls,text/vnd.wap.wmlscript
+			.wmlsc,application/vnd.wap.wmlscriptc
+			.wmp,video/x-ms-wmp
+			.wmv,video/x-ms-wmv
+			.wmx,video/x-ms-wmx
+			.wmz,application/x-ms-wmz
+			.wps,application/vnd.ms-works
+			.wri,application/x-mswrite
+			.wrl,x-world/x-vrml
+			.wrz,x-world/x-vrml
+			.wvx,video/x-ms-wvx
+			.x,application/directx
+			.xaf,x-world/x-vrml
+			.xbm,image/x-xbitmap
+			.xdr,text/plain
+			.xla,application/vnd.ms-excel
+			.xlam,application/vnd.ms-excel.addin.macroEnabled.12
+			.xlc,application/vnd.ms-excel
+			.xlm,application/vnd.ms-excel
+			.xls,application/vnd.ms-excel
+			.xlsb,application/vnd.ms-excel.sheet.binary.macroEnabled.12
+			.xlsm,application/vnd.ms-excel.sheet.macroEnabled.12
+			.xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+			.xlt,application/vnd.ms-excel
+			.xltm,application/vnd.ms-excel.template.macroEnabled.12
+			.xltx,application/vnd.openxmlformats-officedocument.spreadsheetml.template
+			.xlw,application/vnd.ms-excel
+			.xml,text/xml
+			.xof,x-world/x-vrml
+			.xpm,image/x-xpixmap
+			.xsf,text/xml
+			.xsl,text/xml
+			.xslt,text/xml
+			.xsn,application/octet-stream
+			.xtp,application/octet-stream
+			.xwd,image/x-xwindowdump
+			.z,application/x-compress
+			.zip,application/x-zip-compressed
+			.wsdl,text/xml
+			.disco,text/xml
+			.xsd,text/xml
+			.wbmp,image/vnd.wap.wbmp
+			.png,image/png
+			.pnz,image/png
+			.smd,audio/x-smd
+			.smz,audio/x-smd
+			.smx,audio/x-smd
+			.mmf,application/x-smaf
+			.application,application/x-ms-application
+			.manifest,application/x-ms-manifest
+			.deploy,application/octet-stream"
+	>
+</IIsMimeMap>
+<IIsFtpService	Location ="/LM/MSFTPSVC"
+		AccessFlags="AccessRead | AccessWrite"
+		AdminACL="49634462a000000058000000400000004b4eeadf6e7dd95c516fc5687cd1e679e4c2ae667bf3edbb892a15234c236fd5a964975451e44aac10d10299fbc8f6e74082f2afe51a6b89532f5f41bce81db820e057c663b3db050a06279a6f2367a3327b2f95fe24fa7c6ed68e7dc7829b1cef6144cd63d4459058a1fa261c894c700000000036b43ce13ad0b1dca8efb725e8e577c85de515e60effadd71f399b146c006c000000fe2f"
+		AllowAnonymous="TRUE"
+		AnonymousOnly="FALSE"
+		AnonymousUserName="IUSR_S001"
+		AnonymousUserPass="496344627000000022000000400000004b4eeadf277de3dc5d6f9f6848d1cd79d7c2f36659f39bbba32a082376231dd5a96449004e0044004f00570053005c00730079007300740065006d00330032005c007700620065006d005c0077006d006900700072007600730065002e0065007800650000000000"
+		ConnectionTimeout="120"
+		DownlevelAdminInstance="1"
+		ExitMessage=" "
+		LogAnonymous="FALSE"
+		LogExtFileFlags="LogExtFileDate | LogExtFileTime | LogExtFileClientIp | LogExtFileUserName | LogExtFileMethod | LogExtFileUriStem | LogExtFileUriQuery | LogExtFileHttpStatus | LogExtFileBytesSent | LogExtFileUserAgent | LogExtFileReferer | LogExtFileProtocolVersion"
+		LogFileDirectory="C:\WINDOWS\system32\LogFiles"
+		LogFileLocaltimeRollover="FALSE"
+		LogFilePeriod="1"
+		LogFileTruncateSize="20971520"
+		LogNonAnonymous="FALSE"
+		LogOdbcDataSource="TSLOG"
+		LogOdbcPassword="496344626000000012000000400000004b4eeadf1c7dafdc096fa96857d18179e4c2010049bc02d1349254050273abfb21f2355a521c441f1288769ffd78caa3ae6f4a11cdf83597ff244b71960b8237eea052c36d6489d0fcf001d0aedebd0c7bc2d0dff15e613b"
+		LogOdbcTableName="FTPLog"
+		LogOdbcUserName="InternetAdmin"
+		LogPluginClsid="{FF160663-DE82-11CF-BC0A-00AA006111E0}"
+		LogType="1"
+		MSDOSDirOutput="TRUE"
+		MaxClientsMessage=" "
+		MaxConnections="100000"
+	>
+</IIsFtpService>
+<IIsFtpServer	Location ="/LM/MSFTPSVC/1"
+		ServerAutoStart="TRUE"
+		ServerBindings=":21:"
+		ServerComment="Default FTP Site"
+		ServerSize="1"
+	>
+</IIsFtpServer>
+<IIsFtpVirtualDir	Location ="/LM/MSFTPSVC/1/ROOT"
+		AccessFlags="AccessRead"
+		Path="c:\inetpub\ftproot"
+	>
+</IIsFtpVirtualDir>
+<IIsFtpVirtualDir	Location ="/LM/MSFTPSVC/1/ROOT/esx-ks"
+		AccessFlags="AccessRead | AccessWrite"
+		Path="D:\ESX-KS"
+	>
+</IIsFtpVirtualDir>
+<IIsFtpVirtualDir	Location ="/LM/MSFTPSVC/1/ROOT/hashes"
+		AccessFlags="AccessRead | AccessWrite"
+		Path="D:\Hashes"
+	>
+</IIsFtpVirtualDir>
+<IIsFtpVirtualDir	Location ="/LM/MSFTPSVC/1/ROOT/iso"
+		AccessFlags="AccessRead | AccessWrite"
+		Path="D:\ISO"
+	>
+</IIsFtpVirtualDir>
+<IIsFtpInfo	Location ="/LM/MSFTPSVC/Info"
+		LogModuleList="Microsoft IIS Log File Format,W3C Extended Log File Format,ODBC Logging"
+		MD_SERVER_CAPABILITIES="80831"
+		MD_SERVER_PLATFORM="1"
+		MajorIIsVersionNumber="6"
+		MinorIIsVersionNumber="0"
+	>
+</IIsFtpInfo>
+<IIsConfigObject	Location ="/LM/MSFTPSVC/Info/Templates"
+	>
+</IIsConfigObject>
+<IIsFtpServer	Location ="/LM/MSFTPSVC/Info/Templates/Public FTP Site"
+		AllowAnonymous="TRUE"
+		AnonymousOnly="TRUE"
+		IPSecurity=""
+		ServerComment="Allows all users to download files via FTP."
+	>
+</IIsFtpServer>
+<IIsFtpServer	Location ="/LM/MSFTPSVC/Info/Templates/Public FTP Site/Root"
+		AccessFlags="AccessRead"
+	>
+</IIsFtpServer>
+<IIsWebService	Location ="/LM/W3SVC"
+		AllowKeepAlive="TRUE"
+		AnonymousUserName="IUSR_S001"
+		AnonymousUserPass="496344627000000022000000400000004b4eeadf277de3dc5d6f9f6848d1cd79d7c2f36659f39bbba32a082376231dd5a96449004e0044004f00570053005c00730079007300740065006d00330032005c007700620065006d005c0077006d006900700072007600730065002e0065007800650000000000"
+		AppAllowClientDebug="FALSE"
+		AppAllowDebugging="FALSE"
+		AppPoolId="DefaultAppPool"
+		ApplicationDependencies="Active Server Pages;ASP
+			Internet Data Connector;HTTPODBC
+			Server Side Includes;SSINC
+			WebDAV;WEBDAV
+			ASP.NET v2.0.50727;ASP.NET v2.0.50727
+			ASP.NET v4.0.30319;ASP.NET v4.0.30319"
+		AspAllowOutOfProcComponents="TRUE"
+		AspAllowSessionState="TRUE"
+		AspAppServiceFlags="0"
+		AspBufferingLimit="4194304"
+		AspBufferingOn="TRUE"
+		AspCalcLineNumber="TRUE"
+		AspCodepage="0"
+		AspDiskTemplateCacheDirectory="%windir%\system32\inetsrv\ASP Compiled Templates"
+		AspEnableApplicationRestart="TRUE"
+		AspEnableAspHtmlFallback="FALSE"
+		AspEnableChunkedEncoding="TRUE"
+		AspEnableParentPaths="FALSE"
+		AspEnableTypelibCache="TRUE"
+		AspErrorsToNTLog="FALSE"
+		AspExceptionCatchEnable="TRUE"
+		AspExecuteInMTA="0"
+		AspKeepSessionIDSecure="0"
+		AspLCID="2048"
+		AspLogErrorRequests="TRUE"
+		AspMaxDiskTemplateCacheFiles="2000"
+		AspMaxRequestEntityAllowed="204800"
+		AspProcessorThreadMax="25"
+		AspQueueConnectionTestTime="3"
+		AspQueueTimeout="4294967295"
+		AspRequestQueueMax="3000"
+		AspRunOnEndAnonymously="TRUE"
+		AspScriptEngineCacheMax="250"
+		AspScriptErrorMessage="An error occurred on the server when processing the URL.  Please contact the system administrator."
+		AspScriptErrorSentToBrowser="TRUE"
+		AspScriptFileCacheSize="500"
+		AspScriptLanguage="VBScript"
+		AspScriptTimeout="90"
+		AspSessionMax="4294967295"
+		AspSessionTimeout="20"
+		AspTrackThreadingModel="FALSE"
+		AuthChangeURL="/iisadmpwd/achg.asp"
+		AuthExpiredURL="/iisadmpwd/aexp.asp"
+		AuthExpiredUnsecureURL="/iisadmpwd/aexp3.asp"
+		AuthFlags="AuthAnonymous"
+		AuthNotifyPwdExpURL="/iisadmpwd/anot.asp"
+		AuthNotifyPwdExpUnsecureURL="/iisadmpwd/anot3.asp"
+		CGITimeout="300"
+		CacheISAPI="TRUE"
+		CentralBinaryLoggingEnabled="FALSE"
+		ConnectionTimeout="120"
+		ContentIndexed="TRUE"
+		DefaultDoc="Default.aspx,Default.htm,Default.asp,index.htm"
+		DirBrowseFlags="DirBrowseShowDate | DirBrowseShowTime | DirBrowseShowSize | DirBrowseShowExtension | DirBrowseShowLongDate | EnableDefaultDoc"
+		DownlevelAdminInstance="1"
+		HttpCustomHeaders="X-Powered-By: ASP.NET"
+		HttpErrors="400,*,FILE,C:\WINDOWS\help\iisHelp\common\400.htm
+			401,1,FILE,C:\WINDOWS\help\iisHelp\common\401-1.htm
+			401,2,FILE,C:\WINDOWS\help\iisHelp\common\401-2.htm
+			401,3,FILE,C:\WINDOWS\help\iisHelp\common\401-3.htm
+			401,4,FILE,C:\WINDOWS\help\iisHelp\common\401-4.htm
+			401,5,FILE,C:\WINDOWS\help\iisHelp\common\401-5.htm
+			401,7,FILE,C:\WINDOWS\help\iisHelp\common\401-1.htm
+			403,1,FILE,C:\WINDOWS\help\iisHelp\common\403-1.htm
+			403,2,FILE,C:\WINDOWS\help\iisHelp\common\403-2.htm
+			403,3,FILE,C:\WINDOWS\help\iisHelp\common\403-3.htm
+			403,4,FILE,C:\WINDOWS\help\iisHelp\common\403-4.htm
+			403,5,FILE,C:\WINDOWS\help\iisHelp\common\403-5.htm
+			403,6,FILE,C:\WINDOWS\help\iisHelp\common\403-6.htm
+			403,7,FILE,C:\WINDOWS\help\iisHelp\common\403-7.htm
+			403,8,FILE,C:\WINDOWS\help\iisHelp\common\403-8.htm
+			403,9,FILE,C:\WINDOWS\help\iisHelp\common\403-9.htm
+			403,10,FILE,C:\WINDOWS\help\iisHelp\common\403-10.htm
+			403,11,FILE,C:\WINDOWS\help\iisHelp\common\403-11.htm
+			403,12,FILE,C:\WINDOWS\help\iisHelp\common\403-12.htm
+			403,13,FILE,C:\WINDOWS\help\iisHelp\common\403-13.htm
+			403,15,FILE,C:\WINDOWS\help\iisHelp\common\403-15.htm
+			403,16,FILE,C:\WINDOWS\help\iisHelp\common\403-16.htm
+			403,17,FILE,C:\WINDOWS\help\iisHelp\common\403-17.htm
+			403,18,FILE,C:\WINDOWS\help\iisHelp\common\403.htm
+			403,19,FILE,C:\WINDOWS\help\iisHelp\common\403.htm
+			403,20,FILE,C:\WINDOWS\help\iisHelp\common\403-20.htm
+			404,*,FILE,C:\WINDOWS\help\iisHelp\common\404b.htm
+			404,2,FILE,C:\WINDOWS\help\iisHelp\common\404b.htm
+			404,3,FILE,C:\WINDOWS\help\iisHelp\common\404b.htm
+			405,*,FILE,C:\WINDOWS\help\iisHelp\common\405.htm
+			406,*,FILE,C:\WINDOWS\help\iisHelp\common\406.htm
+			407,*,FILE,C:\WINDOWS\help\iisHelp\common\407.htm
+			412,*,FILE,C:\WINDOWS\help\iisHelp\common\412.htm
+			414,*,FILE,C:\WINDOWS\help\iisHelp\common\414.htm
+			415,*,FILE,C:\WINDOWS\help\iisHelp\common\415.htm
+			500,12,FILE,C:\WINDOWS\help\iisHelp\common\500-12.htm
+			500,13,FILE,C:\WINDOWS\help\iisHelp\common\500-13.htm
+			500,15,FILE,C:\WINDOWS\help\iisHelp\common\500-15.htm
+			500,16,FILE,C:\WINDOWS\help\iisHelp\common\500.htm
+			500,17,FILE,C:\WINDOWS\help\iisHelp\common\500.htm
+			500,18,FILE,C:\WINDOWS\help\iisHelp\common\500.htm
+			500,19,FILE,C:\WINDOWS\help\iisHelp\common\500.htm"
+		IIs5IsolationModeEnabled="FALSE"
+		InProcessIsapiApps="C:\WINDOWS\system32\inetsrv\httpext.dll
+			C:\WINDOWS\system32\inetsrv\httpodbc.dll
+			C:\WINDOWS\system32\inetsrv\ssinc.dll
+			C:\WINDOWS\system32\msw3prt.dll
+			C:\WINDOWS\system32\bitssrv.dll
+			c:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\aspnet_isapi.dll
+			c:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll"
+		LogExtFileFlags="LogExtFileDate | LogExtFileTime | LogExtFileClientIp | LogExtFileUserName | LogExtFileMethod | LogExtFileUriStem | LogExtFileUriQuery | LogExtFileHttpStatus | LogExtFileBytesSent | LogExtFileUserAgent | LogExtFileReferer"
+		LogFileDirectory="C:\WINDOWS\system32\LogFiles"
+		LogFileLocaltimeRollover="FALSE"
+		LogFilePeriod="1"
+		LogFileTruncateSize="20971520"
+		LogInUTF8="FALSE"
+		LogOdbcDataSource="HTTPLOG"
+		LogOdbcPassword="496344626000000012000000400000004b4eeadf1c7dafdc096fa96857d18179e4c2010049bc02d1349254050273abfb21f2355a521c441f1288769ffd78caa3ae6f4a11cdf83597ff244b71960b8237eea052c36d6489d0fcf001d0aedebd0c7bc2d0dff15e613b"
+		LogOdbcTableName="InternetLog"
+		LogOdbcUserName="InternetAdmin"
+		LogPluginClsid="{FF160663-DE82-11CF-BC0A-00AA006111E0}"
+		LogType="1"
+		MaxConnections="4294967295"
+		MaxGlobalBandwidth="4294967295"
+		MinFileBytesPerSec="240"
+		PasswordChangeFlags="AuthChangeDisable | AuthAdvNotifyDisable"
+		ScriptMaps=".asp,C:\WINDOWS\system32\inetsrv\asp.dll,5,GET,HEAD,POST,TRACE
+			.cer,C:\WINDOWS\system32\inetsrv\asp.dll,5,GET,HEAD,POST,TRACE
+			.cdx,C:\WINDOWS\system32\inetsrv\asp.dll,5,GET,HEAD,POST,TRACE
+			.asa,C:\WINDOWS\system32\inetsrv\asp.dll,5,GET,HEAD,POST,TRACE
+			.idc,C:\WINDOWS\system32\inetsrv\httpodbc.dll,5,GET,POST
+			.shtm,C:\WINDOWS\system32\inetsrv\ssinc.dll,5,GET,POST
+			.shtml,C:\WINDOWS\system32\inetsrv\ssinc.dll,5,GET,POST
+			.stm,C:\WINDOWS\system32\inetsrv\ssinc.dll,5,GET,POST
+			.asax,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.ascx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.ashx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.asmx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.aspx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.axd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.vsdisco,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.rem,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.soap,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.config,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.cs,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.csproj,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.vb,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.vbproj,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.webinfo,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.licx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.resx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.resources,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.master,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.skin,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.compiled,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.browser,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.mdb,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.jsl,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.vjsproj,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.sitemap,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.msgx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.ad,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.dd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.ldd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.sd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.cd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.adprototype,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.lddprototype,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.sdm,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.sdmDocument,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.ldb,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.mdf,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.ldf,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.java,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.exclude,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.refresh,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.pl,C:\Perl\bin\perl.exe &quot;%s&quot; %s,5,GET,HEAD,POST
+			.plx,C:\Perl\bin\perlis.dll,5,GET,HEAD,POST
+			.plex,C:\Perl\bin\PerlEx30.dll,5,GET,HEAD,POST
+			.aspl,C:\Perl\bin\PerlEx30.dll,5,GET,HEAD,POST
+			.svc,c:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.xoml,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.rules,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG"
+		WAMUserName="IWAM_S001"
+		WAMUserPass="496344627000000022000000400000004b4eeadf4a7de3dc2c6f8c6869d19c79bcc2f4662df3d8bbce2a1623152321d5a96449004e0044004f00570053005c00730079007300740065006d00330032005c007700620065006d005c0077006d006900700072007600730065002e0065007800650000000000"
+		WebSvcExtRestrictionList="0,C:\WINDOWS\system32\inetsrv\httpodbc.dll,0,HTTPODBC,Internet Data Connector
+			0,C:\WINDOWS\system32\inetsrv\ssinc.dll,0,SSINC,Server Side Includes
+			1,C:\WINDOWS\system32\inetsrv\asp.dll,0,ASP,Active Server Pages
+			1,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,0,ASP.NET v2.0.50727,ASP.NET v2.0.50727
+			1,C:\WINDOWS\system32\bitssrv.dll,0,BITSEXTS,BITS Server Extensions
+			0,*.exe
+			0,C:\WINDOWS\system32\inetsrv\httpext.dll,0,WEBDAV,WebDAV
+			0,*.dll
+			1,C:\Program Files\Citrix\Licensing\LMC\Tomcat\bin\win32\i386\isapi_redirect.dll,0,Tomcat,Tomcat Servlet Engine
+			0,C:\Perl\bin\perl.exe &quot;%s&quot; %s,1,,Perl CGI Extension
+			0,C:\Perl\bin\perlis.dll,1,,Perl ISAPI Extension
+			0,C:\Perl\bin\PerlEx30.dll,1,,PerlEx ISAPI Extension
+			0,C:\Perl\bin\PerlEx30.dll,1,,Perl .aspl Extension
+			0,C:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\aspnet_isapi.dll,0,ASP.NET v4.0.30319,ASP.NET v4.0.30319"
+	>
+	<Custom
+		Name="BITSAllowOverwrites"
+		ID="130010"
+		Value="0"
+		Type="DWORD"
+		UserType="IIS_MD_UT_FILE"
+		Attributes="INHERIT"
+	/>
+	<Custom
+		Name="BITSHostId"
+		ID="130007"
+		Value=""
+		Type="STRING"
+		UserType="IIS_MD_UT_FILE"
+		Attributes="INHERIT"
+	/>
+	<Custom
+		Name="BITSHostIdFallbackTimeout"
+		ID="130008"
+		Value="86400"
+		Type="DWORD"
+		UserType="IIS_MD_UT_FILE"
+		Attributes="INHERIT"
+	/>
+	<Custom
+		Name="BITSMaximumUploadSize"
+		ID="130002"
+		Value="18446744073709551615"
+		Type="STRING"
+		UserType="IIS_MD_UT_FILE"
+		Attributes="INHERIT"
+	/>
+	<Custom
+		Name="BITSServerNotificationType"
+		ID="130004"
+		Value="0"
+		Type="DWORD"
+		UserType="IIS_MD_UT_FILE"
+		Attributes="INHERIT"
+	/>
+	<Custom
+		Name="BITSServerNotificationURL"
+		ID="130005"
+		Value=""
+		Type="STRING"
+		UserType="IIS_MD_UT_FILE"
+		Attributes="INHERIT"
+	/>
+	<Custom
+		Name="BITSSessionDirectory"
+		ID="130001"
+		Value="BITS-Sessions"
+		Type="STRING"
+		UserType="IIS_MD_UT_FILE"
+		Attributes="INHERIT"
+	/>
+	<Custom
+		Name="BITSSessionTimeout"
+		ID="130003"
+		Value="1209600"
+		Type="DWORD"
+		UserType="IIS_MD_UT_FILE"
+		Attributes="INHERIT"
+	/>
+	<Custom
+		Name="MD_ISM_ACCESS_CHECK"
+		ID="6269"
+		Value="65535"
+		Type="DWORD"
+		UserType="IIS_MD_UT_FILE"
+		Attributes="NO_ATTRIBUTES"
+	/>
+	<Custom
+		Name="UNCPassword"
+		ID="3003"
+		Value="496344625000000006000000400000004b4eeadf6f7d004600000000000000006e427a700d4ce7398079e0b73cd12c3a065c00004c170000bc33781c419ff28cc83d12003000320034003400320030005d0000000000129a"
+		Type="STRING"
+		UserType="IIS_MD_UT_FILE"
+		Attributes="INHERIT | SECURE"
+	/>
+	<Custom
+		Name="UnknownName_2166"
+		ID="2166"
+		Value="1"
+		Type="DWORD"
+		UserType="IIS_MD_UT_SERVER"
+		Attributes="NO_ATTRIBUTES"
+	/>
+	<Custom
+		Name="UnknownName_9202"
+		ID="9202"
+		Value="4294967295"
+		Type="DWORD"
+		UserType="IIS_MD_UT_SERVER"
+		Attributes="NO_ATTRIBUTES"
+	/>
+</IIsWebService>
+<IIsWebServer	Location ="/LM/W3SVC/1"
+		AppPoolId="DefaultAppPool"
+		DefaultDoc="Default.aspx,Default.htm,Default.asp,index.htm,iisstart.htm"
+		LogExtFileFlags="LogExtFileDate | LogExtFileTime | LogExtFileClientIp | LogExtFileUserName | LogExtFileMethod | LogExtFileUriStem | LogExtFileUriQuery | LogExtFileHttpStatus | LogExtFileBytesSent | LogExtFileUserAgent | LogExtFileReferer"
+		LogFileLocaltimeRollover="FALSE"
+		LogFileTruncateSize="20971520"
+		ServerAutoStart="TRUE"
+		ServerBindings=":80:"
+		ServerComment="Default Web Site"
+		ServerSize="1"
+	>
+</IIsWebServer>
+<IIsFilters	Location ="/LM/W3SVC/1/Filters"
+		AdminACL="49634462f0000000a4000000400000004b4eeadf6e7dd95ce56fc568a8d1e679e4c2ae667bf3edbb892a592349236fd5a9649b5471e44eac10d20299fbc8f6e77382f2afc5187f89d92d5f41bde91dbd00e057c357b1db050b04039ae42367a6137e2f95de26fa79dbdbdf1c80e163cf4e235aa89f457ada622fe23f583a653e966b6e8e70831089f9cc117ba6b99e90a9173b30b707926ed6e2b7287e157f0ef48a612d15d11710fa09479124aee0e2f8564710a30d60900cf467aea6287dbe170d95c8b27da9d43a79c5e3d762ef4ac8acd7011800000049634862180000001000000000000000abcd70ee2a7acea793c0244e64c7eaed"
+		FilterLoadOrder="jakarta"
+	>
+</IIsFilters>
+<IIsFilter	Location ="/LM/W3SVC/1/Filters/jakarta"
+		FilterDescription="Jakarta/ISAPI/1.2.5"
+		FilterFlags="NotifySecurePort | NotifyNonSecurePort | NotifyPreProcHeaders | NotifyOrderHigh | NotifyAuthComplete"
+		FilterPath="C:\Program Files\Citrix\Licensing\LMC\Tomcat\bin\win32\i386\isapi_redirect.dll"
+		FilterState="1"
+	>
+</IIsFilter>
+<IIsCertMapper	Location ="/LM/W3SVC/1/IIsCertMapper"
+	>
+</IIsCertMapper>
+<IIsWebVirtualDir	Location ="/LM/W3SVC/1/ROOT"
+		AccessFlags="AccessRead | AccessScript"
+		AppFriendlyName="Default Application"
+		AppIsolated="2"
+		AppPoolId="DefaultAppPool"
+		AppRoot="/LM/W3SVC/1/ROOT"
+		AuthFlags="AuthAnonymous | AuthNTLM"
+		DefaultDoc="Default.aspx,Default.htm,Default.asp,index.htm,iisstart.htm"
+		Path="c:\inetpub\wwwroot"
+		ScriptMaps=".asp,C:\WINDOWS\system32\inetsrv\asp.dll,5,GET,HEAD,POST,TRACE
+			.cer,C:\WINDOWS\system32\inetsrv\asp.dll,5,GET,HEAD,POST,TRACE
+			.cdx,C:\WINDOWS\system32\inetsrv\asp.dll,5,GET,HEAD,POST,TRACE
+			.asa,C:\WINDOWS\system32\inetsrv\asp.dll,5,GET,HEAD,POST,TRACE
+			.idc,C:\WINDOWS\system32\inetsrv\httpodbc.dll,5,GET,POST
+			.shtm,C:\WINDOWS\system32\inetsrv\ssinc.dll,5,GET,POST
+			.shtml,C:\WINDOWS\system32\inetsrv\ssinc.dll,5,GET,POST
+			.stm,C:\WINDOWS\system32\inetsrv\ssinc.dll,5,GET,POST
+			.asax,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.ascx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.ashx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.asmx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.aspx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.axd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.vsdisco,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.rem,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.soap,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.config,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.cs,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.csproj,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.vb,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.vbproj,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.webinfo,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.licx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.resx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.resources,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.master,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.skin,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.compiled,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.browser,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.mdb,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.jsl,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.vjsproj,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.sitemap,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.msgx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.ad,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.dd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.ldd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.sd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.cd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.adprototype,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.lddprototype,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.sdm,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.sdmDocument,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.ldb,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.mdf,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.ldf,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.java,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.exclude,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.refresh,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.xoml,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.rules,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.pl,C:\Perl\bin\perl.exe &quot;%s&quot; %s,5,GET,HEAD,POST
+			.plx,C:\Perl\bin\perlis.dll,5,GET,HEAD,POST
+			.plex,C:\Perl\bin\PerlEx30.dll,5,GET,HEAD,POST
+			.aspl,C:\Perl\bin\PerlEx30.dll,5,GET,HEAD,POST
+			.svc,c:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG"
+		UNCPassword="496344625000000006000000400000004b4eeadf6f7d004600000000000000006e427a700d4ce7398079e0b73cd12c3a065c00004c170000bc33781c419ff28cc83d12003000320034003400320030005d0000000000129a"
+	>
+</IIsWebVirtualDir>
+<IIsWebDirectory	Location ="/LM/W3SVC/1/ROOT/aspnet_client"
+		AccessFlags="AccessRead"
+		DirBrowseFlags="0"
+	>
+</IIsWebDirectory>
+<IIsWebDirectory	Location ="/LM/W3SVC/1/ROOT/cgi-bin"
+		DirBrowseFlags="EnableDirBrowsing | DirBrowseShowDate | DirBrowseShowTime | DirBrowseShowSize | DirBrowseShowExtension | DirBrowseShowLongDate | EnableDefaultDoc"
+	>
+	<Custom
+		Name="UNCPassword"
+		ID="3003"
+		Value="496344625000000006000000400000004b4eeadf6f7d004600000000000000006e427a700d4ce7398079e0b73cd12c3a065c00004c170000bc33781c419ff28cc83d12003000320034003400320030005d0000000000129a"
+		Type="STRING"
+		UserType="IIS_MD_UT_FILE"
+		Attributes="INHERIT | SECURE"
+	/>
+</IIsWebDirectory>
+<IIsWebVirtualDir	Location ="/LM/W3SVC/1/ROOT/ESXUPD"
+		AccessFlags="AccessRead"
+		DirBrowseFlags="EnableDirBrowsing | DirBrowseShowDate | DirBrowseShowTime | DirBrowseShowSize | DirBrowseShowExtension | DirBrowseShowLongDate | EnableDefaultDoc"
+		Path="D:\ESX Update Repository"
+	>
+</IIsWebVirtualDir>
+<IIsWebVirtualDir	Location ="/LM/W3SVC/1/ROOT/jakarta"
+		AccessFlags="AccessExecute"
+		AppFriendlyName=""
+		AppIsolated="0"
+		AppRoot="/LM/W3SVC/1/Root/jakarta"
+		AuthFlags="AuthNTLM"
+		Path="C:\Program Files\Citrix\Licensing\LMC\Tomcat\bin\win32\i386"
+	>
+</IIsWebVirtualDir>
+<IIsWebVirtualDir	Location ="/LM/W3SVC/1/ROOT/KS"
+		AccessFlags="AccessRead"
+		DirBrowseFlags="EnableDirBrowsing | DirBrowseShowDate | DirBrowseShowTime | DirBrowseShowSize | DirBrowseShowExtension | DirBrowseShowLongDate | EnableDefaultDoc"
+		Path="D:\ESX-KS"
+	>
+</IIsWebVirtualDir>
+<IIsWebDirectory	Location ="/LM/W3SVC/1/ROOT/query"
+		AuthFlags="AuthNTLM"
+	>
+	<Custom
+		Name="UNCPassword"
+		ID="3003"
+		Value="496344625000000006000000400000004b4eeadf6f7d004600000000000000006e427a700d4ce7398079e0b73cd12c3a065c00004c170000bc33781c419ff28cc83d12003000320034003400320030005d0000000000129a"
+		Type="STRING"
+		UserType="IIS_MD_UT_FILE"
+		Attributes="INHERIT | SECURE"
+	/>
+</IIsWebDirectory>
+<IIsWebVirtualDir	Location ="/LM/W3SVC/1/ROOT/Reports"
+		AccessFlags="AccessExecute | AccessRead | AccessScript"
+		AppFriendlyName="Report Server Interface"
+		AppIsolated="2"
+		AppPoolId="ReportServer"
+		AppRoot="/LM/W3SVC/1/Root/Reports"
+		AspAllowSessionState="TRUE"
+		AspBufferingOn="TRUE"
+		AspEnableParentPaths="FALSE"
+		AspScriptLanguage="VBScript"
+		AuthFlags="AuthNTLM"
+		DefaultDoc="Home.aspx"
+		DirBrowseFlags="DirBrowseShowDate | DirBrowseShowTime | DirBrowseShowSize | DirBrowseShowExtension | DirBrowseShowLongDate | EnableDefaultDoc"
+		Path="c:\Program Files\Microsoft SQL Server\MSSQL.2\Reporting Services\ReportManager"
+		ScriptMaps=".asp,C:\WINDOWS\system32\inetsrv\asp.dll,5,GET,HEAD,POST,TRACE
+			.cer,C:\WINDOWS\system32\inetsrv\asp.dll,5,GET,HEAD,POST,TRACE
+			.cdx,C:\WINDOWS\system32\inetsrv\asp.dll,5,GET,HEAD,POST,TRACE
+			.asa,C:\WINDOWS\system32\inetsrv\asp.dll,5,GET,HEAD,POST,TRACE
+			.idc,C:\WINDOWS\system32\inetsrv\httpodbc.dll,5,GET,POST
+			.shtm,C:\WINDOWS\system32\inetsrv\ssinc.dll,5,GET,POST
+			.shtml,C:\WINDOWS\system32\inetsrv\ssinc.dll,5,GET,POST
+			.stm,C:\WINDOWS\system32\inetsrv\ssinc.dll,5,GET,POST
+			.asax,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.ascx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.ashx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.asmx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.aspx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.axd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.vsdisco,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.rem,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.soap,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.config,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.cs,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.csproj,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.vb,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.vbproj,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.webinfo,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.licx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.resx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.resources,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.master,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.skin,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.compiled,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.browser,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.mdb,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.jsl,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.vjsproj,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.sitemap,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.msgx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.ad,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.dd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.ldd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.sd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.cd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.adprototype,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.lddprototype,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.sdm,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.sdmDocument,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.ldb,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.mdf,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.ldf,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.java,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.exclude,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.refresh,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.xoml,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.rules,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.svc,c:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG"
+	>
+</IIsWebVirtualDir>
+<IIsWebVirtualDir	Location ="/LM/W3SVC/1/ROOT/ReportServer"
+		AccessFlags="AccessRead"
+		AppFriendlyName="Report Server"
+		AppIsolated="2"
+		AppPoolId="ReportServer"
+		AppRoot="/LM/W3SVC/1/Root/ReportServer"
+		AspAllowSessionState="TRUE"
+		AspBufferingOn="TRUE"
+		AspEnableParentPaths="FALSE"
+		AspScriptLanguage="VBScript"
+		AuthFlags="AuthNTLM"
+		DirBrowseFlags="DirBrowseShowDate | DirBrowseShowTime | DirBrowseShowSize | DirBrowseShowExtension | DirBrowseShowLongDate | EnableDefaultDoc"
+		Path="c:\Program Files\Microsoft SQL Server\MSSQL.2\Reporting Services\ReportServer"
+		ScriptMaps="*,c:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1"
+	>
+</IIsWebVirtualDir>
+<IIsWebServer	Location ="/LM/W3SVC/1967680676"
+		AuthFlags="0"
+		ServerAutoStart="TRUE"
+		ServerBindings=":80:Deney-sites"
+		ServerComment="proxy"
+	>
+</IIsWebServer>
+<IIsFilters	Location ="/LM/W3SVC/1967680676/filters"
+		AdminACL="49634462f0000000a4000000400000004b4eeadf6e7dd95ce56fc568a8d1e679e4c2ae667bf3edbb892a592349236fd5a9649b5471e44eac10d20299fbc8f6e77382f2afc5187f89d92d5f41bde91dbd00e057c357b1db050b04039ae42367a6137e2f95de26fa79dbdbdf1c80e163cf4e235aa89f457ada622fe23f583a653e966b6e8e70831089f9cc117ba6b99e90a9173b30b707926ed6e2b7287e157f0ef48a612d15d11710fa09479124aee0e2f8564710a30d60900cf467aea6287dbe170d95c8b27da9d43a79c5e3d762ef4ac8acd7011800000049634862180000001000000000000000abcd70ee2a7acea793c0244e64c7eaed"
+	>
+</IIsFilters>
+<IIsWebVirtualDir	Location ="/LM/W3SVC/1967680676/root"
+		AccessFlags="AccessRead"
+		AppFriendlyName="Default Application"
+		AppIsolated="2"
+		AppRoot="/LM/W3SVC/1967680676/Root"
+		AuthFlags="AuthAnonymous | AuthNTLM"
+		DirBrowseFlags="DirBrowseShowDate | DirBrowseShowTime | DirBrowseShowSize | DirBrowseShowExtension | DirBrowseShowLongDate | EnableDefaultDoc"
+		Path="C:\Inetpub\wwwroot\Redirect deney sites proxy_files"
+	>
+</IIsWebVirtualDir>
+<IIsWebDirectory	Location ="/LM/W3SVC/1967680676/root/aspnet_client"
+		DirBrowseFlags="0"
+	>
+</IIsWebDirectory>
+<IIsWebServer	Location ="/LM/W3SVC/529884017"
+		AuthFlags="0"
+		LogExtFileFlags="LogExtFileDate | LogExtFileTime | LogExtFileClientIp | LogExtFileUserName | LogExtFileMethod | LogExtFileUriStem | LogExtFileUriQuery | LogExtFileHttpStatus | LogExtFileBytesSent | LogExtFileUserAgent | LogExtFileReferer"
+		LogFileLocaltimeRollover="FALSE"
+		LogFileTruncateSize="20971520"
+		LogPluginClsid="{FF160663-DE82-11CF-BC0A-00AA006111E0}"
+		ServerAutoStart="TRUE"
+		ServerBindings=":80:winmgttest.nedcar.nl
+			:80:winmgttest"
+		ServerComment="winmgt"
+	>
+</IIsWebServer>
+<IIsFilters	Location ="/LM/W3SVC/529884017/filters"
+		AdminACL="49634462f0000000a4000000400000004b4eeadf6e7dd95ce56fc568a8d1e679e4c2ae667bf3edbb892a592349236fd5a9649b5471e44eac10d20299fbc8f6e77382f2afc5187f89d92d5f41bde91dbd00e057c357b1db050b04039ae42367a6137e2f95de26fa79dbdbdf1c80e163cf4e235aa89f457ada622fe23f583a653e966b6e8e70831089f9cc117ba6b99e90a9173b30b707926ed6e2b7287e157f0ef48a612d15d11710fa09479124aee0e2f8564710a30d60900cf467aea6287dbe170d95c8b27da9d43a79c5e3d762ef4ac8acd7011800000049634862180000001000000000000000abcd70ee2a7acea793c0244e64c7eaed"
+	>
+</IIsFilters>
+<IIsWebVirtualDir	Location ="/LM/W3SVC/529884017/root"
+		AccessFlags="AccessRead | AccessScript"
+		AnonymousUserName="NEDCAR\IUSR_DOMAIN"
+		AnonymousUserPass="496344626000000018000000400000004b4eeadf0e7db0dc0a6fab6841d18b798bc2db661cf3edbb349254050273abfb21f2355a521c441f1288769ffd78caa3ae6f4a11cdf83597ff244b71960b8237eea052c36d6489d0fcf001d0aedebd0c7bc2d0dff15e613b"
+		AppAllowClientDebug="TRUE"
+		AppAllowDebugging="TRUE"
+		AppFriendlyName="Default Application"
+		AppIsolated="2"
+		AppRoot="/LM/W3SVC/529884017/Root"
+		AuthFlags="AuthAnonymous | AuthNTLM"
+		DirBrowseFlags="EnableDirBrowsing | DirBrowseShowDate | DirBrowseShowTime | DirBrowseShowSize | DirBrowseShowExtension | DirBrowseShowLongDate | EnableDefaultDoc"
+		Path="C:\Inetpub\winmgt"
+		Realm="nedcar.nl"
+		ScriptMaps=".ad,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.adprototype,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.asa,C:\WINDOWS\system32\inetsrv\asp.dll,5,GET,HEAD,POST,TRACE
+			.asax,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.ascx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.ashx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.asmx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.asp,C:\WINDOWS\system32\inetsrv\asp.dll,5,GET,HEAD,POST,TRACE
+			.aspx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.axd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.browser,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.cd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.cdx,C:\WINDOWS\system32\inetsrv\asp.dll,5,GET,HEAD,POST,TRACE
+			.cer,C:\WINDOWS\system32\inetsrv\asp.dll,5,GET,HEAD,POST,TRACE
+			.compiled,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.config,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.cs,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.csproj,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.dd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.exclude,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.idc,C:\WINDOWS\system32\inetsrv\httpodbc.dll,5,GET,POST
+			.java,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.jsl,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.ldb,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.ldd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.lddprototype,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.ldf,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.licx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.master,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.mdb,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.mdf,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.msgx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.refresh,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.rem,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.resources,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.resx,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.sd,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.sdm,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.sdmDocument,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.shtm,C:\WINDOWS\system32\inetsrv\ssinc.dll,5,GET,POST
+			.shtml,C:\WINDOWS\system32\inetsrv\ssinc.dll,5,GET,POST
+			.sitemap,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.skin,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.soap,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.stm,C:\WINDOWS\system32\inetsrv\ssinc.dll,5,GET,POST
+			.vb,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.vbproj,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.vjsproj,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.vsdisco,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG
+			.webinfo,C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,5,GET,HEAD,POST,DEBUG
+			.svc,c:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\aspnet_isapi.dll,1,GET,HEAD,POST,DEBUG"
+		UNCPassword="496344625000000006000000400000004b4eeadf6f7d004600000000000000006e427a700d4ce7398079e0b73cd12c3a065c00004c170000bc33781c419ff28cc83d12003000320034003400320030005d0000000000129a"
+	>
+</IIsWebVirtualDir>
+<IIsWebDirectory	Location ="/LM/W3SVC/529884017/root/aspnet_client"
+		AccessFlags="AccessRead"
+		DirBrowseFlags="0"
+	>
+</IIsWebDirectory>
+<IIsWebServer	Location ="/LM/W3SVC/87257621"
+		AuthFlags="0"
+		LogFileLocaltimeRollover="FALSE"
+		LogFilePeriod="1"
+		LogFileTruncateSize="20971520"
+		ServerAutoStart="TRUE"
+		ServerBindings=":8000:"
+		ServerComment="Test"
+	>
+</IIsWebServer>
+<IIsFilters	Location ="/LM/W3SVC/87257621/filters"
+		AdminACL="49634462f0000000a4000000400000004b4eeadf6e7dd95ce56fc568a8d1e679e4c2ae667bf3edbb892a592349236fd5a9649b5471e44eac10d20299fbc8f6e77382f2afc5187f89d92d5f41bde91dbd00e057c357b1db050b04039ae42367a6137e2f95de26fa79dbdbdf1c80e163cf4e235aa89f457ada622fe23f583a653e966b6e8e70831089f9cc117ba6b99e90a9173b30b707926ed6e2b7287e157f0ef48a612d15d11710fa09479124aee0e2f8564710a30d60900cf467aea6287dbe170d95c8b27da9d43a79c5e3d762ef4ac8acd7011800000049634862180000001000000000000000abcd70ee2a7acea793c0244e64c7eaed"
+	>
+</IIsFilters>
+<IIsWebVirtualDir	Location ="/LM/W3SVC/87257621/root"
+		AccessFlags="AccessRead | AccessScript"
+		AnonymousUserName="NEDCAR\IUSR_DOMAIN"
+		AnonymousUserPass="496344626000000018000000400000004b4eeadf0e7db0dc0a6fab6841d18b798bc2db661cf3edbb349254050273abfb21f2355a521c441f1288769ffd78caa3ae6f4a11cdf83597ff244b71960b8237eea052c36d6489d0fcf001d0aedebd0c7bc2d0dff15e613b"
+		AppFriendlyName="Default Application"
+		AppIsolated="2"
+		AppRoot="/LM/W3SVC/87257621/Root"
+		AuthFlags="AuthAnonymous | AuthNTLM"
+		DirBrowseFlags="EnableDirBrowsing | DirBrowseShowDate | DirBrowseShowTime | DirBrowseShowSize | DirBrowseShowExtension | DirBrowseShowLongDate | EnableDefaultDoc"
+		Path="C:\Inetpub\test"
+		UNCPassword="496344625000000006000000400000004b4eeadf6f7d004600000000000000006e427a700d4ce7398079e0b73cd12c3a065c00004c170000bc33781c419ff28cc83d12003000320034003400320030005d0000000000129a"
+	>
+</IIsWebVirtualDir>
+<IIsWebDirectory	Location ="/LM/W3SVC/87257621/root/aspnet_client"
+		AccessFlags="AccessRead"
+		DirBrowseFlags="0"
+	>
+</IIsWebDirectory>
+<IIsWebServer	Location ="/LM/W3SVC/91460126"
+		AuthFlags="0"
+		LogPluginClsid="{FF160663-DE82-11CF-BC0A-00AA006111E0}"
+		ServerAutoStart="TRUE"
+		ServerBindings=":80:xmpp
+			:80:xmpp.nedcar.nl"
+		ServerComment="xmpp"
+	>
+</IIsWebServer>
+<IIsFilters	Location ="/LM/W3SVC/91460126/filters"
+		AdminACL="49634462f0000000a4000000400000004b4eeadf6e7dd95ce56fc568a8d1e679e4c2ae667bf3edbb892a592349236fd5a9649b5471e44eac10d20299fbc8f6e77382f2afc5187f89d92d5f41bde91dbd00e057c357b1db050b04039ae42367a6137e2f95de26fa79dbdbdf1c80e163cf4e235aa89f457ada622fe23f583a653e966b6e8e70831089f9cc117ba6b99e90a9173b30b707926ed6e2b7287e157f0ef48a612d15d11710fa09479124aee0e2f8564710a30d60900cf467aea6287dbe170d95c8b27da9d43a79c5e3d762ef4ac8acd7011800000049634862180000001000000000000000abcd70ee2a7acea793c0244e64c7eaed"
+	>
+</IIsFilters>
+<IIsWebVirtualDir	Location ="/LM/W3SVC/91460126/root"
+		AccessFlags="AccessRead"
+		AppFriendlyName="Default Application"
+		AppIsolated="2"
+		AppRoot="/LM/W3SVC/91460126/Root"
+		AuthFlags="AuthAnonymous | AuthNTLM"
+		DirBrowseFlags="DirBrowseShowDate | DirBrowseShowTime | DirBrowseShowSize | DirBrowseShowExtension | DirBrowseShowLongDate | EnableDefaultDoc"
+		HttpRedirect="http://xmpp.nedcar.nl:9090/, EXACT_DESTINATION"
+		Path="C:\Inetpub"
+		UNCPassword="496344625000000006000000400000004b4eeadf6f7d004600000000000000006e427a700d4ce7398079e0b73cd12c3a065c00004c170000bc33781c419ff28cc83d12003000320034003400320030005d0000000000129a"
+	>
+</IIsWebVirtualDir>
+<IIsWebDirectory	Location ="/LM/W3SVC/91460126/root/aspnet_client"
+		DirBrowseFlags="0"
+	>
+</IIsWebDirectory>
+<IIsApplicationPools	Location ="/LM/W3SVC/AppPools"
+		AdminACL="49634462f0000000a4000000400000004b4eeadf6e7dd95ce56fc568a8d1e679e4c2ae667bf3edbb892a592349236fd5a9649b547ae44eac10d20299fbc8f6e77382f2afc5187f89d22d5f41bde91dbd00e057c357b1db050b04039aef2367a6137e2f95de26fa79dbdbdf1c80e163cf4e235aa89f457ada622fe23f583a653e966b6e8e70831089f9cc117ba6b99e90a9173b30b707926ed6e2b7287e157f0ef48a612d15d11710fa09479124aee0e2f8564710a30d60900cf467aea6287dbe170d95c8b27da9d43a79c5e3d762ef4ac8acd7011800000049634862180000001000000000000000abcd70ee2a7acea793c0244e64c7eaed"
+		AppPoolIdentityType="2"
+		AppPoolQueueLength="1000"
+		CPULimit="0"
+		CPUResetInterval="5"
+		DisallowOverlappingRotation="FALSE"
+		DisallowRotationOnConfigChange="FALSE"
+		IdleTimeout="20"
+		LoadBalancerCapabilities="2"
+		LogEventOnRecycle="AppPoolRecycleTime | AppPoolRecycleMemory | AppPoolRecyclePrivateMemory"
+		MaxProcesses="1"
+		OrphanWorkerProcess="FALSE"
+		PeriodicRestartMemory="0"
+		PeriodicRestartPrivateMemory="0"
+		PeriodicRestartRequests="0"
+		PeriodicRestartTime="1740"
+		PingInterval="30"
+		PingResponseTime="90"
+		PingingEnabled="TRUE"
+		RapidFailProtection="TRUE"
+		RapidFailProtectionInterval="5"
+		RapidFailProtectionMaxCrashes="5"
+		SMPAffinitized="FALSE"
+		SMPProcessorAffinityMask="4294967295"
+		ShutdownTimeLimit="90"
+		StartupTimeLimit="90"
+	>
+</IIsApplicationPools>
+<IIsApplicationPool	Location ="/LM/W3SVC/AppPools/DefaultAppPool"
+	>
+</IIsApplicationPool>
+<IIsApplicationPool	Location ="/LM/W3SVC/AppPools/ReportServer"
+		AppPoolIdentityType="2"
+		AppPoolQueueLength="4000"
+		IdleTimeout="0"
+		LogEventOnRecycle="AppPoolRecycleTime | AppPoolRecycleIsapiUnhealthy | AppPoolRecycleOnDemand | AppPoolRecycleConfigChange"
+		MaxProcesses="1"
+		PeriodicRestartTime="1740"
+		PingInterval="30"
+		PingingEnabled="TRUE"
+		RapidFailProtection="TRUE"
+		RapidFailProtectionInterval="5"
+		RapidFailProtectionMaxCrashes="5"
+		ShutdownTimeLimit="90"
+		StartupTimeLimit="90"
+	>
+</IIsApplicationPool>
+<IIsFilters	Location ="/LM/W3SVC/Filters"
+		AdminACL="49634462f0000000a4000000400000004b4eeadf6e7dd95ce56fc568a8d1e679e4c2ae667bf3edbb892a592349236fd5a9649b5471e44eac10d20299fbc8f6e77382f2afc5187f89d92d5f41bde91dbd00e057c357b1db050b04039ae42367a6137e2f95de26fa79dbdbdf1c80e163cf4e235aa89f457ada622fe23f583a653e966b6e8e70831089f9cc117ba6b99e90a9173b30b707926ed6e2b7287e157f0ef48a612d15d11710fa09479124aee0e2f8564710a30d60900cf467aea6287dbe170d95c8b27da9d43a79c5e3d762ef4ac8acd7011800000049634862180000001000000000000000abcd70ee2a7acea793c0244e64c7eaed"
+		FilterLoadOrder="ASP.NET_4.0.30319.0"
+	>
+</IIsFilters>
+<IIsFilter	Location ="/LM/W3SVC/Filters/ASP.NET_4.0.30319.0"
+		FilterDescription="ASP.NET Cookieless Session Filter"
+		FilterEnableCache="TRUE"
+		FilterFlags="NotifyPreProcHeaders | NotifyUrlMap | NotifyLog | NotifyEndOfNetSession | NotifyOrderLow"
+		FilterPath="c:\WINDOWS\Microsoft.NET\Framework\v4.0.30319\\aspnet_filter.dll"
+		FilterState="1"
+	>
+</IIsFilter>
+<IIsFilter	Location ="/LM/W3SVC/Filters/Compression"
+	>
+</IIsFilter>
+<IIsCompressionScheme	Location ="/LM/W3SVC/Filters/Compression/deflate"
+		HcCompressionDll="%windir%\system32\inetsrv\gzip.dll"
+		HcCreateFlags="0"
+		HcDoDynamicCompression="TRUE"
+		HcDoOnDemandCompression="TRUE"
+		HcDoStaticCompression="FALSE"
+		HcDynamicCompressionLevel="0"
+		HcFileExtensions="htm
+			html
+			txt"
+		HcOnDemandCompLevel="10"
+		HcPriority="1"
+		HcScriptFileExtensions="asp
+			dll
+			exe"
+	>
+</IIsCompressionScheme>
+<IIsCompressionScheme	Location ="/LM/W3SVC/Filters/Compression/gzip"
+		HcCompressionDll="%windir%\system32\inetsrv\gzip.dll"
+		HcCreateFlags="1"
+		HcDoDynamicCompression="TRUE"
+		HcDoOnDemandCompression="TRUE"
+		HcDoStaticCompression="TRUE"
+		HcDynamicCompressionLevel="0"
+		HcFileExtensions="htm
+			html
+			txt"
+		HcOnDemandCompLevel="10"
+		HcPriority="1"
+		HcScriptFileExtensions="asp
+			dll
+			exe"
+	>
+</IIsCompressionScheme>
+<IIsCompressionSchemes	Location ="/LM/W3SVC/Filters/Compression/Parameters"
+		HcCacheControlHeader="max-age=86400"
+		HcCompressionBufferSize="8192"
+		HcCompressionDirectory="%windir%\IIS Temporary Compressed Files"
+		HcDoDiskSpaceLimiting="FALSE"
+		HcDoDynamicCompression="FALSE"
+		HcDoOnDemandCompression="TRUE"
+		HcDoStaticCompression="FALSE"
+		HcExpiresHeader="Wed, 01 Jan 1997 12:00:00 GMT"
+		HcFilesDeletedPerDiskFree="256"
+		HcIoBufferSize="8192"
+		HcMaxDiskSpaceUsage="100000000"
+		HcMaxQueueLength="1000"
+		HcMinFileSizeForComp="1"
+		HcNoCompressionForHttp10="TRUE"
+		HcNoCompressionForProxies="TRUE"
+		HcNoCompressionForRange="FALSE"
+		HcSendCacheHeaders="FALSE"
+	>
+</IIsCompressionSchemes>
+<IIsWebInfo	Location ="/LM/W3SVC/Info"
+		AdminACL="49634462a000000058000000400000004b4eeadf6e7dd95c516fc5687cd1e679e4c2ae667bf3edbb892a15234c236fd5a964975451e44aac10d10299fbc8f6e74082f2afe51a6b89532f5f41bce81db820e057c663b3db050a06279a6f2367a3327b2f95fe24fa7c6ed68e7dc7829b1cef6144cd63d4459058a1fa261c894c700000000036b43ce13ad0b1dca8efb725e8e577c85de515e60effadd71f399b146c006c000000fe2f"
+		CustomErrorDescriptions="400,0,Bad Request,,0
+			401,1,Unauthorized,Logon failed,1
+			401,2,Unauthorized,Logon failed due to server configuration,1
+			401,3,Unauthorized,Unauthorized due to ACL on resource,1
+			401,4,Unauthorized,Authorization failed by filter,1
+			401,5,Unauthorized,Authorization failed by ISAPI/CGI app,1
+			401,7,Unauthorized,Denied due to URL Authorization policy,0
+			403,1,Forbidden,Execute access denied,0
+			403,2,Forbidden,Read access denied,0
+			403,3,Forbidden,Write access denied,0
+			403,4,Forbidden,SSL required,0
+			403,5,Forbidden,SSL128 required,0
+			403,6,Forbidden,IP address rejected,0
+			403,7,Forbidden,Client certificate required,0
+			403,8,Forbidden,Site access denied,0
+			403,9,Forbidden,Too many users,0
+			403,10,Forbidden,Invalid Configuration,0
+			403,11,Forbidden,Password Change,0
+			403,12,Forbidden,Mapper Denied Access,0
+			403,13,Forbidden,Client certificate revoked,0
+			403,14,Forbidden,Directory Listing Denied,0
+			403,15,Forbidden,Client Access Licenses Exceeded,0
+			403,16,Forbidden,Client certificate untrusted or ill-formed,0
+			403,17,Forbidden,Client certificate has expired or is not yet valid,0
+			403,18,Forbidden,Cannot execute request from this application pool,0
+			403,19,Forbidden,CGI Access denied,0
+			403,20,Forbidden,Passport Login failed,0
+			404,0,Not Found,,0
+			404,2,Not Found,Denied due to Lockdown Policy,0
+			404,3,Not Found,Denied due to MIMEMAP Policy,0
+			405,0,Method Not Allowed,,0
+			406,0,Not Acceptable,,0
+			407,0,Proxy Authentication Required,,1
+			412,0,Precondition Failed,,0
+			414,0,Request-URI Too Long,,0
+			415,0,Unsupported Media Type,,0
+			500,0,Internal Server Error,,0
+			500,12,Internal Server Error,Application restarting,0
+			500,13,Internal Server Error,Server too busy,0
+			500,15,Internal Server Error,Direct requests for GLOBAL.ASA forbidden,0
+			500,16,Internal Server Error,UNC Access Error,0
+			500,17,Internal Server Error,URL Authorization store not found,0
+			500,18,Internal Server Error,URL Authorization store cannot be opened,0
+			500,19,Internal Server Error,Bad file metadata,0
+			500,100,Internal Server Error,ASP error,0
+			501,0,Not Implemented,,0
+			502,0,Bad Gateway,,1"
+		LogModuleList="NCSA Common Log File Format,Microsoft IIS Log File Format,W3C Extended Log File Format,ODBC Logging"
+		MD_SERVER_CAPABILITIES="129983"
+		MD_SERVER_PLATFORM="1"
+		MajorIIsVersionNumber="6"
+		MinorIIsVersionNumber="0"
+	>
+</IIsWebInfo>
+<IIsConfigObject	Location ="/LM/W3SVC/Info/Templates"
+	>
+</IIsConfigObject>
+<IIsWebServer	Location ="/LM/W3SVC/Info/Templates/Public Web Site"
+		ServerComment="Allows all users to browse static and dynamic content."
+	>
+</IIsWebServer>
+<IIsWebVirtualDir	Location ="/LM/W3SVC/Info/Templates/Public Web Site/Root"
+		AccessFlags="AccessRead | AccessScript"
+		AuthFlags="AuthAnonymous"
+		IPSecurity=""
+	>
+</IIsWebVirtualDir>
+<IIsWebServer	Location ="/LM/W3SVC/Info/Templates/Secure Web Site"
+		ServerComment="Allows users with a Windows account to view static and dynamic content."
+	>
+</IIsWebServer>
+<IIsWebVirtualDir	Location ="/LM/W3SVC/Info/Templates/Secure Web Site/Root"
+		AccessFlags="AccessRead | AccessScript"
+		AuthFlags="AuthBasic | AuthNTLM | AuthMD5"
+		IPSecurity=""
+	>
+</IIsWebVirtualDir>
+</MBProperty>
+</configuration>

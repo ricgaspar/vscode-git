@@ -1,0 +1,67 @@
+Started script
+NIC Device wakeup is requested by input value EnableNICDeviceWakeup.
+  Enable wakeup device: Intel(R) Ethernet Connection I218-LM
+The custom plan GUID '67454184-18c1-4f75-bd3d-b40e49e7ee95' is already present.
+Naming plan to "VDL Nedcar Power Plan" 
+Hard disk
+  Turn off hard disk after : AC=0 (0)
+  Turn off hard disk after : DC=1200 (1200)
+Wireless Adapter Settings
+  Power Saving Mode : AC=Maximum Performance (0)
+  Power Saving Mode : DC=Maximum Performance (0)
+Sleep
+  Sleep after : AC=0 (0)
+  Sleep after : DC=0 (0)
+  Allow hybrid sleep : AC=On (1)
+  Allow hybrid sleep : DC=On (1)
+  Hibernate after : AC=0 (0)
+  Hibernate after : DC=0 (0)
+  Allow wake timers : AC=Enable (1)
+  Allow wake timers : DC=Enable (1)
+USB settings
+  USB selective suspend setting : AC=Disabled (0)
+  USB selective suspend setting : DC=Disabled (0)
+  USB 3 Link Power Mangement : AC=Off (0)
+  USB 3 Link Power Mangement : DC=Off (0)
+Power buttons and lid
+  Lid close action : AC=Do nothing (0)
+  Lid close action : DC=Do nothing (0)
+  Power button action : AC=Shut down (3)
+  Power button action : DC=Shut down (3)
+  Enable forced button/lid shutdown : AC=Off (0)
+  Enable forced button/lid shutdown : DC=Off (0)
+  Sleep button action : AC=Sleep (1)
+  Sleep button action : DC=Sleep (1)
+PCI Express
+  Link State Power Management : AC=Off (0)
+  Link State Power Management : DC=Off (0)
+Processor power management
+  Minimum processor state : AC=100 (100)
+  Minimum processor state : DC=5 (5)
+  System cooling policy : AC=Active (1)
+  System cooling policy : DC=Active (1)
+  Maximum processor state : AC=100 (100)
+  Maximum processor state : DC=100 (100)
+Display
+  Turn off display after : AC=0 (0)
+  Turn off display after : DC=1800 (1800)
+  Display brightness : AC=100 (100)
+  Display brightness : DC=70 (70)
+  Dimmed display brightness : AC=50 (50)
+  Dimmed display brightness : DC=50 (50)
+  Enable adaptive brightness : AC=On (1)
+  Enable adaptive brightness : DC=On (1)
+Battery
+  Critical battery action : AC=Hibernate (2)
+  Critical battery action : DC=Hibernate (2)
+  Low battery level : AC=10 (10)
+  Low battery level : DC=10 (10)
+  Critical battery level : AC=5 (5)
+  Critical battery level : DC=5 (5)
+  Low battery notification : AC=On (1)
+  Low battery notification : DC=On (1)
+  Low battery action : AC=Do nothing (0)
+  Low battery action : DC=Do nothing (0)
+  Reserve battery level : AC=7 (7)
+  Reserve battery level : DC=7 (7)
+Done.

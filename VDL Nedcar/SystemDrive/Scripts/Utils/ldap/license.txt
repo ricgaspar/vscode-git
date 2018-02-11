@@ -1,0 +1,118 @@
+STANDARD LICENSE AGREEMENT
+
+
+This is an Agreement between, Softerra, LLC. ("Softerra"), owner of the LDAP
+Browser software ("Software"), and you ("Licensee"), for the purpose of
+specifying the conditions under which Licensee will use the Software.
+
+Important Notice
+----------------
+
+This Agreement is a legal contract which specifies the terms of the
+license and warranty limitation between you and Softerra for the LDAP
+Browser software and related documentation. You should carefully read the
+following terms and conditions before installing or using the Software. Unless
+you have entered into a separate written license agreement with Softerra
+providing otherwise, installation or use of the Software indicates your
+agreement to be bound by these terms and conditions. If you do not agree to
+these terms, do not attempt to install or use the Software.
+
+Scope of Use.
+-------------
+
+- You may install the Software on a hard disk or other storage device; 
+install and use the Software on a file server for use on a network for 
+the purposes of (i) permanent installation onto hard disks or other 
+storage devices or (ii) use of the Software over such network; 
+and make backup copies of the Software.
+
+- You may make and distribute unlimited copies of the Software, 
+including copies for commercial distribution, as long as each copy 
+that you make and distribute contains this Agreement and the same 
+copyright and other proprietary notices pertaining to this Software 
+that appear in the Software.  If you download the Software from the 
+Internet or similar on-line source, you must include the Softerra 
+copyright notice for the Software with any on-line distribution 
+and on any media you distribute that includes the Software.
+
+Portions of the Software may not be used independently of the Software.
+
+Restrictions 
+------------
+
+The Software is owned by Softerra and code are the valuable trade secrets 
+of Softerra.
+You agree not to modify, adapt, translate, reverse engineer, decompile, 
+disassemble or otherwise attempt to discover the source code of the Software. 
+
+No Additional Rights or Licenses
+--------------------------------
+
+You acknowledge and agree that except for the rights granted in this Agreement,
+all other rights, and all title and interest in and to the Software (as an
+independent work and as an underlying work serving as a basis for any
+application you may develop) and related documentation remain the sole and
+exclusive property of Softerra, and that you will not derive or assert any title
+or interest in or to the Software or related documentation. Without limiting the
+generality of the foregoing, you do not receive any rights to any patents,
+copyrights, trademarks rights to the Software or related documentation. This
+Agreement does not authorize you to use Softerra's name or any of its
+trademarks.
+
+Term and Termination
+---------------------
+
+The license granted for the LDAP Browser Software will continue until it
+is terminated. Softerra may terminate any license granted herein if you fail to
+comply with the terms of this Agreement. Upon the termination of a license for
+any reason, you must promptly return to Softerra or destroy all copies of the
+Software and related documentation covered by the license.
+
+Warranty and Remedies
+----------------------
+
+SOFTERRA PROVIDES NO REMEDIES OR WARRANTIES, WHETHER EXPRESS OR
+IMPLIED, FOR THE SOFTWARE. THE SOFTWARE AND DOCUMENTATION ARE
+PROVIDED "AS IS."
+
+THESE REMEDIES ARE THE SOLE AND EXCLUSIVE REMEDIES AVAILABLE TO YOU
+FOR BREACH OF EXPRESS OR IMPLIED WARRANTIES WITH RESPECT TO THE
+SOFTWARE AND RELATED DOCUMENTATION.
+
+THE FOREGOING WARRANTIES ARE IN LIEU OF ALL OTHER WARRANTIES, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY OF
+NON-INFRINGEMENT, MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+By way of example, without limitation, Softerra provides no warranties of any
+kind to any end-users accessing or otherwise using applications developed or
+otherwise obtained by you.
+
+The warranties do not cover damage or defects caused by or related to misuse,
+accident, negligence or misapplication. Because programs such as this are
+inherently complex, Softerra does not warrant that the Software is error-free or
+will operate without interruption. Furthermore, Softerra does not warrant that
+the Software will work with any given database, network or network application.
+
+You acknowledge that due to the complexity of the Software, it is possible that
+use of the Software could lead to the unintentional loss or corruption of data.
+You assume all risks of such data loss or corruption; the warranties provided in
+this Agreement do not cover any damages or losses resulting from data loss or
+corruption.
+
+Limitation on Liability
+--------------------
+
+IN NO CASE SHALL SOFTERRA BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL
+OR CONSEQUENTIAL DAMAGES OR LOSS, INCLUDING, WITHOUT LIMITATION, LOST
+PROFITS OR THE INABILITY TO USE EQUIPMENT OR ACCESS DATA, WHETHER SUCH
+DAMAGES ARE BASED UPON A BREACH OF EXPRESS OR IMPLIED WARRANTIES,
+BREACH OF CONTRACT, NEGLIGENCE, STRICT TORT, OR ANY OTHER LEGAL THEORY.
+THIS IS TRUE EVEN IF SOFTERRA IS ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGES.
+
+Miscellaneous
+-------------
+
+This Agreement is the complete agreement between you and Softerra concerning
+the Software and related documentation. The failure or delay of Softerra to
+exercise any of its rights under this Agreement or upon any breach of this
+Agreement shall not be deemed a waiver of those rights or of the breach.

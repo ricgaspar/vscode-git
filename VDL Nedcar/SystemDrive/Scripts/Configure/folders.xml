@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- VDL Nedcar Windows server standaard -->
+<!-- Author: Marcel Jussen -->
+<!-- 31-10-2014 -->
+<folders>
+	<folder path="C:\Scripts\Config\SNMP"></folder>
+</folders>

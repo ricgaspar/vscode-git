@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<FileZilla>
+<Settings>
+<Item name="Last Server Host" type="string">ftpclan</Item>
+<Item name="Last Server Port" type="numeric">21</Item>
+<Item name="Last Server User" type="string">anonymous</Item>
+<Item name="Last Server account" type="string"></Item>
+<Item name="Last Server dont save pass" type="numeric">0</Item>
+<Item name="Last Server UTF8" type="numeric">0</Item>
+<Item name="Last server name" type="string">FTPCLAN</Item>
+<Item name="Last Server Pass" type="string">040034035047113</Item>
+<Item name="Last Server Firewall Bypass" type="numeric">0</Item>
+<Item name="Last Server Path" type="string">4096 0 </Item>
+<Item name="Last Server Type" type="numeric">4096</Item>
+<Item name="Last Server transfer mode" type="numeric">0</Item>
+<Item name="Last Server Timezone" type="numeric">0</Item>
+<Item name="Default Folder" type="string"></Item>
+</Settings>
+<RecentServers/>
+<Sites>
+<Site Name="FTPCLAN" Host="ftpclan" Port="21" User="" Account="" RemoteDir="" LocalDir="" Pass="" Logontype="0" FWBypass="0" DontSavePass="0" ServerType="0" PasvMode="0" TimeZoneOffset="0" TimeZoneOffsetMinutes="0" Comments="" UTF8="0" DefaultSite="1"/>
+</Sites>
+<TransferQueue/>
+</FileZilla>

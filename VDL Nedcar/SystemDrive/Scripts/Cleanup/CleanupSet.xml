@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type='text/xsl' href='style.xsl'?>
+<cleanup description="Set of cleanup XML files" version="1.0">
+	<!--This file is the result of a conversion that took place on 01/12/2016 14:26:25-->
+	<CleanupObj path="C:\Scripts\Cleanup\w3svc.xml" description="Cleanup configuration set" comment="Converted by Cleanup_ini2xml on 01/12/2016 14:26:25" />
+</cleanup>

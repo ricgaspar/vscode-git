@@ -1,0 +1,8 @@
+***************************************************************************
+*** Exclude NedCar Oracle folders ***
+exclude.dir "*:\oracle\*\sapdata*"
+exclude.dir "*:\oracle\*\origlog*"
+exclude.dir "*:\oracle\*\mirrlog*"
+
+*** Exclude MOM Agent profile folder ***
+exclude.dir "*:\Documents and Settings\...\Microsoft Operations Manager"

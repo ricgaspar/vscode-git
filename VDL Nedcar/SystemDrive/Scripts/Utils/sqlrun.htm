@@ -1,0 +1,54 @@
+<html>
+<head>
+</head>
+<body>
+<h3><p align=center>General information</p></h3>
+
+SQLRUN is the command line tool for run SQL statements using ODBC32 data sources.
+<p><b>Usage:</b><br>
+sqlrun [optional params] [filenames]<br>
+</p>
+
+<p><b>Params:</b><br>
+-I[&lt;config file name&gt;]
+<ul>
+  <li>by default uses <u>sqlrun.ini</u> in program directory.</li>
+  <li>empty arguments list means -I</li>
+  <li>'*' and '?' are acceptable in [filenames]</li>
+  <li>see config file format below</li>
+</ul>
+</p>
+-D&lt;data source name&gt;<br>
+<br>
+-U&lt;user name&gt;<br>
+<br>
+-P&lt;password&gt;<br>
+<br>
+-O&lt;standard output file name&gt;
+<ul>
+  <li> uses terminal output by default</li>
+</ul>
+-L&lt;log file name&gt;<br>
+<ul>
+  <li>uses terminal output by default</li>
+</ul>
+<b>Note</b>: parameter in command line overwrites value from config file.<br>
+
+<h3><p align=center>Format of the configuration file</p></h3> 
+
+[Connection]<br>
+DSN=&lt;data source name&gt;<br>
+User=&lt;user name&gt;<br>
+Password=&lt;password&gt;<br>
+<br>
+[Settings]<br>
+Output=&lt;standard output file name&gt;<br>
+Errors=&lt;uses terminal output by default&gt;<br>
+Delimiter=&lt;uses "tab" by default&gt;<br>
+<br>
+[Script]<br>
+File=&lt;files specification&gt;<br>
+<p align="center">&copy; Copyright 2003-2010 <a href="http://www.sqledit.com">www.sqledit.com</a></p>
+
+</body>
+<html>

@@ -1,0 +1,1 @@
+@if exist %SYSTEMDRIVE%\Scripts\Registry\sysint.reg regedit /S %SYSTEMDRIVE%\Scripts\Registry\sysint.reg

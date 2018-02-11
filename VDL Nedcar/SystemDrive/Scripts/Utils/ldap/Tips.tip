@@ -1,0 +1,27 @@
+LDAP stands for "Lightweight Directory Access Protocol".
+
+You can create a new LDAP server profile by pressing Ctrl-N.
+
+You can edit an existing LDAP server profile by pressing Alt-Enter on the server item.
+
+Did you know you could subscribe for the Softerra LDAP Browser newsletter to stay updated by receiving all the latest news? To do so, please visit http://www.ldapbrowser.com/subscription/subscription.php.
+
+You can add any entry to favorites to access it quickly from anywhere in a directory.
+
+Do you want to know if there is a new version of Softerra LDAP Browser available? Check it out by choosing 'Check For Updates' from the 'Help' menu.
+
+To view element properties, press 'Alt-Enter'.
+
+To search a directory, press 'Ctrl-F'.
+
+All tree-view or list-view elements have a context menu. You can open it by right-clicking on a selected element.
+
+There is an multi-platform, open-source and absolutely free LDAP server available at http://www.openldap.org.
+
+Visit http://www.ldapbrowser.com/forum/ to take a part in Softerra LDAP Browser discussion or come up with a comment or suggestion.
+
+Do you want to be a guru at LDAP technology? Then go to http://www.ldapguru.com/.
+
+Did you know you could save your directory content using 'LDIF Export' to restore it later with 'LDIF Import' in case of data damage or corruption?
+
+If you dream of becoming a "killer" LDAP Solution developer make http://www.ldapzone.com/ your home page.

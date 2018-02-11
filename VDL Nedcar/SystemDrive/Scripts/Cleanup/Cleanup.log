@@ -1,0 +1,29 @@
+[2017-06-04 05:00:04]: Initialised logfile C:\Scripts\Cleanup\Cleanup.log
+[2017-06-04 05:00:04]: ================================================================================
+[2017-06-04 05:00:04]: Powershell 4.0 running x64 host process in (UAC) Administrator mode.
+[2017-06-04 05:00:04]: Using input file : C:\Scripts\Cleanup\w3svc.xml
+[2017-06-04 05:00:04]: Logging appended : False
+[2017-06-04 05:00:04]: Script mode is PRODUCTION. Changes are applied to the file system.
+[2017-06-04 05:00:05]: The cleanup configuration contains [1] rules.
+[2017-06-04 05:00:05]: --------------------------------------------------------------------------------
+[2017-06-04 05:00:05]: Comment: Converted from C:\Scripts\Cleanup\w3svc.ini
+[2017-06-04 05:00:05]: Processing rule number [1]
+[2017-06-04 05:00:05]: Remove files in folder: C:\inetpub\logs\LogFiles\W3SVC1
+[2017-06-04 05:00:05]: Parameters:[Age:93 days][Include:*][Exclude:Not specified][Keep:100]
+[2017-06-04 05:00:05]: Physical Memory free: 28.8 Gb (90.13 %) post GC collection
+[2017-06-04 05:00:05]: Virtual Memory free: 33.29 Gb (91.93 %)  post GC collection
+[2017-06-04 05:00:05]: --------------------------------------------------------------------------------
+[2017-06-04 05:00:05]: Cleanup has finished.
+[2017-06-04 05:00:05]: --------------------------------------------------------------------------------
+[2017-06-04 05:00:05]: Using input file            : C:\Scripts\Cleanup\w3svc.xml
+[2017-06-04 05:00:05]: --------------------------------------------------------------------------------
+[2017-06-04 05:00:05]: Folders scanned             : 0
+[2017-06-04 05:00:05]: Folders attempted to delete : 0
+[2017-06-04 05:00:05]: Folders actually deleted    : 0
+[2017-06-04 05:00:05]: --------------------------------------------------------------------------------
+[2017-06-04 05:00:05]: Files scanned               : 100
+[2017-06-04 05:00:05]: Files attempted to delete   : 0
+[2017-06-04 05:00:05]: Files actually deleted      : 0
+[2017-06-04 05:00:05]: --------------------------------------------------------------------------------
+[2017-06-04 05:00:05]: Cleanup running time        : 00:00:02.7825411
+[2017-06-04 05:00:05]: ================================================================================

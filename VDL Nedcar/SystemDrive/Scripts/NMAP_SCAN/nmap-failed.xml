@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE nmaprun PUBLIC "-//IDN nmap.org//DTD Nmap XML 1.04//EN" "https://svn.nmap.org/nmap/docs/nmap.dtd">
+<!-- Nmap 6.45 scan initiated Thu May 01 15:40:21 2014 as: nmap -Pn -n -p T:21,2121,80,8080 -A -v -iL iplijst.txt -oX .\\nmap-failed.xml -&#45;no-stylesheet -->
+<nmaprun scanner="nmap" args="nmap -Pn -n -p T:21,2121,80,8080 -A -v -iL iplijst.txt -oX .\\nmap-failed.xml -&#45;no-stylesheet" start="1398951621" startstr="Thu May 01 15:40:21 2014" version="6.45" xmloutputversion="1.04">
+<scaninfo type="syn" protocol="tcp" numservices="4" services="21,80,2121,8080"/>
+<verbose level="1"/>
+<debugging level="0"/>
+<runstats><finished time="1398953076" timestr="Thu May 01 16:04:36 2014" elapsed="1455.16" summary="Nmap done at Thu May 01 16:04:36 2014; 0 IP addresses (0 hosts up) scanned in 1455.16 seconds" exit="success"/><hosts up="0" down="0" total="0"/>
+</runstats>
+</nmaprun>

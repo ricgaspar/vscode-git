@@ -1,0 +1,14 @@
+Executing (\\VDLNC01096\ROOT\CIMV2:Win32_Product.IdentifyingNumber="{26A24AE4-039D-4CA4-87B4-2F32180111F0}",Name="Java 8 Update 111",Version="8.0.1110.14")->Uninstall()
+Method execution successful.
+Out Parameters:
+instance of __PARAMETERS
+{
+	ReturnValue = 0;
+};
+Executing (\\VDLNC01096\ROOT\CIMV2:Win32_Product.IdentifyingNumber="{26A24AE4-039D-4CA4-87B4-2F64180111F0}",Name="Java 8 Update 111 (64-bit)",Version="8.0.1110.14")->Uninstall()
+Method execution successful.
+Out Parameters:
+instance of __PARAMETERS
+{
+	ReturnValue = 0;
+};

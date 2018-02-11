@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<options version="1.5">
+    <!-- Translator -->
+    <sign author="Ilya Parniuk" mail="ilya.parniuk@gmail.com"/>
+    <!-- Program Menu -->
+    <mnuFile caption="Bestand"/>
+    	<mnuFileSave caption="Lijst opslaan..."/>
+    	<mnuFileExit caption="Afsluiten"/>
+    <mnuAction caption = "Actie"/>
+    	<mnuActionUninstall caption = "Verwijderen..."/>
+		<mnuActionDelete caption = "Wissen"/>
+		<mnuActionJumpTo caption = "Spring naar"/>
+		<mnuActionJumpToRegistry caption = "Registeritem"/>
+		<mnuActionJumpToProgramFolder caption = "Programmamap"/>
+		<mnuActionJumpToWebSite caption = "Programmawebsite"/>
+    <mnuView caption = "Beeld"/>
+    	<mnuViewRefresh caption = "Vernieuwen"/>
+    	<mnuViewTooltips caption = "Tooltips tonen"/>
+    	<mnuViewHidden caption = "Verborgen elementen"/>
+    	<mnuViewDisplayUpdates caption = "Updates tonen"/>
+    	<mnuViewLanguage caption = "Taal"/>
+    <mnuTools caption = "Extra"/>
+    	<mnuToolsComponents caption = "Windows-onderdelen..."/>
+    	<mnuToolsAdvanced caption = "Geavanceerde instellingen..."/>
+    <mnuHelp caption = "Help"/>  
+    	<mnuHelpContents caption = "Inhoud..."/>
+    	<mnuHelpDonate caption = "Doneren..."/>
+    	<mnuHelpNewVersion caption = "Controleer op nieuwe versie..."/>
+    	<mnuHelpAbout caption = "Info..."/>
+    <!-- Messages -->
+    <msgDelete caption = "Weet u zeker dat u dit item uit het register wilt wissen?\nLet op: deze handeling kan niet ongedaan worden gemaakt!" title="Vraag"/>
+    <!-- Status Bar -->
+    <stsStatus caption = "%d geïnstalleerde programma's, %d verborgen"/>
+    <stsUninstalling caption = "Bezig met verwijderen"/>
+    <stsDidntStart caption="Het benodigde programma startte niet"/>
+    <stsCantBeUninstalled caption="Dit programma kan niet worden verwijderd"/>
+    <stsDeleted caption = "Geselecteerde item gewist uit het register"/>
+    <stsDeleteFailed caption = "Wissen uit het register is mislukt"/>
+    <!-- Info tips -->
+    <tipUnString caption = "Uninstallstring"/>
+    <tipVersion caption = "Versie"/>
+    <tipJumpToRegistry caption = "Registeritem"/>
+    <tipJumpToWebSite caption = "Website"/>
+    <tipJumpToProgramFolder caption = "Programmamap"/>
+    <tipJumpTo caption ="Ga naar"/>
+    <tipPublisher caption = "Uitgever"/>
+    <tipNone caption ="geen"/>
+</options>

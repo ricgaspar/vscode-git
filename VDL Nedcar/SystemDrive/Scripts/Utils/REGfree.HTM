@@ -1,0 +1,278 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=windows-1252">
+<META NAME="Generator" CONTENT="Microsoft Word 97">
+<TITLE>REG</TITLE>
+</HEAD>
+<BODY LINK="#0000ff" VLINK="#800080">
+
+<B><FONT FACE="Arial" SIZE=4><P>REG.EXE </P>
+</B></FONT><FONT SIZE=2><P>Version 1.0o</P>
+<P>Copyright 1994-1998 by David G. Thomas</P>
+<P>Last changed May, 1998</P>
+<P>To obtain the latest version, visit </FONT><A HREF="http://www.mindspring.com/~dgthomas"><FONT SIZE=2>http://www.mindspring.com/~dgthomas</FONT></A></P>
+<B><I><FONT FACE="Arial"><P>Abstract</P><DIR>
+
+</B></I></FONT><FONT SIZE=2><P>REG provides an efficient way to apply batch updates to the Windows NT registry.  It also allows querying the registry. </P></DIR>
+
+</FONT><B><I><FONT FACE="Arial"><P>License</P><DIR>
+
+</B></I></FONT><FONT SIZE=2><P>This program may be freely distributed as long as this document file is distributed with it and no money is charged.  If Tame is included with a suite of utilities then the distributor may charge a small distribution fee, but no additional fee may be charged for inclusion of REG.</P>
+
+<P>This program is provided free of charge by the author of Tame(r).   Tame improves performance when running DOS applications in a multi-tasking system such as Windows NT and Windows 95.</P>
+
+<P>REG.EXE is Copyright 1994-1998 by David G. Thomas.  Questions or comments may be addressed to </FONT><A HREF="mailto:dgthomas@mindspring.com"><FONT SIZE=2>mailto:dgthomas@mindspring.com</FONT></A><FONT SIZE=2>.</P></DIR>
+
+</FONT><B><I><FONT FACE="Arial"><P>Disclaimer</P>
+</B></I></FONT><FONT SIZE=2><DIR>
+
+<P>This is a plain-language version of the standard disclaimer.  This program is provided as-is.  I tried to make it useful, functional and bug free, but in reality, the program is not guaranteed to do anything, and if it does something undesirable then the author is not liable.   Use it at your own risk.</P></DIR>
+
+</FONT><B><I><FONT FACE="Arial"><P>Usage:</P>
+</I></FONT><P>Syntax:</P><DIR>
+
+</B><FONT FACE="Courier New" SIZE=2><P>Reg {options}</P></DIR>
+
+</FONT><B><I><FONT FACE="Arial"><P>Option Summary</P>
+</B></I></FONT><FONT SIZE=2><P>All options may be abbreviated.  The abbreviated form is indicated with upper case letters.</P>
+</FONT><B><P>@<I>option_file</P><DIR>
+
+</B></I><FONT SIZE=2><P>Options will be read from the specified file name.  Lines beginning with a semi-colon (;) will be treated as a comment and ignored.  Note that this is the same as the –InputFile command line option.</P></DIR>
+
+</FONT><B><P>-AddKey <I>keyname ...</P><DIR>
+
+</B></I><FONT SIZE=2><P>Add the specified key to the registry. </P></DIR>
+
+</FONT><B><P>-CheckKey <I>keyname</I> ...</P><DIR>
+
+</B><FONT SIZE=2><P>Check if the key is in the registry, and set the ERRORLEVEL to 1 if it does not exist.</P></DIR>
+
+</FONT><B><P>-ComputerName <I>name</P><DIR>
+
+</B></I><FONT SIZE=2><P>Specify the computer that all registry operations will occur on.</P></DIR>
+
+</FONT><B><P>-Deletevalue <I>name</I> ...</P><DIR>
+
+</B><FONT SIZE=2><P>Remove the named registry value.</P></DIR>
+
+</FONT><B><P>-DeleteKey <I>name</I> ...</P><DIR>
+
+</B><FONT SIZE=2><P>Remove the named registry key.  Note that the key must be empty before deleting it.</P></DIR>
+
+</FONT><B><P>-DeleteTree <I>name</I> ...</P><DIR>
+
+</B><FONT SIZE=2><P>Remove the named registry key and all sub-keys that are contained in it</P></DIR>
+
+</FONT><B><P>-EnvLoad <I>bat_file</P><DIR>
+
+</B></I><FONT SIZE=2><P>Scan the batch file dor PATH and SET statements, and load the Windows NT user environment with the values that are found.  This may be used in order to permanently load the AUTOEXEC.BAT into the Windows NT environment.</P>
+<P>Note that the COMSPEC environment value is always ignored.  This is because COMSPEC can cause lots of grief if it is set to the DOS version of COMMAND.COM.</P></DIR>
+
+</FONT><B><P>-EnvPathAdd <I>dir</I> ...</P><DIR>
+
+</B><FONT SIZE=2><P>Add the directory to the end of the user path.  If it already is in the path, it will remain unchanged.</P>
+<P>Note that this command will not affect any currently open windows.  When a new window is launched from Program Manager, it will reflect the modified value.</P></DIR>
+
+</FONT><B><P>-EnvPathDelete <I>dir</I> ...</P><DIR>
+
+</B><FONT SIZE=2><P>Remove the directory from the user path.</P>
+<P>Note that this command will not affect any currently open windows.  When a new window is launched from Program Manager, it will reflect the modified value.</P></DIR>
+
+</FONT><B><P>-EnvSet <I>name</I>=<I>value</I> ...</P><DIR>
+
+</B><FONT SIZE=2><P>Set the specified user environment value.</P>
+<P>Note that this command will not affect any currently open windows.  When a new window is launched from Program Manager, it will reflect the modified value.</P></DIR>
+
+</FONT><B><P>-InputFile <I>filename</P><DIR>
+
+</B></I><FONT SIZE=2><P>Load options from the specified file.  This is the same as @<I>filename.</P></DIR>
+
+</I></FONT><B><P>-ExpandEnvironmentValues <I>buffer_size</P><DIR>
+
+</B></I><FONT SIZE=2><P>Expand environment values that are specified in an option file.  Environment value names should be enclosed in ‘%’ marks, as is done with normal batch files.  The buffer size is an optional argument that sets the maximum length of an expanded string.  The default is 2000 characters if no buffer size is specified.  If a buffer size of 0 is specified then this disables expansion of values.  The default is to not expand values.</P></DIR>
+
+</FONT><B><P>-List <I>value</P><DIR>
+
+</B></I><FONT SIZE=2><P>List the specified registry value in the form ‘<I>Name</I>’ = <I>Type</I> ‘<I>Value</I>’.</P></DIR>
+
+</FONT><B><P>-ListValue</P><DIR>
+
+</B><FONT SIZE=2><P>List the specified registry value without the name and without quoting the value.  This form of output is more suitable to piping into the Windows NT for command to extract the type and/or value into environment values (See examples below).</P></DIR>
+
+</FONT><B><P>-MachineEnvLoad <I>bat_file</P><DIR>
+
+</B></I><FONT SIZE=2><P>Scan the batch file dor PATH and SET statements, and load the Windows NT machine environment with the values that are found.  This may be used in order to permanently load the AUTOEXEC.BAT into the Windows NT environment.</P>
+<P>Note that the COMSPEC environment value is always ignored.  This is because COMSPEC can cause lots of grief if it is set to the DOS version of COMMAND.COM.</P>
+<P>Note also that this command will not affect any currently open windows.  When a new window is launched from Program Manager, it will reflect the modified value.</P></DIR>
+
+</FONT><B><P>-MachineEnvPathAdd <I>dir</I> ...</P><DIR>
+
+</B><FONT SIZE=2><P>Add the directory to the end of the machine path.  If it already is in the path, it will remain unchanged.</P>
+<P>Note that this command will not affect any currently open windows.  When a new window is launched, it will reflect the modified value.</P></DIR>
+
+</FONT><B><P>-MachineEnvPathDelete <I>dir</I> ...</P><DIR>
+
+</B><FONT SIZE=2><P>Remove the directory from the machine path.</P>
+<P>Note that this command will not affect any currently open windows.  When a new window is launched, it will reflect the modified value.</P></DIR>
+
+</FONT><B><P>-MachineEnvSet <I>name</I>=<I>value</I> ...</P><DIR>
+
+</B><FONT SIZE=2><P>Set the specified machine environment value.</P>
+<P>Note that this command will not affect any currently open windows.  When a new window is launched, it will reflect the modified value.</P></DIR>
+
+</FONT><B><P>-PATH</P><DIR>
+
+</B><FONT SIZE=2><P>Display the current user and machine path as specified in the registry.</P></DIR>
+
+</FONT><B><P>-Quiet</P><DIR>
+
+</B><FONT SIZE=2><P>Produce no messages unless an error occurs.</P></DIR>
+
+</FONT><B><P>-QuerySet <I>name</P><DIR>
+
+</B></I><FONT SIZE=2><P>Set the value based on keyboard response from the user.  This is a very primitive interface, but it does work...</P></DIR>
+
+</FONT><B><P>-RestoreKey <I>filename keyname</P><DIR>
+
+</B></I><FONT SIZE=2><P>Load the key values and sub-keys that were previously saved using –SaveKey.</P></DIR>
+
+</FONT><B><P>-SaveKey <I>filename keyname</P><DIR>
+
+</B></I><FONT SIZE=2><P>Save the key values and sub-keys that they may later be loaded into the registry using –RestoreKey.</P></DIR>
+
+</FONT><B><P>-Set [<I>type</I>] <I>name</I>=value ...</P><DIR>
+
+</B><FONT SIZE=2><P>Set the specified registry variable to the specified value.  The following types of values are accepted:</P>
+<P>REG_DWORD&#9;Integer value that may be in decimal, or hex by specifying 0x as a prefix.</P>
+<P>REG_SZ&#9;&#9;Simple string value</P>
+<P>REG_EXPAND_SZ&#9;A value that contains %environment% references that may be expanded</P>
+<P>REG_MULTI_SZ&#9;A multi-line string where the first character of the value is a line delimiter.</P></DIR>
+
+</FONT><B><P>-ValueDeLiMiter <I>character</P><DIR>
+
+</B></I><FONT SIZE=2><P>Set the delimiter that separates the registry key name from the value name.  This may be used when the name of a value must contain a backslash.   Note that key names may not contain a backslash, but it is allowed with value names.</P></DIR>
+
+</FONT><B><I><FONT FACE="Arial"><P>Other Information</P>
+</I></FONT><P>Name specification:</P></B>
+<TABLE BORDER CELLSPACING=1 CELLPADDING=7 WIDTH=553>
+<TR><TD WIDTH="24%" VALIGN="TOP">
+<FONT SIZE=2><P>\root\item\name</FONT></TD>
+<TD WIDTH="76%" VALIGN="TOP">
+<FONT SIZE=2><P>Absolute registry path name where the root may be User, Users or Machine.  User refers to HKEY_CURRENT_USER, Users refers to HKEY_USERS and Machine refers to HKEY_LOCAL_MACHINE,</P>
+<P>This may also be the 4 letter common acronym for the root key name. HKCU, HKU, HKLM, HKCR, HKCC or HKDD are currently accepted values.</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP">
+<FONT SIZE=2><P>\path\</FONT></TD>
+<TD WIDTH="76%" VALIGN="TOP">
+<FONT SIZE=2><P>A trailing back slash sets the default key that subsequent names are in</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP">
+<FONT SIZE=2><P>Key\name</FONT></TD>
+<TD WIDTH="76%" VALIGN="TOP">
+<FONT SIZE=2><P>A specification relative to the default key</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP">
+<FONT SIZE=2><P>\\machine\root\name</FONT></TD>
+<TD WIDTH="76%" VALIGN="TOP">
+<FONT SIZE=2><P>Registry path may be specified on a different machine</FONT></TD>
+</TR>
+</TABLE>
+
+<FONT SIZE=2>
+<P>The following root names are valid.</P>
+</FONT>
+<TABLE BORDER CELLSPACING=1 CELLPADDING=7 WIDTH=330>
+<TR><TD WIDTH="24%" VALIGN="TOP">
+<FONT SIZE=2><P>HKCC</FONT></TD>
+<TD WIDTH="76%" VALIGN="TOP">
+<FONT SIZE=2><P>HKEY_CURRENT_CONFIG</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP">
+<FONT SIZE=2><P>HKCR</FONT></TD>
+<TD WIDTH="76%" VALIGN="TOP">
+<FONT SIZE=2><P>HKEY_CLASSES_ROOT</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP">
+<FONT SIZE=2><P>HKCU</FONT></TD>
+<TD WIDTH="76%" VALIGN="TOP">
+<FONT SIZE=2><P>HKEY_CURRENT_USER</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP">
+<FONT SIZE=2><P>HKDD</FONT></TD>
+<TD WIDTH="76%" VALIGN="TOP">
+<FONT SIZE=2><P>HKEY_DYN_DATA</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP">
+<FONT SIZE=2><P>HKU</FONT></TD>
+<TD WIDTH="76%" VALIGN="TOP">
+<FONT SIZE=2><P>HKEY_USERS</FONT></TD>
+</TR>
+<TR><TD WIDTH="24%" VALIGN="TOP">
+<FONT SIZE=2><P>HKLM</FONT></TD>
+<TD WIDTH="76%" VALIGN="TOP">
+<FONT SIZE=2><P>HKEY_LOCAL_MACHINE</FONT></TD>
+</TR>
+</TABLE>
+
+<FONT SIZE=2><P>&nbsp;</P>
+</FONT><B><P>Other name rules</P><DIR>
+
+</B><FONT SIZE=2><P>If the path (or any other argument) contains spaces, it should be enclosed in quotes (&quot;)</P>
+<P>If a value name is blank, enclose the path name in quotes and specify a trailing blank (e.g. &quot;\path\ &quot;)</P></DIR>
+
+</FONT><B><I><FONT FACE="Arial"><P>Command Line Examples:</P>
+</I></FONT><P>REG @SETUSER.RI</P><DIR>
+
+</B><FONT SIZE=2><P>Load options that are listed in file SETUSER.RI.  </P></DIR>
+
+</FONT><B><P>REG -AddKey \User\Software\Test</P><DIR>
+
+</B><FONT SIZE=2><P>Add the key</P></DIR>
+
+</FONT><B><P>REG -Set  \User\Software\Test\Value=&quot;Test Value&quot;</P><DIR>
+
+</B><FONT SIZE=2><P>Set the value of  \User\Software\Test\Value to a REG_SZ value of &quot;Test Value&quot;</P></DIR>
+
+</FONT><B><P>REG -Set REG_DWORD \User\Software\Test\  value1=10 value2=20</P><DIR>
+
+</B><FONT SIZE=2><P>This will set two values that are of type REG_DWORD and are in the \User\Software\Test key.</P></DIR>
+
+</FONT><B><P>REG -Set \\SERVER01\Machine\Software\Test\Value = C:\</P><DIR>
+
+</B><FONT SIZE=2><P>This will set a registry value on a remote machine.  </P></DIR>
+
+</FONT><B><P>REG –SET –ValueDelimiter $ -Set \HKCU\Software\Paths$C:\TEST.LOG = Log</P><DIR>
+
+</B><FONT SIZE=2><P>This will set a value named &quot;C:\TEST.LOG&quot;</P></DIR>
+
+</FONT><B><I><FONT FACE="Arial"><P>Batch file Examples:</P>
+<OL>
+
+</I></FONT><LI>Run a command using the value in a registry entry</LI>
+</B><FONT SIZE=2><P>The following batch file uses the extended syntax of the for command to extract the value and use it in the batch file. It has been tested with Windows NT version 4.0. </P>
+</FONT><FONT FACE="Courier New" SIZE=1><P>@echo off<BR>
+rem This batch file will list the directory of the Windows NT source CD<BR>
+set rp="\machine\software\Microsoft\Windows NT\CurrentVersion\SourcePath"<BR>
+for /f "tokens=1*" %%i in ('reg -lv %rp%') do dir %%j</P>
+</FONT><B><LI>Get the data type and value into environment variables</LI></OL>
+<DIR>
+
+</B><FONT SIZE=2><P>The following batch file uses the extended syntax of the for command to extract the data type and value into environment values that may be used in the batch file. It has been tested with Windows NT version 4.0. </P>
+</FONT><FONT FACE="Courier New" SIZE=1><P>   @echo off<BR>
+   rem This batch file will list the directory of the Windows NT source CD<BR>
+   set rp="\machine\software\Microsoft\Windows NT\CurrentVersion\SourcePath"<BR>
+   for /f "tokens=1*" %%i in ('reg -lv %rp%') do set RegValueType=%%i&amp;set RegValue=%%j<BR>
+   if %RegValueType% == Undefined goto error</P>
+<P>   echo dir %RegValue%</P>
+<P>   dir %RegValue%<BR>
+   goto done</P>
+<P>:error<BR>
+   echo **** %RegValueType% %RegValue%</P>
+<P>:done<BR>
+   set rp=<BR>
+   set RegValue=<BR>
+   set RegValueType=</P>
+
+</FONT><FONT SIZE=2><P>&nbsp;</P></DIR>
+</FONT></BODY>
+</HTML>
