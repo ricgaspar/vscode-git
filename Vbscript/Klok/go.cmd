@@ -1,0 +1,1 @@
+call compile.cmd klok.cpp

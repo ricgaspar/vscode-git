@@ -1,0 +1,553 @@
+<html>
+<!--********************************************************************
+'*
+'*  File:           userchange.htm
+'*  Created:        Augustus 2004
+'*  Version:        1.0
+'*  Author:         Marcel Jussen
+'*
+'*  Description:    NedCar user Management scripts.
+'*
+'*  Copyright (C) 2004 KPN Telecom
+'*
+'********************************************************************-->
+<head>
+<title>UserQuery</title>
+<link href="css/nedcarum.css" rel="stylesheet" type="text/css" />
+
+<SCRIPT Language="VBScript">
+Option Explicit
+
+sub doRefresh
+	Dim strUserName
+	Dim sResult
+
+	strUserName = trim(ucase(uname.value))
+	uname.value = strUserName
+
+	call FormClear()
+	call CheckUID(strUserName)
+end Sub
+
+sub FormClear
+	call clearCheckTable
+	call clearUserInfoTable
+end sub
+
+sub clearUserInfoTable
+  do while tbUserinfo.Rows.Length > 0
+    tbUserinfo.deleteRow(tbUserinfo.Rows.Length - 1)
+  loop
+end sub
+
+sub clearCheckTable
+  do while tbChecks.Rows.Length > 0
+    tbChecks.deleteRow(tbChecks.Rows.Length - 1)
+  loop
+end sub
+
+Function CheckUID(strUserName)
+	dim bUIDExists
+	dim rowNew, cellNew
+	dim sHomeFolder, strHomeServer, strHomeShare
+	dim bRes, strRef
+	
+	call clearCheckTable()
+	
+	If strUserName <> "" Then
+		bUIDExists = chkUIDExists(strUserName)
+		if bUIDExists then
+
+			' Add log entry
+			AddToLog("Checking " & strUserName)
+			call showBasicUIDInfo(strUserName)
+
+			' Check if account has a logon script
+			dim strDN, objUser
+			strDN=QueryAD_User(strUserName)
+			Set objUser = GetObject("LDAP://" & strDN)
+			dim strScript
+			strScript = objUser.ScriptPath
+
+			set rowNew = tbChecks.InsertRow()
+			set cellNew = rowNew.InsertCell()
+			cellnew.innerHTML = "Logon script"
+			set cellNew = rowNew.InsertCell()
+			if len(strScript)>0 then
+				strRef = strScript
+			else
+				strRef = "<strong>Error. Account does not have a logon script!</strong>"
+			end if
+			cellnew.innerHTML = strRef
+
+			set cellNew = rowNew.InsertCell()
+			bRes = len(strScript)>0
+			if bRes then
+					cellnew.innerHTML = "<I>Ok</I>"
+			else
+				' Add log entry
+				AddToLog("ERROR: Account " & strUserName & " does not have a logon script.")
+				strRef = "<input name=" & chr(34) & "repairScript" & chr(34) & " type=" & chr(34) & "BUTTON" & chr(34) & " id=" & chr(34) & "repairScript" & chr(34) & " onclick=" & chr(34) & "repairScript" & chr(34) & " value=" & chr(34) & "Repair" & chr(34) & ">"
+				cellnew.innerHTML = strRef
+			end if
+
+			' Check if home folder exists
+			'-------------------------------------------
+			sHomefolder = "\\S034\Data$\" & strUserName
+			bRes = chkFolderExists(sHomeFolder)
+			set rowNew = tbChecks.InsertRow()
+
+			set cellNew = rowNew.InsertCell()
+			cellnew.innerHTML = "Home location"
+			set cellNew = rowNew.InsertCell()
+			strRef = "<a href=" & chr(34) & sHomeFolder & chr(34) & "target=" & chr(34) & "_blank" & chr(34) & ">" & sHomeFolder & "</A>"
+			cellnew.innerHTML = strRef
+
+			set cellNew = rowNew.InsertCell()
+			if bRes then
+				cellnew.innerHTML = "<I>Ok</I>"
+			else
+				' Add log entry
+				AddToLog("ERROR: Home for " & strUserName & " cannot be accessed.")
+				strRef = "<input name=" & chr(34) & "repairhome" & chr(34) & " type=" & chr(34) & "BUTTON" & chr(34) & " id=" & chr(34) & "repairhome" & chr(34) & " onclick=" & chr(34) & "repairHome" & chr(34) & " value=" & chr(34) & "Repair" & chr(34) & ">"
+				cellnew.innerHTML = strRef
+			end if
+
+			' Check if home folder is shared
+			'-------------------------------------------
+			strHomeServer = "S034"
+			strHomeShare = strUserName & "$"
+
+			set rowNew = tbChecks.InsertRow()
+			set cellNew = rowNew.InsertCell()
+			cellnew.innerHTML = "Home share:"
+			set cellNew = rowNew.InsertCell()
+			strRef = "<a href=" & chr(34) & "\\" & strHomeServer & "\" & strHomeShare & chr(34) & "target=" & chr(34) & "_blank" & chr(34) & ">" & "\\" & strHomeServer & "\" & strHomeShare & "</A>"
+			cellnew.innerHTML = strRef
+
+			set cellNew = rowNew.InsertCell()
+			bRes = chkShareExists(strHomeServer, strHomeShare)
+			if bRes then
+				 cellnew.innerHtml = "<I>Ok</I>"
+			else
+				' Add log entry
+				AddToLog("ERROR: Homeshare for " & strUserName & " cannot be accessed.")
+				strRef = "<input name=" & chr(34) & "repairhomeshare" & chr(34) & " type=" & chr(34) & "BUTTON" & chr(34) & " id=" & chr(34) & "repairhomeshare" & chr(34) & " onclick=" & chr(34) & "repairHomeShare" & chr(34) & " value=" & chr(34) & "Repair" & chr(34) & ">"
+				cellnew.innerHTML = strRef
+			end if
+
+			' check permissions if home share exists
+			' FUNCTION HAS BEEN DISABLED!!!
+			'-------------------------------------------
+			bRes=False
+			if bRes = True then
+				set rowNew = tbChecks.InsertRow()
+				set cellNew = rowNew.InsertCell()
+				cellnew.innerHTML = "Home share permissions:"
+				set cellNew = rowNew.InsertCell()
+				strRef = "<a href=" & chr(34) & "\\" & strHomeServer & "\" & strHomeShare & chr(34) & "target=" & chr(34) & "_blank" & chr(34) & ">" & "\\" & strHomeServer & "\" & strHomeShare & "</A>"
+				cellnew.innerHTML = strRef
+				set cellNew = rowNew.InsertCell()
+
+				' check permissions on home share
+				bRes = chkSharePermissions(strHomeServer, strHomeShare)
+				if bRes then
+					cellnew.innerHTML = "<I>Ok</I>"
+				else
+					' Add log entry
+					AddToLog("ERROR: Home permissions for " & strUserName & " are incorrect.")
+					strRef = "<input name=" & chr(34) & "repairhomeperms" & chr(34) & " type=" & chr(34) & "BUTTON" & chr(34) & " id=" & chr(34) & "repairhomeperms" & chr(34) & " onclick=" & chr(34) & "repairHomePerms" & chr(34) & " value=" & chr(34) & "Repair" & chr(34) & ">"
+					cellnew.innerHTML = strRef
+				end if
+			end if
+
+			' Check if account has a TS profile attached to it.
+			'-------------------------------------------
+			dim sCtxfolder
+			sCtxfolder = objUser.TerminalServicesProfilePath
+
+			set rowNew = tbChecks.InsertRow()
+			set cellNew = rowNew.InsertCell()
+			cellnew.innerHTML = "Terminal server profile setting:"
+			set cellNew = rowNew.InsertCell()
+			if len(sCtxFolder)>0 then
+				strRef = "<a href=" & chr(34) & sCtxfolder & chr(34) & "target=" & chr(34) & "_blank" & chr(34) & ">" & sCtxfolder & "</A>"
+			else
+				strRef = "<strong>Error. Account does not have a TS profile set to it.</strong>"
+			end if
+			cellnew.innerHTML = strRef
+
+			set cellNew = rowNew.InsertCell()
+			bRes = len(sCtxFolder)>0
+			if bRes then
+					cellnew.innerHTML = "<I>Ok</I>"
+
+					' Check if Citrix profile folder exists
+					'-------------------------------------------
+					set rowNew = tbChecks.InsertRow()
+					set cellNew = rowNew.InsertCell()
+					cellnew.innerHTML = "Citrix profile location:"
+					set cellNew = rowNew.InsertCell()
+					strRef = "<a href=" & chr(34) & sCtxfolder & chr(34) & "target=" & chr(34) & "_blank" & chr(34) & ">" & sCtxfolder & "</A>"
+					cellnew.innerHTML = strRef
+					set cellNew = rowNew.InsertCell()
+
+					bRes = chkFolderExists(sCtxFolder)
+					if bRes then
+				 		cellnew.innerHTML = "<I>Ok</I>"
+					else
+						' Add log entry
+						AddToLog("ERROR: Citrix profile for " & strUserName & " cannot be accessed.")
+						strRef = "<input name=" & chr(34) & "repairCtx" & chr(34) & " type=" & chr(34) & "BUTTON" & chr(34) & " id=" & chr(34) & "repairCtx" & chr(34) & " onclick=" & chr(34) & "repairCtx" & chr(34) & " value=" & chr(34) & "Repair" & chr(34) & ">"
+						cellnew.innerHTML = strRef
+					end if
+			else
+				' Add log entry
+				AddToLog("ERROR: Account " & strUserName & " does not have a Terminal services profile.")
+				strRef = "<input name=" & chr(34) & "repairTSProfile" & chr(34) & " type=" & chr(34) & "BUTTON" & chr(34) & " id=" & chr(34) & "repairTSProfile" & chr(34) & " onclick=" & chr(34) & "repairTSProfile" & chr(34) & " value=" & chr(34) & "Repair" & chr(34) & ">"
+				cellnew.innerHTML = strRef
+			end if
+		else
+			call MsgBox("Could not find user " & strUserName & " in the domain.", vbCritical, "Error")
+		end if
+	end If
+End Function
+
+'function to list the properties of a user-account
+Function showBasicUIDInfo(strUserName)
+	dim Usr, sError, strDN
+	AddToLog("Checking " & strUserName)
+	call clearUserInfoTable()
+
+	strDN=QueryAD_User(strUserName)
+	AddToLog("DN: " & strDN)
+	call ShowText("Distinguished name:", strDN)
+
+	On Error Resume Next
+
+	dim objUser
+	Set objUser = GetObject("LDAP://" & strDN)
+	if err.number<0 then
+		err.Clear
+		call MsgBox("Could not find user " & strUserName & " in domain " & strDomainName, vbCritical, "Error")
+		' Add log entry
+		AddToLog(strDomainName & "\" & strUserName & " could not be found.")
+	else
+		call ShowText("Display Name:", objUser.displayName)
+		call ShowText("User Principal Name:", objUser.userPrincipalName)
+		call ShowText("Given name:", objUser.givenName)
+		call ShowText("Description:", objUser.description)
+
+	end If
+End Function
+
+Sub ShowText(strTextLeft, strTextRight)
+	dim rowNew, cellNew
+	set rowNew = tbUserinfo.InsertRow()
+	set cellNew = rowNew.InsertCell()
+	cellnew.innerText = strTextLeft
+	set cellNew = rowNew.InsertCell()
+	cellnew.innerText = strTextRight
+End Sub
+
+Function chkUIDExists(strUserName)
+	chkUIDExists = (Len(QueryAD_User(strUsername)) > 0)
+End Function
+
+Function QueryAD_User(strName)
+	Dim Con, Root, Domain, sDomain, sFilter, sAttribsToReturn, sDepth
+	Dim rs, i, Path
+	Dim oCommand
+	Dim objArgs
+	Dim ADsObject
+	Dim sADsPath
+	Dim objName
+	Dim objClass
+	Dim objSchema
+	Dim classObject
+
+	On Error Resume Next
+
+	'--------------------------------------------------------
+	'Create the ADO connection object
+	'--------------------------------------------------------
+	Set Con = CreateObject("ADODB.Connection")
+	Con.Provider = "ADsDSOObject"
+	Con.Open "Active Directory Provider"
+
+	'Create ADO command object for the connection.
+	Set oCommand = CreateObject("ADODB.Command")
+	oCommand.ActiveConnection = Con
+
+	'Get the ADsPath for the domain to search.
+	Set Root = GetObject("LDAP://rootDSE")
+
+	'---------------------------------------------------------
+	'Choose the NC you want to search and build the ADsPath
+	'---------------------------------------------------------
+	sDomain = root.Get("rootDomainNamingContext")
+	Set domain = GetObject("GC://" & sDomain)
+	sADsPath = "<" & domain.ADsPath & ">"
+
+	'--------------------------------------------------------
+	'Build the search filter
+	'--------------------------------------------------------
+	sFilter = "(&(objectCategory=person)(objectClass=user)(Name=" & strName & "))"
+  sAttribsToReturn = "distinguishedName"
+	sDepth = "subtree"
+
+	'---------------------------------------------------------
+	'Assemble and execute the query
+	'---------------------------------------------------------
+	oCommand.CommandText = sADsPath & ";" & sFilter & ";" & sAttribsToReturn & ";" & sDepth
+	Set rs = oCommand.Execute
+
+	'---------------------------------------------------------
+	' Navigate the record set and get the object's DN
+	'---------------------------------------------------------
+	rs.MoveFirst
+	While Not rs.EOF
+    For i = 0 To rs.Fields.Count - 1
+    	If rs.Fields(i).Name = "distinguishedName" Then
+	    	Path = rs.Fields(i).Value
+      End If
+    Next
+    rs.MoveNext
+	Wend
+	QueryAD_User = Path
+End Function
+
+Function QueryNet_Domain()
+	dim WshNetwork
+	Set WshNetwork = CreateObject("WScript.Network")
+	QueryNet_Domain = WshNetwork.UserDomain
+End Function
+
+'- FOLDERS ----------------------------------------------
+'function to check if a folder exists
+Function chkFolderExists(sFolder)
+	dim fso, bResult
+	set fso = CreateObject("Scripting.FileSystemObject")
+	if isEmpty(sfolder) then
+		bResult = False
+	else
+		bResult = fso.FolderExists(sFolder)
+	end if
+	chkFolderExists = bResult
+End Function
+
+'- SHARES ----------------------------------------------
+'function to check if a share exists (calls chkFolderExists)
+Function chkShareExists(strServer, strShare)
+	dim objShare, blResult, ShareName, share
+	dim strDomain
+
+	strDomain = QueryNet_Domain()
+	Set objShare= GetOBJect("WinNT://"& strDomain &"/" & strServer &"/lanmanserver")
+
+	' Fill the temp file with share information
+	blResult = False
+	For each share in objShare
+		ShareName = share.name
+		' AddToLog(ShareName)
+		if (blResult=False) AND (strShare=ShareName) then blResult=True
+	Next
+	chkShareExists = blResult
+End Function
+
+'function to check file share permissions
+Function chkSharePermissions(sServer, sShare)
+	dim bResult
+	' Procedure is not implemented yet.
+	bResult=True
+	chkSharePermissions = bResult
+End Function
+
+Sub AddToLog(strText)
+	const	ForAppend 	= 8
+	const	LogFile		= "\\S100\LOGBOEK\NEDCARUM2\nedcarum2.log"
+	const	htmSource	= "UserCheck"
+
+	dim WshNetwork, fsoObj, f, strTemp
+	dim strDomain, strComputer, strUsername
+	dim strTime
+
+	Set WshNetwork = CreateObject("WScript.Network")
+	strComputer = WshNetwork.ComputerName
+  strUsername = WshNetwork.UserName
+	strTime = Now()
+
+	Set fsoObj = CreateObject("Scripting.FileSystemObject")
+   	Set f = fsoObj.OpenTextFile(LogFile, ForAppend, True)
+   	strTemp = strTime & Chr(32) & htmSource & ", " & strComputer & ", " & strUsername & ", " & strText
+   	f.WriteLine strTemp
+   	f.Close
+End Sub
+
+Sub repairHome
+	Dim strUserName
+	strUserName = trim(uname.value)
+
+	' Add log entry
+	AddToLog("Repaired Home for " & strUserName)
+	call createHomeShare(strUserName)
+
+	'Perform check again.
+	call clearUserInfoTable()
+	call CheckUID(strUserName)
+End Sub
+
+Sub repairHomeShare
+	call repairHome
+end Sub
+
+Sub repairHomePerms
+	call repairHome
+end Sub
+
+Sub repairScript
+	Dim strUserName
+	strUserName = trim(uname.value)
+	dim strDN, objUser
+	strDN=QueryAD_User(strUserName)
+	Set objUser = GetObject("LDAP://" & strDN)
+	objUser.Put "scriptPath", "logon.bat"
+	objUser.SetInfo
+
+	'Perform check again.
+	call clearUserInfoTable()
+	call CheckUID(strUserName)
+End Sub
+
+Sub repairTSProfile
+	Dim strUserName
+	strUserName = trim(uname.value)
+	dim strDN, objUser
+	strDN=QueryAD_User(strUserName)
+	Set objUser = GetObject("LDAP://" & strDN)
+	objUser.TerminalServicesProfilePath = "\\s060\ctxprof$\" & strUserName
+	objUser.SetInfo
+
+	'Perform check again.
+	call clearUserInfoTable()
+	call CheckUID(strUserName)
+End Sub
+
+Sub repairCtx
+	Dim strUserName
+	strUserName = trim(uname.value)
+	' Add log entry
+	AddToLog("Repaired Citrix Profile for " & strUserName)
+	call createCitrixProfile(strUserName)
+
+	'Perform check again.
+	call clearUserInfoTable()
+	call CheckUID(strUserName)
+end Sub
+
+Function createHomeShare(strUserName)
+	dim strCommand, strParms
+	Dim wshell, intReturn
+
+	call ShowText("Creating account " & strUsername, "Creating home directory. Wait for procedure to finish.")
+	strCommand = "createHomeShare.cmd " & strUserName
+  set wshell = createobject("wscript.shell")
+  intReturn = wshell.run("%comspec% /c " & strCommand, 0, True)
+  call ShowText("Creating account " & strUsername, "Done.")
+
+  ' Add log entry
+	AddToLog("Add account " & strUserName & " Create Home share")
+End Function
+
+Function createCitrixProfile(strUserName)
+	Dim wshShell, strCommand, strRun, strUser
+
+	call ShowText("Creating account " & strUsername, "Creating Citrix profile. Wait for procedure to finish.")
+
+	' create shell and run command in RUNAS environment.
+	set wshShell = CreateObject("WScript.Shell")
+	strCommand = "createCTXProfile.cmd " & strUsername
+	dim intReturn
+  intReturn = wshShell.run("%comspec% /c " & strCommand, 0, True)
+
+  call ShowText("Creating account " & strUsername, "Done.")
+
+   	' Add log entry
+	AddToLog("Add account " & strUserName & " Create Citrix profile")
+End Function
+
+</SCRIPT>
+
+</head>
+
+<body class="nedcarum">
+<strong>User Check and Repair.</strong><br>
+<br>
+Check user properties and repair any errors.<br>
+<br>
+<table width="100%"  border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <th scope="row">
+	  <div align="left"></div>
+	  <table border=0 align="left" cellpadding="0" cellspacing="0">
+    	<tr align="left">
+      	<th width="100" scope="row"><div align="left" class="nedcarum">User ID </div></th>
+      	<td width="250">
+      <P>
+        <INPUT name="uname" type="text" class="nedcarumform" id="uname" size="25" maxlength="25">
+      </P>
+      </td>
+      <td width="100">
+      <P>
+        <input name="lookup" type="BUTTON" id="lookup" onclick="doRefresh" value="Lookup">
+      </P>
+      </td>
+      <td width="100">
+      <P>
+        <input name="clear" type="BUTTON" id="clear" onclick="FormClear" value="Clear">
+        </P>
+      </td>
+      <td>&nbsp;</td>
+    </tr>
+</table>
+	</th>
+  </tr>
+</table>
+<br />
+<table width="100%"  border="1" align="left" cellpadding="0" cellspacing="0">
+  <tr>
+    <th scope="row">
+	<table width="100%" border="0" align="left" cellpadding="0" cellspacing="0" class="nedcarum">
+      <THEAD>
+        <TR>
+          <TH width="20%" align="left" bgcolor="#000099"><span class="nedcarumtop"><strong>User information</strong></span></TH>
+          <TH align="left" bgcolor="#000099"><span class="nedcarumtop"><strong>Property</strong></span></TH>
+        </TR>
+      </THEAD>
+      <TBODY ID = "tbUserinfo">
+      </TBODY>
+    </TABLE>
+	</th>
+  </tr>
+  <tr>
+    <th scope="row">&nbsp;</th>
+  </tr>
+  <tr>
+    <th scope="row">
+	<table width="100%" border="1" align="left" cellpadding="0" cellspacing="0" class="nedcarum">
+      <THEAD>
+        <TR>
+          <TH width="20%" align="left" bgcolor="#000099"><span class="nedcarumtop"><strong>Check</strong></span></TH>
+          <TH align="left" bgcolor="#000099"><span class="nedcarumtop"><strong>Property</strong></span></TH>
+          <TH align="left" bgcolor="#000099"><span class="nedcarumtop"><strong>Status</strong></span></TH>
+        </TR>
+      </THEAD>
+      <TBODY ID = "tbChecks">
+      </TBODY>
+    </TABLE>
+	</th>
+  </tr>
+</table>
+<br />
+</body>
+</html>

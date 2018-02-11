@@ -1,0 +1,13 @@
+This is used to reset the configuration with the WSUS server  :-
+ 
+net stop wuauserv
+ 
+   Deleted the following registry values:
+    
+            HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\AccountDomainSid
+            HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\SusClientId
+ 
+net start wuauserv
+
+run 
+wuauclt.exe /resetauthorization /detectnow

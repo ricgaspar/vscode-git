@@ -1,0 +1,1051 @@
+<html>
+<!--********************************************************************
+'*
+'*  File:           userchange.htm
+'*  Created:        Augustus 2004
+'*  Version:        1.0
+'*  Author:         Marcel Jussen
+'*
+'*  Description:    NedCar user Management scripts.  
+'*
+'*  Copyright (C) 2004 KPN Telecom
+'*
+'********************************************************************-->
+<head>
+<title>UserQuery</title>
+<link href="css/nedcarum.css" rel="stylesheet" type="text/css" />
+
+<SCRIPT Language="VBScript">
+Option Explicit
+
+const ADS_UF_PASSWD_CANT_CHANGE = &H40
+const ADS_UF_DONT_EXPIRE_PASSWD = &H10000
+
+const CLR_BLACK = &H000000
+const CLR_RED 	= &HFF0000 
+const CLR_GREEN = &H00FF00
+
+sub doLookUpUID
+	Dim strUserName, strDomainName
+	Dim sResult
+	
+	strUserName = trim(ucase(userid.value))
+	userid.value = strUserName
+	if Len(strUserName)>0 then
+		'Change the following line so that strDomainName is your machine name or domain name
+		If strDomainName = "" Then strDomainName = "NEDCAR"	
+		call ListUserID(strDomainName, strUserName)
+	else
+		call doClearForm()
+	end if
+end Sub
+
+'function to list the properties of a user-account
+Sub ListUserId(strDomainName, strUserName)	
+	dim Usr, sError, strDN
+	
+	AddToLog("Changing properties of " & strUserName)			
+	strDN=QueryAD_User(strUserName)
+	AddToLog("DN: " & strDN)
+		
+	On Error Resume Next
+	dim objUser
+	Set objUser = GetObject("LDAP://" & strDN)
+	if err.number<0 then
+		err.Clear
+		call MsgBox("This account does not exist in the domain.", vbCritical, "Error")
+		userid.focus
+		userid.value = ""
+	else
+		
+		dn.value = strDN
+		upn.value = objUser.userPrincipalName
+		disabled.checked = objUser.accountdisabled		
+	
+		password.value = ""
+		confirmpassword.value = ""	
+	
+		pwdchangeatnextlogon.checked = false
+		usercannotchngwpd.checked = false
+		pwdneverexpires.checked = false
+	
+		givenname.value = objUser.givenName
+		initials.value = objUser.initials
+		surname.value = objUser.sn
+		
+		DisplayName.value = objUser.displayName
+		Description.value = objUser.description		
+	
+		scriptpath.value = objUser.ScriptPath
+		profile.value = objUser.ProfilePath
+		homedir.value = objUser.HomeDirectory					
+		homepath.value = objUser.HomeDrive
+		tsprofilepath.value = objUser.TerminalServicesProfilePath
+	
+		mail.value = objUser.Mail
+		department.value = objUser.Department
+		office.value = objUser.physicalDeliveryOfficeName
+		manager.value = objUser.Manager
+		
+		password.value=""
+		confirmpassword.value=""
+		
+		' Extended user attributes		
+		Const ADS_ACETYPE_ACCESS_DENIED_OBJECT 		= &H6
+		Const CHANGE_PASSWORD_GUID  							= "{ab721a53-1e2f-11d0-9819-00aa0040529b}"
+		Const ADS_UF_PASSWORD_EXPIRED 						= &h800000
+		
+		dim objSD, objDACL, Ace
+		Set objSD = objUser.Get("nTSecurityDescriptor")		
+		Set objDACL = objSD.DiscretionaryAcl
+
+		dim blnEnabled, blnACEPresent
+		
+		blnEnabled = False
+		blnACEPresent = False
+		For Each Ace In objDACL
+    	If ((Ace.AceType = ADS_ACETYPE_ACCESS_DENIED_OBJECT) And _
+        (LCase(Ace.ObjectType) = CHANGE_PASSWORD_GUID)) Then
+            blnEnabled = True
+    	End If
+    	If ((Ace.AceType = ADS_ACETYPE_ACCESS_DENIED_OBJECT) And _
+        (LCase(Ace.ObjectType) = CHANGE_PASSWORD_GUID)) Then
+            blnACEPresent = True
+    	End If
+		Next
+		usercannotchngwpd.checked = blnEnabled     
+		
+		dim intUserAccountControl, intUserFlags
+		intUserAccountControl = objUser.Get("userAccountControl")
+		dim objUserNT
+		Set objUserNT = GetObject("WinNT://" & strDomainname & "/" & strUserName)
+		intUserFlags = objUserNT.Get("userFlags")
+ 
+		pwdchangeatnextlogon.checked = (intUserFlags AND ADS_UF_PASSWORD_EXPIRED)		
+		pwdneverexpires.checked = (intUserFlags AND ADS_UF_DONT_EXPIRE_PASSWD)
+		
+		' Disable button while no changes have been made
+		doApplyUID.disabled = False
+	end If
+End Sub
+
+Sub doClearForm
+	userid.value = ""
+	dn.value = ""
+	upn.value = ""
+	disabled.checked = false
+	
+	password.value = ""
+	confirmpassword.value = ""	
+	
+	pwdchangeatnextlogon.checked = false
+	usercannotchngwpd.checked = false
+	pwdneverexpires.checked = false
+	
+	givenname.value = ""
+	initials.value = ""
+	surname.value = ""
+	
+	DisplayName.value = ""
+	Description.value = ""
+	
+	scriptpath.value = ""
+	profile.value = ""	
+	homedir.value = ""
+	homepath.value = ""
+	tsprofilepath.value = ""
+	
+	mail.value = ""
+	department.value = ""
+	office.value = ""
+	manager.value = ""
+	
+	call resetFormColors()
+end sub
+
+sub resetFormColors
+	
+	userid.style.color = CLR_BLACK
+	dn.style.color = CLR_BLACK
+	upn.style.color = CLR_BLACK
+	disabled.style.color = CLR_BLACK
+	
+	password.style.color = CLR_BLACK
+	confirmpassword.style.color = CLR_BLACK	
+	
+	pwdchangeatnextlogon.style.color = CLR_BLACK
+	usercannotchngwpd.style.color = CLR_BLACK
+	pwdneverexpires.style.color = CLR_BLACK
+	
+	givenname.style.color = CLR_BLACK
+	initials.style.color = CLR_BLACK
+	surname.style.color = CLR_BLACK
+	
+	DisplayName.style.color = CLR_BLACK
+	Description.style.color = CLR_BLACK
+	
+	scriptpath.style.color = CLR_BLACK
+	profile.style.color = CLR_BLACK	
+	homedir.style.color = CLR_BLACK
+	homepath.style.color = CLR_BLACK
+	tsprofilepath.style.color = CLR_BLACK
+	
+	mail.style.color = CLR_BLACK
+	department.style.color = CLR_BLACK
+	office.style.color = CLR_BLACK
+	manager.style.color = CLR_BLACK
+	
+	' disable Apply Changes button.
+	doApplyUID.disabled = True
+end sub
+
+Sub doChangeUID
+	dim objUser, strDomainName, strUsername
+	dim oldflags, nButton, blChangeProp
+	dim arrTrustees, strTrustee, ace
+	
+	dim strGivenname,	strSurname,	strDisplayName, strInitials, strTitle 
+	dim strDescription, strScriptpath, strHomeDirectory, strHomePath, strProfilePath, strTSprofilepath
+	dim strMail, strDepartment, strOffice, strManager
+	
+	dim strPassword, strConfirmPassword 
+	dim blpwdchangeatnextlogon, blDisabled, blPwdneverexpires, blusercannotchngwpd 
+		
+	Const ADS_PROPERTY_UPDATE = 2
+	
+	' Extended user attributes		
+	Const ADS_ACETYPE_ACCESS_DENIED_OBJECT 		= &H6
+	Const CHANGE_PASSWORD_GUID  							= "{ab721a53-1e2f-11d0-9819-00aa0040529b}"
+	Const ADS_UF_PASSWORD_EXPIRED 						= &h800000	
+	Const ADS_ACEFLAG_OBJECT_TYPE_PRESENT 		= &H1
+	Const ADS_RIGHT_DS_CONTROL_ACCESS 				= &H100
+	Const ADS_UF_DONT_EXPIRE_PASSWD 					= &H10000
+	
+	call resetFormColors()
+	
+	dim blCommitChanges
+	blCommitChanges = False	
+	
+	'----------------------
+	strPassword = Trim(password.value)
+	strConfirmPassword = Trim(confirmpassword.value)
+	
+	strDomainName = "NEDCAR"
+	strUserName = Trim(userid.value)
+	
+	dim Usr, sError, strDN		
+	AddToLog("Query properties of " & strUserName)			
+	strDN=QueryAD_User(strUserName)
+	AddToLog("DN: " & strDN)
+		
+	' On Error Resume Next
+	Set objUser = GetObject("LDAP://" & strDN)	
+	if err.number<0 then
+		err.Clear
+		call MsgBox("This account does not exist in the domain " & strDomainName, vbCritical, "Error")
+		userid.focus
+	else
+		
+		'Store current Account properties	
+		blDisabled = objUser.accountdisabled			
+	
+		strGivenname = objUser.givenName
+		strSurname = objUser.sn
+		strDisplayName = objUser.displayName
+		strInitials = objUser.initials
+		strTitle = objUser.title	
+		strDescription = objUser.description		
+	
+		strScriptpath = objUser.ScriptPath
+		strHomeDirectory = objUser.HomeDirectory
+		strHomePath = objUser.HomeDrive
+		strProfilePath = objUser.ProfilePath
+		strTSprofilepath = objUser.TerminalServicesProfilePath
+	
+		strMail = objUser.mail
+		strDepartment = objUser.department
+		strOffice = objUser.physicalDeliveryOfficeName
+		strManager = objUser.manager			
+		
+		dim objSD, objDACL, objAce
+		Set objSD = objUser.Get("nTSecurityDescriptor")		
+		Set objDACL = objSD.DiscretionaryAcl
+		dim blnEnabled
+		dim intUAC
+		
+		blnEnabled = False		
+		For Each Ace In objDACL
+  	 	If ((Ace.AceType = ADS_ACETYPE_ACCESS_DENIED_OBJECT) And _
+  	     (LCase(Ace.ObjectType) = CHANGE_PASSWORD_GUID)) Then
+ 	          blnEnabled = True
+ 	  	End If	   	
+		Next
+		blusercannotchngwpd = blnEnabled
+		
+		dim intUserAccountControl, intUserFlags
+		intUserAccountControl = objUser.Get("userAccountControl")
+		dim objUserNT
+		Set objUserNT = GetObject("WinNT://" & strDomainname & "/" & strUserName)
+		intUserFlags = objUserNT.Get("userFlags")
+ 	
+		blPwdchangeatnextlogon = (intUserFlags AND ADS_UF_PASSWORD_EXPIRED)		
+		blPwdneverexpires = (intUserFlags AND ADS_UF_DONT_EXPIRE_PASSWD)
+		
+		'-------------------------------
+						
+		nButton = MsgBox("Are you sure you wish to change the properties for the account [" & strDisplayName & "]", vbYesNo + vbQuestion + vbDefaultButton2, "Commit changes")
+		blCommitChanges = (nButton <> vbNo)
+		if blCommitChanges then
+			blChangeProp = False
+			
+			AddToLog("Changing properties of " & strUserName)			
+			
+			' Enable change password at next logon
+			if pwdchangeatnextlogon.checked = TRUE then
+				if blPwdchangeatnextlogon = FALSE then
+					objUser.Put "pwdLastSet", 0
+					objUser.SetInfo
+				end if			
+			end if 
+			
+			' User cannot change password
+			if usercannotchngwpd.checked = FALSE then
+		
+				Set objSD   = objUser.Get("nTSecurityDescriptor")
+				Set objDACL = objSD.DiscretionaryAcl
+				
+				arrTrustees = Array("nt authority\self", "everyone")
+ 
+				For Each strTrustee In arrTrustees
+    			For Each ace In objDACL
+        		If(LCase(ace.Trustee) = strTrustee) Then
+          		 If((ace.AceType = ADS_ACETYPE_ACCESS_DENIED_OBJECT) And _
+              	 (LCase(ace.ObjectType) = CHANGE_PASSWORD_GUID)) Then
+                	   objDACL.RemoveAce ace
+            	End If
+      	  	End If
+    			Next
+				Next 
+				objUser.Put "nTSecurityDescriptor", objSD
+				objUser.SetInfo
+
+			else
+
+				Set objSD = objUser.Get("ntSecurityDescriptor")
+				Set objDACL = objSD.DiscretionaryAcl
+				arrTrustees = array("nt authority\self", "EVERYONE")
+ 
+				For Each strTrustee in arrTrustees
+    			Set objACE = CreateObject("AccessControlEntry")
+    			objACE.Trustee = strTrustee
+    			objACE.AceFlags = 0
+    			objACE.AceType = ADS_ACETYPE_ACCESS_DENIED_OBJECT
+    			objACE.Flags = ADS_ACEFLAG_OBJECT_TYPE_PRESENT
+    			objACE.ObjectType = CHANGE_PASSWORD_GUID
+    			objACE.AccessMask = ADS_RIGHT_DS_CONTROL_ACCESS
+    			objDACL.AddAce objACE
+				Next
+ 
+				objSD.DiscretionaryAcl = objDACL
+				objUser.Put "nTSecurityDescriptor", objSD
+				objUser. SetInfo
+
+			end if
+
+			' Password never expires.			
+			if pwdneverexpires.checked then									
+				intUAC = objUser.Get("userAccountControl") 
+				If ADS_UF_DONT_EXPIRE_PASSWD AND intUAC Then
+					' feature is already enabled
+				else
+		  		objUser.Put "userAccountControl", intUAC XOR ADS_UF_DONT_EXPIRE_PASSWD
+    			objUser.SetInfo
+    		end if
+    	else
+    		intUAC = objUser.Get("userAccountControl") 
+    		If ADS_UF_DONT_EXPIRE_PASSWD AND intUAC Then
+    			objUser.Put "userAccountControl", intUAC XOR ADS_UF_DONT_EXPIRE_PASSWD
+    			objUser.SetInfo					
+				else
+		  		' feature is already disabled
+    		end if
+			end if
+
+			if givenname.value <> strGivenname then
+				objUser.Put "givenName", Givenname.value
+				objUser.SetInfo
+				Givenname.style.color = CLR_GREEN
+				blChangeProp=True
+				' Add log entry
+				AddToLog("Change Givenname for account " & strDomainName & "\" & strUserName)
+			end if
+			
+			if surname.value <> strSurname then
+				objUser.Put "sn", surname.value
+				objUser.SetInfo
+				surname.style.color = CLR_GREEN
+				blChangeProp=True
+				' Add log entry
+				AddToLog("Change Surname for account " & strDomainName & "\" & strUserName)
+			end if
+			
+			if displayName.value <> strDisplayName then
+				objUser.Put "displayName", DisplayName.value
+				objUser.SetInfo
+				Displayname.style.color = CLR_GREEN
+				blChangeProp=True
+				' Add log entry
+				AddToLog("Change DisplayName for account " & strDomainName & "\" & strUserName)
+			end if			
+			
+			if initials.value <> strInitials then				
+				objUser.Put "initials", initials.value
+				objUser.SetInfo
+				initials.style.color = CLR_GREEN
+				blChangeProp=True
+				' Add log entry
+				AddToLog("Change Initials for account " & strDomainName & "\" & strUserName)
+			end if
+			
+			if description.value <> strDescription then 		
+				objUser.PutEx ADS_PROPERTY_UPDATE, "description", Array(Description.value)
+				objUser.SetInfo
+				Description.style.color = CLR_GREEN
+				blChangeProp=True
+				' Add log entry
+				AddToLog("Change Description for account " & strDomainName & "\" & strUserName)
+			end if						
+			
+			if scriptpath.value <> strscriptpath then 
+				objUser.Put "scriptPath", scriptpath.value
+				objUser.SetInfo
+				scriptpath.style.color = CLR_GREEN
+				blChangeProp=True
+				' Add log entry
+				AddToLog("Change scriptpath for account " & strDomainName & "\" & strUserName)
+			end if
+			
+			if HomeDir.value <> strHomeDirectory then 
+				' objUser.Put "homeDirectory", homedir.value
+				' objUser.SetInfo
+				' homedir.style.color = CLR_GREEN
+				' blChangeProp=True
+				' Add log entry
+				AddToLog("Change Homedirectory for account " & strDomainName & "\" & strUserName)
+			end if
+			
+			if tsprofilepath.value <> strTSprofilepath then
+				objUser.TerminalServicesProfilePath = tsprofilepath.value
+				objUser.SetInfo
+				tsprofilepath.style.color = CLR_GREEN
+				blChangeProp=True
+				' Add log entry
+				AddToLog("Change TS profile path for account " & strDomainName & "\" & strUserName)
+			end if
+			
+			if disabled.checked <> blDisabled then 
+				objUser.accountdisabled = disabled.checked
+				objUser.SetInfo
+				disabled.style.color = CLR_GREEN
+				blChangeProp=True
+				' Add log entry
+				AddToLog("Change Account Disabled for account " & strDomainName & "\" & strUserName)
+			end if
+			
+			if mail.value <> strMail then 
+				objUser.Put "mail", mail.value
+				objUser.SetInfo
+				mail.style.color = CLR_GREEN
+				blChangeProp=True
+				' Add log entry
+				AddToLog("Change Mail for account " & strDomainName & "\" & strUserName)
+			end if
+			
+			if office.value <> strOffice then 
+				objUser.Put "physicalDeliveryOfficeName", office.value
+				objUser.SetInfo
+				office.style.color = CLR_GREEN
+				blChangeProp=True
+				' Add log entry
+				AddToLog("Change Office for account " & strDomainName & "\" & strUserName)
+			end if
+			
+			if department.value <> strDepartment then 
+				objUser.Put "department", department.value
+				objUser.SetInfo
+				department.style.color = CLR_GREEN
+				blChangeProp=True
+				' Add log entry
+				AddToLog("Change Department for account " & strDomainName & "\" & strUserName)
+			end if
+			
+			if manager.value <> strManager then 
+				objUser.Put "manager", manager.value
+				objUser.SetInfo
+				manager.style.color = CLR_GREEN
+				blChangeProp=True
+				' Add log entry
+				AddToLog("Change Manager for account " & strDomainName & "\" & strUserName)
+			end if
+					
+			if blChangeProp	then 
+				if err.number < 0 then
+					call MsgBox("The properties for account " & strDomainName & "\" & strUserName & " were not succesfully changed!", vbCritical, "Message")
+					' Add log entry
+					AddToLog("Commited simple changes FAILED to account " & strDomainName & "\" & strUserName)
+				else
+					call MsgBox("The properties for account " & strDomainName & "\" & strUserName & " were succesfully changed.", vbInformation, "Error")
+					' Add log entry
+					AddToLog("Commited simple changes to account " & strDomainName & "\" & strUserName)
+				end if
+			end if 			
+					
+			Set objSD = objUser.Get("nTSecurityDescriptor")		
+			Set objDACL = objSD.DiscretionaryAcl
+			
+			blnEnabled = False			
+			
+			For Each Ace In objDACL
+    		If ((Ace.AceType = ADS_ACETYPE_ACCESS_DENIED_OBJECT) And _
+        	(LCase(Ace.ObjectType) = CHANGE_PASSWORD_GUID)) Then
+          	  blnEnabled = True
+    		End If    		
+			Next
+					
+			intUserAccountControl = objUser.Get("userAccountControl")
+						
+			if Len(strPassword) <> 0 then 
+				objUser.SetPassword strPassword
+				objUser.SetInfo
+				if err.number < 0 then
+					call MsgBox("The password for account " & strDomainName & "\" & strUserName & " was not succesfully changed!", vbCritical, "Message")
+					' Add log entry
+					AddToLog("Password change FAILED to account " & strDomainName & "\" & strUserName)
+				else
+					call MsgBox("The password for account " & strDomainName & "\" & strUserName & " was succesfully changed.", vbInformation, "Error")
+					' Add log entry
+					AddToLog("Password change to account " & strDomainName & "\" & strUserName)
+				end if
+			end if
+		end if
+		
+		call resetFormColors()
+		call ListUserId(strDomainName, strUserName)
+	
+	end if
+end sub
+
+Sub chkChangePasswordAtNextLogon
+	if len(trim(userid.value))>0 then
+		if pwdchangeatnextlogon.checked = FALSE then
+			call MsgBox("Disabling change password at next logon is not supported. You cannot change this value", vbExclamation, "Error")
+			pwdchangeatnextlogon.checked = TRUE
+		end if
+	end if 
+End Sub
+
+Sub chkDisplayName
+	dim strDN, objUser, strDisplayName
+	if len(trim(userid.value))>0 then
+		strDN=QueryAD_User(userid.value)
+		strDisplayName = Trim(DisplayName.value)
+		Set objUser = GetObject("LDAP://" & strDN)			
+		if objUser.DisplayName <> strDisplayName then 
+			DisplayName.style.color = CLR_RED
+		else
+			DisplayName.style.color = CLR_BLACK
+		end if
+	end if
+End Sub
+
+Sub chkGivenname
+	dim strDN, objUser, strGivenname
+	if len(trim(userid.value))>0 then
+		strDN=QueryAD_User(userid.value)
+		strGivenname = Trim(Givenname.value)
+		Set objUser = GetObject("LDAP://" & strDN)			
+		if objUser.GivenName <> strGivenName then 
+			Givenname.style.color = CLR_RED
+			
+			' Alter the givenname
+			displayname.value=trim(surname.value) & ", " & trim(givenname.value)
+			call chkDisplayName						
+			if len(strGivenname)>0 then initials.value=Mid(strGivenname,1,1) & "."
+			call chkInitials			
+		else
+			Givenname.style.color = CLR_BLACK
+		end if
+	end if
+End Sub
+
+Sub chkSurname
+	dim strDN, objUser, strSurname
+	if len(trim(userid.value))>0 then
+		strDN=QueryAD_User(userid.value)
+		strSurname = Trim(surname.value)
+		Set objUser = GetObject("LDAP://" & strDN)			
+		if objUser.sn <> strSurname then 
+			surname.style.color = CLR_RED
+			
+			' Alter the givenname
+			displayname.value=trim(surname.value) & ", " & trim(givenname.value) 
+			call chkDisplayName			
+		else
+			surname.style.color = CLR_BLACK
+		end if
+	end if
+End Sub
+
+
+Sub chkInitials
+	dim strDN, objUser, strInitials
+	if len(trim(userid.value))>0 then
+		strDN=QueryAD_User(userid.value)
+		strInitials = Trim(initials.value)
+		
+		'Constraints check!
+		strInitials = replace(strInitials, chr(32), "_")
+		if len(strInitials)>6 then strInitials=Mid(strInitials,1,6)
+		initials.value=strInitials
+		
+		Set objUser = GetObject("LDAP://" & strDN)			
+		if objUser.Initials <> strInitials then 
+			Initials.style.color = CLR_RED			
+		else
+			Initials.style.color = CLR_BLACK
+		end if
+	end if
+End Sub
+
+
+Sub chkDepartment
+	dim strDN, objUser, strDepartment
+	if len(trim(userid.value))>0 then
+		strDN=QueryAD_User(userid.value)
+		strDepartment = Trim(department.value)
+		Set objUser = GetObject("LDAP://" & strDN)			
+		if objUser.Department <> strDepartment then 
+			Department.style.color = CLR_RED
+		else
+			Department.style.color = CLR_BLACK
+		end if
+	End if
+End Sub
+
+Sub chkScriptPath
+	dim strDN, objUser, strScriptPath
+	if len(trim(userid.value))>0 then
+		strDN=QueryAD_User(userid.value)
+		strScriptPath = Trim(ScriptPath.value)
+		Set objUser = GetObject("LDAP://" & strDN)			
+		if objUser.ScriptPath <> strScriptPath then 
+			Department.style.color = CLR_RED
+		else
+			Department.style.color = CLR_BLACK
+		end if
+	end if
+End Sub
+
+Sub chkDescription
+	dim strDN, objUser, strDescription
+	if len(trim(userid.value))>0 then
+		strDN=QueryAD_User(userid.value)
+		strDescription = Trim(description.value)
+		Set objUser = GetObject("LDAP://" & strDN)			
+		if objUser.Description <> strDescription then 
+			Description.style.color = CLR_RED
+		else
+			Description.style.color = CLR_BLACK
+		end if
+	end if
+End Sub
+
+Sub chkScriptPath
+	dim strDN, objUser, strScriptPath
+	if len(trim(userid.value))>0 then
+		strDN=QueryAD_User(userid.value)
+		strScriptPath = Trim(ScriptPath.value)
+		Set objUser = GetObject("LDAP://" & strDN)			
+		if objUser.ScriptPath <> strScriptPath then 
+			ScriptPath.style.color = CLR_RED
+		else
+			ScriptPath.style.color = CLR_BLACK
+		end if
+	End if
+End Sub
+
+Sub chkTSProfilepath
+	dim strDN, objUser, strTSProfilePath
+	if len(trim(userid.value))>0 then
+		strDN=QueryAD_User(userid.value)
+		strTSProfilePath = Trim(TSProfilePath.value)
+		Set objUser = GetObject("LDAP://" & strDN)			
+		if objUser.TerminalServicesProfilePath <> strTSProfilePath then 
+			TSProfilePath.style.color = CLR_RED
+		else
+			TSProfilePath.style.color = CLR_BLACK
+		end if
+	End if
+End Sub
+
+Sub chkMail
+	dim strDN, objUser, strMail
+	if len(trim(userid.value))>0 then
+		strDN=QueryAD_User(userid.value)
+		strMail = Trim(Mail.value)
+		Set objUser = GetObject("LDAP://" & strDN)			
+		if objUser.Mail <> strMail then 
+			Mail.style.color = CLR_RED
+		else
+			Mail.style.color = CLR_BLACK
+		end if
+	End if
+End Sub
+
+Sub chkOffice
+	dim strDN, objUser, strOffice
+	if len(trim(userid.value))>0 then
+		strDN=QueryAD_User(userid.value)
+		strOffice = Trim(Office.value)
+		Set objUser = GetObject("LDAP://" & strDN)			
+		if objUser.physicalDeliveryOfficeName <> strOffice then 
+			Office.style.color = CLR_RED
+		else
+			Office.style.color = CLR_BLACK
+		end if
+	End if
+End Sub
+
+Sub chkmanager
+	dim strDN, objUser, strManager
+	if len(trim(userid.value))>0 then
+		strDN=QueryAD_User(userid.value)
+		strManager = Trim(Manager.value)
+		Set objUser = GetObject("LDAP://" & strDN)			
+		if objUser.manager <> strManager then 
+			Manager.style.color = CLR_RED
+		else
+			Manager.style.color = CLR_BLACK
+		end if
+	End if
+End Sub
+
+
+sub acknDisableAccount
+	dim nButton, strDisplayName	
+	if len(trim(userid.value))>0 then
+		strDisplayName = DisplayName.value
+		if disabled.checked and (Len(Trim(DisplayName.value)) > 0) then 
+			nButton = MsgBox("Are you sure you wish to disable the account [" & strDisplayName & "]", vbYesNo + vbQuestion + vbDefaultButton2, "Commit change")
+			disabled.checked = (nButton = vbYes)
+		end if
+	end if
+end sub
+
+sub acknPasswordChange
+	dim strPassword, strConfirmPassword
+	if len(trim(userid.value))>0 then
+		strPassword = Trim(password.value)
+		strConfirmPassword = Trim(confirmpassword.value)
+		if strPassword <> strConfirmPassword then
+			call MsgBox("The passwords you have entered are not equal!", vbCritical, "Error")
+			password.value=""
+			confirmpassword.value=""
+			password.focus
+		end if
+	end if
+end sub
+
+sub acknCannotChngPwd
+	if pwdchangeatnextlogon.checked then usercannotchngwpd.checked = false
+end sub
+
+sub acknUserCannotChngPwd
+	if usercannotchngwpd.checked then pwdchangeatnextlogon.checked = false
+end sub
+
+Function QueryAD_User(strName)
+	Dim Con, Root, Domain, sDomain, sFilter, sAttribsToReturn, sDepth 
+	Dim rs, i, Path
+	Dim oCommand 
+	Dim objArgs
+	Dim ADsObject
+	Dim sADsPath
+	Dim objName
+	Dim objClass
+	Dim objSchema
+	Dim classObject
+
+	On Error Resume Next
+
+	'--------------------------------------------------------
+	'Create the ADO connection object
+	'--------------------------------------------------------
+	Set Con = CreateObject("ADODB.Connection")
+	Con.Provider = "ADsDSOObject"
+	Con.Open "Active Directory Provider"
+
+	'Create ADO command object for the connection.
+	Set oCommand = CreateObject("ADODB.Command")
+	oCommand.ActiveConnection = Con
+ 
+	'Get the ADsPath for the domain to search. 
+	Set Root = GetObject("LDAP://rootDSE")
+
+	'---------------------------------------------------------
+	'Choose the NC you want to search and build the ADsPath
+	'---------------------------------------------------------
+	sDomain = root.Get("rootDomainNamingContext")
+	Set domain = GetObject("GC://" & sDomain)
+	sADsPath = "<" & domain.ADsPath & ">"	
+	 
+	'--------------------------------------------------------
+	'Build the search filter
+	'--------------------------------------------------------
+	sFilter = "(&(objectCategory=person)(objectClass=user)(Name=" & strName & "))"
+  sAttribsToReturn = "distinguishedName"
+	sDepth = "subtree"
+
+	'---------------------------------------------------------
+	'Assemble and execute the query
+	'---------------------------------------------------------
+	oCommand.CommandText = sADsPath & ";" & sFilter & ";" & sAttribsToReturn & ";" & sDepth	
+	Set rs = oCommand.Execute
+
+	'---------------------------------------------------------
+	' Navigate the record set and get the object's DN
+	'---------------------------------------------------------
+	rs.MoveFirst
+	While Not rs.EOF
+    For i = 0 To rs.Fields.Count - 1
+    	If rs.Fields(i).Name = "distinguishedName" Then
+	    	Path = rs.Fields(i).Value
+      End If        
+    Next
+    rs.MoveNext
+	Wend
+
+	QueryAD_User = Path
+
+End Function
+
+Sub AddToLog(strText)
+	const	ForAppend 	= 8
+	const	LogFile		= "\\S100\LOGBOEK\NEDCARUM2\nedcarum2.log"
+	const	htmSource	= "UserChange"
+	
+	dim WshNetwork, fsoObj, f, strTemp
+	dim strDomain, strComputer, strUsername
+	dim strTime
+	
+	Set WshNetwork = CreateObject("WScript.Network")
+	strComputer = WshNetwork.ComputerName
+        strUsername = WshNetwork.UserName
+	strTime = Now()
+	
+	Set fsoObj = CreateObject("Scripting.FileSystemObject")
+   	Set f = fsoObj.OpenTextFile(LogFile, ForAppend, True)
+   	strTemp = strTime & Chr(32) & htmSource & ", " & strComputer & ", " & strUsername & ", " & strText
+   	f.WriteLine strTemp
+   	f.Close
+End Sub
+
+</SCRIPT>
+
+</head>
+
+<body class="nedcarum">
+<strong>User Change.</strong><br>
+<br>
+Change user parameters. Only <strong>bold</strong> parameters can be changed.<br>
+<br>
+<table width="100%" border="1" cellspacing="0" cellpadding="0">
+  <tr><th scope="row">
+<table width="100%" border=0 align="left" cellpadding="0" cellspacing="0">
+    <tr height="10">
+      <th width="25%" scope="row">&nbsp;</th>
+      <td width="25%">&nbsp;</td>
+      <td width="25%" class="nedcarum">&nbsp;</td>
+      <td width="25%">&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="25%" scope="row"><div align="left">&nbsp;User ID</div></th>
+      <td width="25%"><P>
+         <INPUT name="userid" type="text" class="nedcarumform" id="userid" size="25" maxlength="25"
+         	title="Type the user account ID.">
+         </P></td>
+      <td width="25%" class="nedcarum">&nbsp;Distinguished Name</td>
+      <td width="25%"><input name="dn" type="text" disabled="disabled" class="nedcarumform" id="dn" size="30" maxlength="300"></td>
+    </tr>
+    <tr class="nedcarum">
+      <th width="25%" scope="row">&nbsp;</th>
+      <td width="25%"><input name="doClearForm" type="button" title="Search the account in the current domain" onClick="doLookupUID" value="Lookup account"></td>
+      <td width="25%">&nbsp;User Principal Name</td>
+      <td width="25%"><input name="upn" type="text" class="nedcarumform" id="upn" size="30" maxlength="30" disabled></td>
+    </tr>
+    <tr class="nedcarum">
+      <th width="25%" scope="row">
+        <div align="left"></div></th>
+      <td colspan="3">&nbsp;</td>
+      </tr>
+    <tr>
+      <th width="25%" scope="row"><div align="left">&nbsp;Givenname</div></th>
+      <td width="25%"><input name="Givenname" type="text" class="nedcarumform" id="Givenname" size="30" maxlength="30"
+       		onChange="chkGivenname"></td>
+      <td width="25%" class="nedcarum"><strong>&nbsp;Surname</strong></td>
+      <td width="25%"><input name="surname" type="text" class="nedcarumform" id="surname" size="30" maxlength="30"
+       		onChange="chkSurname"></td>
+    </tr>
+    <tr>
+      <th width="25%" scope="row"><div align="left"><strong>&nbsp;Display name</strong></div></th>
+      <td width="25%"><input name="DisplayName" type="text" class="nedcarumform" id="DisplayName" size="30" maxlength="30"
+       		onChange="chkDisplayName"></td>
+      <td width="25%" class="nedcarum"><strong>&nbsp;Initials</strong></td>
+      <td width="25%"><input name="initials" type="text" class="nedcarumform" id="initials" size="30" maxlength="30"
+       		onChange="chkInitials"></td>
+    </tr>
+    <tr>
+      <th width="25%" scope="row"><div align="left"><strong>&nbsp;Comment/Description</strong></div></th>
+      <td width="25%"><input name="description" type="text" class="nedcarumform" id="description" size="30" maxlength="30"
+	  			onChange="chkDescription"></td>
+      <td width="25%" class="nedcarum">&nbsp;</td>
+      <td width="25%">&nbsp;</td>
+    </tr>    
+    <tr>
+      <th width="25%" scope="row"><div align="left">&nbsp;<strong></strong>Mail</div></th>
+      <td width="25%"><input name="Mail" type="text" class="nedcarumform" id="Mail" size="30" maxlength="30"
+	  			onChange="chkMail"></td>
+      <td width="25%" class="nedcarum"><strong>&nbsp;Department</strong></td>
+      <td width="25%"><input name="department" type="text" class="nedcarumform" id="department" size="30" maxlength="30"      		
+      		onChange="chkDepartment"></td>
+    </tr>
+    <tr>
+      <th width="25%" scope="row"><div align="left">&nbsp;<strong></strong>Office</div></th>
+      <td width="25%"><input name="office" type="text" class="nedcarumform" id="office" size="30" maxlength="30"
+      		onChange="chkOffice"></td>
+      <td width="25%" class="nedcarum">&nbsp;Manager</td>
+      <td width="25%"><input name="manager" type="text" class="nedcarumform" id="manager" size="30" maxlength="30"
+      		onChange="chkManager" 
+      		disabled></td>
+    </tr>
+    <tr>
+      <th width="25%" scope="row">&nbsp;</th>
+      <td width="25%">&nbsp;</td>
+      <td width="25%" class="nedcarum">&nbsp;</td>
+      <td width="25%">&nbsp;</td>
+    </tr>
+</table>
+</th>
+  </tr>
+</table>
+<table width="100%" border="1" cellspacing="0" cellpadding="0">
+  <tr><th scope="row">
+  <table width="100%" border=0 align="left" cellpadding="0" cellspacing="0">
+  	<tr>
+      <th width="25%" scope="row"><div align="left"></div></th>
+      <td width="25%">&nbsp;</td>
+      <td width="25%" class="nedcarum">&nbsp;</td>
+      <td width="25%">&nbsp;</td>
+    </tr>    
+  	<tr>
+      <th width="25%" scope="row"><div align="left" class="nedcarum">&nbsp;Account disabled</div></th>
+      <td width="25%"><P>
+      	<INPUT type="checkbox" name="disabled" class="nedcarumform" id="disabled" size="30" maxlength="30"
+      		title="Check if the user account should be disabled."
+      		onclick="acknDisableAccount">
+      	</P>
+	  </td>
+      <td width="25%" class="nedcarum">&nbsp;<strong>Change pwd at next logon</strong></td>
+      <td width="25%"><input name="pwdchangeatnextlogon" type="checkbox" class="nedcarumform" id="pwdchangeatnextlogon" 
+      		title="Change password at next logon"
+      		onChange="chkChangePasswordAtNextLogon"
+      		onClick="acknCannotChngPwd"></td>
+    </tr>
+    <tr>
+      <th width="25%" scope="row"><div align="left" class="nedcarum">&nbsp;Password never expires</div></th>
+      <td width="25%"><P>
+        <input name="pwdneverexpires" type="checkbox" class="nedcarumform" id="pwdneverexpires" 
+      		title="Checked if the password never expires.">
+      </P></td>
+      <td width="25%" class="nedcarum"><strong>&nbsp;User cannot change pwd</strong></td>
+      <td width="25%"><input name="usercannotchngwpd" type="checkbox" class="nedcarumform" id="usercannotchngwpd" 
+      		title="Checked if the user may not change his/her password"
+      		onClick="acknUserCannotChngPwd"></td>
+    </tr>
+    <tr>
+      <th class="nedcarum" scope="row">&nbsp;</th>
+      <td>&nbsp;</td>
+      <td class="nedcarum">&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="25%" class="nedcarum" scope="row">
+        <div align="left">&nbsp;New password</div></th>
+      <td width="25%"><input name="password" type="password" class="nedcarumform" id="password" size="30" maxlength="30"
+      		title="The password"></td>
+      <td width="25%" class="nedcarum"><strong><strong>&nbsp;</strong>Confirm new password&nbsp;</strong> </td>
+      <td width="25%"><input name="confirmpassword" type="password" class="nedcarumform" id="confirmpassword" size="30" maxlength="30"
+      		title="Confirm new password" 
+      		onChange="acknPasswordChange"
+      		onBlur="acknPasswordChange"></td>
+    </tr>
+    <tr>
+      <th scope="row">&nbsp;</th>
+      <td>&nbsp;</td>
+      <td class="nedcarum">&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <th width="25%" scope="row"><div align="left">&nbsp;<strong>Script path </strong></div></th>
+      <td width="25%"><input name="scriptpath" type="text" class="nedcarumform" id="scriptpath" size="30" maxlength="30"
+      		onChange="chkScriptPath" title="The login script"></td>
+      <td width="25%" class="nedcarum">&nbsp;Profile path</td>
+      <td width="25%"><input name="profile" type="text" class="nedcarumform" id="profile" size="30" maxlength="30"
+      		onChange="chkProfile" title="The location of home" disabled></td>
+    </tr>
+    <tr>
+      <th width="25%" scope="row">
+        <div align="left">&nbsp;Citrix profile path </div></th>
+      <td width="25%"><input name="tsprofilepath" type="text" class="nedcarumform" id="tsprofilepath" size="30" maxlength="30"
+      		onChange="chkTSProfilepath"></td>
+      <td width="25%" class="nedcarum"><strong> &nbsp;</strong>Home path</td>
+      <td width="25%"><input name="homepath" type="text" class="nedcarumform" id="homepath" size="30" maxlength="30"
+      	  onChange="chkHomePath" 
+      	  disabled></td>
+    </tr>
+    <tr>
+      <th width="25%" scope="row"><div align="left">&nbsp;</div></th>
+      <td width="25%">&nbsp;</td>
+      <td width="25%" class="nedcarum"><strong>&nbsp;</strong>Home directory</td>
+      <td width="25%"><input name="homedir" type="text" class="nedcarumform" id="homedir" size="30" maxlength="30"
+      		onChange="chkHomeDir" 
+      		disabled></td>
+    </tr>
+    <tr>
+      <th width="25%" scope="row">&nbsp;</th>
+      <td width="25%">&nbsp;</td>
+      <td width="25%" class="nedcarum">&nbsp;</td>
+      <td width="25%">&nbsp;</td>
+    </tr>
+    </table>
+</tr>
+</table>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th width="25%" scope="row">&nbsp;</th>
+    <th scope="row"><div align="left">
+	  <input name="doClearForm" type="button" title="Search the account in the current domain" onClick="doLookupUID" value="Lookup account">
+	  <input name="doApplyUID" id="doApplyUID" type="button" title="Change the account in the current domain" 
+	  onClick="doChangeUID" 
+	  value="Apply changes" 
+	  disabled>
+	  <input name="doClearForm" type="button" title="Clears the form" onclick="doClearForm" value="Clear form">
+    </div></th>
+  </tr>
+</table>
+</body>
+</html>
+
+
+
+		

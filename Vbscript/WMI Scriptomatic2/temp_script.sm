@@ -1,0 +1,53 @@
+On Error Resume Next
+
+Const wbemFlagReturnImmediately = &h10
+Const wbemFlagForwardOnly = &h20
+
+arrComputers = Array("B499")
+For Each strComputer In arrComputers
+   WScript.Echo
+   WScript.Echo "=========================================="
+   WScript.Echo "Computer: " & strComputer
+   WScript.Echo "=========================================="
+
+   Set objWMIService = GetObject("winmgmts:\\" & strComputer & "\root\CIMV2")
+   Set colItems = objWMIService.ExecQuery("SELECT * FROM Win32_Service", "WQL", _
+                                          wbemFlagReturnImmediately + wbemFlagForwardOnly)
+
+   For Each objItem In colItems
+      WScript.Echo "AcceptPause: " & objItem.AcceptPause
+      WScript.Echo "AcceptStop: " & objItem.AcceptStop
+      WScript.Echo "Caption: " & objItem.Caption
+      WScript.Echo "CheckPoint: " & objItem.CheckPoint
+      WScript.Echo "CreationClassName: " & objItem.CreationClassName
+      WScript.Echo "Description: " & objItem.Description
+      WScript.Echo "DesktopInteract: " & objItem.DesktopInteract
+      WScript.Echo "DisplayName: " & objItem.DisplayName
+      WScript.Echo "ErrorControl: " & objItem.ErrorControl
+      WScript.Echo "ExitCode: " & objItem.ExitCode
+      WScript.Echo "InstallDate: " & WMIDateStringToDate(objItem.InstallDate)
+      WScript.Echo "Name: " & objItem.Name
+      WScript.Echo "PathName: " & objItem.PathName
+      WScript.Echo "ProcessId: " & objItem.ProcessId
+      WScript.Echo "ServiceSpecificExitCode: " & objItem.ServiceSpecificExitCode
+      WScript.Echo "ServiceType: " & objItem.ServiceType
+      WScript.Echo "Started: " & objItem.Started
+      WScript.Echo "StartMode: " & objItem.StartMode
+      WScript.Echo "StartName: " & objItem.StartName
+      WScript.Echo "State: " & objItem.State
+      WScript.Echo "Status: " & objItem.Status
+      WScript.Echo "SystemCreationClassName: " & objItem.SystemCreationClassName
+      WScript.Echo "SystemName: " & objItem.SystemName
+      WScript.Echo "TagId: " & objItem.TagId
+      WScript.Echo "WaitHint: " & objItem.WaitHint
+      WScript.Echo
+   Next
+Next
+
+
+Function WMIDateStringToDate(dtmDate)
+WScript.Echo dtm: 
+	WMIDateStringToDate = CDate(Mid(dtmDate, 5, 2) & "/" & _
+	Mid(dtmDate, 7, 2) & "/" & Left(dtmDate, 4) _
+	& " " & Mid (dtmDate, 9, 2) & ":" & Mid(dtmDate, 11, 2) & ":" & Mid(dtmDate,13, 2))
+End Function

@@ -1,0 +1,31 @@
+.nedcarum {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: small;
+	background-color: #FFFFCC;
+	color: #000099;
+}
+.nedcarumtop {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #FFFFCC;
+	background-image: url(bg.gif);
+}
+.nedcarumform {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #000000;
+	background-color: #FFFFFF;
+}
+.nedcartabletop {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #FFFFCC;
+	background-color: #000099;
+	background-image: url(/graphics/bg.gif);
+}
+.nedcaruminfo {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: small;
+	background-color: #FFFFCC;
+	color: #000099;
+}

@@ -1,0 +1,156 @@
+20110119-095047 : Found user ASE1902 at CN=ASE1902,CN=Users,DC=nedcar,DC=nl
+20110119-095047 : Current logon script: logon.bat
+20110119-095047 : Clearing logon script property.
+20110119-095047 : Logon path successfully changed to ''
+20110119-095048 : Found user BE39021 at CN=BE39021,CN=Users,DC=nedcar,DC=nl
+20110119-095048 : Current logon script: logon.bat
+20110119-095048 : Clearing logon script property.
+20110119-095048 : Logon path successfully changed to ''
+20110119-095048 : Found user BE89021 at CN=BE89021,CN=Users,DC=nedcar,DC=nl
+20110119-095048 : Current logon script: logon.bat
+20110119-095048 : Clearing logon script property.
+20110119-095048 : Logon path successfully changed to ''
+20110119-095048 : Found user BGC361 at CN=BGC361,CN=Users,DC=nedcar,DC=nl
+20110119-095048 : Current logon script: logon.bat
+20110119-095048 : Clearing logon script property.
+20110119-095048 : Logon path successfully changed to ''
+20110119-095049 : Found user BGR3A1 at CN=BGR3A1,CN=Users,DC=nedcar,DC=nl
+20110119-095049 : Current logon script: logon.bat
+20110119-095049 : Clearing logon script property.
+20110119-095049 : Logon path successfully changed to ''
+20110119-095049 : Found user BGR3X1 at CN=BGR3X1,CN=Users,DC=nedcar,DC=nl
+20110119-095049 : Current logon script: logon.bat
+20110119-095049 : Clearing logon script property.
+20110119-095049 : Logon path successfully changed to ''
+20110119-095049 : Found user BGR3X2 at CN=BGR3X2,CN=Users,DC=nedcar,DC=nl
+20110119-095049 : Current logon script: logon.bat
+20110119-095049 : Clearing logon script property.
+20110119-095049 : Logon path successfully changed to ''
+20110119-095049 : Found user FGM051 at CN=FGM051,CN=Users,DC=nedcar,DC=nl
+20110119-095049 : Current logon script: logon.bat
+20110119-095049 : Clearing logon script property.
+20110119-095049 : Logon path successfully changed to ''
+20110119-095050 : Found user FGM651 at CN=FGM651,CN=Users,DC=nedcar,DC=nl
+20110119-095050 : Current logon script: logon.bat
+20110119-095050 : Clearing logon script property.
+20110119-095050 : Logon path successfully changed to ''
+20110119-095050 : Found user FGR3A1 at CN=FGR3A1,CN=Users,DC=nedcar,DC=nl
+20110119-095050 : Current logon script: logon.bat
+20110119-095050 : Clearing logon script property.
+20110119-095050 : Logon path successfully changed to ''
+20110119-095050 : Found user FGR3A2 at CN=FGR3A2,CN=Users,DC=nedcar,DC=nl
+20110119-095050 : Current logon script: logon.bat
+20110119-095050 : Clearing logon script property.
+20110119-095050 : Logon path successfully changed to ''
+20110119-095051 : Found user FGR3X1 at CN=FGR3X1,CN=Users,DC=nedcar,DC=nl
+20110119-095051 : Current logon script: logon.bat
+20110119-095051 : Clearing logon script property.
+20110119-095051 : Logon path successfully changed to ''
+20110119-095051 : Found user FGR3X2 at CN=FGR3X2,CN=Users,DC=nedcar,DC=nl
+20110119-095051 : Current logon script: logon.bat
+20110119-095051 : Clearing logon script property.
+20110119-095051 : Logon path successfully changed to ''
+20110119-095051 : Found user FGR3X3 at CN=FGR3X3,CN=Users,DC=nedcar,DC=nl
+20110119-095051 : Current logon script: logon.bat
+20110119-095051 : Clearing logon script property.
+20110119-095051 : Logon path successfully changed to ''
+20110119-095051 : Found user GS90321 at CN=GS90321,CN=Users,DC=nedcar,DC=nl
+20110119-095051 : Current logon script: 
+20110119-095051 : Clearing logon script property.
+20110119-095051 : Logon path successfully changed to ''
+20110119-095052 : Found user HEE1898 at CN=HEE1898,CN=Users,DC=nedcar,DC=nl
+20110119-095052 : Current logon script: logon.bat
+20110119-095052 : Clearing logon script property.
+20110119-095052 : Logon path successfully changed to ''
+20110119-095052 : Found user HH37136 at CN=HH37136,CN=Users,DC=nedcar,DC=nl
+20110119-095052 : Current logon script: logon.bat
+20110119-095052 : Clearing logon script property.
+20110119-095052 : Logon path successfully changed to ''
+20110119-095052 : Found user HK82633 at CN=HK82633,CN=Users,DC=nedcar,DC=nl
+20110119-095052 : Current logon script: logon.bat
+20110119-095052 : Clearing logon script property.
+20110119-095052 : Logon path successfully changed to ''
+20110119-095053 : Found user HO90328 at CN=HO90328,CN=Users,DC=nedcar,DC=nl
+20110119-095053 : Current logon script: logon.bat
+20110119-095053 : Clearing logon script property.
+20110119-095053 : Logon path successfully changed to ''
+20110119-095053 : Found user HW75587 at CN=HW75587,CN=Users,DC=nedcar,DC=nl
+20110119-095053 : Current logon script: logon.bat
+20110119-095053 : Clearing logon script property.
+20110119-095053 : Logon path successfully changed to ''
+20110119-095053 : Found user IS58078 at CN=IS58078,CN=Users,DC=nedcar,DC=nl
+20110119-095053 : Current logon script: logon.bat
+20110119-095053 : Clearing logon script property.
+20110119-095053 : Logon path successfully changed to ''
+20110119-095053 : Found user JM38048 at CN=JM38048,CN=Users,DC=nedcar,DC=nl
+20110119-095053 : Current logon script: logon.bat
+20110119-095053 : Clearing logon script property.
+20110119-095053 : Logon path successfully changed to ''
+20110119-095054 : Found user JP34445 at CN=JP34445,CN=Users,DC=nedcar,DC=nl
+20110119-095054 : Current logon script: logon.bat
+20110119-095054 : Clearing logon script property.
+20110119-095054 : Logon path successfully changed to ''
+20110119-095054 : Found user JS34398 at CN=JS34398,CN=Users,DC=nedcar,DC=nl
+20110119-095054 : Current logon script: logon.bat
+20110119-095054 : Clearing logon script property.
+20110119-095054 : Logon path successfully changed to ''
+20110119-095054 : Found user KLE1886 at CN=KLE1886,CN=Users,DC=nedcar,DC=nl
+20110119-095054 : Current logon script: logon.bat
+20110119-095054 : Clearing logon script property.
+20110119-095054 : Logon path successfully changed to ''
+20110119-095055 : Found user KTE0755 at CN=KTE0755,CN=Users,DC=nedcar,DC=nl
+20110119-095055 : Current logon script: logon.bat
+20110119-095055 : Clearing logon script property.
+20110119-095055 : Logon path successfully changed to ''
+20110119-095055 : Found user MD75737 at CN=MD75737,CN=Users,DC=nedcar,DC=nl
+20110119-095055 : Current logon script: logon.bat
+20110119-095055 : Clearing logon script property.
+20110119-095055 : Logon path successfully changed to ''
+20110119-095055 : Found user NU57636 at CN=NU57636,CN=Users,DC=nedcar,DC=nl
+20110119-095055 : Current logon script: logon.bat
+20110119-095055 : Clearing logon script property.
+20110119-095055 : Logon path successfully changed to ''
+20110119-095056 : Found user PB79921 at CN=PB79921,CN=Users,DC=nedcar,DC=nl
+20110119-095056 : Current logon script: logon.bat
+20110119-095056 : Clearing logon script property.
+20110119-095056 : Logon path successfully changed to ''
+20110119-095056 : Found user PD77089 at CN=PD77089,CN=Users,DC=nedcar,DC=nl
+20110119-095056 : Current logon script: logon.bat
+20110119-095056 : Clearing logon script property.
+20110119-095056 : Logon path successfully changed to ''
+20110119-095056 : Found user RO75886 at CN=RO75886,CN=Users,DC=nedcar,DC=nl
+20110119-095056 : Current logon script: logon.bat
+20110119-095056 : Clearing logon script property.
+20110119-095056 : Logon path successfully changed to ''
+20110119-095057 : Found user RS89113 at CN=RS89113,CN=Users,DC=nedcar,DC=nl
+20110119-095057 : Current logon script: logon.bat
+20110119-095057 : Clearing logon script property.
+20110119-095057 : Logon path successfully changed to ''
+20110119-095057 : Found user TM90329 at CN=TM90329,CN=Users,DC=nedcar,DC=nl
+20110119-095057 : Current logon script: logon.bat
+20110119-095057 : Clearing logon script property.
+20110119-095057 : Logon path successfully changed to ''
+20110119-095057 : Found user TR89111 at CN=TR89111,CN=Users,DC=nedcar,DC=nl
+20110119-095057 : Current logon script: logon.bat
+20110119-095057 : Clearing logon script property.
+20110119-095057 : Logon path successfully changed to ''
+20110119-095057 : Found user USE1888 at CN=USE1888,CN=Users,DC=nedcar,DC=nl
+20110119-095058 : Current logon script: logon.bat
+20110119-095058 : Clearing logon script property.
+20110119-095058 : Logon path successfully changed to ''
+20110119-095058 : Found user WB79056 at CN=WB79056,CN=Users,DC=nedcar,DC=nl
+20110119-095058 : Current logon script: logon.bat
+20110119-095058 : Clearing logon script property.
+20110119-095058 : Logon path successfully changed to ''
+20110119-095058 : Found user WN79844 at CN=WN79844,CN=Users,DC=nedcar,DC=nl
+20110119-095058 : Current logon script: logon.bat
+20110119-095058 : Clearing logon script property.
+20110119-095058 : Logon path successfully changed to ''
+20110119-095058 : Found user WT78221 at CN=WT78221,CN=Users,DC=nedcar,DC=nl
+20110119-095058 : Current logon script: logon.bat
+20110119-095058 : Clearing logon script property.
+20110119-095058 : Logon path successfully changed to ''
+20110119-095059 : Found user YO89109 at CN=YO89109,CN=Users,DC=nedcar,DC=nl
+20110119-095059 : Current logon script: logon.bat
+20110119-095059 : Clearing logon script property.
+20110119-095059 : Logon path successfully changed to ''
