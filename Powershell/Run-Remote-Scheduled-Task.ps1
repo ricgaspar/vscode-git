@@ -4,14 +4,14 @@
 # 17-09-2012
 #
 # ---------------------------------------------------------
-cls
+Clear-Host
 
 Import-Module VNB_PSLib -Force -ErrorAction Stop
 
 # ------------------------------------------------------------------------------
 $ScriptName = $myInvocation.MyCommand.Name
 Init-Log -LogFileName $ScriptName
-Echo-Log "Started script $ScriptName"  
+Echo-Log "Started script $ScriptName"
 
 $TaskName = "VNB-System configuration info"
 
@@ -23,7 +23,7 @@ Foreach ($server in $serverlist)
 	if(IsComputerAlive $ServerName) {
 		schtasks /RUN /S $servername /TN "$TaskName"
 	} else {
-		Echo-Log "Server $ServerName cannot be contacted."  	
+		Echo-Log "Server $ServerName cannot be contacted."
 	}
 }
 Echo-Log "End script $ScriptName"
