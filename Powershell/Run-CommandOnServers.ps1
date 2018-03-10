@@ -14,33 +14,63 @@ Import-Module VNB_PSLib -Force -ErrorAction Stop
 Clear-Host
 
 $SQLconn = New-SQLconnection $Global:SECDUMP_SQLServer $Global:SECDUMP_SQLDB
-$query = "select Systemname, DN from vw_VNB_DOMAIN_COMPUTERS_SERVERS"
+$query = "select Systemname, DN from vw_VNB_DOMAIN_COMPUTERS_SERVERS where Systemname = 'VS054'"
 $data = Query-SQL $query $SQLconn
 
 if ($data -ne $null)
 {
     $cntr = 0
-    ForEach($rec in $data)
-    {
+    $Count = [int]$Data.Count
+    ForEach ($rec in $data) {
         $cntr++
         $Computername = $rec.Systemname
-        write-host "($cntr) $Computername"
-        Invoke-Command -Computername "$Computername" {
-            try {
-                $test = Test-Connection dc07.nedcar.nl -Count 2 -ErrorAction Stop
+        write-host "[$cntr of $Count]: $Computername"
+        Try {
+            $Tst = Test-Connection -ComputerName $Computername
+            if ($Tst) {
+                $OS = Get-CimInstance -ClassName Win32_OperatingSystem -ComputerName $Computername -ErrorAction SilentlyContinue
+                if ($OS -ne $null) {
+                    $Version = $OS.Version
+                    Write-Host "        OS: $($Version)"
+                    $SrvOk = $False
+                    If ($Version -match '6.') {
+                        $SrvOk = $True
+                    }
+                    If ($Version -match '10.') {
+                        $SrvOk = $True
+                    }
+                }
             }
-            catch {
-                Write-host "    ERROR: DC07"
+            else {
+                Write-Host "        Cannot connect to this server."
             }
-            try {
-                $test = Test-Connection dc08.nedcar.nl -Count 2 -ErrorAction Stop
-            }
-            catch {
-                Write-host "    ERROR: DC08"
+
+        }
+        Catch {
+            $SrvOk = $False
+        }
+
+        if ($SrvOk -eq $true) {
+            Write-Host "        Invoke command block."
+            Invoke-Command -Computername $Computername {
+                $parameter = 'SNAPSHOTPROVIDERFS'
+                $OptFile = 'C:\Program Files\Tivoli\TSM\baclient\dsm.opt'
+                if (Test-Path -Path $OptFile) {
+                    $Content = Get-Content $OptFile
+                    $Found = $Content -Match $Parameter
+                    if ($Found -ne $null) {
+                        Write-Host "        Search result: '$Found'"
+                        Write-Host "        Parameter '$Parameter' was found in DSM.OPT."
+                    }
+                    else {
+                        Write-Host "        Parameter '$Parameter' was not found in DSM.OPT."
+                    }
+                }
             }
         }
     }
-    Write-Host "Total records: $cntr"
+    Write-Host "Done."
+    Write-Host "Total updated systems: $cntr"
 } else {
     Write-host "The data returned was NULL."
 }
