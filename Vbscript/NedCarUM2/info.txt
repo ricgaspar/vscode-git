@@ -1,6 +1,0 @@
-20-02-2006;Marcel Jussen;Start nieuwe NedCarUM v3.0 Scripts.
-          ;             ;Nu met nieuwe formule: Active Directory.
-14-03-2006;Marcel Jussen;User Query is vervallen.
-16-03-2006;Marcel Jussen;User Management werkt alleen op WinXP of W2k3.
-21-03-2006;Marcel Jussen;User Rename functie toegevoegd.
-          ;             ;User Add en Check bijgewerkt.
