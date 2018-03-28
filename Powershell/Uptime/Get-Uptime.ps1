@@ -85,7 +85,7 @@ Import-Module VNB_PSLib -Force -ErrorAction Stop
 Clear-Host
 
 $SQLconn = New-SQLconnection $Global:SECDUMP_SQLServer $Global:SECDUMP_SQLDB
-$query = "select Systemname from vw_VNB_DOMAIN_COMPUTERS where DN like '%OU=LijnPC,OU=FAS%'"
+$query = "select Systemname from vw_VNB_DOMAIN_COMPUTERS where DN like '%OU=DisplayPC_KoffieAutomaat%'"
 $data = Query-SQL $query $SQLconn
 
 $CompLijst = [string[]]''
