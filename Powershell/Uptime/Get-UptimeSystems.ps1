@@ -1,93 +1,83 @@
 # ---------------------------------------------------------
 #
-# Collect uptime information from domain servers and store 
+# Collect uptime information from domain servers and store
 # in SQL database secdump on S001.
 # Marcel Jussen
 # 25-11-2011
 #
 # ---------------------------------------------------------
-cls
+Import-Module VNB_PSLib -Force -ErrorAction Stop
 
-# ---------------------------------------------------------
-# Pre-defined variables
-$Global:SECDUMP_SQLServer = "s001.nedcar.nl"
-$Global:SECDUMP_SQLDB = "secdump"
-
-# ---------------------------------------------------------
-# Includes
-. C:\Scripts\Secdump\PS\libLog.ps1
-. C:\Scripts\Secdump\PS\libAD.ps1
-. C:\Scripts\Secdump\PS\libSQL.ps1
 
 Function Get-UpTime
 {
-############################################################################# 
-# Pre-Requisites: Requires PowerShell 2.0 and WMI access to target computers (admin access). 
-# 
-# Usage syntax: 
-# For local computer where script is being run: .\Get-Uptime.ps1. 
-# For list of remote computers: .\Get-Uptime.ps1 -ComputerList "c:\temp\computerlist.txt" 
-# 
-# Usage Examples: 
-# 
-# .\Get-Uptime.ps1 -Computer ComputerName 
-# .\Get-Uptime.ps1 -ComputerList "c:\temp\computerlist.txt" | Export-Csv uptime-report.csv -NoTypeInformation 
-############################################################################# 
-#Requires -Version 2.0   
+#############################################################################
+# Pre-Requisites: Requires PowerShell 2.0 and WMI access to target computers (admin access).
+#
+# Usage syntax:
+# For local computer where script is being run: .\Get-Uptime.ps1.
+# For list of remote computers: .\Get-Uptime.ps1 -ComputerList "c:\temp\computerlist.txt"
+#
+# Usage Examples:
+#
+# .\Get-Uptime.ps1 -Computer ComputerName
+# .\Get-Uptime.ps1 -ComputerList "c:\temp\computerlist.txt" | Export-Csv uptime-report.csv -NoTypeInformation
+#############################################################################
+#Requires -Version 2.0
 
-	param  (     
-		[Parameter(Position=0,ValuefromPipeline=$true)][string][alias("cn")]$computer,     
-		[Parameter(Position=1,ValuefromPipeline=$false)][string]$computerlist)   
-	
-	If (-not ($computer -or $computerlist)) {     
-		$computers = $Env:COMPUTERNAME 
-	}   
-	If ($computer) {     
+	param  (
+		[Parameter(Position=0,ValuefromPipeline=$true)][string][alias("cn")]$computer,
+		[Parameter(Position=1,ValuefromPipeline=$false)][string]$computerlist)
+
+	If (-not ($computer -or $computerlist)) {
+		$computers = $Env:COMPUTERNAME
+	}
+	If ($computer) {
 		$computers = $computer
-	}   
-	If ($computerlist) {     
+	}
+	If ($computerlist) {
 		$computers = Get-Content $computerlist
-	}   
-	$Info = @{}   
-	foreach ($computer in $computers)  
-	{     
-		$wmi = Get-WmiObject -ComputerName $computer -Query "SELECT LastBootUpTime FROM Win32_OperatingSystem" -ErrorAction SilentlyContinue   
-		if ($wmi -ne $null) { 
-			$now = Get-Date    
-			$boottime = $wmi.ConvertToDateTime($wmi.LastBootUpTime)     
-			$uptime = $now - $boottime    
-			$d =$uptime.days     
-			$h =$uptime.hours     
-			$m =$uptime.Minutes     
-			$s = $uptime.Seconds     
+	}
+	$Info = @{}
+	foreach ($computer in $computers)
+	{
+		$wmi = Get-WmiObject -ComputerName $computer -Query "SELECT LastBootUpTime FROM Win32_OperatingSystem" -ErrorAction SilentlyContinue
+		if ($wmi -ne $null) {
+			$now = Get-Date
+			$boottime = $wmi.ConvertToDateTime($wmi.LastBootUpTime)
+			$uptime = $now - $boottime
+			$d =$uptime.days
+			$h =$uptime.hours
+			$m =$uptime.Minutes
+			$s = $uptime.Seconds
 			$Info.$computer = "$d Days $h Hours $m Min $s Sec"
 		} else {
 			$boottime = $null
 			$Info.$computer = $null
 		}
-	}   
-	$result = ($Info.GetEnumerator() | ForEach-Object { New-Object PSObject -Property @{ Systemname = $_.Key; Uptime = $_.Value; Last_Reboot = $boottime } | Select-Object -Property Systemname, Uptime, Last_Reboot }) 
-	$result 
+	}
+	$result = ($Info.GetEnumerator() | ForEach-Object { New-Object PSObject -Property @{ Systemname = $_.Key; Uptime = $_.Value; Last_Reboot = $boottime } | Select-Object -Property Systemname, Uptime, Last_Reboot })
+	$result
 }
 
 Function get_OS {
-	param  (     
+	param  (
 		[Parameter(Position=0,ValuefromPipeline=$true)][string][alias("cn")]$computer)
-	If (-not ($computer)) { $computer = $Env:COMPUTERNAME }	
+	If (-not ($computer)) { $computer = $Env:COMPUTERNAME }
 	$objOS = Get-WmiObject -ComputerName $computer Win32_OperatingSystem -ErrorAction SilentlyContinue
-	if ($objOS -ne $null) { 
+	if ($objOS -ne $null) {
 		foreach ($os in $objOS) {
     		$Result = $objOS.Version
   		}
 	}
   	return $Result
-} 
+}
 
 Function get_DNSname {
-	param  (     
+	param  (
 		[Parameter(Position=0,ValuefromPipeline=$true)][string][alias("cn")]$computer
 	)
-	If (-not ($computer)) { $computer = $Env:COMPUTERNAME }	
+	If (-not ($computer)) { $computer = $Env:COMPUTERNAME }
 	$objSystem = Get-WmiObject -ComputerName $computer Win32_ComputerSystem -ErrorAction SilentlyContinue
 	if ($objSystem -ne $null) {
 		ForEach ($system in $objSystem) {
@@ -140,7 +130,7 @@ Process {
     ForEach ($c in $computer) {
         #Get explorer.exe processes
         $proc = gwmi win32_process -computer $c -Filter "Name = 'explorer.exe'" -ErrorAction SilentlyContinue
-		if ($proc -ne $null) { 
+		if ($proc -ne $null) {
         	#Go through collection of processes
         	ForEach ($p in $proc) {
             	$temp = "" | Select Computer, Domain, User
@@ -148,11 +138,11 @@ Process {
             	$temp.user = ($p.GetOwner()).User
             	$temp.domain = ($p.GetOwner()).Domain
             	$report += $temp
-			}          
-        }  else { 
+			}
+        }  else {
 			 $report = "" | Select Computer, Domain, User
 			 $report.computer = $c
-		} 
+		}
 	  }
     }
 End {
@@ -164,7 +154,7 @@ End {
 # ------------------------------------------------------------------------------
 $ScriptName = $myInvocation.MyCommand.Name
 Init-Log -LogFileName "Secdump-$ScriptName"
-Echo-Log "Started script $ScriptName" 
+Echo-Log "Started script $ScriptName"
 
 # ---------------------------------------------------------
 # Open SQL Connection (connection name is script name)
@@ -180,36 +170,36 @@ foreach ($objResult in $colResults) {
 	$objItem = $objResult.Properties
 	$Systemname = [string]$objItem.name
 	$DNSName = $null
-	if ($objItem.name -ne $null) { 
+	if ($objItem.name -ne $null) {
 		$DNSName = $Systemname + '.nedcar.nl'
 		$alive = IsComputerAlive ($DNSName)
 		if ($alive -eq $true) {
 			$IP = ResolveDNS ($DNSName)
-			
+
 			$query = "delete from SystemUptime where systemname='" + $Systemname + "'"
 			$data = Query-SQL $query $conn
 			$uptimedata = Get-UpTime($DNSName)
-		
+
 			$Uptime = $uptimedata.Uptime
 			$Last_Reboot = $uptimedata.Last_Reboot
-			
+
 			$RemoteDNS = get_DNSname($DNSName)
 			$Os = Get_OS($DNSName)
-			
+
 			$LU = Get-WmiComputerSessions -computer $DNSName
 			$LastUser = $LU.User
-		
+
 			$query = "insert into SystemUptime(systemname, domainname, poldatetime, Dnsname, RemoteDNS, OS, LastUser, IPname, Uptime, Last_Reboot) VALUES (" +
 				"'" + $Systemname + "','" + $Env:USERDOMAIN + "',GetDate()," +
-				"'" + $DNSName + "'," + 
-				"'" + $RemoteDNS + "'," + 
-				"'" + $OS + "'," + 
-				"'" + $LastUser + "'," + 
-				"'" + $IP + "'," + 
-				"'" + $Uptime + "'," + 
+				"'" + $DNSName + "'," +
+				"'" + $RemoteDNS + "'," +
+				"'" + $OS + "'," +
+				"'" + $LastUser + "'," +
+				"'" + $IP + "'," +
+				"'" + $Uptime + "'," +
 				"'" + $Last_Reboot + "')"
 			$data = Query-SQL $query $conn
-		
+
 			Echo-Log "$syscount of $total : $Systemname, $IP, $Uptime, $Last_Reboot"
 		} else {
 			Echo-Log "$syscount of $total : $DNSName is not alive."
