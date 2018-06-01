@@ -428,9 +428,6 @@ if ($data -ne $null) {
         $cntr++
         $Computername = $rec.Systemname
 
-
-
-
         Try {
             $OS = Get-CimInstance -ClassName Win32_OperatingSystem -ComputerName $Computername -ErrorAction SilentlyContinue | Select-Object PSComputername, Version, Caption
             $BIOS = Get-CimInstance -ClassName Win32_BIOS -ComputerName $Computername -ErrorAction SilentlyContinue | Select-Object PSComputername, Manufacturer, SMBIOSBIOSVersion

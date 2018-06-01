@@ -69,9 +69,9 @@ $ADOU = 'LDAP://OU=FACTORY,DC=nedcar,DC=nl'
 Echo-Log "Collecting computers from $ADOU"
 $DSComputers = Get-RemoteComputersFromAD -OUPath $ADOU | Where-Object { $_.properties.dnshostname -eq 'vdlnc00429.nedcar.nl'}
 
-# $ADOU = 'LDAP://OU=CLIENTS,DC=nedcar,DC=nl'
+# $ADOU = 'LDAP://DC=nedcar,DC=nl'
 # Echo-Log "Collecting computers from $ADOU"
-# $DSComputers = Get-RemoteComputersFromAD -OUPath $ADOU | Where-Object { $_.properties.dnshostname -eq 'vdlnc01800.nedcar.nl'}
+# $DSComputers = Get-RemoteComputersFromAD -OUPath $ADOU | Where-Object { $_.properties.dnshostname -eq 'vdlnc02583.nedcar.nl'}
 
 if ($DSComputers -eq $null) {
     Echo-Log "ERROR: No computers collected."
@@ -101,7 +101,8 @@ else {
             $Error.Clear()
             $CompName = $args[0]
 
-            Invoke-Command -ComputerName $CompName -FilePath "C:\VSCode\vscode-git\Powershell\Dell hardware\Bios configuration\Set-WakeOnLan.ps1"
+            Copy-Item -Path 'C:\VSCode\vscode-git\Dell\CCTK.3.2' -Destination "\\$CompName\C$\ProgramData\VDL Nedcar" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+            Invoke-Command -ComputerName $CompName -FilePath "C:\VSCode\vscode-git\Powershell\Dell hardware\Bios configuration\Set-WakeOnLanByCCTK.ps1"
 
         } | Out-Null
 
