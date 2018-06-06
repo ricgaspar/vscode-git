@@ -60,19 +60,18 @@ $LogPath = 'C:\Logboek\RUN-UpdateBIOSRemotely.log'
 # Record start of script.
 $BaseStart = Get-Date
 Echo-Log ("=" * 80)
-Echo-Log "Start CRC maintenance run."
+Echo-Log "Start BIOS maintenance run."
 Echo-Log ("=" * 80)
 
 #
 # Search Active Directory for computers
-$ADOU = 'LDAP://OU=FACTORY,DC=nedcar,DC=nl'
+# $ADOU = 'LDAP://OU=FACTORY,DC=nedcar,DC=nl'
+# $DSComputers = Get-RemoteComputersFromAD -OUPath $ADOU | Where-Object { $_.properties.dnshostname -eq 'vdlnc00429.nedcar.nl'}
+
+$ADOU = 'LDAP://OU=Spatz,OU=Process_PC,OU=Bodyshop,OU=Factory,DC=nedcar,DC=nl'
+$DSComputers = Get-RemoteComputersFromAD -OUPath $ADOU | Where-Object { $_.properties.dnshostname -eq 'vdlnc00272.nedcar.nl'}
+
 Echo-Log "Collecting computers from $ADOU"
-$DSComputers = Get-RemoteComputersFromAD -OUPath $ADOU | Where-Object { $_.properties.dnshostname -eq 'vdlnc00429.nedcar.nl'}
-
-# $ADOU = 'LDAP://DC=nedcar,DC=nl'
-# Echo-Log "Collecting computers from $ADOU"
-# $DSComputers = Get-RemoteComputersFromAD -OUPath $ADOU | Where-Object { $_.properties.dnshostname -eq 'vdlnc02583.nedcar.nl'}
-
 if ($DSComputers -eq $null) {
     Echo-Log "ERROR: No computers collected."
 }
@@ -85,7 +84,7 @@ else {
         $CompName = [System.String]$_.properties.dnshostname
 
         # Format the job name per computer
-        $JobHeader = "CancelShutDownRestart_"
+        $JobHeader = "BIOS_"
         $JobName = $JobHeader + $CompName
 
         $CurrTime = Get-Date
@@ -101,8 +100,17 @@ else {
             $Error.Clear()
             $CompName = $args[0]
 
+            # Copy CCTK and scripts to remote machine
             Copy-Item -Path 'C:\VSCode\vscode-git\Dell\CCTK.3.2' -Destination "\\$CompName\C$\ProgramData\VDL Nedcar" -Recurse -Force -ErrorAction SilentlyContinue | Out-Null
+
+            # Invoke local powershell script on remote machine that calls CCTK scripts
             Invoke-Command -ComputerName $CompName -FilePath "C:\VSCode\vscode-git\Powershell\Dell hardware\Bios configuration\Set-WakeOnLanByCCTK.ps1"
+
+            # Copy result log to local folder.
+            # Copy-Item -Path "\\$CompName\C$\ProgramData\VDL Nedcar\Logboek\BIOS\Dell-BIOS-Settings.log" -Destination "C:\Temp\BIOS\$CompName-Settings.log" -Force
+
+            # Remove CCTK on remote computer as it contains sensitive information.
+            # Remove-Item -Path "\\$CompName\C$\ProgramData\VDL Nedcar\CCTK.3.2" -Recurse -Force -ErrorAction SilentlyContinue
 
         } | Out-Null
 
