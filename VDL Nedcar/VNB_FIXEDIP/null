@@ -1,0 +1,68 @@
+
+Hyper-V Network VSP Bind Application 6.1.7725.0.
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+acquiring write lock...success
+
+
+Adapters:
+
+{EB571659-FC4D-48DF-8BCF-CA1F6EAE672D}
+"*isatap"
+"Microsoft ISATAP Adapter"
+"isatap.nedcar.nl":
+    ms_tcpip6 is already unbound from Microsoft ISATAP Adapter
+
+{2E0D211F-608B-4BBE-9FBB-B7F270F99912}
+"pci\ven_8086&dev_15e3&subsys_07a11028"
+"Intel(R) Ethernet Connection (5) I219-LM"
+"Local Area Connection":
+    ms_tcpip6 is already unbound from Intel(R) Ethernet Connection (5) I219-LM
+
+{29898C9D-B0A4-4FEF-BDB6-57A562022CEE}
+"ms_agilevpnminiport"
+"WAN Miniport (IKEv2)"
+"Local Area Connection* 2":
+
+{78032B7E-4968-42D3-9F37-287EA86C0AAA}
+"sw\{eeab7790-c514-11d1-b42b-00805fc1270e}"
+"RAS Async Adapter"
+"Local Area Connection* 10":
+
+{2CAA64ED-BAA3-4473-B637-DEC65A14C8AA}
+"ms_ndiswanip"
+"WAN Miniport (IP)"
+"Local Area Connection* 8":
+
+{5BF54C7E-91DA-457D-80BF-333677D7E316}
+"ms_ndiswanbh"
+"WAN Miniport (Network Monitor)"
+"Local Area Connection* 7":
+
+{9A399D81-2EAD-4F23-BCDD-637FC13DCD51}
+"ms_ndiswanipv6"
+"WAN Miniport (IPv6)"
+"Local Area Connection* 6":
+
+{8E301A52-AFFA-4F49-B9CA-C79096A1A056}
+"ms_pppoeminiport"
+"WAN Miniport (PPPOE)"
+"Local Area Connection* 5":
+
+{DF4A9D2C-8742-4EB1-8703-D395C4183F33}
+"ms_pptpminiport"
+"WAN Miniport (PPTP)"
+"Local Area Connection* 4":
+
+{E43D242B-9EAB-4626-A952-46649FBB939A}
+"ms_l2tpminiport"
+"WAN Miniport (L2TP)"
+"Local Area Connection* 3":
+
+{71F897D7-EB7C-4D8D-89DB-AC80D9DD2270}
+"ms_sstpminiport"
+"WAN Miniport (SSTP)"
+"Local Area Connection*":
+
+cleaning up...releasing write lock...success
+finished (11)
