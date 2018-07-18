@@ -426,11 +426,11 @@ Echo-Log "Local computer name: $env:Computername"
 Echo-Log "Local serial number: $($SNR.SerialNumber)"
 Echo-Log "Searching MDT database for serialnumber $($SNR.SerialNumber)..."
 
-$query = "select SerialNumber,MacAddress,ID,Computername from dbo.ComputerSettings where SerialNumber='$($SNR.SerialNumber)'"
+$query = "select SerialNumber,MacAddress,ID,OSDComputername from dbo.ComputerSettings where SerialNumber='$($SNR.SerialNumber)'"
 $data = Query-SQL $query $Global:UDLConnection
 if ($data) {
     $MDTComputerID = $data.ID
-    $MDTComputerName = $data.Computername
+    $MDTComputerName = $data.OSDComputername
     $MDTMacAddress = $data.MacAddress
 
     Echo-Log ("MDT ID:            $MDTComputerID")
