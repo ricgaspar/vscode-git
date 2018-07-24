@@ -18,7 +18,8 @@
 
 [CmdletBinding()]
 Param(
-    [string]$Computername = $env:Computername
+    [Parameter(Mandatory = $true)]
+    [string]$Computername
 )
 
 # ---------------------------------------------------------
@@ -33,6 +34,8 @@ Set-StrictMode -Version Latest
 # ---------------------------------------------------------
 $Global:DEBUG = $True
 
+$Global:ALCMPartPath = 'Program Files\VDLNedcar\ALCMClient\1.0.7'
+
 # ---------------------------------------------------------
 Function Get-AutoLogon {
     Param (
@@ -44,11 +47,11 @@ Function Get-AutoLogon {
         $reg = [Microsoft.Win32.RegistryKey]::OpenRemoteBaseKey('LocalMachine', $Computername)
 
         $Result = @{
-            'AutoAdminLogon' = $reg.OpenSubKey($key).GetValue("AutoAdminLogon")
+            'AutoAdminLogon'    = $reg.OpenSubKey($key).GetValue("AutoAdminLogon")
             'DefaultDomainName' = $reg.OpenSubKey($key).GetValue("DefaultDomainName")
-            'DefaultPassword' = $reg.OpenSubKey($key).GetValue("DefaultPassword")
-            'DefaultUserName' = $reg.OpenSubKey($key).GetValue("DefaultUserName")
-            'ForceAutologon' = $reg.OpenSubKey($key).GetValue("ForceAutoLogon")
+            'DefaultPassword'   = $reg.OpenSubKey($key).GetValue("DefaultPassword")
+            'DefaultUserName'   = $reg.OpenSubKey($key).GetValue("DefaultUserName")
+            'ForceAutologon'    = $reg.OpenSubKey($key).GetValue("ForceAutoLogon")
         }
         Return $Result
     }
@@ -98,6 +101,16 @@ Function Get-NICSpeedDuplex {
     }
 }
 
+function Get-RemoteUptime {
+    Param (
+        [String]$Computername
+    )
+    $os = Get-WmiObject win32_operatingsystem -Computername $Computername
+    $uptime = (Get-Date) - ($os.ConvertToDateTime($os.lastbootuptime))
+    $Result = "Uptime: " + $Uptime.Days + " days, " + $Uptime.Hours + " hours, " + $Uptime.Minutes + " minutes"
+    Return $Result
+}
+
 # =========================================================
 Clear-Host
 
@@ -118,27 +131,37 @@ Echo-Log "Starting script."
 
 # Create MSSQL connection
 $scriptPath = split-path -parent $MyInvocation.MyCommand.Definition
-$glb_UDL = $scriptPath + '\MDT.udl'
+$glb_UDL = Join-Path -Path $scriptPath -ChildPath 'MDT.udl'
 $Global:UDLConnection = Read-UDLConnectionString $glb_UDL
 
-$SNR = Get-CimInstance -ClassName Win32_BIOS
-Echo-Log "Local computer name: $env:Computername"
-Echo-Log "Searching MDT database for serialnumber $($Computername)..."
+Echo-Log "Searching MDT database for OSDComputername $($Computername)..."
 
 $query = "select SerialNumber,MacAddress,ID,OSDComputername from dbo.ComputerSettings where OSDComputername='$($Computername)'"
 $data = Query-SQL $query $Global:UDLConnection
 if ($data) {
+    Echo-Log "The MDT query was successfull."
     $MDTComputerID = $data.ID
     $MDTComputerName = $data.OSDComputername
     $MDTMacAddress = $data.MacAddress
+    $MDTSerialNumber = $data.SerialNumber
 
     Echo-Log ("MDT ID:            $MDTComputerID")
     Echo-Log ("MDT Computer name: $MDTComputerName")
     Echo-Log ("MDT MAC address:   $MDTMacAddress")
-    Echo-Log ""
 
-    # If we have a valid MDT registered computer, retrieve network information.
-    if ($MDTComputerName -eq $Computername) {
+    # Lets see if we can query the requested computer.
+    try {
+        $SNR = (Get-CimInstance -ClassName Win32_BIOS -Computername $Computername | Select-Object SerialNumber).SerialNumber
+    }
+    catch {
+        $SNR = $null
+    }
+
+    # If we have a MDT registered computer with valid serialnumber, retrieve network information.
+    if ($SNR -eq $MDTSerialNumber) {
+        Echo-Log ("-" * 80)
+        Echo-Log "The (remote) computer accepts WMI connections."
+
         # Search the network adapter with the MDT registered MAC address
         $NetworkAdapter = Get-CimInstance -ComputerName $Computername -Classname Win32_NetworkAdapter |
             Where-Object { ($_.PhysicalAdapter) -eq 'TRUE' } |
@@ -146,15 +169,60 @@ if ($data) {
 
         if ($NetworkAdapter) {
             $DeviceIndex = $NetworkAdapter.Index
-            $Name = $NetworkAdapter.Name
             Echo-Log "Network adapter:"
-            Echo-Log "  Index: $DeviceIndex"
-            Echo-Log "  Name : $Name"
+            Echo-Log "  Name : $($NetworkAdapter.Name)"
+            Echo-Log "  MAC  : $($NetworkAdapter.MACAddress)"
+
+            Echo-Log ("-" * 80)
+            $uptime = Get-RemoteUptime -Computername $Computername
+            if ($uptime) {
+                Echo-Log "Computer uptime: $uptime"
+            }
+            Echo-Log "Console user check:"
+            $ConsoleUser = Get-WMIObject -Computername $Computername -class Win32_ComputerSystem | Select-Object username
+            $ConsoleUserName = ($ConsoleUser.Username).ToUpper()
+            $CHK_CONSOLE_USER = ($($ConsoleUserName) -eq 'NEDCAR\FAPCALC')
+            IF ($CHK_CONSOLE_USER) {
+                Echo-Log '- The user FAPCALC is logged on.'
+            }
+            else {
+                Echo-Log '* ERROR: The user FAPCALC is not logged on.'
+                Echo-Log "*        Current console user: $($ConsoleUserName)"
+            }
+
+            Echo-Log ("-" * 80)
+            $ProcessExe = 'jp2launcher.exe', 'java.exe'
+            $CHK_PROC_ALCM=$False
+            $Process = Get-WMIOBject -Computername $Computername -class Win32_Process |
+                Select-Object ProcessId, ProcessName, ExecutablePath
+            Foreach ($Prc in $ProcessExe) {
+                Echo-Log "Running process '$Prc' check:"
+                $ALCMProcess = $Process | Where-Object { $_.ProcessName -eq $Prc }
+                if ($ALCMProcess) {
+                    Echo-Log "- (ID: $($ALCMProcess.ProcessId)) $($ALCMProcess.ProcessName)"
+                    Echo-Log "  Path $($ALCMProcess.ExecutablePath)"
+
+                    if ($Prc -eq 'jp2launcher.exe') {
+                        if ($($ALCMProcess.ExecutablePath) -like "*$Global:ALCMPartPath*") {
+                            $CHK_PROC_ALCM = $True
+                        }
+                    }
+                }
+                else {
+                    Echo-Log "* ERROR: No jp2launcher process was found in a running state."
+                }
+            }
+
+            if ($CHK_PROC_ALCM) {
+                Echo-Log "- The ALCM client is found in a running state."
+            }
+            else {
+                Echo-Log "* ERROR:The ALCM client is not found in a running state."
+            }
 
             # Retrieve network adapter IP configuration.
             $NetworkAdapterConfig = Get-WmiObject -Computername $Computername -Class Win32_NetworkAdapterConfiguration |
                 Where-Object { ($_.Index -eq $DeviceIndex) }
-
             $CHK_NIC_DHCP = ($NetworkAdapterConfig.DHCPEnabled -ne 'TRUE')
             Echo-Log ("-" * 80)
             Echo-Log "IP Configuration checks:"
@@ -210,11 +278,11 @@ if ($data) {
             If ($DN -match 'OU=Factory') {
                 Echo-Log "- The computer object is part of the 'Factory' OU."
                 If ($DN -match "CN=$Computername,OU=ALC") {
-                    Echo-Log "- The computer object is part of a 'ALCx' OU."
+                    Echo-Log "- The computer object is part of a 'ALC(x)' OU."
                     $CHK_AD_DN = $True
                 }
                 else {
-                    Echo-Log "* The computer object is not part of a 'ALCx' OU."
+                    Echo-Log "* The computer object is not part of a 'ALC(x)' OU."
                 }
             }
             else {
@@ -222,7 +290,7 @@ if ($data) {
             }
 
             if (!$CHK_AD_DN) {
-                Echo-Log "* The computer object location in Active Directory is not correctly set."
+                Echo-Log "* The computer object location in Active Directory is invalid."
                 Echo-Log "* '$($DN)'"
             }
             else {
@@ -230,32 +298,20 @@ if ($data) {
             }
 
             Echo-Log ("-" * 80)
-            Echo-Log "Console user check:"
-            $ConsoleUser = Get-WMIObject -Computername $Computername -class Win32_ComputerSystem | Select-Object username
-            $ConsoleUserName = ($ConsoleUser.Username).ToUpper()
-            $CHK_CONSOLE_USER = ($($ConsoleUserName) -eq 'NEDCAR\FAPCALC')
-            IF ($CHK_CONSOLE_USER) {
-                Echo-Log '- The user FAPCALC is logged on.'
-            }
-            else {
-                Echo-Log '* ERROR: The user FAPCALC is not logged on.'
-                Echo-Log "*        Current console user: $($ConsoleUserName)"
-            }
-
-            Echo-Log ("-" * 80)
             Echo-Log "ALC Client application check:"
             if ($COmputername -eq $env:Computername) {
-                $AppPath = 'C:\Program Files\VDLNedcar\ALCMClient\1.0.7\ALCM Client.cmd'
+                $AppPath = "C:\$Global:ALCMPartPath\ALCM Client.cmd"
             }
             else {
-                $AppPath = "\\$Computername\C$\Program Files\VDLNedcar\ALCMClient\1.0.7\ALCM Client.cmd"
+                $AppPath = "\\$Computername\C$\$Global:ALCMPartPath\ALCM Client.cmd"
             }
             $CHK_APP_PATH = (Exists-File $AppPath)
             if ($CHK_APP_PATH) {
-                Echo-Log "- The startup script for the ALCM client was found."
+                Echo-Log "- The application path and start script for the ALCM client was found."
             }
             else {
-                Echo-Log "* ERROR: Cannot find ALCM client startup script."
+                Echo-Log "* ERROR: Cannot find ALCM client application path or startup script."
+                Echo-Log "         Missing: $AppPath"
             }
 
             $AutoShortcut = "AutoStart ALCM Client.lnk"
@@ -273,6 +329,7 @@ if ($data) {
             }
             else {
                 Echo-Log "* ERROR: Cannot find the auto startop shortcut for the ALCM client."
+                Echo-Log "*        Missing: $AutoShortcut"
             }
 
             Echo-Log ("-" * 80)
@@ -318,15 +375,25 @@ if ($data) {
             else {
                 Echo-Log "- The Autologon registry values are correct."
             }
+            Echo-Log ("-" * 80)
         }
         else {
-            Echo-Log ("ERROR: The serial number $($SNR.SerialNumber) does not match the computer name!")
-            Echo-Log (        The MDT registered computer name is: $MDTComputerName)
+            Echo-Log ("ERROR: No networkadapter with MAC: '$MDTMacAddress' was found on this computer.")
         }
     }
     else {
-        Echo-Log "ERROR: Cannot find any MDT registered computer."
+        if ([string]::IsNullorEmpty($SNR)) {
+            Echo-Log "ERROR: The serialnumber was null or empty."
+            Echo-Log "       The (remote) computer is switched off or could not be contacted over the network."
+        }
+        else {
+            Echo-Log "ERROR: The MDT registered serialnumber '$MDTSerialNumber' does not match '$SNR'"
+        }
+
     }
+}
+else {
+    Echo-Log "ERROR: Cannot find any MDT registered computer by the OSDComputername '$($Computername)'."
 }
 # ---------------------------------------------------------
 Echo-Log ''

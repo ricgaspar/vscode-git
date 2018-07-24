@@ -70,28 +70,36 @@ if ($Make.Manufacturer -eq 'Dell Inc.') {
 #
 # If BIOS version is OK, check for required parameter values and update if needed.
 #
-if ((!$ErrorVal) -and (Test-Path 'C:\ProgramData\VDL Nedcar\CCTK.3.2')) {
+if ((!$ErrorVal) -and (Test-Path 'C:\Program Files (x86)\Dell\Command Configure\X86_64\cctk.exe')) {
     Set-Output "[$env:COMPUTERNAME] The CCTK commandline tool was found."
 
-    Set-Output "[$env:COMPUTERNAME] Start process."
-    $process = New-Object System.Diagnostics.Process
-    $process.StartInfo.FileName = 'C:\ProgramData\VDL Nedcar\CCTK.3.2\GetBiosConfiguration.cmd'
-    $process.StartInfo.UseShellExecute = $false
-    $process.StartInfo.RedirectStandardOutput = $true
-    if ( $process.Start() ) {
-        $output = $process.StandardOutput.ReadToEnd() -replace "\r\n$", ""
-        if ( $output ) {
-            if ( $output.Contains("`r`n") ) { $output -split "`r`n" }
-            elseif ( $output.Contains("`n") ) { $output -split "`n" }
+    $CommandsArgs = '--valsetuppwd=kleinevogel --wakeonlan=enable', '--valsetuppwd=kleinevogel --deepsleepctrl=disable'
+
+    ForEach ($Args in $CommandsArgs) {
+        Set-Output "[$env:COMPUTERNAME] Start process."
+        $process = New-Object System.Diagnostics.Process
+        $process.StartInfo.FileName = 'C:\Program Files (x86)\Dell\Command Configure\X86_64\cctk.exe'
+        $process.StartInfo.Arguments = $Args
+        $process.StartInfo.UseShellExecute = $false
+        $process.StartInfo.RedirectStandardOutput = $true
+        $process.StartInfo.RedirectStandardError = $true
+        if ( $process.Start() ) {
+            $output = $process.StandardOutput.ReadToEnd() -replace "\r\n$", ""
+            if ( $output ) {
+                if ( $output.Contains("`r`n") ) { $output -split "`r`n" }
+                elseif ( $output.Contains("`n") ) { $output -split "`n" }
+            }
+            else {
+                $output
+            }
         }
-        else {
-            $output
-      		}
+
+        $process.WaitForExit()
+        & "$Env:SystemRoot\system32\cmd.exe" `
+            /c exit $process.ExitCode
     }
 
-    $process.WaitForExit()
-    & "$Env:SystemRoot\system32\cmd.exe" `
-        /c exit $process.ExitCode
+
 
     # $process = New-Object System.Diagnostics.Process
     # $process.StartInfo.FileName = 'C:\ProgramData\VDL Nedcar\CCTK.3.2\UpdateBiosConfiguration.cmd'
